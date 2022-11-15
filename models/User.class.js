@@ -20,6 +20,10 @@ class User {
     return this.#idUser;
   }
 
+  get followList() {
+    return this.#followList;
+  }
+
   get name() {
     return this.#name;
   }
@@ -43,16 +47,6 @@ class User {
   set email(newEmail) {
     return (this.#email = newEmail);
   }
-  
-  authenticate() {
-    if (
-      passwordInput.value === this.#password &&
-      nameInput.value === this.#name
-    ) {
-      return true;
-    }
-    throw Error("Login ou senha incorretos.");
-  }
 
   addFollow(idFollow) {
     return this.#followList.push(idFollow);
@@ -65,6 +59,18 @@ class User {
       }
     }
   }
+
+  //acredito que seja necessário buscar em um banco de dados comparando os valores e não na criação de usuário
+  authenticate() {
+    if (
+      emailInput.value === this.#email && passwordInput.value === this.#password
+      
+    ) {
+      return true;
+    }
+    throw Error("Login ou senha incorretos.");
+  }
+  
 }
 
 module.exports = User;
