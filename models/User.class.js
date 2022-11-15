@@ -1,4 +1,6 @@
 const Functions = require("./functions");
+const Post = require("./Post.class");
+
 class User {
   #idUser;
   #name;
@@ -40,10 +42,14 @@ class User {
     return this.#email;
   }
 
+  get posts() {
+    return this.#posts;
+  }
+
   set email(newEmail) {
     return (this.#email = newEmail);
   }
-
+  
   authenticate() {
     if (
       passwordInput.value === this.#password &&
@@ -65,9 +71,14 @@ class User {
       }
     }
   }
+  addPost(idUser, title, content) {
+    const post = new Post(idUser, title, content);
+    this.#posts.push(post);
+  }
 
-  addPost(idPost){
-    return this.#posts.push(idPost);
+  removePost(idPost) {
+    const index = this.#posts.findIndex((element) => element.idPost === idPost);
+    this.#posts.splice(index, 1);
   }
 }
 
