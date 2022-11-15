@@ -43,6 +43,28 @@ class User {
   set email(newEmail) {
     return (this.#email = newEmail);
   }
+  
+  authenticate() {
+    if (
+      passwordInput.value === this.#password &&
+      nameInput.value === this.#name
+    ) {
+      return true;
+    }
+    throw Error("Login ou senha incorretos.");
+  }
+
+  addFollow(idFollow) {
+    return this.#followList.push(idFollow);
+  }
+
+  removeFollow(idFollow) {
+    for (let i = 0; i < this.#followList.length; i++) {
+      if (this.#followList[i] === idFollow) {
+        this.#followList.splice(i, 1);
+      }
+    }
+  }
 }
 
 module.exports = User;
