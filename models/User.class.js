@@ -61,7 +61,7 @@ class User {
   }
 
   //acredito que seja necessário buscar em um banco de dados comparando os valores e não na criação de usuário
-  authenticate() {
+  authenticate(email, password) {
     if (
       emailInput.value === this.#email && passwordInput.value === this.#password
       

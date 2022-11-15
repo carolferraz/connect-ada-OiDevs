@@ -24,9 +24,10 @@ class DataBase {
   get comments() {
     return this.#comments;
   }
-
-  addUser(user ) {
-    new User(user.name, user.password, user.email)
+  
+  addUser(name, password, email) {
+  const user = new User(name, password, email)
+    // new User(user.name, user.password, user.email)
     // const user = {
     //   idUser: user.idUser,
     //   name: user.name,
@@ -35,6 +36,7 @@ class DataBase {
     //   followList: user.followList
     // };
     this.#users.push(user);
+    return user
   }
 
   addPost(idUser, title, content) {
@@ -72,5 +74,7 @@ class DataBase {
     this.#users.push(userUpdated);
   }
 }
+//o problema dessa função é que os atributos estão ficando públicos
+
 
 module.exports = DataBase;
