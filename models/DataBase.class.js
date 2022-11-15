@@ -6,9 +6,13 @@ class DataBase {
   #comments;
 
   constructor() {
-    this.users = [];
+    this.#users = [];
     this.#posts = [];
     this.#comments = [];
+  }
+
+  get users() {
+    return this.#users;
   }
 
   get posts() {
