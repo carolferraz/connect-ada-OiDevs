@@ -1,6 +1,6 @@
-const Post = require("./models/Post.class");
 const User = require("./models/User.class");
-const DataBase = require("./models/DataBase.class")
+const DataBase = require("./models/DataBase.class");
+const Comment = require("./models/Comment.class");
 
 //instanciando database
 const database = new DataBase()
@@ -16,5 +16,15 @@ console.log(database.posts)
 //removendo post do database
 database.removePost(database.posts[1].idPost)
 console.log(database.posts)
+
+//criando comentário
+const comment = new Comment(user1.idUser, database.posts[0].idPost, 'Comentário teste')
+const comment2 = new Comment(user1.idUser, database.posts[0].idPost, 'Um novo comentário')
+console.log(comment)
+
+//adicionando comentário no database
+database.addComment(user1.idUser, database.posts[0].idPost, 'Comentário teste')
+database.addComment(user1.idUser, database.posts[0].idPost, 'Um novo comentário')
+console.log(database.comments);
 
 console.log('Acabou')

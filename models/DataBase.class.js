@@ -1,3 +1,4 @@
+const Comment = require("./Comment.class");
 const Post = require("./Post.class")
 
 class DataBase {
@@ -31,6 +32,16 @@ class DataBase {
   removePost(idPost) {
     const index = this.#posts.findIndex((element) => element.idPost === idPost);
     this.#posts.splice(index, 1);
+  }
+
+  addComment(idAuthor, idPost, content) {
+    const comment = new Comment(idAuthor, idPost, content)
+    this.#comments.push(comment)
+  }
+
+  removeComment(idComment) {
+    const index = this.#comments.findIndex((element) => element.idComment === idComment);
+    this.#comments.splice(index, 1);
   }
 }
 
