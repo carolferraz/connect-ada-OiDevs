@@ -74,7 +74,7 @@ class DataBase {
     this.#users.push(userUpdated);
   }
 }
-//o problema dessa função é que os atributos estão ficando públicos
-
+//o problema dessa função é que os atributos estão ficando públicos, não estamos excluindo o usuario anterior e não estamos criando um novo a partir da classe User
+//updateUser precisa trazer o qlqr atributo atualizado
 
 module.exports = DataBase;
