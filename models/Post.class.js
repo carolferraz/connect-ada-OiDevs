@@ -1,11 +1,10 @@
-const Functions = require('./functions')
+const Functions = require('./Functions.class')
 
 class Post {
   #idPost;
   #idAuthor;
   #title;
   #content;
-  #comments;
 
   constructor(idAuthor, title, content){
     this.#idPost = Functions.createRandomId();

@@ -1,4 +1,4 @@
-const Functions = require("./functions");
+const Functions = require("./Functions.class");
 const Post = require("./Post.class");
 
 class User {
@@ -6,16 +6,14 @@ class User {
   #name;
   #password;
   #email;
-  #friends;
-  #posts;
+  #followList;
 
   constructor(name, password, email) {
     this.#idUser = Functions.createRandomId();
     this.#name = name;
     this.#password = password;
     this.#email = email;
-    this.#friends = [];
-    this.#posts = [];
+    this.#followList = [];
   }
 
   get idUser() {
@@ -42,22 +40,8 @@ class User {
     return this.#email;
   }
 
-  get posts() {
-    return this.#posts;
-  }
-
   set email(newEmail) {
     return (this.#email = newEmail);
-  }
-
-  addPost(idUser, title, content) {
-    const post = new Post(idUser, title, content);
-    this.#posts.push(post);
-  }
-
-  removePost(idPost) {
-    const index = this.#posts.findIndex((element) => element.idPost === idPost);
-    this.#posts.splice(index, 1);
   }
 }
 
