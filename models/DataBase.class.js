@@ -1,5 +1,6 @@
 const Comment = require("./Comment.class");
 const Post = require("./Post.class")
+const User = require("./User.class");
 
 class DataBase {
   #users;
@@ -19,9 +20,14 @@ class DataBase {
   get posts() {
     return this.#posts;
   }
-  
+
   get comments() {
-  return this.#comments
+    return this.#comments;
+  }
+
+  addUser(name, password, email) {
+    const user = new User(name, password, email);
+    this.#users.push(user);
   }
 
   addPost(idUser, title, content) {
@@ -45,4 +51,4 @@ class DataBase {
   }
 }
 
-module.exports = DataBase
+module.exports = DataBase;

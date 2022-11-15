@@ -8,6 +8,11 @@ const database = new DataBase();
 //criando usuário
 const user1 = new User('vitoria', '12346', 'vit@haha.com');
 
+//adicionando usuario no database
+database.addUser("vitoria", "12346", "vit@haha.com")
+database.addUser("joao", "12346", "vit@haha.com")
+console.log(database.users);
+
 //adicionando post no database
 database.addPost(user1.idUser, 'Titulo', 'Conteúdo do post');
 database.addPost(user1.idUser, 'Post2', 'Vamo ver o que vai dá');
