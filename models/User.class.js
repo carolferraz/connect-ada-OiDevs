@@ -1,5 +1,5 @@
-const Functions = require('./functions');
-const Post = require('./Post.class')
+const Functions = require("./functions");
+const Post = require("./Post.class");
 
 class User {
   #idUser;
@@ -42,6 +42,10 @@ class User {
     return this.#email;
   }
 
+  get posts() {
+    return this.#posts;
+  }
+
   set email(newEmail) {
     return (this.#email = newEmail);
   }
@@ -51,11 +55,10 @@ class User {
     this.#posts.push(post);
   }
 
-  removePost(idPost){
-    // this.#posts.splice(index, 1);
+  removePost(idPost) {
+    const index = this.#posts.findIndex((element) => element.idPost === idPost);
+    this.#posts.splice(index, 1);
   }
-
 }
 
 module.exports = User;
-
