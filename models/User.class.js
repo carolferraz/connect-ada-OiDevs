@@ -1,4 +1,6 @@
-const Functions = require("./functions");
+const Functions = require('./functions');
+const Post = require('./Post.class')
+
 class User {
   #idUser;
   #name;
@@ -42,6 +44,15 @@ class User {
 
   set email(newEmail) {
     return (this.#email = newEmail);
+  }
+
+  addPost(idUser, title, content) {
+    const post = new Post(idUser, title, content);
+    this.#posts.push(post);
+  }
+
+  removePost(idPost){
+    // this.#posts.splice(index, 1);
   }
 
 }
