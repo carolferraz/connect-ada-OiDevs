@@ -13,19 +13,19 @@ class Comment {
   }
 
   get idComment() {
-    return this.idComment
+    return this.#idComment
   }
 
   get idAuthor() {
-    return this.idAuthor
+    return this.#idAuthor
   }
 
   get idPost() {
-    return this.idPost
+    return this.#idPost
   }
 
   get content() {
-    return this.content
+    return this.#content
   }
 }
 
