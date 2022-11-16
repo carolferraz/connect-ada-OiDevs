@@ -10,8 +10,8 @@ const database = new DataBase();
 const user1 = new User('vitoria', '12346', 'vit@haha.com');
 
 //adicionando usuario no database
-database.addUser('vitoria', '12346', 'vit@haha.com');
-database.addUser('joao', '12346', 'vit@haha.com');
+database.addUser("vitoria", "12346", "vit@haha.com");
+database.addUser("joao", "12346", "vit@haha.com");
 console.log(database.users);
 
 //instanciando e adicionando admin
