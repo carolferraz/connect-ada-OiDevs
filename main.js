@@ -1,6 +1,7 @@
 const User = require('./models/User.class');
 const DataBase = require('./models/DataBase.class');
 const Comment = require('./models/Comment.class');
+const Admin = require('./models/Admin.class');
 
 //instanciando database
 const database = new DataBase();
@@ -9,8 +10,20 @@ const database = new DataBase();
 const user1 = new User('vitoria', '12346', 'vit@haha.com');
 
 //adicionando usuario no database
-database.addUser("vitoria", "12346", "vit@haha.com")
-database.addUser("joao", "12346", "vit@haha.com")
+database.addUser('vitoria', '12346', 'vit@haha.com');
+database.addUser('joao', '12346', 'vit@haha.com');
+console.log(database.users);
+
+//instanciando e adicionando admin
+
+const admin = new Admin('Joao', '12345', 'joao@joao.com');
+
+admin.addAdmin('Joao', '12345', 'joao@joao.com');
+console.log(admin.admins);
+
+// removendo usuario (ainda nao funciona)
+
+admin.removeUser(database.users[0].idUser);
 console.log(database.users);
 
 //adicionando post no database
@@ -37,7 +50,11 @@ console.log(comment);
 
 //adicionando comentário no database
 database.addComment(user1.idUser, database.posts[0].idPost, 'Comentário teste');
-database.addComment(user1.idUser, database.posts[0].idPost, 'Um novo comentário');
+database.addComment(
+  user1.idUser,
+  database.posts[0].idPost,
+  'Um novo comentário'
+);
 console.log(database.comments);
 
 //removendo comentário do database
