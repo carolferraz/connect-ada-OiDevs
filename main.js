@@ -23,16 +23,7 @@ database.removePost(database.posts[1].idPost);
 console.log(database.posts);
 
 //criando comentário
-const comment = new Comment(
-  user1.idUser,
-  database.posts[0].idPost,
-  'Comentário teste'
-);
-const comment2 = new Comment(
-  user1.idUser,
-  database.posts[0].idPost,
-  'Um novo comentário'
-);
+const comment = new Comment(user1.idUser, database.posts[0].idPost, 'Comentário teste');
 console.log(comment);
 
 //adicionando comentário no database
