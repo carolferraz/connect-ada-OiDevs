@@ -1,5 +1,45 @@
 class Header {
-  
+  links;
+
+  constructor() {
+    this.main = document.createElement('main');
+    this.links = [];
+  }
+
+  addMenuLink(linkName, href, isActive = false) {
+    this.links.push({linkName, href, isActive})
+  }
+
+  render() {
+    const header = document.createElement('header')
+    const nav = document.createElement('nav');
+    const logoLink = document.createElement('a');
+    const imgLogo = document.createElement('img')
+    const ul = document.createElement('ul')
+    ul.classList.add('menu')
+
+    this.links.forEach((link) => {
+      const li = document.createElement('li')
+      const a = document.createElement('a')
+
+      a.setAttribute("href", link.href)
+      a.innerHTML =link.linkName
+      li.append(a)
+      ul.append(li)
+      if(link.isActive) {
+        a.classList.add('active-menu')
+      }
+    })
+
+    imgLogo.setAttribute("src", "../../assets/logo.svg")
+    logoLink.setAttribute("href", "./feed.html")
+
+    logoLink.append(imgLogo)
+    nav.append(logoLink, ul)
+    header.append(nav);
+    this.main.append(header);
+    document.body.append(this.main);
+  }
 }
 
-module.exports = Header
+export default Header;
