@@ -2,7 +2,7 @@ class Header {
   links;
 
   constructor() {
-    this.main = document.createElement('main');
+    this.header = document.createElement('header');
     this.links = [];
   }
 
@@ -11,7 +11,6 @@ class Header {
   }
 
   render() {
-    const header = document.createElement('header')
     const nav = document.createElement('nav');
     const logoLink = document.createElement('a');
     const imgLogo = document.createElement('img')
@@ -23,7 +22,7 @@ class Header {
       const a = document.createElement('a')
 
       a.setAttribute("href", link.href)
-      a.innerHTML =link.linkName
+      a.innerHTML = link.linkName
       li.append(a)
       ul.append(li)
       if(link.isActive) {
@@ -36,9 +35,9 @@ class Header {
 
     logoLink.append(imgLogo)
     nav.append(logoLink, ul)
-    header.append(nav);
-    this.main.append(header);
-    document.body.append(this.main);
+    this.header.append(nav);
+    // document.body.append(this.main)
+    document.querySelector('main').append(this.header);
   }
 }
 

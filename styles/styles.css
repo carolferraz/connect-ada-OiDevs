@@ -31,6 +31,11 @@ a {
   color: var(--text);
 }
 
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
 .menu a {
   position: relative;
 }
@@ -73,11 +78,6 @@ a.active-menu::after {
 
 li {
   list-style-type: none;
-}
-
-main {
-  max-width: 1000px;
-  margin: 0 auto;
 }
 
 header {
