@@ -39,12 +39,8 @@ const comment2 = new Comment(
 console.log(comment);
 
 //adicionando comentário no database
-database.addComment(user1.idUser, database.posts[0].idPost, "Comentário teste");
-database.addComment(
-  user1.idUser,
-  database.posts[0].idPost,
-  "Um novo comentário"
-);
+database.addComment(user1.idUser, database.posts[0].idPost, 'Comentário teste');
+database.addComment(user1.idUser, database.posts[0].idPost, 'Um novo comentário');
 console.log(database.comments);
 
 //removendo comentário do database
