@@ -25,6 +25,10 @@ class User {
   get followList() {
     return this.#followList;
   }
+  set followList(newFollowList) {
+    this.#followList = newFollowList;
+    database.updateUserOnDatabase(this)
+  }
 
   get name() {
     return this.#name;
@@ -32,6 +36,7 @@ class User {
 
   set name(newName) {
     this.#name = newName;
+    database.updateUserOnDatabase(this)
   }
 
   get password() {
@@ -40,6 +45,7 @@ class User {
 
   set password(newPassword) {
     this.#password = newPassword;
+    database.updateUserOnDatabase(this)
   }
 
   get email() {
@@ -47,7 +53,8 @@ class User {
   }
 
   set email(newEmail) {
-    return (this.#email = newEmail);
+    this.#email = newEmail;
+    database.updateUserOnDatabase(this)
   }
 
   addFollow(idFollow) {
