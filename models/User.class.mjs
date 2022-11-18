@@ -1,5 +1,6 @@
-const Functions = require("./Functions.class");
-const Post = require("./Post.class");
+import Functions from "./Functions.class.mjs";
+import database from "./DataBase.class.mjs";
+import Post from "./Post.class.mjs";
 
 class User {
   #idUser;
@@ -14,6 +15,7 @@ class User {
     this.#password = password;
     this.#email = email;
     this.#followList = [];
+    database.addUser(this);
   }
 
   get idUser() {
@@ -63,14 +65,13 @@ class User {
   //acredito que seja necessário buscar em um banco de dados comparando os valores e não na criação de usuário
   authenticate(email, password) {
     if (
-      emailInput.value === this.#email && passwordInput.value === this.#password
-      
+      emailInput.value === this.#email &&
+      passwordInput.value === this.#password
     ) {
       return true;
     }
     throw Error("Login ou senha incorretos.");
   }
-  
 }
 
-module.exports = User;
+export default User;
