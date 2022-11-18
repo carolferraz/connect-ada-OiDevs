@@ -13,6 +13,7 @@ const userAmanda = new User("Amanda", 2541, "Amanda@Amanda.gmail");
 const userCarol = new User("Carol", 2541, "Carol@Carol.gmail");
 const userJoao = new User("Joao", 2541, "joao@Carol.gmail");
 
+database.authenticate('natasha@natasha.gmail', 2541)
 
 const post1 = new Post(
   userNatasha.idUser,
@@ -32,15 +33,29 @@ const post3 = new Post(
   "Guilherme acha larica interessante"
 );
 
-userJoao.deleteUser();
+//criando comentário
+const comment2 = new Comment(
+  userNatasha.idUser,
+  database.posts[0].idPost,
+  "Comentário teste"
+);
+const comment3 = new Comment(
+  userJunior.idUser,
+  database.posts[0].idPost,
+  "Um novo comentário"
+);
 
-post3.title = 'Este título está melhor'
-
-const comment = new Comment(userNatasha.idUser, post2.idPost, "Este é um comentário")
-
-console.log(database.users);
+//Removendo usuários e com isso seu post e comentários do post
 console.log(database.posts);
 console.log(database.comments);
+console.log(database.users);
+
+userJoao.deleteUser();
+userNatasha.deleteUser();
+
+console.log(database.comments);
+console.log(database.users);
+console.log(database.posts);
 
 post1.deletePost();
 console.log(database.posts);
