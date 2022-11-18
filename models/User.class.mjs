@@ -25,10 +25,10 @@ class User {
   get followList() {
     return this.#followList;
   }
-  set followList(newFollowList) {
-    this.#followList = newFollowList;
-    database.updateUserOnDatabase(this)
-  }
+  // set followList(newFollowList) {
+  //   this.#followList = newFollowList;
+  //   database.updateUserOnDatabase(this)
+  // }
 
   get name() {
     return this.#name;
@@ -36,7 +36,7 @@ class User {
 
   set name(newName) {
     this.#name = newName;
-    database.updateUserOnDatabase(this)
+    // database.updateUserOnDatabase(this)
   }
 
   get password() {
@@ -45,7 +45,7 @@ class User {
 
   set password(newPassword) {
     this.#password = newPassword;
-    database.updateUserOnDatabase(this)
+    // database.updateUserOnDatabase(this)
   }
 
   get email() {
@@ -54,11 +54,13 @@ class User {
 
   set email(newEmail) {
     this.#email = newEmail;
-    database.updateUserOnDatabase(this)
+    // database.updateUserOnDatabase(this)
   }
 
   addFollow(idFollow) {
-    return this.#followList.push(idFollow);
+    this.#followList.push(idFollow);
+    // database.updateUserOnDatabase(this)
+
   }
 
   removeFollow(idFollow) {
@@ -79,6 +81,11 @@ class User {
     }
     throw Error("Login ou senha incorretos.");
   }
+
+  deleteUser(){
+    database.removeUser(this.idUser)
+  }
+
 }
 
 export default User;

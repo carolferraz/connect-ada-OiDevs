@@ -1,4 +1,6 @@
 import Functions from "./Functions.class.mjs";
+import database from "./DataBase.class.mjs";
+
 class Comment {
   #idComment;
   #idAuthor;
@@ -10,6 +12,7 @@ class Comment {
     this.#idAuthor = idAuthor;
     this.#idPost = idPost;
     this.#content = content;
+    database.addComment(this);
   }
 
   get idComment() {

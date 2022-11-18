@@ -38,6 +38,10 @@ class Post {
   set content(newContent) {
     this.#content = newContent;
   }
+
+  deletePost(){
+    database.removePost(this.idPost);
+  }
 }
 
 export default Post;
