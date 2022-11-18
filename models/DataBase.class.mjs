@@ -63,17 +63,23 @@ class DataBase {
 
   //editando e update o usuário
 
-  updateUser(user) {
-    const userUpdated = {
-      idUser: user.idUser,
-      name: user.name,
-      password: user.password,
-      email: user.email,
-      followList: user.followList,
-    };
-    this.#users.push(userUpdated);
+  updateUserOnDatabase(user) {
+    const index = this.#users.findIndex((element) => element.idUser === user.idUser);
+    const updatedFollowlist = database.#users[index].followList;
+    console.log(updatedFollowlist);
+    console.log(database.users);
   }
 }
+
+/*==========================TODO=====================
+Como passar parâmetros
+
+/*=====================FEITO==============================
+olhar no banco de dados do usuário o mesmo idUser que estou alterando
+retorna um índice (posição) do obejto que estou buscando no array do objeto
+me retornando o índice identificar no meu array qual objeto esse indice se refere
+ao achar esse objeto alterá-lo e continuará na mesma posição*/
+
 //o problema dessa função é que os atributos estão ficando públicos, não estamos excluindo o usuario anterior e não estamos criando um novo a partir da classe User
 //updateUser precisa trazer o qlqr atributo atualizado
 
