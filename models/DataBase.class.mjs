@@ -1,6 +1,6 @@
-const Comment = require("./Comment.class");
-const Post = require("./Post.class");
-const User = require("./User.class");
+import Comment from "./Comment.class.mjs";
+import Post from "./Post.class.mjs";
+import User from "./User.class.mjs";
 
 class DataBase {
   #users;
@@ -24,9 +24,9 @@ class DataBase {
   get comments() {
     return this.#comments;
   }
-  
-  addUser(name, password, email) {
-  const user = new User(name, password, email)
+
+  addUser(user) {
+    //const user = new User(name, password, email);
     // new User(user.name, user.password, user.email)
     // const user = {
     //   idUser: user.idUser,
@@ -36,11 +36,11 @@ class DataBase {
     //   followList: user.followList
     // };
     this.#users.push(user);
-    return user
+    //return user;
   }
 
-  addPost(idUser, title, content) {
-    const post = new Post(idUser, title, content);
+  addPost(post) {
+    //const post = new Post(idUser, title, content);
     this.#posts.push(post);
   }
 
@@ -61,15 +61,15 @@ class DataBase {
     this.#comments.splice(index, 1);
   }
 
-//editando e update o usuário
+  //editando e update o usuário
 
-  updateUser(user){
+  updateUser(user) {
     const userUpdated = {
       idUser: user.idUser,
       name: user.name,
       password: user.password,
       email: user.email,
-      followList: user.followList
+      followList: user.followList,
     };
     this.#users.push(userUpdated);
   }
@@ -77,4 +77,5 @@ class DataBase {
 //o problema dessa função é que os atributos estão ficando públicos, não estamos excluindo o usuario anterior e não estamos criando um novo a partir da classe User
 //updateUser precisa trazer o qlqr atributo atualizado
 
-module.exports = DataBase;
+const database = new DataBase();
+export default database;

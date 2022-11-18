@@ -4,4 +4,4 @@ class Functions {
   };
 }
 
-module.exports = Functions;
+export default Functions;

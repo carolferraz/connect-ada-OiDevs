@@ -1,4 +1,5 @@
-const Functions = require('./Functions.class')
+import database from "./DataBase.class.mjs";
+import Functions from "./Functions.class.mjs";
 
 class Post {
   #idPost;
@@ -6,11 +7,12 @@ class Post {
   #title;
   #content;
 
-  constructor(idAuthor, title, content){
+  constructor(idAuthor, title, content) {
     this.#idPost = Functions.createRandomId();
     this.#idAuthor = idAuthor;
     this.#title = title;
     this.#content = content;
+    database.addPost(this);
   }
 
   get idPost() {
@@ -38,4 +40,4 @@ class Post {
   }
 }
 
-module.exports = Post;
+export default Post;

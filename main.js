@@ -1,20 +1,28 @@
-const User = require("./models/User.class");
-const DataBase = require("./models/DataBase.class");
-const Comment = require("./models/Comment.class");
+import User from "./models/User.class.mjs";
+import Comment from "./models/Comment.class.mjs";
+import database from "./models/DataBase.class.mjs";
+import Post from "./models/Post.class.mjs";
 
 //instanciando database
-const database = new DataBase();
 
 //criando usuário
-// const user1 = new User('vitoria', '777777', 'vit@haha.com');
+const userNatasha = new User("Natasha", 2541, "natasha@natasha.gmail");
+const post1 = new Post(
+  userNatasha.idUser,
+  "Guilherme é o melhor",
+  "Guilherme acha larica interessante"
+);
+console.log(database.users);
+console.log(database.posts);
+//const user1 = new User('vitoria', '777777', 'vit@haha.com');
 // const user2 = new User('amanda', '12346', 'amanda@haha.com');
-
+/*
 //criando e adicionando usuario no database
 const user1 = database.addUser("vitoria", "12387", "vit@haha.com");
 const user2 = database.addUser("amanda", "12346", "amanda@haha.com");
 console.log(user1);
 
-console.log("PAROUUUUUUUUUUUUUU")
+console.log("PAROUUUUUUUUUUUUUU");
 
 //adicionando post no database
 database.addPost(user1.idUser, "Titulo", "Conteúdo do post");
@@ -39,8 +47,12 @@ const comment2 = new Comment(
 console.log(comment);
 
 //adicionando comentário no database
-database.addComment(user1.idUser, database.posts[0].idPost, 'Comentário teste');
-database.addComment(user1.idUser, database.posts[0].idPost, 'Um novo comentário');
+database.addComment(user1.idUser, database.posts[0].idPost, "Comentário teste");
+database.addComment(
+  user1.idUser,
+  database.posts[0].idPost,
+  "Um novo comentário"
+);
 console.log(database.comments);
 
 //removendo comentário do database
@@ -68,3 +80,4 @@ console.log("Como esta a lista de usuários depois do update:");
 console.log(database.users);
 
 console.log("Acabou");
+*/
