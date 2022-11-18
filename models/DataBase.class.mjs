@@ -52,17 +52,47 @@ class DataBase {
     const index = this.#posts.findIndex((element) => element.idPost === idPost);
     this.#posts.splice(index, 1);
   }
-
+  
   removeUser(idUser) {
     const index = this.#users.findIndex((element) => element.idUser === idUser);
     this.#users.splice(index, 1);
   }
-
+  
   removeComment(idComment) {
     const index = this.#comments.findIndex(
       (element) => element.idComment === idComment
-    );
-    this.#comments.splice(index, 1);
+      );
+      this.#comments.splice(index, 1);
+    }
+    
+    removeAllPostsByAuthor(idAuthor){
+      this.#posts.forEach((post) => {
+        this.removeAllCommentsByIdPost(post.idPost)
+        if (post.idAuthor === idAuthor){
+          this.removePost(post.idPost)
+        }
+    })
+  }
+
+  removeAllCommentsByAuthor(){
+
+  }
+
+  removeAllCommentsByIdPost(idPost){
+    this.#comments.forEach((comment) => {
+      if (comment.idPost === idPost){
+        this.removeComment(comment.idComment)
+      }
+    })
+  }
+
+  authenticate(email, password) {
+    for (let i = 0; i < database.users.length; i++) {
+      if (email === database.users[i].email && password === database.users[i].password) {
+        return true;
+      }
+      throw Error("Login ou senha incorretos.");
+    }
   }
 
   //editando e update o usuário
