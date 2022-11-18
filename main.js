@@ -11,6 +11,7 @@ const userJunior = new User("Junior", 2541, "junior@junior.gmail");
 const userIvina = new User("Ivina", 2541, "Ivina@Ivina.gmail");
 const userAmanda = new User("Amanda", 2541, "Amanda@Amanda.gmail");
 const userCarol = new User("Carol", 2541, "Carol@Carol.gmail");
+const userJoao = new User("Joao", 2541, "joao@Carol.gmail");
 
 
 const post1 = new Post(
@@ -18,13 +19,39 @@ const post1 = new Post(
   "Guilherme é o melhor",
   "Guilherme acha larica interessante"
 );
+
+const post2 = new Post(
+  userNatasha.idUser,
+  "Blabla é o melhor",
+  "Guilherme acha larica interessante"
+);
+
+const post3 = new Post(
+  userNatasha.idUser,
+  "Blabla é o melhor",
+  "Guilherme acha larica interessante"
+);
+
+userJoao.deleteUser();
+
+post3.title = 'Este título está melhor'
+
+const comment = new Comment(userNatasha.idUser, post2.idPost, "Este é um comentário")
+
 console.log(database.users);
+console.log(database.posts);
+console.log(database.comments);
+
+post1.deletePost();
 console.log(database.posts);
 
 //Alterando atributos do objeto e fazendo update no banco de dados
 userAmanda.email = "amanha"
 userAmanda.addFollow(userIvina.idUser)
+userAmanda.addFollow(userNatasha.idUser)
+userAmanda.addFollow(userJunior.idUser)
 
+userAmanda.removeFollow(userNatasha.idUser)
 
 
 

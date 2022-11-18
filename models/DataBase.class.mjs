@@ -44,14 +44,18 @@ class DataBase {
     this.#posts.push(post);
   }
 
+  addComment(comment) {
+    this.#comments.push(comment);
+  }
+
   removePost(idPost) {
     const index = this.#posts.findIndex((element) => element.idPost === idPost);
     this.#posts.splice(index, 1);
   }
 
-  addComment(idAuthor, idPost, content) {
-    const comment = new Comment(idAuthor, idPost, content);
-    this.#comments.push(comment);
+  removeUser(idUser) {
+    const index = this.#users.findIndex((element) => element.idUser === idUser);
+    this.#users.splice(index, 1);
   }
 
   removeComment(idComment) {
@@ -62,13 +66,19 @@ class DataBase {
   }
 
   //editando e update o usuário
+  //função não é necessária porque o database já atualiza automaticamente quando a gente atualiza os atributos na class
 
-  updateUserOnDatabase(user) {
-    const index = this.#users.findIndex((element) => element.idUser === user.idUser);
-    const updatedFollowlist = database.#users[index].followList;
-    console.log(updatedFollowlist);
-    console.log(database.users);
-  }
+  // updateUserOnDatabase(user) {
+  //   const index = this.#users.findIndex((element) => element.idUser === user.idUser);
+  //   this.#users[index] = user;
+  //   // const updatedFollowlist = database.#users[index].followList;
+  //   // console.log(updatedFollowlist);
+  //   // console.log(database.users);
+  // }
+
+  // updatePostOnDatabase(post) {
+  //   const index = this.#posts.findIndex((element) => element.idPost === post.idPost);
+  // }
 }
 
 /*==========================TODO=====================
