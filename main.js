@@ -12,6 +12,8 @@ const userIvina = new User("Ivina", 2541, "Ivina@Ivina.gmail");
 const userAmanda = new User("Amanda", 2541, "Amanda@Amanda.gmail");
 const userCarol = new User("Carol", 2541, "Carol@Carol.gmail");
 
+// removendo user
+database.removeUser(database.users[3].idUser);
 
 const post1 = new Post(
   userNatasha.idUser,

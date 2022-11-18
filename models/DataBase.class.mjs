@@ -6,6 +6,7 @@ class DataBase {
   #users;
   #posts;
   #comments;
+  #managers;
 
   constructor() {
     this.#users = [];
@@ -15,6 +16,10 @@ class DataBase {
 
   get users() {
     return this.#users;
+  }
+
+  get managers() {
+    return this.#managers;
   }
 
   get posts() {
@@ -37,6 +42,11 @@ class DataBase {
     // };
     this.#users.push(user);
     //return user;
+  }
+
+  removeUser(idUser) {
+    const index = this.#users.findIndex(element => element.idUser === idUser);
+    this.#users.splice(index, 1);
   }
 
   addPost(post) {
@@ -65,8 +75,16 @@ class DataBase {
 
   updateUserOnDatabase(user) {
     const index = this.#users.findIndex((element) => element.idUser === user.idUser);
-    const updatedFollowlist = database.#users[index].followList;
-    console.log(updatedFollowlist);
+
+    try {
+      const updatedFollowlist = database.#users[index].followList;
+      console.log(updatedFollowlist);
+    } catch (TypeError) {
+      console.log(
+        'O usuario não existe na database ao invocar o metodo update'
+      );
+    }
+
     console.log(database.users);
   }
 }
