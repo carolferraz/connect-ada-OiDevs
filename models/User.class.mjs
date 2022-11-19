@@ -1,6 +1,6 @@
-import Functions from "./Functions.class.mjs";
-import database from "./DataBase.class.mjs";
-import Post from "./Post.class.mjs";
+import Functions from './Functions.class.mjs';
+import database from './DataBase.class.mjs';
+import Post from './Post.class.mjs';
 
 class User {
   #idUser;
@@ -60,7 +60,6 @@ class User {
   addFollow(idFollow) {
     this.#followList.push(idFollow);
     // database.updateUserOnDatabase(this)
-
   }
 
   removeFollow(idFollow) {
@@ -71,11 +70,10 @@ class User {
     }
   }
 
-  deleteUser(){
+  deleteSelfUser() {
     database.removeUser(this.idUser);
     database.removeAllPostsByAuthor(this.idUser);
   }
-
 }
 
 export default User;

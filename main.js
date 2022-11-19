@@ -1,44 +1,59 @@
-import User from "./models/User.class.mjs";
-import Comment from "./models/Comment.class.mjs";
-import database from "./models/DataBase.class.mjs";
-import Post from "./models/Post.class.mjs";
+import User from './models/User.class.mjs';
+import Comment from './models/Comment.class.mjs';
+import database from './models/DataBase.class.mjs';
+import Post from './models/Post.class.mjs';
+import Manager from './models/Manager.class.mjs';
 
 //instanciando database
 
 //criando usuário
-console.log('criando o usuário')
+console.log('criando o usuário');
 
-const userNatasha = new User("Natasha", 2541, "natasha@natasha.gmail");
-const userJunior = new User("Junior", 2541, "junior@junior.gmail");
-const userIvina = new User("Ivina", 2541, "Ivina@Ivina.gmail");
-const userAmanda = new User("Amanda", 2541, "Amanda@Amanda.gmail");
-const userCarol = new User("Carol", 2541, "Carol@Carol.gmail");
+const userNatasha = new User('Natasha', 2541, 'natasha@natasha.gmail');
+const userJunior = new User('Junior', 2541, 'junior@junior.gmail');
+const userIvina = new User('Ivina', 2541, 'Ivina@Ivina.gmail');
+const userAmanda = new User('Amanda', 2541, 'Amanda@Amanda.gmail');
+const userCarol = new User('Carol', 2541, 'Carol@Carol.gmail');
+const userPerola = new User('Perola', 2541, 'perola@perola.gmail');
 
-console.log(database.users)
+console.log(database.users);
 
-console.log('teste de autenticação')
-database.authenticate('natasha@natasha.gmail', 2541)
+console.log('teste de autenticação');
+database.authenticate('natasha@natasha.gmail', 2541);
 
-console.log('criando posts')
+console.log('criando posts');
+
 const post1 = new Post(
   userNatasha.idUser,
-  "Esse é o post teste",
-  "esse post tem que sumir"
+  'Esse é o post teste',
+  'esse post tem que sumir'
 );
 
-const post2 = new Post(
-  userNatasha.idUser,
-  "Blabla é o melhor",
-  "Guilherme acha larica interessante"
-);
+const post2 = new Post(userNatasha.idUser, 'Blabla é o melhor', 'Toca ansada');
 
 const post3 = new Post(
   userNatasha.idUser,
-  "Blabla é o melhor",
-  "Guilherme acha larica interessante"
+  'Blabla é o melhor',
+  'Guilherme acha larica interessante'
 );
 
-console.log(database.posts)
+const manager1 = new Manager('Vitoria', 1234, 'vitoria@vitoria.gmail');
+
+manager1.removeOtherUser(userNatasha.idUser);
+// manager1.removeOtherUser(userCarol.idUser);
+// manager1.removeOtherUser(manager1.idUser);
+
+// userNatasha.deleteSelfUser();
+
+post3.title = 'Este título está melhor';
+
+const comment = new Comment(
+  userNatasha.idUser,
+  post2.idPost,
+  'Este é um comentário'
+);
+
+console.log(database.posts);
 
 //criando comentário
 console.log('criando comentários');
@@ -46,26 +61,27 @@ console.log('criando comentários');
 const comment1 = new Comment(
   userAmanda.idUser,
   database.posts[0].idPost,
-  "esse comentário tem que sumir"
+  'esse comentário tem que sumir'
 );
+
 const comment2 = new Comment(
   userJunior.idUser,
   database.posts[0].idPost,
-  "esse comentário tambem tem que sumir"
+  'esse comentário tambem tem que sumir'
 );
 
-const comment3 = new Comment(
-  userJunior.idUser,
-  database.posts[1].idPost,
-  "comentário em outro post"
-)
+// const comment3 = new Comment(
+//   userJunior.idUser,
+//   database.posts[1].idPost,
+//   'comentário em outro post'
+// );
 
 console.log(database.comments);
 
 //Removendo usuários e com isso seu post e comentários do post
 console.log('removendo usuários');
 
-userNatasha.deleteUser();
+userNatasha.deleteSelfUser();
 
 console.log(database.users);
 console.log(database.posts);
@@ -82,7 +98,6 @@ console.log(database.comments);
 // userAmanda.addFollow(userJunior.idUser)
 
 // userAmanda.removeFollow(userNatasha.idUser)
-
 
 // //const user1 = new User('vitoria', '777777', 'vit@haha.com');
 // // const user2 = new User('amanda', '12346', 'amanda@haha.com');
@@ -130,4 +145,3 @@ console.log(database.comments);
 // console.log(database.comments);
 
 // console.log("Acabou");
-

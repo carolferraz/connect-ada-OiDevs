@@ -1,6 +1,6 @@
-import Comment from "./Comment.class.mjs";
-import Post from "./Post.class.mjs";
-import User from "./User.class.mjs";
+import Comment from './Comment.class.mjs';
+import Post from './Post.class.mjs';
+import User from './User.class.mjs';
 
 class DataBase {
   #users;
@@ -38,50 +38,57 @@ class DataBase {
   }
 
   removePost(idPost) {
-    const index = this.#posts.findIndex((element) => element.idPost === idPost);
+    const index = this.#posts.findIndex(element => element.idPost === idPost);
     this.#posts.splice(index, 1);
   }
-  
+
   removeUser(idUser) {
-    const index = this.#users.findIndex((element) => element.idUser === idUser);
+    const index = this.#users.findIndex(element => element.idUser === idUser);
     this.#users.splice(index, 1);
   }
-  
+
   removeComment(idComment) {
     const index = this.#comments.findIndex(
-      (element) => element.idComment === idComment
-      );
-      this.#comments.splice(index, 1);
-    }
-    
-    removeAllPostsByAuthor(idAuthor){
-      this.#posts.forEach((post) => {
-        if (post.idAuthor === idAuthor){
-          this.removeAllCommentsByIdPost(post.idPost)
-          this.removePost(post.idPost)
-        }
-      })
-    }
-
-  removeAllCommentsByAuthor(){
-
+      element => element.idComment === idComment
+    );
+    this.#comments.splice(index, 1);
   }
 
-  removeAllCommentsByIdPost(idPost){
-    this.#comments.forEach((comment) => {
-      if (comment.idPost === idPost){
-        this.removeComment(comment.idComment)
+  removeAllPostsByAuthor(idAuthor) {
+    this.#posts.forEach(post => {
+      if (post.idAuthor === idAuthor) {
+        this.removeAllCommentsByIdPost(post.idPost);
+        this.removePost(post.idPost);
       }
-    })
+    });
+  }
+
+  removeAllCommentsByAuthor(idAuthor) {
+    this.#comments.forEach(comment => {
+      if (comment.idAuthor === idAuthor) {
+        this.removeComment(comment.idComment);
+      }
+    });
+  }
+
+  removeAllCommentsByIdPost(idPost) {
+    this.#comments.forEach(comment => {
+      if (comment.idPost === idPost) {
+        this.removeComment(comment.idComment);
+      }
+    });
   }
 
   authenticate(email, password) {
-      for (let i = 0; i < database.users.length; i++) {
-        if (email === database.users[i].email && password === database.users[i].password) {
-          return console.log(database.users[i]);
-        } 
-        throw Error("Login ou senha incorretos.");
+    for (let i = 0; i < database.users.length; i++) {
+      if (
+        email === database.users[i].email &&
+        password === database.users[i].password
+      ) {
+        return console.log(database.users[i]);
       }
+      throw Error('Login ou senha incorretos.');
+    }
   }
 
   //editando e update o usuário
