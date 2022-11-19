@@ -31,6 +31,10 @@ class Comment {
     return this.#content;
   }
 
+  set content(newContent) {
+    this.#content = newContent;
+  }
+
   deleteComment(){
     database.removeComment(this.#idComment);
   }

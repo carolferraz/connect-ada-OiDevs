@@ -22,16 +22,20 @@ class User {
     return this.#idUser;
   }
 
-  get followList() {
-    return this.#followList;
-  }
-  // set followList(newFollowList) {
-  //   this.#followList = newFollowList;
-  //   database.updateUserOnDatabase(this)
-  // }
-
   get name() {
     return this.#name;
+  }
+
+  get email() {
+    return this.#email;
+  }
+
+  get password() {
+    return this.#password;
+  }
+
+  get followList() {
+    return this.#followList;
   }
 
   set name(newName) {
@@ -39,17 +43,9 @@ class User {
     // database.updateUserOnDatabase(this)
   }
 
-  get password() {
-    return this.#password;
-  }
-
   set password(newPassword) {
     this.#password = newPassword;
     // database.updateUserOnDatabase(this)
-  }
-
-  get email() {
-    return this.#email;
   }
 
   set email(newEmail) {
