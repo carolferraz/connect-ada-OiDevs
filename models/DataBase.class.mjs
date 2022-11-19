@@ -37,14 +37,17 @@ class DataBase {
     this.#comments.push(comment);
   }
 
-  removePost(idPost) {
-    const index = this.#posts.findIndex(element => element.idPost === idPost);
-    this.#posts.splice(index, 1);
-  }
-
   removeUser(idUser) {
     const index = this.#users.findIndex(element => element.idUser === idUser);
     this.#users.splice(index, 1);
+    this.removeAllPostsByAuthor(idUser);
+    this.removeAllCommentsByAuthor(idUser);
+  }
+
+  removePost(idPost) {
+    const index = this.#posts.findIndex(element => element.idPost === idPost);
+    this.#posts.splice(index, 1);
+    this.removeAllCommentsByIdPost(idPost);
   }
 
   removeComment(idComment) {
@@ -59,6 +62,7 @@ class DataBase {
       if (post.idAuthor === idAuthor) {
         this.removeAllCommentsByIdPost(post.idPost);
         this.removePost(post.idPost);
+        this.removeAllPostsByAuthor(idAuthor);
       }
     });
   }
@@ -67,6 +71,7 @@ class DataBase {
     this.#comments.forEach(comment => {
       if (comment.idAuthor === idAuthor) {
         this.removeComment(comment.idComment);
+        this.removeAllCommentsByAuthor(idAuthor);
       }
     });
   }
@@ -75,6 +80,7 @@ class DataBase {
     this.#comments.forEach(comment => {
       if (comment.idPost === idPost) {
         this.removeComment(comment.idComment);
+        this.removeAllCommentsByIdPost(idPost);
       }
     });
   }

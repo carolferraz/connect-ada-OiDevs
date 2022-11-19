@@ -7,81 +7,96 @@ import Manager from './models/Manager.class.mjs';
 //instanciando database
 
 //criando usuário
-console.log('criando o usuário');
+console.log('CRIANDO USUÁRIOS');
 
 const userNatasha = new User('Natasha', 2541, 'natasha@natasha.gmail');
 const userJunior = new User('Junior', 2541, 'junior@junior.gmail');
 const userIvina = new User('Ivina', 2541, 'Ivina@Ivina.gmail');
-const userAmanda = new User('Amanda', 2541, 'Amanda@Amanda.gmail');
-const userCarol = new User('Carol', 2541, 'Carol@Carol.gmail');
-const userPerola = new User('Perola', 2541, 'perola@perola.gmail');
+const manager1 = new Manager('Vitoria', 1234, 'vitoria@vitoria.gmail');
+// const userAmanda = new User('Amanda', 2541, 'Amanda@Amanda.gmail');
+// const userCarol = new User('Carol', 2541, 'Carol@Carol.gmail');
+// const userPerola = new User('Perola', 2541, 'perola@perola.gmail');
 
 console.log(database.users);
 
-console.log('teste de autenticação');
-database.authenticate('natasha@natasha.gmail', 2541);
+// console.log('teste de autenticação');
+// database.authenticate('natasha@natasha.gmail', 2541);
 
-console.log('criando posts');
+console.log('CRIANDO POSTS');
 
 const post1 = new Post(
   userNatasha.idUser,
-  'Esse é o post teste',
-  'esse post tem que sumir'
+  'Primeiro post de Natasha',
+  'Esse post deve sumir quando Natasha for excluída'
 );
 
-const post2 = new Post(userNatasha.idUser, 'Blabla é o melhor', 'Toca ansada');
+const post2 = new Post(
+  userNatasha.idUser,
+  'Segundo post de Natasha',
+  'Esse post deve sumir quando Natasha for excluída'
+);
+
 
 const post3 = new Post(
-  userNatasha.idUser,
-  'Blabla é o melhor',
-  'Guilherme acha larica interessante'
+  userIvina.idUser,
+  'Primeiro post de Ivina',
+  'Esse post deverá ser excluido quando Ivina for excluida'
 );
 
-const manager1 = new Manager('Vitoria', 1234, 'vitoria@vitoria.gmail');
-
-manager1.removeOtherUser(userNatasha.idUser);
-// manager1.removeOtherUser(userCarol.idUser);
-// manager1.removeOtherUser(manager1.idUser);
-
-// userNatasha.deleteSelfUser();
-
-post3.title = 'Este título está melhor';
-
-const comment = new Comment(
+const post4 = new Post(
   userNatasha.idUser,
-  post2.idPost,
-  'Este é um comentário'
+  'Terceiro post de Natasha',
+  'Esse post também deverá ser excluido quando Natasha for excluída'
 );
+
+const post5 = new Post(
+  userNatasha.idUser,
+  'Quarto post de Natasha',
+  'Esse post também deverá ser excluido quando Natasha for excluída'
+);
+
+// post3.title = 'Este título está melhor';
+
+
 
 console.log(database.posts);
 
 //criando comentário
-console.log('criando comentários');
+console.log('CRIANDO COMENTÁRIOS');
 
 const comment1 = new Comment(
-  userAmanda.idUser,
+  userIvina.idUser,
   database.posts[0].idPost,
-  'esse comentário tem que sumir'
+  'Primeiro comentário de Ivina no post de Natasha'
 );
 
 const comment2 = new Comment(
-  userJunior.idUser,
+  userIvina.idUser,
   database.posts[0].idPost,
-  'esse comentário tambem tem que sumir'
+  'Segundo comentário de Ivina no post de Natasha'
 );
 
-// const comment3 = new Comment(
-//   userJunior.idUser,
-//   database.posts[1].idPost,
-//   'comentário em outro post'
-// );
+const comment3 = new Comment(
+  userJunior.idUser,
+  database.posts[0].idPost,
+  'Primeiro comentário de Junior no post de Natasha'
+);
+
+const comment4 = new Comment(
+  userJunior.idUser,
+  database.posts[2].idPost,
+  'Primeiro comentário de Junior no post de Ivina'
+);
+
 
 console.log(database.comments);
 
 //Removendo usuários e com isso seu post e comentários do post
-console.log('removendo usuários');
-
+console.log('REMOVENDO USUÁRIA NATASHA');
+// manager1.removeOtherUser(userNatasha.idUser);
 userNatasha.deleteSelfUser();
+
+// userNatasha.deleteSelfUser();
 
 console.log(database.users);
 console.log(database.posts);
