@@ -47,7 +47,7 @@ class DataBase {
   removePost(idPost) {
     const index = this.#posts.findIndex(element => element.idPost === idPost);
     this.#posts.splice(index, 1);
-    this.removeAllCommentsByIdPost(idPost);
+    this.removeAllCommentsByPost(idPost);
   }
 
   removeComment(idComment) {
@@ -60,7 +60,7 @@ class DataBase {
   removeAllPostsByAuthor(idAuthor) {
     this.#posts.forEach(post => {
       if (post.idAuthor === idAuthor) {
-        this.removeAllCommentsByIdPost(post.idPost);
+        this.removeAllCommentsByPost(post.idPost);
         this.removePost(post.idPost);
         this.removeAllPostsByAuthor(idAuthor);
       }
@@ -76,11 +76,11 @@ class DataBase {
     });
   }
 
-  removeAllCommentsByIdPost(idPost) {
+  removeAllCommentsByPost(idPost) {
     this.#comments.forEach(comment => {
       if (comment.idPost === idPost) {
         this.removeComment(comment.idComment);
-        this.removeAllCommentsByIdPost(idPost);
+        this.removeAllCommentsByPost(idPost);
       }
     });
   }

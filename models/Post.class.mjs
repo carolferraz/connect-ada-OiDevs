@@ -27,19 +27,19 @@ class Post {
     return this.#title;
   }
 
-  set title(newTitle) {
-    this.#title = newTitle;
-  }
-
   get content() {
     return this.#content;
+  }
+
+  set title(newTitle) {
+    this.#title = newTitle;
   }
 
   set content(newContent) {
     this.#content = newContent;
   }
 
-  deletePost(){
+  deletePost() {
     database.removePost(this.idPost);
   }
 }
