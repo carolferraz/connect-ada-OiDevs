@@ -30,6 +30,14 @@ class Comment {
   get content() {
     return this.#content;
   }
+
+  set content(newContent) {
+    this.#content = newContent;
+  }
+
+  deleteComment(){
+    database.removeComment(this.#idComment);
+  }
 }
 
 export default Comment;

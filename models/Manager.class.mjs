@@ -7,7 +7,7 @@ class Manager extends User {
   }
 
   removeOtherUser(idUser) {
-    database.removeAllPostsByAuthor(idUser);
+    // database.removeAllPostsByAuthor(idUser);
     // database.removeAllCommentsByAuthor(idUser);
     database.removeUser(idUser);
   }
