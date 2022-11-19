@@ -26,21 +26,10 @@ class DataBase {
   }
 
   addUser(user) {
-    //const user = new User(name, password, email);
-    // new User(user.name, user.password, user.email)
-    // const user = {
-    //   idUser: user.idUser,
-    //   name: user.name,
-    //   password: user.password,
-    //   email: user.email,
-    //   followList: user.followList
-    // };
     this.#users.push(user);
-    //return user;
   }
 
   addPost(post) {
-    //const post = new Post(idUser, title, content);
     this.#posts.push(post);
   }
 
@@ -67,12 +56,12 @@ class DataBase {
     
     removeAllPostsByAuthor(idAuthor){
       this.#posts.forEach((post) => {
-        this.removeAllCommentsByIdPost(post.idPost)
         if (post.idAuthor === idAuthor){
+          this.removeAllCommentsByIdPost(post.idPost)
           this.removePost(post.idPost)
         }
-    })
-  }
+      })
+    }
 
   removeAllCommentsByAuthor(){
 
@@ -87,12 +76,12 @@ class DataBase {
   }
 
   authenticate(email, password) {
-    for (let i = 0; i < database.users.length; i++) {
-      if (email === database.users[i].email && password === database.users[i].password) {
-        return true;
+      for (let i = 0; i < database.users.length; i++) {
+        if (email === database.users[i].email && password === database.users[i].password) {
+          return console.log(database.users[i]);
+        } 
+        throw Error("Login ou senha incorretos.");
       }
-      throw Error("Login ou senha incorretos.");
-    }
   }
 
   //editando e update o usuário
