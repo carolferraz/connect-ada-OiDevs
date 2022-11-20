@@ -64,25 +64,25 @@ class DataBase {
         this.removeAllCommentsByPost(post.idPost);
       }
     });
-    const listOfRemovedPost = this.#posts.filter(
+    const newListOfPosts = this.#posts.filter(
       (posts) => posts.idAuthor !== idAuthor
     );
-    this.#posts = listOfRemovedPost;
+    this.#posts = newListOfPosts;
   }
 
-  //remove todos os comentários de um mesmo autor
+  //remove todos os comentários de um mesmo autor e me retorna o que é diferente do que eu quero excluir
   removeAllCommentsByAuthor(idAuthor) {
-    const listOfRemovedComment = this.#comments.filter(
+    const newListOfComments = this.#comments.filter(
       (coment) => coment.idAuthor !== idAuthor
     );
-    this.#comments = listOfRemovedComment;
+    this.#comments = newListOfComments;
   }
 
   removeAllCommentsByPost(idPost) {
-    const listOfRemovedComment = this.#comments.filter(
+    const newListOfComments = this.#comments.filter(
       (comment) => comment.idPost !== idPost
     );
-    this.#comments = listOfRemovedComment;
+    this.#comments = newListOfComments;
   }
 
   // removeAllPostsByAuthor(idAuthor) {

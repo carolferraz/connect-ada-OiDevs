@@ -68,7 +68,7 @@ class User {
 
   deleteSelfUser() {
     database.removeUser(this.idUser);
-    database.removeAllPostsByAuthor(this.idUser);
+    // database.removeAllPostsByAuthor(this.idUser);
   }
 }
 
