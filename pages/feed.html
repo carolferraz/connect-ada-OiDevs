@@ -9,15 +9,14 @@
 </head>
 <body>
   <main></main>
-  <script type="module">
-    import Header from "../components/Header.js"
+<script type="module">
+  import Header from "../../components/Header.js"
 
-    const header = new Header()
-    header.addMenuLink('Início', "./feed.html", true)
-    header.addMenuLink('Perfil', "./profile.html")
-    header.addMenuLink('Notificações', "./notifications.html")
-    header.addMenuLink('Sair', "./login.html")
-    header.render()
-  </script>
+  const header = new Header()
+  header.addMenuLink('Feed', "./feed.html")
+  header.addMenuLink('Perfil', "./profile.html", true)
+  header.addMenuLink('Sair', "./login.html")
+  header.render()
+</script>
 </body>
 </html>
