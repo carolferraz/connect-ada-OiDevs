@@ -1,6 +1,6 @@
-import Comment from './Comment.class.mjs';
-import Post from './Post.class.mjs';
-import User from './User.class.mjs';
+import Comment from "./Comment.class.mjs";
+import Post from "./Post.class.mjs";
+import User from "./User.class.mjs";
 
 class DataBase {
   #users;
@@ -38,52 +38,80 @@ class DataBase {
   }
 
   removeUser(idUser) {
-    const index = this.#users.findIndex(element => element.idUser === idUser);
+    const index = this.#users.findIndex((element) => element.idUser === idUser);
     this.#users.splice(index, 1);
     this.removeAllPostsByAuthor(idUser);
     this.removeAllCommentsByAuthor(idUser);
   }
 
   removePost(idPost) {
-    const index = this.#posts.findIndex(element => element.idPost === idPost);
+    const index = this.#posts.findIndex((element) => element.idPost === idPost);
     this.#posts.splice(index, 1);
     this.removeAllCommentsByPost(idPost);
   }
 
   removeComment(idComment) {
     const index = this.#comments.findIndex(
-      element => element.idComment === idComment
+      (element) => element.idComment === idComment
     );
     this.#comments.splice(index, 1);
   }
 
+  //remove todos os posts de um mesmo autor
   removeAllPostsByAuthor(idAuthor) {
-    this.#posts.forEach(post => {
+    this.#posts.forEach((post) => {
       if (post.idAuthor === idAuthor) {
         this.removeAllCommentsByPost(post.idPost);
-        this.removePost(post.idPost);
-        this.removeAllPostsByAuthor(idAuthor);
       }
     });
+    const newListOfPosts = this.#posts.filter(
+      (posts) => posts.idAuthor !== idAuthor
+    );
+    this.#posts = newListOfPosts;
   }
 
+  //remove todos os comentários de um mesmo autor e me retorna o que é diferente do que eu quero excluir
   removeAllCommentsByAuthor(idAuthor) {
-    this.#comments.forEach(comment => {
-      if (comment.idAuthor === idAuthor) {
-        this.removeComment(comment.idComment);
-        this.removeAllCommentsByAuthor(idAuthor);
-      }
-    });
+    const newListOfComments = this.#comments.filter(
+      (coment) => coment.idAuthor !== idAuthor
+    );
+    this.#comments = newListOfComments;
   }
 
   removeAllCommentsByPost(idPost) {
-    this.#comments.forEach(comment => {
-      if (comment.idPost === idPost) {
-        this.removeComment(comment.idComment);
-        this.removeAllCommentsByPost(idPost);
-      }
-    });
+    const newListOfComments = this.#comments.filter(
+      (comment) => comment.idPost !== idPost
+    );
+    this.#comments = newListOfComments;
   }
+
+  // removeAllPostsByAuthor(idAuthor) {
+  //   this.#posts.forEach(post => {
+  //     if (post.idAuthor === idAuthor) {
+  //       this.removeAllCommentsByPost(post.idPost);
+  //       this.removePost(post.idPost);
+  //       // this.removeAllPostsByAuthor(idAuthor);
+  //     }
+  //   });
+  // }
+
+  // removeAllCommentsByAuthor(idAuthor) {
+  //   this.#comments.forEach(comment => {
+  //     if (comment.idAuthor === idAuthor) {
+  //       this.removeComment(comment.idComment);
+  //       // this.removeAllCommentsByAuthor(idAuthor);
+  //     }
+  //   });
+  // }
+
+  // removeAllCommentsByPost(idPost) {
+  //   this.#comments.forEach(comment => {
+  //     if (comment.idPost === idPost) {
+  //       this.removeComment(comment.idComment);
+  //       // this.removeAllCommentsByPost(idPost);
+  //     }
+  //   });
+  // }
 
   authenticate(email, password) {
     for (let i = 0; i < database.users.length; i++) {
@@ -93,7 +121,7 @@ class DataBase {
       ) {
         return console.log(database.users[i]);
       }
-      throw Error('Login ou senha incorretos.');
+      throw Error("Login ou senha incorretos.");
     }
   }
 
@@ -112,9 +140,6 @@ class DataBase {
   //   const index = this.#posts.findIndex((element) => element.idPost === post.idPost);
   // }
 }
-
-/*==========================TODO=====================
-Como passar parâmetros
 
 /*=====================FEITO==============================
 olhar no banco de dados do usuário o mesmo idUser que estou alterando
