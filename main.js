@@ -99,8 +99,8 @@ const comment4 = new Comment(
 
 const comment5 = new Comment(
   userJunior.idUser,
-  database.posts[2].idPost,
-  "Segundo comentário de Junior no post de Ivina"
+  database.posts[5].idPost,
+  "Primeiro comentário de Junior no post de Ivina"
 );
 
 const comment6 = new Comment(
