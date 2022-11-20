@@ -44,46 +44,78 @@ class DataBase {
     this.removeAllCommentsByAuthor(idUser);
   }
 
+  //Para remover um único post
   removePost(idPost) {
-    const index = this.#posts.findIndex(element => element.idPost === idPost);
-    this.#posts.splice(index, 1);
-    this.removeAllCommentsByPost(idPost);
+    const listOfRemovedPost = this.#posts.filter(post => post.idPost !== idPost)
+    this.#posts = listOfRemovedPost
   }
 
+  //Para remover um único comentário 
   removeComment(idComment) {
-    const index = this.#comments.findIndex(
-      element => element.idComment === idComment
-    );
-    this.#comments.splice(index, 1);
+    const listOfRemovedComment = this.#comments.filter(comment => comment.idComment !== idComment)
+    this.#comments = listOfRemovedComment;
   }
 
-  removeAllPostsByAuthor(idAuthor) {
-    this.#posts.forEach(post => {
-      if (post.idAuthor === idAuthor) {
-        this.removeAllCommentsByPost(post.idPost);
-        this.removePost(post.idPost);
-        this.removeAllPostsByAuthor(idAuthor);
-      }
-    });
+
+  
+  
+  //remove todos os posts de um mesmo autor
+  removeAllPostsByAuthor(idAuthor){
+    const listOfRemovedPost = this.#posts.filter(posts => posts.idAuthor !== idAuthor)
+    this.#posts = listOfRemovedPost
   }
 
-  removeAllCommentsByAuthor(idAuthor) {
-    this.#comments.forEach(comment => {
-      if (comment.idAuthor === idAuthor) {
-        this.removeComment(comment.idComment);
-        this.removeAllCommentsByAuthor(idAuthor);
-      }
-    });
+  //remove todos os comentários de um mesmo autor
+  removeAllCommentsByAuthor(idAuthor){
+    const listOfRemovedComment = this.#comments.filter(coment => coment.idAuthor !== idAuthor)
+    this.#comments = listOfRemovedComment
   }
 
   removeAllCommentsByPost(idPost) {
-    this.#comments.forEach(comment => {
-      if (comment.idPost === idPost) {
-        this.removeComment(comment.idComment);
-        this.removeAllCommentsByPost(idPost);
-      }
-    });
+    const listOfRemovedComment = this.#comments.filter(comment => comment.idPost !== idPost)
+    this.#comments = listOfRemovedComment
   }
+  // removePost(idPost) {
+  //   const index = this.#posts.findIndex(element => element.idPost === idPost);
+  //   this.#posts.splice(index, 1);
+  //   this.removeAllCommentsByPost(idPost);
+  // }
+
+
+  // removeComment(idComment) {
+  //   const index = this.#comments.findIndex(
+  //     element => element.idComment === idComment
+  //   );
+  //   this.#comments.splice(index, 1);
+  // }
+
+  // removeAllPostsByAuthor(idAuthor) {
+  //   this.#posts.forEach(post => {
+  //     if (post.idAuthor === idAuthor) {
+  //       this.removeAllCommentsByPost(post.idPost);
+  //       this.removePost(post.idPost);
+  //       // this.removeAllPostsByAuthor(idAuthor);
+  //     }
+  //   });
+  // }
+
+  // removeAllCommentsByAuthor(idAuthor) {
+  //   this.#comments.forEach(comment => {
+  //     if (comment.idAuthor === idAuthor) {
+  //       this.removeComment(comment.idComment);
+  //       // this.removeAllCommentsByAuthor(idAuthor);
+  //     }
+  //   });
+  // }
+
+  // removeAllCommentsByPost(idPost) {
+  //   this.#comments.forEach(comment => {
+  //     if (comment.idPost === idPost) {
+  //       this.removeComment(comment.idComment);
+  //       // this.removeAllCommentsByPost(idPost);
+  //     }
+  //   });
+  // }
 
   authenticate(email, password) {
     for (let i = 0; i < database.users.length; i++) {

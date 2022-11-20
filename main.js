@@ -36,22 +36,33 @@ const post2 = new Post(
   'Esse post deve sumir quando Natasha for excluída'
 );
 
-
 const post3 = new Post(
+  userJunior.idUser,
+  'Primeiro post de Junior',
+  'Esse post também deverá ser excluido quando Natasha for excluída'
+);
+
+const post4 = new Post(
   userIvina.idUser,
   'Primeiro post de Ivina',
   'Esse post deverá ser excluido quando Ivina for excluida'
 );
 
-const post4 = new Post(
+const post5 = new Post(
   userNatasha.idUser,
   'Terceiro post de Natasha',
   'Esse post também deverá ser excluido quando Natasha for excluída'
 );
 
-const post5 = new Post(
+const post6 = new Post(
   userNatasha.idUser,
   'Quarto post de Natasha',
+  'Esse post também deverá ser excluido quando Natasha for excluída'
+);
+
+const post7 = new Post(
+  userJunior.idUser,
+  'Segundo post de Junior',
   'Esse post também deverá ser excluido quando Natasha for excluída'
 );
 
@@ -71,9 +82,9 @@ const comment1 = new Comment(
 );
 
 const comment2 = new Comment(
-  userIvina.idUser,
+  userNatasha.idUser,
   database.posts[0].idPost,
-  'Segundo comentário de Ivina no post de Natasha'
+  'Segundo comentário de Natasha no post de Natasha'
 );
 
 const comment3 = new Comment(
@@ -88,13 +99,66 @@ const comment4 = new Comment(
   'Primeiro comentário de Junior no post de Ivina'
 );
 
+const comment5 = new Comment(
+  userJunior.idUser,
+  database.posts[2].idPost,
+  'Primeiro comentário de Junior no post de Ivina'
+);
 
+
+console.log(database.posts);
 console.log(database.comments);
 
-//Removendo usuários e com isso seu post e comentários do post
-console.log('REMOVENDO USUÁRIA NATASHA');
+//======================TESTES VITÓRIA==========================
+
+// //removendo um unico comentario
+// database.removeComment(comment1.idComment);
+
+// console.log(database.comments);
+
+// //Removendo todos os comentários pelo idPost diferente do que é passado
+
+// database.removeAllCommentsByPost(post1.idPost);
+
+// console.log(database.comments);
+
+// //removendo único post
+// database.removePost(post1.idPost)
+
+// console.log("Após remover o primeiro post da nat");
+// console.log(database.posts);
+
+// //removendo todos os posts de um mesmo autor
+
+// database.removeAllPostsByAuthor(post1.idAuthor)
+
+// console.log("Após remover todos os posts da nat");
+// console.log(database.posts);
+
+// // //removendo todos os comentários de um mesmo autor
+
+// database.removeAllCommentsByAuthor(comment3.idAuthor)
+
+// console.log("Após remover todos os comentários de um mesmo autor");
+// console.log(database.comments);
+
+//romovendo um usuário juntamente com seus posts e comentários
+console.log('REMOVENDO USUÁRIO Junior');
 // manager1.removeOtherUser(userNatasha.idUser);
-userNatasha.deleteSelfUser();
+userJunior.deleteSelfUser();
+
+//==============FIM DO TESTE VITÓRIA================
+
+
+
+
+
+// post1.deletePost()
+
+//Removendo usuários e com isso seu post e comentários do post
+// console.log('REMOVENDO USUÁRIA NATASHA');
+// // manager1.removeOtherUser(userNatasha.idUser);
+// userNatasha.deleteSelfUser();
 
 // userNatasha.deleteSelfUser();
 
@@ -105,6 +169,48 @@ console.log(database.comments);
 // console.log('deletando posts')
 // post1.deletePost();
 // console.log(database.posts);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //Alterando atributos do objeto e fazendo update no banco de dados
 // userAmanda.email = "amanha"
