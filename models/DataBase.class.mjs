@@ -59,11 +59,7 @@ class DataBase {
 
   //remove todos os posts de um mesmo autor
   removeAllPostsByAuthor(idAuthor) {
-    this.#posts.forEach((post) => {
-      if (post.idAuthor === idAuthor) {
-        this.removeAllCommentsByPost(post.idPost);
-      }
-    });
+    this.removeAllCommentsByAuthor(idAuthor)
     const newListOfPosts = this.#posts.filter(
       (posts) => posts.idAuthor !== idAuthor
     );
