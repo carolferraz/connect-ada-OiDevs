@@ -117,10 +117,10 @@ console.log(database.posts);
 
 //======================TESTES VITÓRIA==========================
 
-// removendo um unico comentario
-comment4.deleteComment();
-console.log("deletando comment4");
-console.log(database.comments);
+// // removendo um unico comentario
+// comment4.deleteComment();
+// console.log("deletando comment4");
+// console.log(database.comments);
 
 // console.log("Após remover comment1");
 // console.log(database.comments);
@@ -142,7 +142,7 @@ console.log(database.comments);
 
 //removendo todos os posts de um mesmo autor
 
-// database.removeAllPostsByAuthor(userNatasha.idUser);
+// database.removeAllPostsByAuthor(userJunior.idUser);
 // console.log(database.users);
 // console.log(database.posts);
 // console.log(database.comments);
@@ -161,9 +161,9 @@ console.log(database.comments);
 // console.log('REMOVENDO USUÁRIO Junior');
 // userJunior.deleteSelfUser();
 
-// manager remove algum usuário
-// console.log('Manager remove usuário natasha');
-// manager1.removeOtherUser(userNatasha.idUser);
+// // manager remove algum usuário
+// console.log('Manager remove usuário Junior');
+// manager1.removeOtherUser(userJunior.idUser);
 
 // //manager remove post improprios
 // console.log('Manager remove post inadequado');
