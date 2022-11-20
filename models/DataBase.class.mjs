@@ -59,11 +59,7 @@ class DataBase {
 
   //remove todos os posts de um mesmo autor
   removeAllPostsByAuthor(idAuthor) {
-    this.#posts.forEach((post) => {
-      if (post.idAuthor === idAuthor) {
-        this.removeAllCommentsByPost(post.idPost);
-      }
-    });
+    this.removeAllCommentsByAuthor(idAuthor)
     const newListOfPosts = this.#posts.filter(
       (posts) => posts.idAuthor !== idAuthor
     );
@@ -85,34 +81,6 @@ class DataBase {
     this.#comments = newListOfComments;
   }
 
-  // removeAllPostsByAuthor(idAuthor) {
-  //   this.#posts.forEach(post => {
-  //     if (post.idAuthor === idAuthor) {
-  //       this.removeAllCommentsByPost(post.idPost);
-  //       this.removePost(post.idPost);
-  //       // this.removeAllPostsByAuthor(idAuthor);
-  //     }
-  //   });
-  // }
-
-  // removeAllCommentsByAuthor(idAuthor) {
-  //   this.#comments.forEach(comment => {
-  //     if (comment.idAuthor === idAuthor) {
-  //       this.removeComment(comment.idComment);
-  //       // this.removeAllCommentsByAuthor(idAuthor);
-  //     }
-  //   });
-  // }
-
-  // removeAllCommentsByPost(idPost) {
-  //   this.#comments.forEach(comment => {
-  //     if (comment.idPost === idPost) {
-  //       this.removeComment(comment.idComment);
-  //       // this.removeAllCommentsByPost(idPost);
-  //     }
-  //   });
-  // }
-
   authenticate(email, password) {
     for (let i = 0; i < database.users.length; i++) {
       if (
@@ -125,30 +93,8 @@ class DataBase {
     }
   }
 
-  //editando e update o usuário
-  //função não é necessária porque o database já atualiza automaticamente quando a gente atualiza os atributos na class
-
-  // updateUserOnDatabase(user) {
-  //   const index = this.#users.findIndex((element) => element.idUser === user.idUser);
-  //   this.#users[index] = user;
-  //   // const updatedFollowlist = database.#users[index].followList;
-  //   // console.log(updatedFollowlist);
-  //   // console.log(database.users);
-  // }
-
-  // updatePostOnDatabase(post) {
-  //   const index = this.#posts.findIndex((element) => element.idPost === post.idPost);
-  // }
+ 
 }
-
-/*=====================FEITO==============================
-olhar no banco de dados do usuário o mesmo idUser que estou alterando
-retorna um índice (posição) do obejto que estou buscando no array do objeto
-me retornando o índice identificar no meu array qual objeto esse indice se refere
-ao achar esse objeto alterá-lo e continuará na mesma posição*/
-
-//o problema dessa função é que os atributos estão ficando públicos, não estamos excluindo o usuario anterior e não estamos criando um novo a partir da classe User
-//updateUser precisa trazer o qlqr atributo atualizado
 
 const database = new DataBase();
 export default database;

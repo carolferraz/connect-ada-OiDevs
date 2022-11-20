@@ -40,22 +40,18 @@ class User {
 
   set name(newName) {
     this.#name = newName;
-    // database.updateUserOnDatabase(this)
   }
 
   set password(newPassword) {
     this.#password = newPassword;
-    // database.updateUserOnDatabase(this)
   }
 
   set email(newEmail) {
     this.#email = newEmail;
-    // database.updateUserOnDatabase(this)
   }
 
   addFollow(idFollow) {
     this.#followList.push(idFollow);
-    // database.updateUserOnDatabase(this)
   }
 
   removeFollow(idFollow) {
@@ -68,7 +64,6 @@ class User {
 
   deleteSelfUser() {
     database.removeUser(this.idUser);
-    // database.removeAllPostsByAuthor(this.idUser);
   }
 }
 
