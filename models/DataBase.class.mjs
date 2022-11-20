@@ -57,21 +57,6 @@ class DataBase {
     this.#comments.splice(index, 1);
   }
 
-  //Para remover um único post
-  // removePost(idPost) {
-  //   const listOfRemovedPost = this.#posts.filter(post => post.idPost !== idPost)
-  //   this.#posts = listOfRemovedPost
-  //   this.removeAllCommentsByPost(idPost);
-  // }
-
-  //Para remover um único comentário
-  removeComment(idComment) {
-    const listOfRemovedComment = this.#comments.filter(
-      (comment) => comment.idComment !== idComment
-    );
-    this.#comments = listOfRemovedComment;
-  }
-
   //remove todos os posts de um mesmo autor
   removeAllPostsByAuthor(idAuthor) {
     this.#posts.forEach((post) => {

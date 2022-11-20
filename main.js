@@ -117,8 +117,10 @@ console.log(database.posts);
 
 //======================TESTES VITÓRIA==========================
 
-//removendo um unico comentario
-// comment1.deleteComment();
+// removendo um unico comentario
+comment4.deleteComment();
+console.log("deletando comment4");
+console.log(database.comments);
 
 // console.log("Após remover comment1");
 // console.log(database.comments);
@@ -140,10 +142,10 @@ console.log(database.posts);
 
 //removendo todos os posts de um mesmo autor
 
-database.removeAllPostsByAuthor(userNatasha.idUser);
-console.log(database.users);
-console.log(database.posts);
-console.log(database.comments);
+// database.removeAllPostsByAuthor(userNatasha.idUser);
+// console.log(database.users);
+// console.log(database.posts);
+// console.log(database.comments);
 
 // console.log("Após remover todos os posts de um msm autor");
 // console.log(database.posts);
