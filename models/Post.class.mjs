@@ -39,10 +39,9 @@ class Post {
     this.#content = newContent;
   }
 
-  //TODO:APAGAR ESSE MÉTODO, (dúvida tirada com gui) acredito que os métodos de classe devem alterar somente os atributos dela e não ela como um todo. Por isso faz sentido estar só em data base, pois vai alterar o atributo #posts de lá (dúvida tirada com gui)
-  // deletePost() {
-  //   database.removePost(this.idPost);
-  // }
+  deletePost() {
+    database.removePost(this.idPost);
+  }
 }
 
 export default Post;

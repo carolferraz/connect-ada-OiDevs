@@ -1,6 +1,6 @@
-import Comment from './Comment.class.mjs';
-import Post from './Post.class.mjs';
-import User from './User.class.mjs';
+import Comment from "./Comment.class.mjs";
+import Post from "./Post.class.mjs";
+import User from "./User.class.mjs";
 
 class DataBase {
   #users;
@@ -38,56 +38,67 @@ class DataBase {
   }
 
   removeUser(idUser) {
-    const index = this.#users.findIndex(element => element.idUser === idUser);
+    const index = this.#users.findIndex((element) => element.idUser === idUser);
     this.#users.splice(index, 1);
     this.removeAllPostsByAuthor(idUser);
     this.removeAllCommentsByAuthor(idUser);
   }
 
-  //Para remover um único post
   removePost(idPost) {
-    const listOfRemovedPost = this.#posts.filter(post => post.idPost !== idPost)
-    this.#posts = listOfRemovedPost
+    const index = this.#posts.findIndex((element) => element.idPost === idPost);
+    this.#posts.splice(index, 1);
+    this.removeAllCommentsByPost(idPost);
   }
 
-  //Para remover um único comentário 
   removeComment(idComment) {
-    const listOfRemovedComment = this.#comments.filter(comment => comment.idComment !== idComment)
-    this.#comments = listOfRemovedComment;
+    const index = this.#comments.findIndex(
+      (element) => element.idComment === idComment
+    );
+    this.#comments.splice(index, 1);
   }
 
-
-  
-  
-  //remove todos os posts de um mesmo autor
-  removeAllPostsByAuthor(idAuthor){
-    const listOfRemovedPost = this.#posts.filter(posts => posts.idAuthor !== idAuthor)
-    this.#posts = listOfRemovedPost
-  }
-
-  //remove todos os comentários de um mesmo autor
-  removeAllCommentsByAuthor(idAuthor){
-    const listOfRemovedComment = this.#comments.filter(coment => coment.idAuthor !== idAuthor)
-    this.#comments = listOfRemovedComment
-  }
-
-  removeAllCommentsByPost(idPost) {
-    const listOfRemovedComment = this.#comments.filter(comment => comment.idPost !== idPost)
-    this.#comments = listOfRemovedComment
-  }
+  //Para remover um único post
   // removePost(idPost) {
-  //   const index = this.#posts.findIndex(element => element.idPost === idPost);
-  //   this.#posts.splice(index, 1);
+  //   const listOfRemovedPost = this.#posts.filter(post => post.idPost !== idPost)
+  //   this.#posts = listOfRemovedPost
   //   this.removeAllCommentsByPost(idPost);
   // }
 
+  //Para remover um único comentário
+  removeComment(idComment) {
+    const listOfRemovedComment = this.#comments.filter(
+      (comment) => comment.idComment !== idComment
+    );
+    this.#comments = listOfRemovedComment;
+  }
 
-  // removeComment(idComment) {
-  //   const index = this.#comments.findIndex(
-  //     element => element.idComment === idComment
-  //   );
-  //   this.#comments.splice(index, 1);
-  // }
+  //remove todos os posts de um mesmo autor
+  removeAllPostsByAuthor(idAuthor) {
+    this.#posts.forEach((post) => {
+      if (post.idAuthor === idAuthor) {
+        this.removeAllCommentsByPost(post.idPost);
+      }
+    });
+    const listOfRemovedPost = this.#posts.filter(
+      (posts) => posts.idAuthor !== idAuthor
+    );
+    this.#posts = listOfRemovedPost;
+  }
+
+  //remove todos os comentários de um mesmo autor
+  removeAllCommentsByAuthor(idAuthor) {
+    const listOfRemovedComment = this.#comments.filter(
+      (coment) => coment.idAuthor !== idAuthor
+    );
+    this.#comments = listOfRemovedComment;
+  }
+
+  removeAllCommentsByPost(idPost) {
+    const listOfRemovedComment = this.#comments.filter(
+      (comment) => comment.idPost !== idPost
+    );
+    this.#comments = listOfRemovedComment;
+  }
 
   // removeAllPostsByAuthor(idAuthor) {
   //   this.#posts.forEach(post => {
@@ -125,7 +136,7 @@ class DataBase {
       ) {
         return console.log(database.users[i]);
       }
-      throw Error('Login ou senha incorretos.');
+      throw Error("Login ou senha incorretos.");
     }
   }
 
@@ -144,9 +155,6 @@ class DataBase {
   //   const index = this.#posts.findIndex((element) => element.idPost === post.idPost);
   // }
 }
-
-/*==========================TODO=====================
-Como passar parâmetros
 
 /*=====================FEITO==============================
 olhar no banco de dados do usuário o mesmo idUser que estou alterando

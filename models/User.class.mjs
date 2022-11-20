@@ -1,6 +1,6 @@
-import Functions from './Functions.class.mjs';
-import database from './DataBase.class.mjs';
-import Post from './Post.class.mjs';
+import Functions from "./Functions.class.mjs";
+import database from "./DataBase.class.mjs";
+import Post from "./Post.class.mjs";
 
 class User {
   #idUser;
@@ -13,7 +13,7 @@ class User {
     this.#idUser = Functions.createRandomId();
     this.#name = name;
     this.#password = password;
-    this.#email = email;
+    this.#email = email.toLowerCase();
     this.#followList = [];
     database.addUser(this);
   }
