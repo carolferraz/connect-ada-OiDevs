@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../../styles/styles.css">
+  <script src="../main.js" type="module"></script>
   <title>Feed</title>
 </head>
 <body>
@@ -13,9 +14,9 @@
   import Header from "../../components/Header.js"
 
   const header = new Header()
-  header.addMenuLink('Feed', "./feed.html")
-  header.addMenuLink('Perfil', "./profile.html", true)
-  header.addMenuLink('Sair', "./login.html")
+  header.addMenuLink('Início', "./feed.html")
+  header.addMenuLink('Explorar', "./profile.html", true)
+  header.addMenuLink('Novo Post', "./login.html")
   header.render()
 </script>
 </body>

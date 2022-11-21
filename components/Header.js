@@ -16,6 +16,8 @@ class Header {
     const imgLogo = document.createElement('img')
     const ul = document.createElement('ul')
     ul.classList.add('menu')
+    const li = document.createElement('li')
+    const a = document.createElement('a')
 
     this.links.forEach((link) => {
       const li = document.createElement('li')
@@ -36,7 +38,6 @@ class Header {
     logoLink.append(imgLogo)
     nav.append(logoLink, ul)
     this.header.append(nav);
-    // document.body.append(this.main)
     document.querySelector('main').append(this.header);
   }
 }
