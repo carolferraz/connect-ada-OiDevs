@@ -10,7 +10,7 @@
   </head>
   <body>
     <main id="index">
-      <section>
+      <section class="logo">
         <img src="../../assets/logo.svg" alt="">
         <p>A vida é feita de conexões.</p>
       </section>
@@ -21,22 +21,23 @@
               <legend>Crie sua conta</legend>
               <div class="input-wrapper">
                 <label for="userName">Nome</label>
-                <input type="text" id="userName" placeholder="exemplo@exemplo.com.br">
+                <input type="text" id="userName" placeholder="exemplo@exemplo.com.br" required>
               </div>
               <div class="input-wrapper">
                 <label for="userEmail">Email</label>
-                <input type="email" id="userEmail" placeholder="exemplo@exemplo.com.br">
+                <input type="email" id="userEmail" placeholder="exemplo@exemplo.com.br" required>
               </div>
               <div class="input-wrapper">
                 <label for="userPassword">Senha</label>
-                <input type="password" id="userPassword" placeholder="No mínimo 6 caracteres">
+                <input type="password" id="userPassword" placeholder="No mínimo 6 caracteres" required>
               </div>
-              <button>Entrar</button>
+              <button id="signup">Criar conta</button>
             </fieldset>
           </form>
           <a href="../../index.html">Já tenho uma conta</a>
         </div>
       </section>
     </main>
+    <script src="./script-signup.js" type="module"></script>
   </body>
 </html>

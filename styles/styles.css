@@ -17,6 +17,7 @@
   --primary: #478EBD;
   --secondary: #47BAFC;
   --red-danger: #F75A68;
+  --green-sucess: #00875F;
   --ff: 'Roboto', sans-serif;
 }
 
@@ -33,6 +34,11 @@ a, button, input, textarea {
 a {
   text-decoration: none;
   color: var(--text);
+}
+
+button {
+  background-color: transparent;
+  border: none;
 }
 
 a:hover {
@@ -248,6 +254,70 @@ nav {
   display: block;
 }
 
+/*Alert*/
+
+#alert-div {
+  background-color: var(--bg-secondary);
+  border-left: 7px solid var(--primary);
+  border-top: 1px solid var(--divider);
+  border-right: 1px solid var(--divider);
+  border-bottom: 1px solid var(--divider);
+  width: fit-content;
+  position: absolute;
+  right: 5px;
+  top: 10px;
+  z-index: 3;
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+#alert-div.showAlert {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#alert-div i {
+  color: var(--primary);
+  font-size: calc(1rem + 0.5vw);
+}
+
+#alert-div.show {
+  animation: show-slide 1s ease forwards;
+}
+
+#alert-div.hide {
+  animation: hide-slide 1s ease forwards;
+}
+
+#alert-div button {
+  cursor: pointer;
+}
+
+@keyframes show-slide {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes hide-slide {
+  0% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(-200%);
+  }
+}
+
 @keyframes top-down {
   0% {
     transform: translateY(-10px);
@@ -271,7 +341,6 @@ nav {
   #index section {
     padding: 2rem;
   }
-
 }
 
 @media (max-width: 600px) {
