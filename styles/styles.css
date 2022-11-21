@@ -21,9 +21,13 @@
 }
 
 body {
-  background-color: var(--bg) !important;
-  color: var(--text) !important;
-  font-family: var(--ff) !important;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--ff);
+}
+
+a, button, input, textarea {
+  font-family: var(--ff);
 }
 
 a {
@@ -31,9 +35,97 @@ a {
   color: var(--text);
 }
 
+a:hover {
+  color: var(--white);
+}
+
+input {
+  width: 100%;
+  background-color: var(--bg-secondary);
+  color: var(--text);
+  border: 1px solid var(--text-secondary);
+  border-radius: 5px;
+  height: 45px;
+  padding: 0 0.8rem;
+}
+
 main {
   max-width: 1000px;
   margin: 0 auto;
+  height: 100vh;
+  animation: top-down 1s ease forwards;
+}
+
+button:hover {
+  filter: brightness(1.1);
+}
+
+main#index {
+  max-width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#index section {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#index fieldset {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-items: center;
+  gap: 2rem;
+  border: none;
+}
+
+#index legend {
+  font-size: 2rem;
+  color: var(--white);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+#index .input-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: start;
+}
+
+#index .form-wrapper {
+  background-color: var(--bg-secondary);
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  text-align: center;
+  width: 25rem;
+  border-radius: 8px;
+  padding: 3rem;
+}
+
+#index .form-wrapper button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 30px;
+  gap: 8px;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: var(--primary);
+  color: var(--white);
+  font-weight: 500;
+}
+
+#index section img {
+  width: 20rem;
 }
 
 .menu a {
@@ -154,4 +246,37 @@ nav {
 
 .show {
   display: block;
+}
+
+@keyframes top-down {
+  0% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 900px) {
+  main#index .logo {
+    display: none;
+  }
+
+  main#index {
+    display: block;
+  }
+
+  #index section {
+    padding: 2rem;
+  }
+
+}
+
+@media (max-width: 600px) {
+  #index .form-wrapper {
+    width: 22rem;
+    padding: 2rem;
+  }
 }

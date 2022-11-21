@@ -5,16 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Connect Ada</title>
-    <link rel="stylesheet" href="./styles/styles.css" />
-    <link rel="shortcut icon" href="./assets/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="../../styles/styles.css" />
+    <link rel="shortcut icon" href="../../assets/favicon.svg" type="image/x-icon">
   </head>
   <body>
     <main id="index">
       <section>
+        <img src="../../assets/logo.svg" alt="">
+        <p>A vida é feita de conexões.</p>
+      </section>
+      <section>
         <div class="form-wrapper">
           <form>
             <fieldset>
-              <legend>Login</legend>
+              <legend>Crie sua conta</legend>
+              <div class="input-wrapper">
+                <label for="userName">Nome</label>
+                <input type="text" id="userName" placeholder="exemplo@exemplo.com.br">
+              </div>
               <div class="input-wrapper">
                 <label for="userEmail">Email</label>
                 <input type="email" id="userEmail" placeholder="exemplo@exemplo.com.br">
@@ -26,12 +34,8 @@
               <button>Entrar</button>
             </fieldset>
           </form>
-          <a href="./pages/SignUp/signup.html">Criar uma conta</a>
+          <a href="../../index.html">Já tenho uma conta</a>
         </div>
-      </section>
-      <section class="logo">
-        <img src="./assets/logo.svg" alt="">
-        <p>A vida é feita de conexões.</p>
       </section>
     </main>
   </body>
