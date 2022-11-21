@@ -9,7 +9,7 @@ class Manager extends User {
   removeOtherUser(idUser) {
     database.removeUser(idUser);
   }
-
+  
   removeOtherPost(idPost) {
     database.removePost(idPost);
   }
