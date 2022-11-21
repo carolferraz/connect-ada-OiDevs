@@ -21,9 +21,9 @@
 }
 
 body {
-  background-color: var(--bg);
-  color: var(--text);
-  font-family: var(--ff);
+  background-color: var(--bg) !important;
+  color: var(--text) !important;
+  font-family: var(--ff) !important;
 }
 
 a {

@@ -61,7 +61,7 @@ class Header {
     dropDownBtn.id = 'dropdown';
     profilePic.classList.add('user-img');
     profilePic.setAttribute('src', userPic);
-    profileArrow.setAttribute('src', '../assets/arrow-down.svg');
+    profileArrow.setAttribute('src', '../../assets/arrow-down.svg');
     dropDownContent.classList.add('dropdown-content');
     dropDownContent.id = 'dropdown-links';
 
