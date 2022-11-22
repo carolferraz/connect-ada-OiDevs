@@ -17,9 +17,23 @@ const successRegisterAlert = new Alert('Usuário registrado com sucesso');
 
 const alertCloseBtn = document.getElementById('alert-close-btn');
 
-Functions.setLocalStorage('users', []);
+
+const users = database.users ? [] : Functions.getLocalStorage('users')
+
+Functions.setLocalStorage('users', users);
+// Functions.setLocalStorage('posts', postsObject);
+// Functions.setLocalStorage('comments', commentsObject);
 
 console.log(database.users);
+
+
+// const users = Functions.getLocalStorage('users');
+
+// if(users && users.length > 0){
+//   users.forEach(user => {
+//     database.addUser(user)
+//   });
+// }
 
 function errorInvalidInput(index) {
   inputs[index].style.border = '1px solid #F75A68';
@@ -77,14 +91,8 @@ function registerUser(e) {
       userPassword.value,
       userEmail.value
     );
-    // const user = {
-    //   id: newUser.idUser,
-    //   name: newUser.name,
-    //   email: newUser.email,
-    //   password: newUser.password
-    // }
     console.log(database.users);
-    // Functions.setLocalStorage('users', newUser.getUserObject1)
+    Functions.setLocalStorage('users', database.users)
     successRegisterAlert.showAlert();
   }
 }
