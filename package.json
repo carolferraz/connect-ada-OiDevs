@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/carolferraz/connect-ada-OiDevs/issues"
   },
-  "homepage": "https://github.com/carolferraz/connect-ada-OiDevs#readme"
+  "homepage": "https://github.com/carolferraz/connect-ada-OiDevs#readme",
+  "dependencies": {
+    "bootstrap-icons": "^1.10.2"
+  }
 }

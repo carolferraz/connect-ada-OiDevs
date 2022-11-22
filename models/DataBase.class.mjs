@@ -96,7 +96,6 @@ class DataBase {
       throw Error("Login ou senha incorretos.");
     }
   }
-
  
 }
 

@@ -6,17 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Connect Ada</title>
     <link rel="stylesheet" href="./styles/styles.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="shortcut icon" href="./assets/favicon.svg" type="image/x-icon">
   </head>
   <body>
-    <main>
+    <main id="index">
       <section>
-        <img src="./assets/logo.svg" alt="">
+        <div class="form-wrapper">
+          <form>
+            <fieldset>
+              <legend>Login</legend>
+              <div class="input-wrapper">
+                <label for="userEmail">Email</label>
+                <input type="email" id="userEmail" placeholder="exemplo@exemplo.com.br" required>
+              </div>
+              <div class="input-wrapper">
+                <label for="userPassword">Senha</label>
+                <input type="password" id="userPassword" placeholder="No mínimo 6 caracteres" required>
+              </div>
+              <button>Entrar</button>
+            </fieldset>
+          </form>
+          <a href="./pages/SignUp/signup.html">Criar uma conta</a>
+        </div>
       </section>
-      <section>
-        <form>
-          
-        </form>
+      <section class="logo">
+        <img src="./assets/logo.svg" alt="">
+        <p>A vida é feita de conexões.</p>
       </section>
     </main>
   </body>
