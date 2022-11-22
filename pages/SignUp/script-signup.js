@@ -17,6 +17,10 @@ const successRegisterAlert = new Alert('Usuário registrado com sucesso');
 
 const alertCloseBtn = document.getElementById('alert-close-btn');
 
+Functions.setLocalStorage('users', []);
+
+console.log(database.users);
+
 function errorInvalidInput(index) {
   inputs[index].style.border = '1px solid #F75A68';
   inputErrorMsgs[index].style.display = 'block';
@@ -30,52 +34,63 @@ function acceptedInput(index) {
 function isNameValidate(index) {
   if (inputs[index].value.length < 3) {
     errorInvalidInput(index);
-    return false
+    return false;
   } else {
     acceptedInput(index);
-    return true
+    return true;
   }
 }
 
 function isEmailValidate(index) {
   if (emailRegexValidate.test(inputs[index].value)) {
     acceptedInput(index);
-    return true
+    return true;
   } else {
     errorInvalidInput(index);
-    return false
+    return false;
   }
 }
 
 function isPasswordValidate(index) {
   if (inputs[index].value.length < 6) {
     errorInvalidInput(index);
-    return false
+    return false;
   } else {
     acceptedInput(index);
-    return true
+    return true;
   }
 }
 
 function checkValidation() {
-  if(isNameValidate(0) === isEmailValidate(1) === isPasswordValidate(2)) {
-    return true
+  if ((isNameValidate(0) === isEmailValidate(1)) === isPasswordValidate(2)) {
+    return true;
   } else {
-    return false
+    return false;
   }
 }
 
 function registerUser(e) {
   e.preventDefault();
-  if(checkValidation()) {
-    const newUser = new User(userName.value, userPassword.value, userEmail.value);
-    console.log(newUser);
+  if (checkValidation()) {
+    const newUser = new User(
+      userName.value,
+      userPassword.value,
+      userEmail.value
+    );
+    // const user = {
+    //   id: newUser.idUser,
+    //   name: newUser.name,
+    //   email: newUser.email,
+    //   password: newUser.password
+    // }
+    console.log(database.users);
+    // Functions.setLocalStorage('users', newUser.getUserObject1)
     successRegisterAlert.showAlert();
   }
 }
 
 alertCloseBtn.addEventListener('click', () => successRegisterAlert.hideAlert());
-userName.addEventListener('input', () => isNameValidate(0))
-userEmail.addEventListener('input', () => isEmailValidate(1))
-userPassword.addEventListener('input', () => isPasswordValidate(2))
+userName.addEventListener('input', () => isNameValidate(0));
+userEmail.addEventListener('input', () => isEmailValidate(1));
+userPassword.addEventListener('input', () => isPasswordValidate(2));
 signupBtn.addEventListener('click', registerUser);
