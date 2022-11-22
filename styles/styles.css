@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap');
 
 * {
   margin: 0;
@@ -21,9 +21,9 @@
 }
 
 body {
-  background-color: var(--bg);
-  color: var(--text);
-  font-family: var(--ff);
+  background-color: var(--bg) !important;
+  color: var(--text) !important;
+  font-family: var(--ff) !important;
 }
 
 a {
@@ -38,10 +38,11 @@ main {
 
 .menu a {
   position: relative;
+  font-weight: 500;
 }
 
 .menu a:hover {
-  color: white;
+  color: var(--white);
 }
 
 .menu a::after {
@@ -52,7 +53,7 @@ main {
 
   position: absolute;
   left: 0;
-  bottom: -0.8rem;
+  bottom: -0.6rem;
 
   transition: width 0.2s;
 }
@@ -62,7 +63,7 @@ main {
 }
 
 .active-menu {
-  color: white;
+  color: var(--white);
 }
 
 a.active-menu::after {
@@ -73,7 +74,12 @@ a.active-menu::after {
 
   position: absolute;
   left: 0;
-  bottom: -0.8rem;
+  bottom: -0.6rem;
+}
+
+ul {
+  display: flex;
+  align-items: center;
 }
 
 li {
@@ -100,4 +106,52 @@ nav {
 .menu {
   display: flex;
   gap: 2rem;
+}
+
+.dropbtn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropbtn .user-img {
+  object-fit: cover;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 65px;
+  right: 0;
+  background-color: var(--bg-secondary);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 8px;
+}
+
+.dropdown-content a {
+  width: fit-content;
+  margin: 25px 16px;
+  display: block;
+}
+
+.danger {
+  color: var(--red-danger);
+}
+
+.show {
+  display: block;
 }
