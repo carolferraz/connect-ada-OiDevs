@@ -17,7 +17,7 @@
   --primary: #478EBD;
   --secondary: #47BAFC;
   --red-danger: #F75A68;
-  --green-sucess: #00875F;
+  --green-success: #00875F;
   --ff: 'Roboto', sans-serif;
 }
 
@@ -53,6 +53,11 @@ input {
   border-radius: 5px;
   height: 45px;
   padding: 0 0.8rem;
+}
+
+input:focus {
+  outline: none;
+ background-color: var(--bg);
 }
 
 main {
@@ -132,6 +137,16 @@ main#index {
 
 #index section img {
   width: 20rem;
+}
+
+.invalid-msg {
+  color: var(--red-danger);
+  font-size: 13px;
+  display: none;
+}
+
+input:valid {
+  border: 1px solid var(--green-success);
 }
 
 .menu a {

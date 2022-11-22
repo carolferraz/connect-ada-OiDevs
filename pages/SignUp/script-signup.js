@@ -8,34 +8,74 @@ const userEmail = document.getElementById('userEmail');
 const userPassword = document.getElementById('userPassword');
 const signupBtn = document.getElementById('signup');
 
+const inputs = document.querySelectorAll('.required');
+const inputErrorMsgs = document.querySelectorAll('.invalid-msg');
+
+const emailRegexValidate = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+
 const successRegisterAlert = new Alert('Usuário registrado com sucesso');
 
 const alertCloseBtn = document.getElementById('alert-close-btn');
 
-alertCloseBtn.addEventListener('click', () => successRegisterAlert.hideAlert());
+function errorInvalidInput(index) {
+  inputs[index].style.border = '1px solid #F75A68';
+  inputErrorMsgs[index].style.display = 'block';
+}
 
-function registerUser(e) {
-  e.preventDefault();
-  if (
-    userName.value === '' ||
-    userPassword.value === '' ||
-    userEmail.value === ''
-  ) {
-    alert('Preencha todos os campos');
-    return;
-  }
+function acceptedInput(index) {
+  inputs[index].style.border = '1px solid #00875F';
+  inputErrorMsgs[index].style.display = 'none';
+}
 
-  try {
-    const newUser = new User(
-      userName.value,
-      userPassword.value,
-      userEmail.value
-    );
-    successRegisterAlert.showAlert();
-    Functions.setLocalStorage('users', newUser);
-  } catch (error) {
-    console.log(error.message);
+function isNameValidate(index) {
+  if (inputs[index].value.length < 3) {
+    errorInvalidInput(index);
+    return false
+  } else {
+    acceptedInput(index);
+    return true
   }
 }
 
+function isEmailValidate(index) {
+  if (emailRegexValidate.test(inputs[index].value)) {
+    acceptedInput(index);
+    return true
+  } else {
+    errorInvalidInput(index);
+    return false
+  }
+}
+
+function isPasswordValidate(index) {
+  if (inputs[index].value.length < 6) {
+    errorInvalidInput(index);
+    return false
+  } else {
+    acceptedInput(index);
+    return true
+  }
+}
+
+function checkValidation() {
+  if(isNameValidate(0) === isEmailValidate(1) === isPasswordValidate(2)) {
+    return true
+  } else {
+    return false
+  }
+}
+
+function registerUser(e) {
+  e.preventDefault();
+  if(checkValidation()) {
+    const newUser = new User(userName.value, userPassword.value, userEmail.value);
+    console.log(newUser);
+    successRegisterAlert.showAlert();
+  }
+}
+
+alertCloseBtn.addEventListener('click', () => successRegisterAlert.hideAlert());
+userName.addEventListener('input', () => isNameValidate(0))
+userEmail.addEventListener('input', () => isEmailValidate(1))
+userPassword.addEventListener('input', () => isPasswordValidate(2))
 signupBtn.addEventListener('click', registerUser);
