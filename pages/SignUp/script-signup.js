@@ -13,27 +13,32 @@ const inputErrorMsgs = document.querySelectorAll('.invalid-msg');
 
 const emailRegexValidate = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
 
-const successRegisterAlert = new Alert('Usuário registrado com sucesso');
+// Alert
+
+const successRegisterAlert = new Alert('Usuário registrado com sucesso', '../../assets/success.svg', '#00875F');
 
 const alertCloseBtn = document.getElementById('alert-close-btn');
 
+alertCloseBtn.addEventListener('click', () => successRegisterAlert.hideAlert());
 
-const users = database.users ? [] : Functions.getLocalStorage('users')
+// fim do alert
+
+const users = Functions.getLocalStorage('users') === null ? [] : Functions.getLocalStorage('users');
+
+const posts = Functions.getLocalStorage('posts') === null ? [] : Functions.getLocalStorage('posts');
+
+const comments = Functions.getLocalStorage('comments') === null ? [] : Functions.getLocalStorage('comments');
+
 
 Functions.setLocalStorage('users', users);
-// Functions.setLocalStorage('posts', postsObject);
-// Functions.setLocalStorage('comments', commentsObject);
+Functions.setLocalStorage('posts', posts);
+Functions.setLocalStorage('comments', comments);
 
-console.log(database.users);
-
-
-// const users = Functions.getLocalStorage('users');
-
-// if(users && users.length > 0){
-//   users.forEach(user => {
-//     database.addUser(user)
-//   });
-// }
+if(users && users.length > 0){
+  users.forEach(user => {
+    database.addUser(user)
+  });
+}
 
 function errorInvalidInput(index) {
   inputs[index].style.border = '1px solid #F75A68';
@@ -86,7 +91,7 @@ function checkValidation() {
 function registerUser(e) {
   e.preventDefault();
   if (checkValidation()) {
-    const newUser = new User(
+    new User(
       userName.value,
       userPassword.value,
       userEmail.value
@@ -97,7 +102,7 @@ function registerUser(e) {
   }
 }
 
-alertCloseBtn.addEventListener('click', () => successRegisterAlert.hideAlert());
+
 userName.addEventListener('input', () => isNameValidate(0));
 userEmail.addEventListener('input', () => isEmailValidate(1));
 userPassword.addEventListener('input', () => isPasswordValidate(2));

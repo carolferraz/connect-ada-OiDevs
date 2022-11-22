@@ -273,10 +273,10 @@ nav {
 
 #alert-div {
   background-color: var(--bg-secondary);
-  border-left: 7px solid var(--primary);
   border-top: 1px solid var(--divider);
   border-right: 1px solid var(--divider);
   border-bottom: 1px solid var(--divider);
+  border-radius: 8px;
   width: fit-content;
   position: absolute;
   right: 5px;
