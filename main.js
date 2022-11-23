@@ -1,21 +1,34 @@
-import Functions from "./models/Functions.class.mjs";
+import Functions from './models/Functions.class.mjs';
+import Alert from './components/Alert.js';
+import database from './models/DataBase.class.mjs';
 
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-(() => {
-  'use strict'
+//Alert
 
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-  const forms = document.querySelectorAll('.needs-validation')
+const userNotFoundAlert = new Alert(
+  'Email e/ou senha incorreta',
+  '../../assets/warning.svg',
+  '#F75A68'
+);
 
-  // Loop over them and prevent submission
-  Array.from(forms).forEach(form => {
-    form.addEventListener('submit', event => {
-      if (!form.checkValidity()) {
-        event.preventDefault()
-        event.stopPropagation()
-      }
+const alertCloseBtn = document.getElementById('alert-close-btn');
 
-      form.classList.add('was-validated')
-    }, false)
-  })
-})()
+alertCloseBtn.addEventListener('click', () => userNotFoundAlert.hideAlert());
+
+//fim do alert
+
+database.initialization()
+
+const loginBtn = document.getElementById('loginBtn');
+const userEmail = document.getElementById('userEmail');
+const userPassword = document.getElementById('userPassword');
+
+function startSession(e) {
+  e.preventDefault();
+  if(database.authenticate(userEmail.value, userPassword.value)) {
+    console.log('usuário logado')
+  } else {
+    userNotFoundAlert.showAlert();
+  }
+}
+
+loginBtn.addEventListener('click', startSession);

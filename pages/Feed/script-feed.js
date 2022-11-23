@@ -12,6 +12,7 @@ header.addProfileDropdownLink('Sair', "./login.html", false, true)
 header.renderMenuLinks()
 header.renderDropDownMenu('../../assets/woman.jpg')
 
+
 //funções da página
 const menuDropDown = document.getElementById('dropdown');
 const dropDownContent = document.getElementById('dropdown-links');
