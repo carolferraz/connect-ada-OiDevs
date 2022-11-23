@@ -23,6 +23,8 @@ alertCloseBtn.addEventListener('click', () => successRegisterAlert.hideAlert());
 
 // fim do alert
 
+
+//inicializando
 const users = Functions.getLocalStorage('users') === null ? [] : Functions.getLocalStorage('users');
 
 const posts = Functions.getLocalStorage('posts') === null ? [] : Functions.getLocalStorage('posts');
@@ -40,6 +42,7 @@ if(users && users.length > 0){
   });
 }
 
+//funções específicas da página
 function errorInvalidInput(index) {
   inputs[index].style.border = '1px solid #F75A68';
   inputErrorMsgs[index].style.display = 'block';
