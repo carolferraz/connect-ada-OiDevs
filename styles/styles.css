@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap");
 
 * {
   margin: 0;
@@ -7,18 +7,18 @@
 }
 
 :root {
-  --text: #C4C4CC;
-  --text-secondary: #8D8D99;
+  --text: #c4c4cc;
+  --text-secondary: #8d8d99;
   --white: #fff;
   --bg: #121214;
   --bg-secondary: #202024;
   --divider: #323238;
-  --placeholder: #7C7C8A;
-  --primary: #478EBD;
-  --secondary: #47BAFC;
-  --red-danger: #F75A68;
-  --green-success: #00875F;
-  --ff: 'Roboto', sans-serif;
+  --placeholder: #7c7c8a;
+  --primary: #478ebd;
+  --secondary: #47bafc;
+  --red-danger: #f75a68;
+  --green-success: #00875f;
+  --ff: "Roboto", sans-serif;
 }
 
 body {
@@ -27,7 +27,10 @@ body {
   font-family: var(--ff);
 }
 
-a, button, input, textarea {
+a,
+button,
+input,
+textarea {
   font-family: var(--ff);
 }
 
@@ -57,7 +60,7 @@ input {
 
 input:focus {
   outline: none;
- background-color: var(--bg);
+  background-color: var(--bg);
 }
 
 main {
@@ -159,7 +162,7 @@ input:valid {
 }
 
 .menu a::after {
-  content: '';
+  content: "";
   width: 0%;
   height: 1px;
   background-color: var(--white);
@@ -180,7 +183,7 @@ input:valid {
 }
 
 a.active-menu::after {
-  content: '';
+  content: "";
   width: 100%;
   height: 1px;
   background-color: var(--white);
@@ -250,7 +253,7 @@ nav {
   right: 0;
   background-color: var(--bg-secondary);
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   border-radius: 8px;
 }
@@ -312,7 +315,16 @@ nav {
 #alert-div button {
   cursor: pointer;
 }
-
+/*Ivina*/
+.sec-edit-profile {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  height: 50vw;
+  margin: 0 auto;
+  justify-content: center;
+}
+/*Ivina*/
 @keyframes show-slide {
   0% {
     transform: translateY(-100%);
