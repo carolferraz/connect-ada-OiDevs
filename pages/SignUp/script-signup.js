@@ -13,14 +13,20 @@ const inputErrorMsgs = document.querySelectorAll('.invalid-msg');
 
 const emailRegexValidate = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
 
-const successRegisterAlert = new Alert('Usuário registrado com sucesso');
+// Alert
+
+const successRegisterAlert = new Alert('Usuário registrado com sucesso', '../../assets/success.svg', '#00875F');
 
 const alertCloseBtn = document.getElementById('alert-close-btn');
 
-Functions.setLocalStorage('users', []);
+alertCloseBtn.addEventListener('click', () => successRegisterAlert.hideAlert());
 
-console.log(database.users);
+// fim do alert
 
+//inicializando database
+database.initialization()
+
+//funções específicas da página
 function errorInvalidInput(index) {
   inputs[index].style.border = '1px solid #F75A68';
   inputErrorMsgs[index].style.display = 'block';
@@ -69,27 +75,29 @@ function checkValidation() {
   }
 }
 
+function resetInputs() {
+  userName.value = ''
+  userPassword.value = ''
+  userEmail.value = ''
+  for (let index = 0; index < inputs.length; index++) {
+    inputs[index].style.border = '1px solid #8D8D99'
+  }
+}
+
 function registerUser(e) {
   e.preventDefault();
   if (checkValidation()) {
-    const newUser = new User(
+    new User(
       userName.value,
       userPassword.value,
       userEmail.value
     );
-    // const user = {
-    //   id: newUser.idUser,
-    //   name: newUser.name,
-    //   email: newUser.email,
-    //   password: newUser.password
-    // }
-    console.log(database.users);
-    // Functions.setLocalStorage('users', newUser.getUserObject1)
+    Functions.setLocalStorage('users', database.users)
+    resetInputs()
     successRegisterAlert.showAlert();
   }
 }
 
-alertCloseBtn.addEventListener('click', () => successRegisterAlert.hideAlert());
 userName.addEventListener('input', () => isNameValidate(0));
 userEmail.addEventListener('input', () => isEmailValidate(1));
 userPassword.addEventListener('input', () => isPasswordValidate(2));

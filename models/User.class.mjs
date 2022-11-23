@@ -15,7 +15,17 @@ class User {
     this.#password = password;
     this.#email = email.toLowerCase();
     this.#followList = [];
-    database.addUser(this);
+    database.addUser(this.userObject);
+  }
+
+  get userObject() {
+    return {
+      id: this.#idUser,
+      name: this.#name,
+      password: this.#password,
+      email: this.#email,
+      followList: this.#followList
+    }
   }
 
   get idUser() {
