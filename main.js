@@ -16,16 +16,11 @@ alertCloseBtn.addEventListener('click', () => userNotFoundAlert.hideAlert());
 
 //fim do alert
 
+database.initialization()
+
 const loginBtn = document.getElementById('loginBtn');
 const userEmail = document.getElementById('userEmail');
 const userPassword = document.getElementById('userPassword');
-const users = Functions.getLocalStorage('users')
-
-if(users && users.length > 0){
-  users.forEach(user => {
-    database.addUser(user)
-  });
-}
 
 function startSession(e) {
   e.preventDefault();

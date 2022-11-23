@@ -1,17 +1,50 @@
-import Comment from "./Comment.class.mjs";
-import Post from "./Post.class.mjs";
-import User from "./User.class.mjs";
+import Functions from "./Functions.class.mjs";
 
 class DataBase {
   #users;
   #posts;
   #comments;
+  setUsers;
+  setPosts;
+  setComments;
 
   constructor() {
     this.#users = [];
     this.#posts = [];
     this.#comments = [];
   }
+
+  initialization() {
+    this.getUsers = Functions.getLocalStorage('users') === null ? [] : Functions.getLocalStorage('users');
+
+    this.getPosts = Functions.getLocalStorage('posts') === null ? [] : Functions.getLocalStorage('posts');
+
+    this.getComments = Functions.getLocalStorage('comments') === null ? [] : Functions.getLocalStorage('comments');
+
+    Functions.setLocalStorage('users', this.getUsers);
+    Functions.setLocalStorage('posts', this.getPosts);
+    Functions.setLocalStorage('comments', this.getComments);
+
+    if(this.getUsers && this.getUsers.length > 0){
+      this.getUsers.forEach(user => {
+        this.addUser(user)
+      });
+    }
+
+    if(this.getPosts && this.getPosts.length > 0){
+      this.getPosts.forEach(post => {
+        this.addPost(post)
+      });
+    }
+
+    if(this.getComments && this.getComments.length > 0){
+      this.getComments.forEach(comment => {
+        this.addComment(comment)
+      });
+    }
+    
+  }
+
 
   get users() {
     return this.#users;

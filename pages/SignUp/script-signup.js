@@ -23,24 +23,8 @@ alertCloseBtn.addEventListener('click', () => successRegisterAlert.hideAlert());
 
 // fim do alert
 
-
-//inicializando
-const users = Functions.getLocalStorage('users') === null ? [] : Functions.getLocalStorage('users');
-
-const posts = Functions.getLocalStorage('posts') === null ? [] : Functions.getLocalStorage('posts');
-
-const comments = Functions.getLocalStorage('comments') === null ? [] : Functions.getLocalStorage('comments');
-
-
-Functions.setLocalStorage('users', users);
-Functions.setLocalStorage('posts', posts);
-Functions.setLocalStorage('comments', comments);
-
-if(users && users.length > 0){
-  users.forEach(user => {
-    database.addUser(user)
-  });
-}
+//inicializando database
+database.initialization()
 
 //funções específicas da página
 function errorInvalidInput(index) {
