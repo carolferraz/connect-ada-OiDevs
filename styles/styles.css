@@ -71,6 +71,7 @@ main {
   width: 100%;
   animation: top-down 1s ease forwards;
   padding: 2rem 8rem;
+  grid-area: content;
 }
 
 button:hover {
@@ -346,7 +347,11 @@ nav {
   }
 }
 
-@media (max-width: 900px) {
+@media (min-width: 601px) and (max-width: 900px) {
+  main, nav {
+    padding: 2rem 4rem;
+  }
+
   main#index .logo {
     display: none;
   }
@@ -361,6 +366,9 @@ nav {
 }
 
 @media (max-width: 600px) {
+  main, nav {
+    padding: 1rem;
+  }
   #index .form-wrapper {
     width: 22rem;
     padding: 2rem;
