@@ -65,6 +65,10 @@ class Header {
     dropDownContent.classList.add('dropdown-content');
     dropDownContent.id = 'dropdown-links';
 
+    dropDownBtn.addEventListener('click', () => {
+      dropDownContent.classList.toggle('show');
+    });
+
     this.dropdownLinks.forEach(link => {
       const a = document.createElement('a');
 
