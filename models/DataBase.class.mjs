@@ -91,9 +91,8 @@ class DataBase {
         email === database.users[i].email &&
         password === database.users[i].password
       ) {
-        return console.log(database.users[i]);
+        return true;
       }
-      throw Error("Login ou senha incorretos.");
     }
   }
  

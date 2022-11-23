@@ -1,5 +1,6 @@
 import Functions from './models/Functions.class.mjs';
 import Alert from './components/Alert.js';
+import database from './models/DataBase.class.mjs';
 
 //Alert
 
@@ -20,17 +21,15 @@ const userEmail = document.getElementById('userEmail');
 const userPassword = document.getElementById('userPassword');
 const users = Functions.getLocalStorage('users')
 
-function isUserCorrect(email, password) {
-  for (let index = 0; index < users.length; index++) {
-    if(users[index].email === email && users[index].password === password) {
-      return true
-    }
-  }
+if(users && users.length > 0){
+  users.forEach(user => {
+    database.addUser(user)
+  });
 }
 
 function startSession(e) {
   e.preventDefault();
-  if(isUserCorrect(userEmail.value, userPassword.value)) {
+  if(database.authenticate(userEmail.value, userPassword.value)) {
     console.log('usuário logado')
   } else {
     userNotFoundAlert.showAlert();

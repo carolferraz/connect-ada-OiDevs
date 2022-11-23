@@ -111,7 +111,6 @@ function registerUser(e) {
   }
 }
 
-
 userName.addEventListener('input', () => isNameValidate(0));
 userEmail.addEventListener('input', () => isEmailValidate(1));
 userPassword.addEventListener('input', () => isPasswordValidate(2));
