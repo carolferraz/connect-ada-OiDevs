@@ -88,6 +88,15 @@ function checkValidation() {
   }
 }
 
+function resetInputs() {
+  userName.value = ''
+  userPassword.value = ''
+  userEmail.value = ''
+  for (let index = 0; index < inputs.length; index++) {
+    inputs[index].style.border = '1px solid #8D8D99'
+  }
+}
+
 function registerUser(e) {
   e.preventDefault();
   if (checkValidation()) {
@@ -96,8 +105,8 @@ function registerUser(e) {
       userPassword.value,
       userEmail.value
     );
-    console.log(database.users);
     Functions.setLocalStorage('users', database.users)
+    resetInputs()
     successRegisterAlert.showAlert();
   }
 }
