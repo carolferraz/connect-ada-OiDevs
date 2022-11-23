@@ -145,10 +145,6 @@ main#index {
   display: none;
 }
 
-input:valid {
-  border: 1px solid var(--green-success);
-}
-
 .menu a {
   position: relative;
   font-weight: 500;
