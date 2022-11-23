@@ -44,7 +44,7 @@ class Header {
     logoLink.setAttribute('href', './feed.html');
 
     logoLink.append(imgLogo);
-    document.querySelector('main').append(this.header);
+    document.body.append(this.header);
     this.nav.append(logoLink, this.ul);
   }
 
