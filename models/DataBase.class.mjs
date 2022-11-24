@@ -1,6 +1,7 @@
 import Functions from "./Functions.class.mjs";
 
 class DataBase {
+  #currentUserInSession;
   #users;
   #posts;
   #comments;
@@ -9,42 +10,52 @@ class DataBase {
   setComments;
 
   constructor() {
-    this.#users = [];
+    this.#users =
+      Functions.getLocalStorage("users") === null
+        ? []
+        : Functions.getLocalStorage("users");
     this.#posts = [];
     this.#comments = [];
   }
 
   initialization() {
-    this.getUsers = Functions.getLocalStorage('users') === null ? [] : Functions.getLocalStorage('users');
+    this.getUsers =
+      Functions.getLocalStorage("users") === null
+        ? []
+        : Functions.getLocalStorage("users");
 
-    this.getPosts = Functions.getLocalStorage('posts') === null ? [] : Functions.getLocalStorage('posts');
+    this.getPosts =
+      Functions.getLocalStorage("posts") === null
+        ? []
+        : Functions.getLocalStorage("posts");
 
-    this.getComments = Functions.getLocalStorage('comments') === null ? [] : Functions.getLocalStorage('comments');
+    this.getComments =
+      Functions.getLocalStorage("comments") === null
+        ? []
+        : Functions.getLocalStorage("comments");
 
-    Functions.setLocalStorage('users', this.getUsers);
-    Functions.setLocalStorage('posts', this.getPosts);
-    Functions.setLocalStorage('comments', this.getComments);
+    Functions.setLocalStorage("users", this.getUsers);
+    Functions.setLocalStorage("posts", this.getPosts);
+    Functions.setLocalStorage("comments", this.getComments);
 
-    if(this.getUsers && this.getUsers.length > 0){
-      this.getUsers.forEach(user => {
-        this.addUser(user)
+    if (this.getUsers && this.getUsers.length > 0) {
+      this.getUsers.forEach((user) => {
+        this.addUser(user);
       });
     }
 
-    if(this.getPosts && this.getPosts.length > 0){
-      this.getPosts.forEach(post => {
-        this.addPost(post)
+    if (this.getPosts && this.getPosts.length > 0) {
+      this.getPosts.forEach((post) => {
+        this.addPost(post);
       });
     }
 
-    if(this.getComments && this.getComments.length > 0){
-      this.getComments.forEach(comment => {
-        this.addComment(comment)
+    if (this.getComments && this.getComments.length > 0) {
+      this.getComments.forEach((comment) => {
+        this.addComment(comment);
       });
     }
-    
   }
-
 
   get users() {
     return this.#users;
@@ -56,6 +67,10 @@ class DataBase {
 
   get comments() {
     return this.#comments;
+  }
+
+  get currentUserInSession() {
+    return Functions.getLocalStorage("currentUserInSession");
   }
 
   addUser(user) {
@@ -124,11 +139,10 @@ class DataBase {
         email === database.users[i].email &&
         password === database.users[i].password
       ) {
-        return true;
+        Functions.setLocalStorage("currentUserInSession", database.users[i]);
       }
     }
   }
- 
 }
 
 const database = new DataBase();
