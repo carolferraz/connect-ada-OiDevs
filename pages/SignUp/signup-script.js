@@ -15,12 +15,22 @@ const emailRegexValidate = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
 
 // Alert
 
-const successRegisterAlert = new Alert('Usuário registrado com sucesso', '../../assets/success.svg', '#00875F');
+const successRegisterAlert = new Alert(
+  'Usuário registrado com sucesso',
+  '../../assets/success.svg',
+  '#00875F'
+);
+
+const emailAlreadyExistsAlert = new Alert(
+  'O e-mail já existe, tente um e-mail diferente ou faça o login',
+  '../../assets/warning.svg',
+  '#F75A68'
+);
 
 // fim do alert
 
 //inicializando database
-database.initialization()
+database.initialization();
 
 //funções específicas da página
 function errorInvalidInput(index) {
@@ -72,36 +82,31 @@ function checkValidation() {
 }
 
 function emailNotExists(email) {
-
   for (let index = 0; index < database.users.length; index++) {
     const user = database.users[index];
-    if(user.email === email) {
-      return false
+    if (user.email === email) {
+      return false;
     }
   }
-  return true
+  return true;
 }
 
 function resetInputs() {
   for (let index = 0; index < inputs.length; index++) {
-    inputs[index].style.border = '1px solid #8D8D99'
-    inputs[index].value = ''
+    inputs[index].style.border = '1px solid #8D8D99';
+    inputs[index].value = '';
   }
 }
 
 function registerUser(e) {
   e.preventDefault();
   if (checkValidation() && emailNotExists(userEmail.value)) {
-    new User(
-      userName.value,
-      userPassword.value,
-      userEmail.value
-    );
-    Functions.setLocalStorage('users', database.users)
-    resetInputs()
+    new User(userName.value, userPassword.value, userEmail.value);
+    Functions.setLocalStorage('users', database.users);
+    resetInputs();
     successRegisterAlert.showAlert();
   } else {
-    console.log('email ja existe')
+    emailAlreadyExistsAlert.showAlert();
   }
 }
 
