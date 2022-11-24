@@ -27,4 +27,3 @@ menuDropDown.addEventListener("click", () => {
 const editName = (document.getElementById(
   "userName-edit"
 ).value = `${database.currentUserInSession.name}`);
-console.log(database.currentUserInSession);
