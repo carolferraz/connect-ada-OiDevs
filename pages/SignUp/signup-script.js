@@ -13,7 +13,7 @@ const inputErrorMsgs = document.querySelectorAll('.invalid-msg');
 
 const emailRegexValidate = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
 
-// Alert
+// Alerts
 
 const successRegisterAlert = new Alert(
   'Usuário registrado com sucesso',
@@ -27,7 +27,7 @@ const emailAlreadyExistsAlert = new Alert(
   '#F75A68'
 );
 
-// fim do alert
+// fim do alerts
 
 //inicializando database
 database.initialization();
