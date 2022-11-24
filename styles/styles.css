@@ -83,6 +83,7 @@ main#index {
   max-width: 100vw;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 2rem;
 }
 
 #index section {
@@ -365,7 +366,7 @@ nav {
   }
 }
 
-@media (min-width: 601px) and (max-width: 900px) {
+@media (max-width: 900px) {
   main, nav {
     padding: 2rem 4rem;
   }
