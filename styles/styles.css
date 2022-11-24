@@ -10,6 +10,7 @@
   --text: #C4C4CC;
   --text-secondary: #8D8D99;
   --white: #fff;
+  --text-logo: #E1E1E6;
   --bg: #121214;
   --bg-secondary: #202024;
   --divider: #323238;
@@ -150,6 +151,23 @@ main#index {
   color: var(--red-danger);
   font-size: 13px;
   display: none;
+}
+
+#header-logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-logo);
+  gap: 1rem;
+}
+
+#header-logo img {
+  width: 2rem;
+}
+
+#header-logo p span {
+  color: var(--secondary);
 }
 
 .menu a {
@@ -372,5 +390,9 @@ nav {
   #index .form-wrapper {
     width: 22rem;
     padding: 2rem;
+  }
+
+  #logo-text {
+    display: none;
   }
 }
