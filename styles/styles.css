@@ -375,6 +375,7 @@ nav {
   flex-wrap: wrap;
   position: relative;
   top: 200px;
+  z-index: -1;
 }
 
 .profilePhoto {
