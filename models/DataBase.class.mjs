@@ -4,9 +4,6 @@ class DataBase {
   #users;
   #posts;
   #comments;
-  setUsers;
-  setPosts;
-  setComments;
 
   constructor() {
     this.#users = [];
@@ -128,7 +125,6 @@ class DataBase {
       }
     }
   }
- 
 }
 
 const database = new DataBase();
