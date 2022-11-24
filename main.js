@@ -26,9 +26,9 @@ function startSession(e) {
   e.preventDefault();
   if (database.authenticate(userEmail.value, userPassword.value)) {
     console.log("usuário logado");
-    console.log(database.currentUserInSession);
   } else {
-    userNotFoundAlert.showAlert();
+    /*userNotFoundAlert.showAlert();*/
+    console.log("usuário inválido");
   }
 }
 

@@ -11,7 +11,7 @@ class User {
   #email;
   #followList;
 
-  constructor(name, password, email) {
+  constructor(name, password, email, role) {
     this.#idUser = Functions.createRandomId();
     this.#name = name;
     this.image =
@@ -27,6 +27,8 @@ class User {
     return {
       id: this.#idUser,
       name: this.#name,
+      image: this.image,
+      role: this.#role,
       password: this.#password,
       email: this.#email,
       followList: this.#followList,

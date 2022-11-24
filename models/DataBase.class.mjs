@@ -5,9 +5,6 @@ class DataBase {
   #users;
   #posts;
   #comments;
-  setUsers;
-  setPosts;
-  setComments;
 
   constructor() {
     this.#users =
@@ -140,6 +137,9 @@ class DataBase {
         password === database.users[i].password
       ) {
         Functions.setLocalStorage("currentUserInSession", database.users[i]);
+        return true;
+      } else {
+        return false;
       }
     }
   }
