@@ -254,8 +254,8 @@ nav {
 
 .dropbtn .user-img {
   object-fit: cover;
-  width: 35px;
-  height: 35px;
+  width: 2.1rem;
+  height: 2.1rem;
   border-radius: 50%;
 }
 
@@ -394,5 +394,18 @@ nav {
 
   #logo-text {
     display: none;
+  }
+
+  .menu {
+    gap: 1rem;
+  }
+
+  .menu img {
+    width: 1.6rem;
+  }
+
+  .dropbtn .user-img {
+    width: 1.6rem;
+    height: 1.6rem;
   }
 }
