@@ -10,6 +10,7 @@
   --text: #C4C4CC;
   --text-secondary: #8D8D99;
   --white: #fff;
+  --text-logo: #E1E1E6;
   --bg: #121214;
   --bg-secondary: #202024;
   --divider: #323238;
@@ -25,6 +26,11 @@ body {
   background-color: var(--bg);
   color: var(--text);
   font-family: var(--ff);
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 70px auto;
+  grid-template-areas:
+  "header" "content";
 }
 
 a, button, input, textarea {
@@ -61,10 +67,12 @@ input:focus {
 }
 
 main {
-  max-width: 1000px;
   margin: 0 auto;
-  height: 100vh;
+  height: 100%;
+  width: 100%;
   animation: top-down 1s ease forwards;
+  padding: 2rem 8rem;
+  grid-area: content;
 }
 
 button:hover {
@@ -75,6 +83,7 @@ main#index {
   max-width: 100vw;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 2rem;
 }
 
 #index section {
@@ -145,6 +154,23 @@ main#index {
   display: none;
 }
 
+#header-logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-logo);
+  gap: 1rem;
+}
+
+#header-logo img {
+  width: 2rem;
+}
+
+#header-logo p span {
+  color: var(--secondary);
+}
+
 .menu a {
   position: relative;
   font-weight: 500;
@@ -197,19 +223,19 @@ li {
 
 header {
   background-color: var(--bg-secondary);
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  grid-area: header;
 }
 
 nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 1rem 2rem;
+  width: 100%;
+  padding: 0 8rem;
+  height: 100%;
 }
 
 .menu {
@@ -229,8 +255,8 @@ nav {
 
 .dropbtn .user-img {
   object-fit: cover;
-  width: 35px;
-  height: 35px;
+  width: 2.1rem;
+  height: 2.1rem;
   border-radius: 50%;
 }
 
@@ -341,6 +367,10 @@ nav {
 }
 
 @media (max-width: 900px) {
+  main, nav {
+    padding: 2rem 4rem;
+  }
+
   main#index .logo {
     display: none;
   }
@@ -355,8 +385,28 @@ nav {
 }
 
 @media (max-width: 600px) {
+  main, nav {
+    padding: 1rem;
+  }
   #index .form-wrapper {
     width: 22rem;
     padding: 2rem;
+  }
+
+  #logo-text {
+    display: none;
+  }
+
+  .menu {
+    gap: 1rem;
+  }
+
+  .menu img {
+    width: 1.6rem;
+  }
+
+  .dropbtn .user-img {
+    width: 1.6rem;
+    height: 1.6rem;
   }
 }
