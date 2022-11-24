@@ -5,6 +5,8 @@ import Post from "./Post.class.mjs";
 class User {
   #idUser;
   #name;
+  image;
+  #role;
   #password;
   #email;
   #followList;
@@ -12,6 +14,9 @@ class User {
   constructor(name, password, email) {
     this.#idUser = Functions.createRandomId();
     this.#name = name;
+    this.image =
+      "https://img.freepik.com/fotos-premium/retrato-de-cachorro-saindo-da-lingua_23-2148366828.jpg?w=2000";
+    this.#role = role;
     this.#password = password;
     this.#email = email.toLowerCase();
     this.#followList = [];
@@ -24,8 +29,8 @@ class User {
       name: this.#name,
       password: this.#password,
       email: this.#email,
-      followList: this.#followList
-    }
+      followList: this.#followList,
+    };
   }
 
   get idUser() {
@@ -40,6 +45,10 @@ class User {
     return this.#email;
   }
 
+  get role() {
+    return this.#role;
+  }
+
   get password() {
     return this.#password;
   }
@@ -50,6 +59,10 @@ class User {
 
   set name(newName) {
     this.#name = newName;
+  }
+
+  set role(newRole) {
+    this.#role = newRole;
   }
 
   set password(newPassword) {
