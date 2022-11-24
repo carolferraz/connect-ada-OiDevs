@@ -7,10 +7,7 @@ class DataBase {
   #comments;
 
   constructor() {
-    this.#users =
-      Functions.getLocalStorage("users") === null
-        ? []
-        : Functions.getLocalStorage("users");
+    this.#users = [];
     this.#posts = [];
     this.#comments = [];
   }
@@ -138,8 +135,6 @@ class DataBase {
       ) {
         Functions.setLocalStorage("currentUserInSession", database.users[i]);
         return true;
-      } else {
-        return false;
       }
     }
   }

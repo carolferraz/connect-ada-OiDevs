@@ -27,8 +27,7 @@ function startSession(e) {
   if (database.authenticate(userEmail.value, userPassword.value)) {
     console.log("usuário logado");
   } else {
-    /*userNotFoundAlert.showAlert();*/
-    console.log("usuário inválido");
+    userNotFoundAlert.showAlert();
   }
 }
 
