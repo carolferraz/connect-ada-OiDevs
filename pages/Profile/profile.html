@@ -9,14 +9,18 @@
   </head>
   <body>
     <main></main>
+    <script src="../Feed/script-feed.js" type="module"></script>
     <script type="module">
-      import Header from '../../components/Header.js';
+      import ProfileCard from '../../components/ProfileCard.js';
 
-      const header = new Header();
-      header.addMenuLink('Feed', './feed.html');
-      header.addMenuLink('Perfil', './profile.html', true);
-      header.addMenuLink('Sair', './login.html');
-      header.render();
+      const profileCard = new ProfileCard();
+      profileCard.profileData(
+        '../../assets/profile-photo.png',
+        'Leslie Alexander',
+        'UI Designer',
+        '100'
+      );
+      profileCard.render();
     </script>
   </body>
 </html>
