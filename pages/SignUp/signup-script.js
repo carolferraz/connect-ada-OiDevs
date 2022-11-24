@@ -17,10 +17,6 @@ const emailRegexValidate = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
 
 const successRegisterAlert = new Alert('Usuário registrado com sucesso', '../../assets/success.svg', '#00875F');
 
-const alertCloseBtn = document.getElementById('alert-close-btn');
-
-alertCloseBtn.addEventListener('click', () => successRegisterAlert.hideAlert());
-
 // fim do alert
 
 //inicializando database
@@ -75,18 +71,27 @@ function checkValidation() {
   }
 }
 
+function emailNotExists(email) {
+
+  for (let index = 0; index < database.users.length; index++) {
+    const user = database.users[index];
+    if(user.email === email) {
+      return false
+    }
+  }
+  return true
+}
+
 function resetInputs() {
-  userName.value = ''
-  userPassword.value = ''
-  userEmail.value = ''
   for (let index = 0; index < inputs.length; index++) {
     inputs[index].style.border = '1px solid #8D8D99'
+    inputs[index].value = ''
   }
 }
 
 function registerUser(e) {
   e.preventDefault();
-  if (checkValidation()) {
+  if (checkValidation() && emailNotExists(userEmail.value)) {
     new User(
       userName.value,
       userPassword.value,
@@ -95,6 +100,8 @@ function registerUser(e) {
     Functions.setLocalStorage('users', database.users)
     resetInputs()
     successRegisterAlert.showAlert();
+  } else {
+    console.log('email ja existe')
   }
 }
 

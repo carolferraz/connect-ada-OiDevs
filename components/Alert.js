@@ -24,12 +24,16 @@ export default class Alert {
     this.alertMsg.innerHTML = this.msg;
     this.alertDiv.append(this.successIcon, this.alertMsg, this.alertCloseBtn);
     document.body.append(this.alertDiv);
+
+  this.alertCloseBtn.addEventListener('click', () => this.hideAlert());
+  
   }
 
   showAlert() {
     this.alertDiv.classList.add('show');
     this.alertDiv.classList.add('showAlert');
     this.alertDiv.classList.remove('hide');
+    setTimeout(() => this.hideAlert(), 5000)
   }
 
   hideAlert() {
