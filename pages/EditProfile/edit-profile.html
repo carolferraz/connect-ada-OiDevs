@@ -27,21 +27,33 @@
                 <input type="text" id="userName-edit" minlength="3"> 
               </div>
               <div class="input-wrapper">
+                <label for="role-edit">Cargo</label>
+                <input type="text" id="role-edit" minlength="3"> 
+              </div>
+              <div class="input-wrapper">
                 <label for="userEmail-edit">Email</label>
                 <input type="email" id="userEmail-edit" placeholder="exemplo@exemplo.com.br">
               </div>
               <div class="input-wrapper">
                 <label for="old-password">Senha Antiga</label>
-                <input type="text" id="old-password" placeholder="Digite sua senha" minlength="3"> 
+                <input type="password" id="old-password" placeholder="Digite sua senha" minlength="3"> 
               </div>
               <div class="input-wrapper">
                 <label for="userPassword-edit">Nova Senha</label>
                 <input type="password" id="userPassword-edit" placeholder="Nova senha (min 6 caracteres)" minlength="6" class="required" required>
                 <div class="invalid-msg">
-                  <p>A senha deve ter pelo menos 6 caracteres</p>
+                  <p>Sua nova senha deve ser diferente da antiga</p>
                 </div>
               </div>
-              <button id="signup">Criar conta</button>
+              <div class="input-wrapper">
+                <label for="userPassword-2-edit">Confirmar nova Senha</label>
+                <input type="password" id="userPassword-2-edit" placeholder="Confirme a nova senha" minlength="6" class="required" required>
+                <div class="invalid-msg">
+                  <p>O conteúdo dos dois campos de nova senha devem ser iguais</p>
+                </div>
+              </div>
+              <button id="save-edit-profile">Salvar</button>
+              <button id="delete-account">Excluir conta</button>
           </form>
     </main>
     <script src="./edit-profile.js" type="module"></script>
