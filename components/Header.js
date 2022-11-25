@@ -11,6 +11,18 @@ class Header {
     this.dropdownLinks = [];
     this.header.append(this.nav);
     this.nav.append(this.ul);
+
+    this.logoLink = document.createElement('a');
+    this.logoLink.setAttribute('href', './feed.html');
+    this.logoLink.id = 'header-logo';
+    this.imgLogo = document.createElement('img');
+    this.imgLogo.setAttribute('src', '../../assets/favicon.svg');
+    this.logoText = document.createElement('p')
+    this.logoText.innerHTML = `Connect<span>Ada</span>`
+    this.logoText.id = 'logo-text'
+
+    this.logoLink.append(this.imgLogo, this.logoText);
+    this.nav.append(this.logoLink);
   }
 
   addMenuLink(icon, href, isActive = false) {
@@ -18,21 +30,18 @@ class Header {
   }
 
   addProfileDropdownLink(linkName, href, isActive = false, isDanger = false) {
-    this.dropdownLinks.push({ linkName, href, isActive, isDanger});
+    this.dropdownLinks.push({ linkName, href, isActive, isDanger });
   }
 
   renderMenuLinks() {
-    const logoLink = document.createElement('a');
-    const imgLogo = document.createElement('img');
-
     this.links.forEach(link => {
       const li = document.createElement('li');
       const a = document.createElement('a');
       const icon = document.createElement('img');
-      icon.setAttribute('src', link.icon)
+      icon.setAttribute('src', link.icon);
 
       a.setAttribute('href', link.href);
-      a.append(icon)
+      a.append(icon);
       li.append(a);
       this.ul.append(li);
       if (link.isActive) {
@@ -40,12 +49,8 @@ class Header {
       }
     });
 
-    imgLogo.setAttribute('src', '../../assets/logo.svg');
-    logoLink.setAttribute('href', './feed.html');
-
-    logoLink.append(imgLogo);
-    document.querySelector('main').append(this.header);
-    this.nav.append(logoLink, this.ul);
+    this.nav.append(this.ul);
+    document.body.append(this.header);
   }
 
   renderDropDownMenu(userPic) {
@@ -64,6 +69,10 @@ class Header {
     profileArrow.setAttribute('src', '../../assets/arrow-down.svg');
     dropDownContent.classList.add('dropdown-content');
     dropDownContent.id = 'dropdown-links';
+
+    dropDownBtn.addEventListener('click', () => {
+      dropDownContent.classList.toggle('show');
+    });
 
     this.dropdownLinks.forEach(link => {
       const a = document.createElement('a');
