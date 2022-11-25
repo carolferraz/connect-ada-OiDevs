@@ -497,7 +497,7 @@ nav {
   }
 
   .profileCard {
-    position: absolute;
+    position: relative;
     flex-direction: column;
     max-height: fit-content;
   }
@@ -506,12 +506,6 @@ nav {
     padding: 15px 32px 15px 0px;
     align-items: center;
     text-align: center;
-  }
-}
-
-@media (min-width: 600px) {
-  .profileCard {
-    max-width: 831px;
   }
 }
 
@@ -588,6 +582,10 @@ section#follow-container {
     width: 167px;
     font-size: 16px;
   }
+
+  .profileCard {
+    max-width: 831px;
+  }
 }
 
 /* Feed */
@@ -646,14 +644,12 @@ main#feed {
 .profileCard {
   display: flex;
   background-color: var(--bg-secondary);
-  width: 90%;
   margin: 0 auto;
   border-radius: 8px;
   padding: 35px 50px;
   justify-content: space-between;
-  position: relative;
-  top: 200px;
   z-index: -1;
+  width: 95%;
 }
 
 .profilePhoto {
