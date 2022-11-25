@@ -5,6 +5,7 @@ class DataBase {
   #posts;
   #comments;
 
+
   constructor() {
     this.#users = [];
     this.#posts = [];
