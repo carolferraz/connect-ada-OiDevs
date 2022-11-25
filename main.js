@@ -26,6 +26,7 @@ function startSession(e) {
   e.preventDefault();
   if (database.authenticate(userEmail.value, userPassword.value)) {
     console.log("usuário logado");
+    window.location.href = "./pages/Feed/feed.html";
   } else {
     userNotFoundAlert.showAlert();
   }

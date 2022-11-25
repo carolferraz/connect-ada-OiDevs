@@ -418,6 +418,17 @@ nav {
   box-shadow: 0 0 4px rgb(75, 186, 252, 0.7);
 }
 
+/*Ivina*/
+.sec-edit-profile {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  height: 50vw;
+  margin: 0 auto;
+  justify-content: center;
+}
+/*Ivina*/
+
 @keyframes show-slide {
   0% {
     transform: translateY(-100%);
