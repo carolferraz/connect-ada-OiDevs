@@ -1,12 +1,9 @@
-import Functions from "./Functions.class.mjs";
+import Functions from './Functions.class.mjs';
 
 class DataBase {
   #users;
   #posts;
   #comments;
-  setUsers;
-  setPosts;
-  setComments;
 
   constructor() {
     this.#users = [];
@@ -15,36 +12,43 @@ class DataBase {
   }
 
   initialization() {
-    this.getUsers = Functions.getLocalStorage('users') === null ? [] : Functions.getLocalStorage('users');
+    this.getUsers =
+      Functions.getLocalStorage('users') === null
+        ? []
+        : Functions.getLocalStorage('users');
 
-    this.getPosts = Functions.getLocalStorage('posts') === null ? [] : Functions.getLocalStorage('posts');
+    this.getPosts =
+      Functions.getLocalStorage('posts') === null
+        ? []
+        : Functions.getLocalStorage('posts');
 
-    this.getComments = Functions.getLocalStorage('comments') === null ? [] : Functions.getLocalStorage('comments');
+    this.getComments =
+      Functions.getLocalStorage('comments') === null
+        ? []
+        : Functions.getLocalStorage('comments');
 
     Functions.setLocalStorage('users', this.getUsers);
     Functions.setLocalStorage('posts', this.getPosts);
     Functions.setLocalStorage('comments', this.getComments);
 
-    if(this.getUsers && this.getUsers.length > 0){
+    if (this.getUsers && this.getUsers.length > 0) {
       this.getUsers.forEach(user => {
-        this.addUser(user)
+        this.addUser(user);
       });
     }
 
-    if(this.getPosts && this.getPosts.length > 0){
+    if (this.getPosts && this.getPosts.length > 0) {
       this.getPosts.forEach(post => {
-        this.addPost(post)
+        this.addPost(post);
       });
     }
 
-    if(this.getComments && this.getComments.length > 0){
+    if (this.getComments && this.getComments.length > 0) {
       this.getComments.forEach(comment => {
-        this.addComment(comment)
+        this.addComment(comment);
       });
     }
-    
   }
-
 
   get users() {
     return this.#users;
@@ -71,34 +75,34 @@ class DataBase {
   }
 
   removeUser(idUser) {
-    const index = this.#users.findIndex((element) => element.idUser === idUser);
+    const index = this.#users.findIndex(element => element.idUser === idUser);
     this.#users.splice(index, 1);
     this.removeAllPostsByAuthor(idUser);
     this.removeAllCommentsByAuthor(idUser);
   }
 
   removePost(idPost) {
-    const index = this.#posts.findIndex((element) => element.idPost === idPost);
+    const index = this.#posts.findIndex(element => element.idPost === idPost);
     this.#posts.splice(index, 1);
     this.removeAllCommentsByPost(idPost);
   }
 
   removeComment(idComment) {
     const index = this.#comments.findIndex(
-      (element) => element.idComment === idComment
+      element => element.idComment === idComment
     );
     this.#comments.splice(index, 1);
   }
 
   //remove todos os posts de um mesmo autor
   removeAllPostsByAuthor(idAuthor) {
-    this.#posts.forEach((post) => {
+    this.#posts.forEach(post => {
       if (post.idAuthor === idAuthor) {
         this.removeAllCommentsByPost(post.idPost);
       }
     });
     const newListOfPosts = this.#posts.filter(
-      (posts) => posts.idAuthor !== idAuthor
+      posts => posts.idAuthor !== idAuthor
     );
     this.#posts = newListOfPosts;
   }
@@ -106,14 +110,14 @@ class DataBase {
   //remove todos os comentários de um mesmo autor e me retorna o que é diferente do que eu quero excluir
   removeAllCommentsByAuthor(idAuthor) {
     const newListOfComments = this.#comments.filter(
-      (coment) => coment.idAuthor !== idAuthor
+      coment => coment.idAuthor !== idAuthor
     );
     this.#comments = newListOfComments;
   }
 
   removeAllCommentsByPost(idPost) {
     const newListOfComments = this.#comments.filter(
-      (comment) => comment.idPost !== idPost
+      comment => comment.idPost !== idPost
     );
     this.#comments = newListOfComments;
   }
@@ -128,7 +132,6 @@ class DataBase {
       }
     }
   }
- 
 }
 
 const database = new DataBase();

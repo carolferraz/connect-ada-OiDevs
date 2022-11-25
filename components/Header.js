@@ -11,6 +11,18 @@ class Header {
     this.dropdownLinks = [];
     this.header.append(this.nav);
     this.nav.append(this.ul);
+
+    this.logoLink = document.createElement('a');
+    this.logoLink.setAttribute('href', './feed.html');
+    this.logoLink.id = 'header-logo';
+    this.imgLogo = document.createElement('img');
+    this.imgLogo.setAttribute('src', '../../assets/favicon.svg');
+    this.logoText = document.createElement('p');
+    this.logoText.innerHTML = `Connect<span>Ada</span>`;
+    this.logoText.id = 'logo-text';
+
+    this.logoLink.append(this.imgLogo, this.logoText);
+    this.nav.append(this.logoLink);
   }
 
   addMenuLink(icon, href, isActive = false) {
@@ -22,9 +34,6 @@ class Header {
   }
 
   renderMenuLinks() {
-    const logoLink = document.createElement('a');
-    const imgLogo = document.createElement('img');
-
     this.links.forEach(link => {
       const li = document.createElement('li');
       const a = document.createElement('a');
@@ -40,12 +49,8 @@ class Header {
       }
     });
 
-    imgLogo.setAttribute('src', '../../assets/logo.svg');
-    logoLink.setAttribute('href', './feed.html');
-
-    logoLink.append(imgLogo);
-    document.querySelector('main').append(this.header);
-    this.nav.append(logoLink, this.ul);
+    this.nav.append(this.ul);
+    document.body.append(this.header);
   }
 
   renderDropDownMenu(userPic) {
@@ -64,6 +69,10 @@ class Header {
     profileArrow.setAttribute('src', '../../assets/arrow-down.svg');
     dropDownContent.classList.add('dropdown-content');
     dropDownContent.id = 'dropdown-links';
+
+    dropDownBtn.addEventListener('click', () => {
+      dropDownContent.classList.toggle('show');
+    });
 
     this.dropdownLinks.forEach(link => {
       const a = document.createElement('a');
