@@ -6,7 +6,7 @@ import Header from "../../components/Header.js"
 const header = new Header()
 header.addMenuLink('../../assets/home.svg', "./feed.html")
 header.addMenuLink('../../assets/search.svg', "../Explore/explore.html", true)
-header.addMenuLink('../../assets/new.svg', "./new.html")
+header.addMenuLink('../../assets/new.svg', "../NewPost/new-post.html")
 header.addProfileDropdownLink('Ver perfil', "./profile.html")
 header.addProfileDropdownLink('Editar Perfil', "./edit-profile.html")
 header.addProfileDropdownLink('Seguindo', "./following.html")
