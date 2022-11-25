@@ -505,7 +505,7 @@ main#feed {
   padding-left: 2%;
   padding-right: 2%;
   /* height: 102px; */
-  /* width: 90%; */
+  width: 100%;
   background: #202024;
   border-radius: 8px;
   display: flex;
@@ -521,13 +521,22 @@ main#feed {
   font-size: 14px;
 }
 
-.post-card a {
+.post-card button {
   font-size: 14px;
+  color: var(--text);
   font-weight: 500;
-  /* border: 1px solid #47BAFC; */
+  /* border: 1px solid var(--bg-secondary); */
   border-radius: 8px;
   width: max-content;
   padding: 5px;
+  box-sizing: border-box;
+
+}
+
+button:hover {
+  cursor: pointer;
+  /* border: 1px solid var(--divider);  */
+  /* box-shadow: 0px 0px 10px var(--divider); */
 }
 
 .img-post-card {
@@ -540,4 +549,15 @@ main#feed {
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
+}
+
+.header-post-card {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-card nav {
+  padding: 0px;
+  display: flex;
+  justify-content: space-around;
 }

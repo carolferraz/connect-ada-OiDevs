@@ -1,4 +1,6 @@
 import Header from "../../components/Header.js"
+import PostCard from "../../components/PostCard.js"
+import database from "../../models/DataBase.class.mjs"
 
 //renderizando header
 const header = new Header()
@@ -11,3 +13,8 @@ header.addProfileDropdownLink('Seguindo', "./following.html")
 header.addProfileDropdownLink('Sair', "./login.html", false, true)
 header.renderMenuLinks()
 header.renderDropDownMenu('../../assets/woman.jpg')
+
+database.initialization();
+
+// TESTE DA RENDERIZAÇÃO DE UM POSTCARD
+const post = new PostCard({title: 'Título do Post', content: 'Conteúdo do post'}, 'Natasha');
