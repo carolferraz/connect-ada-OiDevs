@@ -42,7 +42,7 @@ class ProfileCard {
     console.log(this.profile);
     profilePhotoImg.setAttribute('src', this.profile[0].profileImg);
     profileButton.innerHTML =
-      '<img src="/assets/icon-button-profile-card.svg" alt="button"/> Editar seu perfil';
+      '<div class="buttonIcon"></div> Editar seu perfil';
     followers.innerHTML = 'Seguindo';
     profileTitle.innerHTML = this.profile[0].profileName;
     profileProf.innerHTML = this.profile[0].profileProf;

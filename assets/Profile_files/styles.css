@@ -204,6 +204,7 @@ header {
   top: 0;
   right: 0;
   left: 0;
+  overflow: hidden;
 }
 
 nav {
@@ -362,34 +363,12 @@ nav {
     width: 22rem;
     padding: 2rem;
   }
-
-  .profileCard {
-    position: absolute;
-    flex-direction: column;
-    max-height: fit-content;
-  }
-
-  .profileText {
-    padding: 15px 32px 15px 0px;
-    align-items: center;
-    text-align: center;
-  }
-
-  header {
-    overflow: hidden;
-  }
-}
-
-@media (min-width: 600px) {
-  .profileCard {
-    max-width: 831px;
-  }
 }
 
 .profileCard {
   display: flex;
   background-color: var(--bg-secondary);
-  width: 90%;
+  max-width: 831px;
   margin: 0 auto;
   border-radius: 8px;
   padding: 35px 50px;
