@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap");
 
 * {
   margin: 0;
@@ -7,19 +7,19 @@
 }
 
 :root {
-  --text: #C4C4CC;
-  --text-secondary: #8D8D99;
+  --text: #c4c4cc;
+  --text-secondary: #8d8d99;
   --white: #fff;
-  --text-logo: #E1E1E6;
+  --text-logo: #e1e1e6;
   --bg: #121214;
   --bg-secondary: #202024;
   --divider: #323238;
-  --placeholder: #7C7C8A;
-  --primary: #478EBD;
-  --secondary: #47BAFC;
-  --red-danger: #F75A68;
-  --green-success: #00875F;
-  --ff: 'Roboto', sans-serif;
+  --placeholder: #7c7c8a;
+  --primary: #478ebd;
+  --secondary: #47bafc;
+  --red-danger: #f75a68;
+  --green-success: #00875f;
+  --ff: "Roboto", sans-serif;
 }
 
 body {
@@ -29,8 +29,7 @@ body {
   height: 100vh;
   display: grid;
   grid-template-rows: 70px auto;
-  grid-template-areas:
-  "header" "content";
+  grid-template-areas: "header" "content";
 }
 
 a,
@@ -184,7 +183,7 @@ main#index {
 }
 
 .menu a::after {
-  content: '';
+  content: "";
   width: 0%;
   height: 1px;
   background-color: var(--white);
@@ -205,7 +204,7 @@ main#index {
 }
 
 a.active-menu::after {
-  content: '';
+  content: "";
   width: 100%;
   height: 1px;
   background-color: var(--white);
@@ -371,7 +370,8 @@ nav {
 }
 
 @media (max-width: 900px) {
-  main, nav {
+  main,
+  nav {
     padding: 2rem 4rem;
   }
 
@@ -389,7 +389,8 @@ nav {
 }
 
 @media (max-width: 600px) {
-  main, nav {
+  main,
+  nav {
     padding: 1rem;
   }
   #index .form-wrapper {
@@ -441,7 +442,7 @@ section#follow-container {
   height: 102px;
   width: 100%;
   background: #202024;
-  border: 1px solid #C4C4C4;
+  border: 1px solid #c4c4c4;
   border-radius: 8px;
   display: flex;
   justify-content: space-between;
@@ -453,7 +454,7 @@ section#follow-container {
   display: flex;
   gap: 10px;
   align-items: center;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -472,19 +473,18 @@ section#follow-container {
 
 .unfollow-button {
   color: white;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
-  background: #47BAFC;
-  border: 1px solid #47BAFC;
+  background: #47bafc;
+  border: 1px solid #47bafc;
   border-radius: 8px;
   width: 140px;
   height: 49px;
 }
 
-
-@media(min-width: 600px) {
+@media (min-width: 600px) {
   .unfollow-button {
     width: 167px;
     font-size: 16px;
@@ -501,7 +501,7 @@ main#feed {
 }
 
 .post-card {
-  padding: 15px 2%;;
+  padding: 15px 2%;
   padding-left: 2%;
   padding-right: 2%;
   /* height: 102px; */
@@ -514,9 +514,9 @@ main#feed {
 
 .post-text {
   margin-bottom: 10px;
-  padding-bottom: 10px;;
+  padding-bottom: 10px;
   border-bottom: 2px solid #323238;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   line-height: 160%;
   font-size: 14px;
 }
@@ -536,8 +536,70 @@ main#feed {
 }
 
 .user-name {
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
+}
+
+/* COMENTÁRIO CARD */
+.comment-input {
+  display: flex;
+  justify-content: center;
+}
+::placeholder {
+  color: #7c7c8a;
+  line-height: 30px;
+}
+.comment-head {
+  display: flex;
+  justify-content: space-between;
+}
+#text-add-comment {
+  min-width: 750px;
+  max-width: 750px;
+  border: none;
+  background: #121214;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  justify-content: center;
+}
+
+.comment-card {
+  display: flex;
+  margin: 10px 40px;
+}
+
+.comment-content {
+  width: 600px;
+  overflow-wrap: break-word;
+}
+
+.comment {
+  width: 100%;
+  justify-content: space-between;
+  margin-left: 16px;
+  background-color: #29292e;
+  border-radius: 9px;
+  padding: 16px;
+  display: flex;
+}
+
+.info-text {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 160%;
+  color: #8d8d99;
+  margin: 2px 0px 15px 0px;
+}
+
+#btn-trash {
+  cursor: pointer;
+}
+
+.reaction {
+  margin: 16px 18px;
 }
