@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap');
 
 * {
   margin: 0;
@@ -20,11 +20,7 @@
   --secondary: #47bafc;
   --red-danger: #f75a68;
   --green-success: #00875f;
-<<<<<<< HEAD
   --ff: 'Roboto', sans-serif;
-=======
-  --ff: "Roboto", sans-serif;
->>>>>>> 258eb0f590a5707ef0c21d71dd826a7de5c26309
 }
 
 body {
@@ -34,11 +30,7 @@ body {
   height: 100vh;
   display: grid;
   grid-template-rows: 70px auto;
-<<<<<<< HEAD
   grid-template-areas: 'header' 'content';
-=======
-  grid-template-areas: "header" "content";
->>>>>>> 258eb0f590a5707ef0c21d71dd826a7de5c26309
 }
 
 a,
@@ -192,7 +184,7 @@ main#index {
 }
 
 .menu a::after {
-  content: "";
+  content: '';
   width: 0%;
   height: 1px;
   background-color: var(--white);
@@ -213,7 +205,7 @@ main#index {
 }
 
 a.active-menu::after {
-  content: "";
+  content: '';
   width: 100%;
   height: 1px;
   background-color: var(--white);
@@ -575,7 +567,7 @@ section#follow-container {
   display: flex;
   gap: 10px;
   align-items: center;
-  font-family: "Roboto";
+  font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -594,7 +586,7 @@ section#follow-container {
 
 .unfollow-button {
   color: white;
-  font-family: "Roboto";
+  font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -641,7 +633,7 @@ main#feed {
   margin-bottom: 10px;
   padding-bottom: 10px;
   border-bottom: 2px solid #323238;
-  font-family: "Roboto";
+  font-family: 'Roboto';
   line-height: 160%;
   font-size: 14px;
 }
@@ -661,24 +653,22 @@ main#feed {
 }
 
 .user-name {
-  font-family: "Roboto";
+  font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
 }
-<<<<<<< HEAD
-
-/* Profile */
 
 .profileCard {
   display: flex;
   background-color: var(--bg-secondary);
+  max-width: 831px;
   margin: 0 auto;
   border-radius: 8px;
   padding: 35px 50px;
   justify-content: space-between;
-  z-index: -1;
-  width: 95%;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
 }
 
 .profilePhoto {
@@ -686,9 +676,8 @@ main#feed {
   height: 156px;
   border-radius: 8px;
   border: solid 2px var(--secondary);
+  transition: 0.2s ease-in-out;
   padding: 12.18px;
-  justify-content: center;
-  align-items: center;
 }
 
 .profilePhotoImg {
@@ -706,7 +695,6 @@ main#feed {
 
 .rightText {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
 }
 
@@ -732,8 +720,6 @@ main#feed {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: auto;
-  align-items: center;
 }
 
 .followersNumber {
@@ -761,9 +747,9 @@ main#feed {
 }
 
 .buttonIcon {
-  background-image: url('/assets/icon-button-profile-card.svg');
   width: 16px;
   height: 16px;
+  background-image: url('../assets/icon-button-profile-card.svg');
 }
 
 .profileButton:hover {
@@ -774,5 +760,3 @@ main#feed {
 .profileButton:hover .buttonIcon {
   filter: contrast(3) brightness(0) invert(1) grayscale(1);
 }
-=======
->>>>>>> 258eb0f590a5707ef0c21d71dd826a7de5c26309
