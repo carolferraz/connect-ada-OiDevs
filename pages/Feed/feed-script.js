@@ -1,4 +1,7 @@
 import Header from "../../components/Header.js"
+import User from '../../models/User.class.mjs';
+import Functions from '../../models/Functions.class.mjs';
+import database from '../../models/DataBase.class.mjs';
 
 //renderizando header
 const header = new Header()
