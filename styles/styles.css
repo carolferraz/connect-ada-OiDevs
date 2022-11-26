@@ -13,7 +13,7 @@
   --text-logo: #e1e1e6;
   --bg: #121214;
   --bg-secondary: #202024;
-  --border-line: #C4C4C4;
+  --border-line: #c4c4c4;
   --divider: #323238;
   --placeholder: #7c7c8a;
   --primary: #478ebd;
@@ -373,11 +373,11 @@ nav {
   color: var(--text);
 }
 
-.name-profile{
+.name-profile {
   font-weight: bold;
 }
 
-.align-follow-btn{
+.align-follow-btn {
   display: flex;
   align-items: center;
   padding-right: 10px;
@@ -409,11 +409,11 @@ nav {
   padding: 16px 24px 14px;
   gap: 5px;
   max-height: 45px;
-  color:var(--secondary);
+  color: var(--secondary);
   font-size: 14px;
 }
 
-.unfollow-button:hover{
+.unfollow-button:hover {
   cursor: pointer;
   box-shadow: 0 0 4px rgb(75, 186, 252, 0.7);
 }
@@ -624,7 +624,7 @@ main#feed {
 }
 
 /* COMENTÁRIO CARD */
-.vrau{
+.comment-field {
   display: flex;
   flex-direction: column;
   align-self: center;
@@ -655,7 +655,10 @@ main#feed {
   line-height: 30px;
 }
 
-.open-comments, .comment-head {
+#add-comment,
+#open-comments,
+.comment-head {
+  color: var(--text);
   display: flex;
   justify-content: space-between;
   /* border: 1px solid rgb(210, 22, 144); */
