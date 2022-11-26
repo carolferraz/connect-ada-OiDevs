@@ -566,6 +566,7 @@ main#feed {
   font-weight: 700;
   font-size: 16px;
   color: var(--text);
+  cursor: pointer;
 }
 
 ::placeholder {
@@ -629,5 +630,5 @@ textarea {
 }
 
 .reaction {
-  margin: 16px 18px;
+  margin: 5px 18px 12px;
 }
