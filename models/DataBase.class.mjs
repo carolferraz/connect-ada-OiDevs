@@ -1,10 +1,10 @@
 import Functions from "./Functions.class.mjs";
 
 class DataBase {
+  #currentUserInSession;
   #users;
   #posts;
   #comments;
-
 
   constructor() {
     this.#users = [];
@@ -13,36 +13,43 @@ class DataBase {
   }
 
   initialization() {
-    this.getUsers = Functions.getLocalStorage('users') === null ? [] : Functions.getLocalStorage('users');
+    this.getUsers =
+      Functions.getLocalStorage("users") === null
+        ? []
+        : Functions.getLocalStorage("users");
 
-    this.getPosts = Functions.getLocalStorage('posts') === null ? [] : Functions.getLocalStorage('posts');
+    this.getPosts =
+      Functions.getLocalStorage("posts") === null
+        ? []
+        : Functions.getLocalStorage("posts");
 
-    this.getComments = Functions.getLocalStorage('comments') === null ? [] : Functions.getLocalStorage('comments');
+    this.getComments =
+      Functions.getLocalStorage("comments") === null
+        ? []
+        : Functions.getLocalStorage("comments");
 
-    Functions.setLocalStorage('users', this.getUsers);
-    Functions.setLocalStorage('posts', this.getPosts);
-    Functions.setLocalStorage('comments', this.getComments);
+    Functions.setLocalStorage("users", this.getUsers);
+    Functions.setLocalStorage("posts", this.getPosts);
+    Functions.setLocalStorage("comments", this.getComments);
 
-    if(this.getUsers && this.getUsers.length > 0){
-      this.getUsers.forEach(user => {
-        this.addUser(user)
+    if (this.getUsers && this.getUsers.length > 0) {
+      this.getUsers.forEach((user) => {
+        this.addUser(user);
       });
     }
 
-    if(this.getPosts && this.getPosts.length > 0){
-      this.getPosts.forEach(post => {
-        this.addPost(post)
+    if (this.getPosts && this.getPosts.length > 0) {
+      this.getPosts.forEach((post) => {
+        this.addPost(post);
       });
     }
 
-    if(this.getComments && this.getComments.length > 0){
-      this.getComments.forEach(comment => {
-        this.addComment(comment)
+    if (this.getComments && this.getComments.length > 0) {
+      this.getComments.forEach((comment) => {
+        this.addComment(comment);
       });
     }
-    
   }
-
 
   get users() {
     return this.#users;
@@ -56,8 +63,25 @@ class DataBase {
     return this.#comments;
   }
 
+  get currentUserInSession() {
+    return Functions.getLocalStorage("currentUserInSession");
+  }
+
+  set currentUserInSession(changeDataCurrentUser) {
+    this.#currentUserInSession = changeDataCurrentUser;
+    Functions.setLocalStorage("currentUserInSession", changeDataCurrentUser);
+  }
+
   addUser(user) {
     this.#users.push(user);
+  }
+
+  set users(newDataOfUsers) {
+    const index = this.#users.findIndex(
+      (element) => element.id === newDataOfUsers.id
+    );
+    this.#users[index] = newDataOfUsers;
+    Functions.setLocalStorage("users", this.#users);
   }
 
   addPost(post) {
@@ -115,13 +139,14 @@ class DataBase {
     );
     this.#comments = newListOfComments;
   }
-
+  //PRECISAMOS MUDAR ISSO, PQ ESTAMOS CHAMANDO DATABASE.USERS DENTRO DA CLASSE DATABASE
   authenticate(email, password) {
     for (let i = 0; i < database.users.length; i++) {
       if (
         email === database.users[i].email &&
         password === database.users[i].password
       ) {
+        Functions.setLocalStorage("currentUserInSession", database.users[i]);
         return true;
       }
     }
