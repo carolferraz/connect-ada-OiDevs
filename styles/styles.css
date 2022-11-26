@@ -507,6 +507,15 @@ nav {
     align-items: center;
     text-align: center;
   }
+
+  .profileButton:hover {
+    background-color: var(--secondary);
+    color: var(--white);
+  }
+
+  .profileButton:hover .buttonIcon {
+    filter: contrast(3) brightness(0) invert(1) grayscale(1);
+  }
 }
 
 /* Following */
