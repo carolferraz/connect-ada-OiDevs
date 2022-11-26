@@ -38,7 +38,7 @@ class Functions {
   }
 
   isEmailValidate(index) {
-    if (this.emailRegexValidate.test(inputs[index].value)) {
+    if (this.emailRegexValidate.test(this.inputs[index].value)) {
       this.acceptedInput(index);
       return true;
     } else {
@@ -48,7 +48,7 @@ class Functions {
   }
 
   isPasswordValidate(index) {
-    if (inputs[index].value.length < 6) {
+    if (this.inputs[index].value.length < 6) {
       this.errorInvalidInput(index);
       return false;
     } else {

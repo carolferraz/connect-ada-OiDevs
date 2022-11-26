@@ -27,54 +27,16 @@ const emailAlreadyExistsAlert = new Alert(
   '#F75A68'
 );
 
-// fim do alerts
+// fim dos alerts
 
 //inicializando database
 database.initialization();
 
 //funções específicas da página
-function errorInvalidInput(index) {
-  inputs[index].style.border = "1px solid #F75A68";
-  inputErrorMsgs[index].style.display = "block";
-}
-
-function acceptedInput(index) {
-  inputs[index].style.border = "1px solid #00875F";
-  inputErrorMsgs[index].style.display = "none";
-}
-
-function isNameValidate(index) {
-  if (inputs[index].value.length < 3) {
-    errorInvalidInput(index);
-    return false;
-  } else {
-    acceptedInput(index);
-    return true;
-  }
-}
-
-function isEmailValidate(index) {
-  if (emailRegexValidate.test(inputs[index].value)) {
-    acceptedInput(index);
-    return true;
-  } else {
-    errorInvalidInput(index);
-    return false;
-  }
-}
-
-function isPasswordValidate(index) {
-  if (inputs[index].value.length < 6) {
-    errorInvalidInput(index);
-    return false;
-  } else {
-    acceptedInput(index);
-    return true;
-  }
-}
+const functions = new Functions()
 
 function checkValidation() {
-  if ((isNameValidate(0) === isEmailValidate(1)) === isPasswordValidate(2)) {
+  if ((functions.isNameValidate(0) && functions.isEmailValidate(1)) && functions.isPasswordValidate(2)) {
     return true;
   } else {
     return false;
@@ -105,13 +67,15 @@ function registerUser(e) {
     Functions.setLocalStorage('users', database.users);
     resetInputs();
     successRegisterAlert.showAlert();
-  } else {
+  } 
+
+  if(!emailNotExists(userEmail.value)) {
     emailAlreadyExistsAlert.showAlert();
   }
+  
 }
 
-alertCloseBtn.addEventListener("click", () => successRegisterAlert.hideAlert());
-userName.addEventListener("input", () => isNameValidate(0));
-userEmail.addEventListener("input", () => isEmailValidate(1));
-userPassword.addEventListener("input", () => isPasswordValidate(2));
+userName.addEventListener("input", () => functions.isNameValidate(0));
+userEmail.addEventListener("input", () => functions.isEmailValidate(1));
+userPassword.addEventListener("input", () => functions.isPasswordValidate(2));
 signupBtn.addEventListener("click", registerUser);
