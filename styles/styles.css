@@ -464,7 +464,6 @@ nav {
 
 @media (max-width: 900px) {
   main,
- 
   nav {
     padding: 2rem 4rem;
   }
@@ -661,7 +660,6 @@ main#feed {
   font-size: 16px;
 }
 
-
 .profileCard {
   display: flex;
   background-color: var(--bg-secondary);
@@ -747,6 +745,7 @@ main#feed {
   font-size: 16px;
   justify-content: space-evenly;
   align-items: center;
+  cursor: pointer;
 }
 
 .buttonIcon {
@@ -762,10 +761,10 @@ main#feed {
 
 .profileButton:hover .buttonIcon {
   filter: contrast(3) brightness(0) invert(1) grayscale(1);
-
+}
 
 /* COMENTÁRIO CARD */
-.all-comments{
+.all-comments {
   display: flex;
   flex-direction: column;
   align-self: center;
@@ -796,7 +795,8 @@ main#feed {
   line-height: 30px;
 }
 
-.open-comments, .comment-head {
+.open-comments,
+.comment-head {
   display: flex;
   justify-content: space-between;
   /* border: 1px solid rgb(210, 22, 144); */
