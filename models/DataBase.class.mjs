@@ -14,7 +14,6 @@ class DataBase {
 
   initialization() {
     this.getUsers =
-<<<<<<< HEAD
       Functions.getLocalStorage('users') === null
         ? []
         : Functions.getLocalStorage('users');
@@ -28,52 +27,25 @@ class DataBase {
       Functions.getLocalStorage('comments') === null
         ? []
         : Functions.getLocalStorage('comments');
-=======
-      Functions.getLocalStorage("users") === null
-        ? []
-        : Functions.getLocalStorage("users");
 
-    this.getPosts =
-      Functions.getLocalStorage("posts") === null
-        ? []
-        : Functions.getLocalStorage("posts");
-
-    this.getComments =
-      Functions.getLocalStorage("comments") === null
-        ? []
-        : Functions.getLocalStorage("comments");
->>>>>>> 258eb0f590a5707ef0c21d71dd826a7de5c26309
-
-    Functions.setLocalStorage("users", this.getUsers);
-    Functions.setLocalStorage("posts", this.getPosts);
-    Functions.setLocalStorage("comments", this.getComments);
+    Functions.setLocalStorage('users', this.getUsers);
+    Functions.setLocalStorage('posts', this.getPosts);
+    Functions.setLocalStorage('comments', this.getComments);
 
     if (this.getUsers && this.getUsers.length > 0) {
-<<<<<<< HEAD
       this.getUsers.forEach(user => {
-=======
-      this.getUsers.forEach((user) => {
->>>>>>> 258eb0f590a5707ef0c21d71dd826a7de5c26309
         this.addUser(user);
       });
     }
 
     if (this.getPosts && this.getPosts.length > 0) {
-<<<<<<< HEAD
       this.getPosts.forEach(post => {
-=======
-      this.getPosts.forEach((post) => {
->>>>>>> 258eb0f590a5707ef0c21d71dd826a7de5c26309
         this.addPost(post);
       });
     }
 
     if (this.getComments && this.getComments.length > 0) {
-<<<<<<< HEAD
       this.getComments.forEach(comment => {
-=======
-      this.getComments.forEach((comment) => {
->>>>>>> 258eb0f590a5707ef0c21d71dd826a7de5c26309
         this.addComment(comment);
       });
     }
@@ -92,12 +64,12 @@ class DataBase {
   }
 
   get currentUserInSession() {
-    return Functions.getLocalStorage("currentUserInSession");
+    return Functions.getLocalStorage('currentUserInSession');
   }
 
   set currentUserInSession(changeDataCurrentUser) {
     this.#currentUserInSession = changeDataCurrentUser;
-    Functions.setLocalStorage("currentUserInSession", changeDataCurrentUser);
+    Functions.setLocalStorage('currentUserInSession', changeDataCurrentUser);
   }
 
   addUser(user) {
@@ -106,10 +78,10 @@ class DataBase {
 
   set users(newDataOfUsers) {
     const index = this.#users.findIndex(
-      (element) => element.id === newDataOfUsers.id
+      element => element.id === newDataOfUsers.id
     );
     this.#users[index] = newDataOfUsers;
-    Functions.setLocalStorage("users", this.#users);
+    Functions.setLocalStorage('users', this.#users);
   }
 
   addPost(post) {
@@ -174,7 +146,7 @@ class DataBase {
         email === database.users[i].email &&
         password === database.users[i].password
       ) {
-        Functions.setLocalStorage("currentUserInSession", database.users[i]);
+        Functions.setLocalStorage('currentUserInSession', database.users[i]);
         return true;
       }
     }
