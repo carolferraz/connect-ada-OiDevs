@@ -505,7 +505,7 @@ main#feed {
   padding-left: 2%;
   padding-right: 2%;
   /* height: 102px; */
-  /* width: 70%; */
+  width: 70%;
   background: #202024;
   border-radius: 8px;
   display: flex;
@@ -543,11 +543,17 @@ main#feed {
 }
 
 /* COMENTÁRIO CARD */
+.vrau{
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  /* border: 1px solid pink; */
+}
+
 .comment-input {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
-  margin-bottom: 60px;
+  margin-bottom: 20px;
 }
 
 .comment-button {
@@ -566,15 +572,11 @@ main#feed {
   color: var(--placeholder);
   line-height: 30px;
 }
-.vrau {
-  /* border: 1px solid red; */
-  width: fit-content;
-  align-self: center;
-}
+
 .comment-head {
   display: flex;
   justify-content: space-between;
-  /* border: 1px solid red; */
+  /* border: 1px solid rgb(210, 22, 144); */
 }
 
 .open-comments{
@@ -584,22 +586,21 @@ main#feed {
 }
 
 textarea {
-  min-width: 800px;
-  max-width: 800px;
+  min-width: 100%;
+  max-width: 100%;
   border: none;
   background: var(--bg);
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   border-radius: 8px;
-  justify-content: center;
   color: var(--text);
+  margin: 5px 0px;
 }
 
 .comment-card {
   /* border: 1px solid red; */
   display: flex;
-  justify-content: center;
-  margin: 10px 40px;
+  justify-content: space-around;
 }
 
 .comment-content {
@@ -608,13 +609,14 @@ textarea {
 }
 
 .comment {
-  width: 100%;
-  justify-content: space-between;
+  width: fit-content;
+  /* justify-content: space-between; */
   margin-left: 16px;
   background-color: var(--bg);
   border-radius: 9px;
   padding: 16px;
   display: flex;
+  /* border: 1px solid aqua; */
 }
 
 .info-text {
