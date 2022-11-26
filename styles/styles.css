@@ -573,16 +573,11 @@ main#feed {
   line-height: 30px;
 }
 
-.comment-head {
+.open-comments, .comment-head {
   display: flex;
   justify-content: space-between;
   /* border: 1px solid rgb(210, 22, 144); */
-}
-
-.open-comments{
-  font-weight: 700;
-  font-size: 17px !important;
-  color: var(--text-logo);
+  font-size: 16px !important;
 }
 
 textarea {
