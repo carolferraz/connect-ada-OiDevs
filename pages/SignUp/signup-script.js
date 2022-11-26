@@ -1,15 +1,15 @@
-import User from '../../models/User.class.mjs';
-import Functions from '../../models/Functions.class.mjs';
-import Alert from '../../components/Alert.js';
-import database from '../../models/DataBase.class.mjs';
+import User from "../../models/User.class.mjs";
+import Functions from "../../models/Functions.class.mjs";
+import Alert from "../../components/Alert.js";
+import database from "../../models/DataBase.class.mjs";
 
-const userName = document.getElementById('userName');
-const userEmail = document.getElementById('userEmail');
-const userPassword = document.getElementById('userPassword');
-const signupBtn = document.getElementById('signup');
+const userName = document.getElementById("userName");
+const userEmail = document.getElementById("userEmail");
+const userPassword = document.getElementById("userPassword");
+const signupBtn = document.getElementById("signup");
 
-const inputs = document.querySelectorAll('.required');
-const inputErrorMsgs = document.querySelectorAll('.invalid-msg');
+const inputs = document.querySelectorAll(".required");
+const inputErrorMsgs = document.querySelectorAll(".invalid-msg");
 
 const emailRegexValidate = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
 
@@ -34,13 +34,13 @@ database.initialization();
 
 //funções específicas da página
 function errorInvalidInput(index) {
-  inputs[index].style.border = '1px solid #F75A68';
-  inputErrorMsgs[index].style.display = 'block';
+  inputs[index].style.border = "1px solid #F75A68";
+  inputErrorMsgs[index].style.display = "block";
 }
 
 function acceptedInput(index) {
-  inputs[index].style.border = '1px solid #00875F';
-  inputErrorMsgs[index].style.display = 'none';
+  inputs[index].style.border = "1px solid #00875F";
+  inputErrorMsgs[index].style.display = "none";
 }
 
 function isNameValidate(index) {
@@ -110,7 +110,8 @@ function registerUser(e) {
   }
 }
 
-userName.addEventListener('input', () => isNameValidate(0));
-userEmail.addEventListener('input', () => isEmailValidate(1));
-userPassword.addEventListener('input', () => isPasswordValidate(2));
-signupBtn.addEventListener('click', registerUser);
+alertCloseBtn.addEventListener("click", () => successRegisterAlert.hideAlert());
+userName.addEventListener("input", () => isNameValidate(0));
+userEmail.addEventListener("input", () => isEmailValidate(1));
+userPassword.addEventListener("input", () => isPasswordValidate(2));
+signupBtn.addEventListener("click", registerUser);
