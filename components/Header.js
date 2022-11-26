@@ -17,9 +17,9 @@ class Header {
     this.logoLink.id = 'header-logo';
     this.imgLogo = document.createElement('img');
     this.imgLogo.setAttribute('src', '../../assets/favicon.svg');
-    this.logoText = document.createElement('p')
-    this.logoText.innerHTML = `Connect<span>Ada</span>`
-    this.logoText.id = 'logo-text'
+    this.logoText = document.createElement('p');
+    this.logoText.innerHTML = `Connect<span>Ada</span>`;
+    this.logoText.id = 'logo-text';
 
     this.logoLink.append(this.imgLogo, this.logoText);
     this.nav.append(this.logoLink);
