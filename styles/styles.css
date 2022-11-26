@@ -762,7 +762,7 @@ main#feed {
 
 .profileButton:hover .buttonIcon {
   filter: contrast(3) brightness(0) invert(1) grayscale(1);
-
+}
 
 /* COMENTÁRIO CARD */
 .all-comments{

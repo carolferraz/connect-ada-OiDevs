@@ -3,6 +3,10 @@ class Header {
   dropdownLinks;
 
   constructor() {
+    this.render();
+  }
+
+  render() {
     this.header = document.createElement('header');
     this.nav = document.createElement('nav');
     this.ul = document.createElement('ul');
