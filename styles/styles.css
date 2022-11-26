@@ -13,6 +13,7 @@
   --text-logo: #e1e1e6;
   --bg: #121214;
   --bg-secondary: #202024;
+  --border-line: #C4C4C4;
   --divider: #323238;
   --placeholder: #7c7c8a;
   --primary: #478ebd;
@@ -335,6 +336,86 @@ nav {
 
 #alert-div button {
   cursor: pointer;
+}
+
+/* Explore page */
+
+.follower {
+  width: auto;
+  border-radius: 8px;
+  border: 1px solid var(--border-line);
+  background: var(--bg-secondary);
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 23px;
+}
+
+.profile-follower {
+  display: flex;
+  align-content: center;
+  padding: 10px;
+  min-width: 200px;
+  max-width: 500px;
+}
+
+.img-user {
+  border-radius: 8px;
+  border: 2px solid var(--border-line);
+  padding: 2px;
+}
+
+.text-profile {
+  padding-left: 10px;
+  align-self: center;
+  font: var(--ff);
+  font-size: 12px;
+  color: var(--text);
+}
+
+.name-profile{
+  font-weight: bold;
+}
+
+.align-follow-btn{
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+}
+
+.follow-btn {
+  background: var(--secondary);
+  border: 1px solid var(--secondary);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 24px 14px;
+  gap: 5px;
+  max-height: 45px;
+  color: var(--white);
+  font-size: 14px;
+}
+
+.unfollow-btn {
+  background: var(--bg-secondary);
+  border: 1px solid var(--secondary);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 24px 14px;
+  gap: 5px;
+  max-height: 45px;
+  color:var(--secondary);
+  font-size: 14px;
+}
+
+.unfollow-button:hover{
+  cursor: pointer;
+  box-shadow: 0 0 4px rgb(75, 186, 252, 0.7);
 }
 
 @keyframes show-slide {
