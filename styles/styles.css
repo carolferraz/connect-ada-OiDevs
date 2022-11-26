@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap");
 
 * {
   margin: 0;
@@ -7,20 +7,20 @@
 }
 
 :root {
-  --text: #C4C4CC;
-  --text-secondary: #8D8D99;
+  --text: #c4c4cc;
+  --text-secondary: #8d8d99;
   --white: #fff;
-  --text-logo: #E1E1E6;
+  --text-logo: #e1e1e6;
   --bg: #121214;
   --bg-secondary: #202024;
-  --border-line: #C4C4C4;
+  --border-line: #c4c4c4;
   --divider: #323238;
-  --placeholder: #7C7C8A;
-  --primary: #478EBD;
-  --secondary: #47BAFC;
-  --red-danger: #F75A68;
-  --green-success: #00875F;
-  --ff: 'Roboto', sans-serif;
+  --placeholder: #7c7c8a;
+  --primary: #478ebd;
+  --secondary: #47bafc;
+  --red-danger: #f75a68;
+  --green-success: #00875f;
+  --ff: "Roboto", sans-serif;
 }
 
 body {
@@ -30,8 +30,7 @@ body {
   height: 100vh;
   display: grid;
   grid-template-rows: 70px auto;
-  grid-template-areas:
-  "header" "content";
+  grid-template-areas: "header" "content";
 }
 
 a,
@@ -209,7 +208,7 @@ main#index {
 }
 
 .menu a::after {
-  content: '';
+  content: "";
   width: 0%;
   height: 1px;
   background-color: var(--white);
@@ -230,7 +229,7 @@ main#index {
 }
 
 a.active-menu::after {
-  content: '';
+  content: "";
   width: 100%;
   height: 1px;
   background-color: var(--white);
@@ -398,11 +397,11 @@ nav {
   color: var(--text);
 }
 
-.name-profile{
+.name-profile {
   font-weight: bold;
 }
 
-.align-follow-btn{
+.align-follow-btn {
   display: flex;
   align-items: center;
   padding-right: 10px;
@@ -434,14 +433,25 @@ nav {
   padding: 16px 24px 14px;
   gap: 5px;
   max-height: 45px;
-  color:var(--secondary);
+  color: var(--secondary);
   font-size: 14px;
 }
 
-.unfollow-button:hover{
+.unfollow-button:hover {
   cursor: pointer;
   box-shadow: 0 0 4px rgb(75, 186, 252, 0.7);
 }
+
+/*Ivina*/
+.sec-edit-profile {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  height: 50vw;
+  margin: 0 auto;
+  justify-content: center;
+}
+/*Ivina*/
 
 @keyframes show-slide {
   0% {
@@ -453,6 +463,75 @@ nav {
   }
 }
 
+@keyframes hide-slide {
+  0% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(-200%);
+  }
+}
+
+@keyframes top-down {
+  0% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 900px) {
+  main,
+ 
+  nav {
+    padding: 2rem 4rem;
+  }
+
+  main#index .logo {
+    display: none;
+  }
+
+  main#index {
+    display: block;
+  }
+
+  #index section {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  main,
+  nav {
+    padding: 1rem;
+  }
+  #index .form-wrapper {
+    width: 22rem;
+    padding: 2rem;
+  }
+
+  #logo-text {
+    display: none;
+  }
+
+  .menu {
+    gap: 1rem;
+  }
+
+  .menu img {
+    width: 1.6rem;
+  }
+
+  .dropbtn .user-img {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+}
 
 /* Following */
 
@@ -480,7 +559,7 @@ section#follow-container {
   height: 102px;
   width: 100%;
   background: #202024;
-  border: 1px solid #C4C4C4;
+  border: 1px solid #c4c4c4;
   border-radius: 8px;
   display: flex;
   justify-content: space-between;
@@ -492,7 +571,7 @@ section#follow-container {
   display: flex;
   gap: 10px;
   align-items: center;
-  font-family: 'Roboto';
+  font-family: var(--ff);
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -511,19 +590,18 @@ section#follow-container {
 
 .unfollow-button {
   color: white;
-  font-family: 'Roboto';
+  font-family: var(--ff);
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
-  background: #47BAFC;
-  border: 1px solid #47BAFC;
+  background: #47bafc;
+  border: 1px solid #47bafc;
   border-radius: 8px;
   width: 140px;
   height: 49px;
 }
 
-
-@media(min-width: 600px) {
+@media (min-width: 600px) {
   .unfollow-button {
     width: 167px;
     font-size: 16px;
@@ -540,11 +618,11 @@ main#feed {
 }
 
 .post-card {
-  padding: 15px 2%;;
+  padding: 15px 2%;
   padding-left: 2%;
   padding-right: 2%;
   /* height: 102px; */
-  /* width: 90%; */
+  width: 70%;
   background: #202024;
   border-radius: 8px;
   display: flex;
@@ -553,9 +631,9 @@ main#feed {
 
 .post-text {
   margin-bottom: 10px;
-  padding-bottom: 10px;;
+  padding-bottom: 10px;
   border-bottom: 2px solid #323238;
-  font-family: 'Roboto';
+  font-family: var(--ff);
   line-height: 160%;
   font-size: 14px;
 }
@@ -575,11 +653,103 @@ main#feed {
 }
 
 .user-name {
-  font-family: 'Roboto';
+  font-family: var(--ff);
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
 }
+
+/* COMENTÁRIO CARD */
+.all-comments{
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  border: 1px solid pink;
+}
+
+.comment-input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.comment-button {
+  background-color: var(--primary);
+  align-self: flex-end;
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 8px;
+  font-family: var(--ff);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--text);
+  cursor: pointer;
+}
+
+::placeholder {
+  color: var(--placeholder);
+  line-height: 30px;
+}
+
+.open-comments, .comment-head {
+  display: flex;
+  justify-content: space-between;
+  /* border: 1px solid rgb(210, 22, 144); */
+  font-size: 16px !important;
+}
+
+textarea {
+  min-width: 100%;
+  max-width: 100%;
+  border: none;
+  background: var(--bg);
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  color: var(--text);
+  margin: 5px 0px;
+}
+
+.comment-card {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: space-around;
+}
+
+.comment-content {
+  width: 600px;
+  overflow-wrap: break-word;
+}
+
+.comment {
+  width: fit-content;
+  /* justify-content: space-between; */
+  margin-left: 16px;
+  background-color: var(--bg);
+  border-radius: 9px;
+  padding: 16px;
+  display: flex;
+  /* border: 1px solid aqua; */
+}
+
+.info-text {
+  font-family: var(--ff);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 160%;
+  color: var(--text-secondary);
+  margin: 2px 0px 15px 0px;
+}
+
+#btn-trash {
+  cursor: pointer;
+}
+
+.reaction {
+  margin: 5px 18px 12px;
+}
+
 
 /* New post */
 
