@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edição de Perfil</title>
+    <link rel="stylesheet" href="../../styles/styles.css" />
+    <link
+      rel="shortcut icon"
+      href="../../assets/favicon.svg"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <main>
+       <section class="sec-edit-profile">
+        <div class="form-wrapper">
+          <form class="needs-validation">
+              <legend>Edite seu Perfil</legend>
+              <div class="input-wrapper">
+                <label for="img-edit">Imagem do Perfil</label>
+                <input type="text" id="img-edit" class="required" minlength="3">
+                <div class="invalid-msg">
+                  <p>O endreço deve ter mais que 3 caracteres</p>
+                </div>
+              </div>
+              <div class="input-wrapper">
+                <label for="userName-edit">Nome</label>
+                <input type="text" id="userName-edit" class="required" minlength="3"> 
+                <div class="invalid-msg">
+                  <p>O nome deve ser maior que 3 caracteres</p>
+                </div>
+              </div>
+              <div class="input-wrapper">
+                <label for="role-edit">Cargo</label>
+                <input type="text" id="role-edit" class="required" minlength="3"> 
+              </div>
+              <div class="input-wrapper">
+                <label for="userEmail-edit">Email</label>
+                <input type="email" id="userEmail-edit" class="required" placeholder="exemplo@exemplo.com.br">
+                <div class="invalid-msg">
+                  <p>Digite um e-mail válido</p>
+                </div>
+              </div>
+              <div class="input-wrapper">
+                <label for="old-password">Senha Antiga</label>
+                <input type="password" id="old-password" class="required" placeholder="Digite sua senha" minlength="3"> 
+                <div class="invalid-msg">
+                  <p>A senha não confere</p>
+                </div>
+              </div>
+              <div class="input-wrapper">
+                <label for="userPassword-edit">Nova Senha</label>
+                <input type="password" id="userPassword-edit" placeholder="Nova senha (min 6 caracteres)" minlength="6" class="required" required>
+                <div class="invalid-msg">
+                  <p>A senha deve ter pelo menos 6 caracteres</p>
+                </div>
+              </div>
+              <div class="input-wrapper">
+                <label for="userPassword-2-edit">Confirmar nova Senha</label>
+                <input type="password" id="userPassword-2-edit" placeholder="Confirme a nova senha" minlength="6" class="required" required>
+                <div class="invalid-msg">
+                  <p>O conteúdo dos dois campos de nova senha devem ser iguais</p>
+                </div>
+              </div>
+              <button id="save-edit-profile">Salvar</button>
+              <button id="delete-account">Excluir conta</button>
+          </form>
+    </main>
+    <script src="./edit-profile.js" type="module"></script>
+  </body>
+</html>

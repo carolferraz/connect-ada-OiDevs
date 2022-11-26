@@ -5,13 +5,17 @@ import Post from "./Post.class.mjs";
 class User {
   #idUser;
   #name;
+  image;
+  #role;
   #password;
   #email;
   #followList;
 
-  constructor(name, password, email) {
+  constructor(name, password, email, role = "") {
     this.#idUser = Functions.createRandomId();
     this.#name = name;
+    this.image = "";
+    this.#role = role;
     this.#password = password;
     this.#email = email.toLowerCase();
     this.#followList = [];
@@ -22,10 +26,12 @@ class User {
     return {
       id: this.#idUser,
       name: this.#name,
+      image: this.image,
+      role: this.#role,
       password: this.#password,
       email: this.#email,
-      followList: this.#followList
-    }
+      followList: this.#followList,
+    };
   }
 
   get idUser() {
@@ -40,6 +46,10 @@ class User {
     return this.#email;
   }
 
+  get role() {
+    return this.#role;
+  }
+
   get password() {
     return this.#password;
   }
@@ -50,6 +60,10 @@ class User {
 
   set name(newName) {
     this.#name = newName;
+  }
+
+  set role(newRole) {
+    this.#role = newRole;
   }
 
   set password(newPassword) {
