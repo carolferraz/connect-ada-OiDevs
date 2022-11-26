@@ -454,7 +454,7 @@ section#follow-container {
   display: flex;
   gap: 10px;
   align-items: center;
-  font-family: "Roboto";
+  font-family: var(--ff);
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -473,7 +473,7 @@ section#follow-container {
 
 .unfollow-button {
   color: white;
-  font-family: "Roboto";
+  font-family: var(--ff);
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -505,7 +505,7 @@ main#feed {
   padding-left: 2%;
   padding-right: 2%;
   /* height: 102px; */
-  /* width: 90%; */
+  /* width: 70%; */
   background: #202024;
   border-radius: 8px;
   display: flex;
@@ -516,7 +516,7 @@ main#feed {
   margin-bottom: 10px;
   padding-bottom: 10px;
   border-bottom: 2px solid #323238;
-  font-family: "Roboto";
+  font-family: var(--ff);
   line-height: 160%;
   font-size: 14px;
 }
@@ -536,7 +536,7 @@ main#feed {
 }
 
 .user-name {
-  font-family: "Roboto";
+  font-family: var(--ff);
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -545,29 +545,60 @@ main#feed {
 /* COMENTÁRIO CARD */
 .comment-input {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  /* justify-content: center; */
+  margin-bottom: 60px;
 }
+
+.comment-button {
+  background-color: var(--primary);
+  align-self: flex-end;
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 8px;
+  font-family: var(--ff);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--text);
+}
+
 ::placeholder {
-  color: #7c7c8a;
+  color: var(--placeholder);
   line-height: 30px;
+}
+.vrau {
+  /* border: 1px solid red; */
+  width: fit-content;
+  align-self: center;
 }
 .comment-head {
   display: flex;
   justify-content: space-between;
+  /* border: 1px solid red; */
 }
-#text-add-comment {
-  min-width: 750px;
-  max-width: 750px;
+
+.open-comments{
+  font-weight: 700;
+  font-size: 17px !important;
+  color: var(--text-logo);
+}
+
+textarea {
+  min-width: 800px;
+  max-width: 800px;
   border: none;
-  background: #121214;
+  background: var(--bg);
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   border-radius: 8px;
   justify-content: center;
+  color: var(--text);
 }
 
 .comment-card {
+  /* border: 1px solid red; */
   display: flex;
+  justify-content: center;
   margin: 10px 40px;
 }
 
@@ -580,19 +611,19 @@ main#feed {
   width: 100%;
   justify-content: space-between;
   margin-left: 16px;
-  background-color: #29292e;
+  background-color: var(--bg);
   border-radius: 9px;
   padding: 16px;
   display: flex;
 }
 
 .info-text {
-  font-family: "Roboto";
+  font-family: var(--ff);
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
   line-height: 160%;
-  color: #8d8d99;
+  color: var(--text-secondary);
   margin: 2px 0px 15px 0px;
 }
 
