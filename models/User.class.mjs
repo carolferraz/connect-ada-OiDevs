@@ -11,11 +11,10 @@ class User {
   #email;
   #followList;
 
-  constructor(name, password, email, role) {
+  constructor(name, password, email, role = "") {
     this.#idUser = Functions.createRandomId();
     this.#name = name;
-    this.image =
-      "https://img.freepik.com/fotos-premium/retrato-de-cachorro-saindo-da-lingua_23-2148366828.jpg?w=2000";
+    this.image = "";
     this.#role = role;
     this.#password = password;
     this.#email = email.toLowerCase();

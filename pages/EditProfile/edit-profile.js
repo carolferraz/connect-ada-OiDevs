@@ -69,7 +69,6 @@ btnSaveEdit.addEventListener("click", function (e) {
   //tenho que chamar aqui dentro a função de validação de dados
   //tenho que chamar aqui dentro a função de empurar o perfil editado para o database
   changeDataCurrentUser(database.currentUserInSession);
-  console.log(database.currentUserInSession);
 });
 
 /*Funções*/
@@ -79,13 +78,17 @@ function changeDataCurrentUser(currentUserInSession) {
     (element) => element.id === currentUserInSession.id
   );
 
+  //Modificando os dados da instância do currentUserInSession
   database.users[index].image = newImg.value;
   database.users[index].name = newName.value;
   database.users[index].role = newRole.value;
   database.users[index].email = newEmail.value;
   database.users[index].password = newPass.value;
 
-  return (database.currentUserInSession = database.users[index]);
+  //Setando informações novas do currentUserInsession no localstorage
+  database.currentUserInSession = database.users[index];
+  //Setando informações novas do currentUserInsession na array Users do localstorage
+  database.users = database.currentUserInSession;
 }
 
 //instânciando classe functions

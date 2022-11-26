@@ -76,6 +76,14 @@ class DataBase {
     this.#users.push(user);
   }
 
+  set users(newDataOfUsers) {
+    const index = this.#users.findIndex(
+      (element) => element.id === newDataOfUsers.id
+    );
+    this.#users[index] = newDataOfUsers;
+    Functions.setLocalStorage("users", this.#users);
+  }
+
   addPost(post) {
     this.#posts.push(post);
   }
@@ -131,7 +139,7 @@ class DataBase {
     );
     this.#comments = newListOfComments;
   }
-
+  //PRECISAMOS MUDAR ISSO, PQ ESTAMOS CHAMANDO DATABASE.USERS DENTRO DA CLASSE DATABASE
   authenticate(email, password) {
     for (let i = 0; i < database.users.length; i++) {
       if (
