@@ -20,15 +20,22 @@
             <legend>Nova Postagem</legend>
             <div class="input-wrapper">
               <label for="post-title">Título</label>
-              <input type="text" id="post-title">
+              <input type="text" id="post-title" class="required">
+              <div class="invalid-msg">
+                <p>Adicione um título</p>
+              </div>
             </div>
             <div class="input-wrapper">
-              <label for="post-title">Descrição</label>
-              <textarea id="" cols="30" rows="10"></textarea>
+              <label for="post-description">Descrição</label>
+              <textarea id="post-description"class="required" 
+              cols="30" rows="10"></textarea>
+              <div class="invalid-msg">
+                <p>Adicione uma descrição</p>
+              </div>
             </div>
             <div class="buttons">
-              <button class="default-btn">Publicar</button>
-              <button class="danger-btn">Cancelar</button>
+              <button id="publish" class="default-btn">Publicar</button>
+              <button class="danger-btn" id="cancel">Cancelar</button>
             </div>
           </fieldset>
         </form>

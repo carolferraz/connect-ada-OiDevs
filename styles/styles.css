@@ -89,13 +89,31 @@ button:hover {
   filter: brightness(1.1);
 }
 
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.buttons button {
+  width: fit-content;
+}
+
 form fieldset {
   display: flex;
   flex-direction: column;
   align-items: start;
   justify-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
   border: none;
+}
+
+legend {
+  font-size: 1.6rem;
+  text-align: start;
+  font-weight: 700;
+  margin-bottom: 1.7rem;
 }
 
 .input-wrapper {
@@ -109,11 +127,13 @@ form fieldset {
 .form-wrapper {
   background-color: var(--bg-secondary);
   display: flex;
+  max-width: 700px;
   gap: 2rem;
   flex-direction: column;
   text-align: center;
   border-radius: 8px;
   padding: 3rem;
+  margin: 0 auto;
 }
 
 .default-btn, .danger-btn {
@@ -163,10 +183,10 @@ main#index {
 }
 
 #index legend {
-  font-size: 2rem;
   color: var(--white);
   font-weight: 500;
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 #index section img {
@@ -442,15 +462,6 @@ nav {
   box-shadow: 0 0 4px rgb(75, 186, 252, 0.7);
 }
 
-/*Ivina*/
-
-.sec-edit-profile {
-  display: flex;
-  flex-direction: column;
-  max-width: 500px;
-  margin: 0 auto;
-  justify-content: center;
-}
 /*Ivina*/
 
 @keyframes show-slide {
@@ -826,7 +837,7 @@ main#feed {
   font-size: 16px !important;
 }
 
-/* textarea {
+.write-comment textarea {
   min-width: 100%;
   max-width: 100%;
   border: none;
@@ -836,7 +847,7 @@ main#feed {
   border-radius: 8px;
   color: var(--text);
   margin: 5px 0px;
-} */
+}
 
 .comment-card {
   /* border: 1px solid red; */
@@ -880,17 +891,6 @@ main#feed {
 
 
 /* New post */
-
-#new-post legend {
-  font-size: 2rem;
-  text-align: start;
-  font-weight: 700;
-  margin-bottom: 2rem;
-}
-
-#new-post label {
-  font-size: 1.2rem;
-}
 
 
 

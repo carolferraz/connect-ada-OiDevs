@@ -17,6 +17,13 @@ class Functions {
     this.emailRegexValidate = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
   }
 
+  resetInputs() {
+    for (let index = 0; index < this.inputs.length; index++) {
+      this.inputs[index].style.border = '1px solid #8D8D99';
+      this.inputs[index].value = '';
+    }
+  }
+
   errorInvalidInput(index) {
     this.inputs[index].style.border = "1px solid #F75A68";
     this.inputErrorMsgs[index].style.display = "block";

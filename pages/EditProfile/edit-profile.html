@@ -14,9 +14,9 @@
   </head>
   <body>
     <main>
-       <section class="sec-edit-profile">
-        <div class="form-wrapper">
-          <form class="needs-validation">
+       <section class="form-wrapper">
+          <form>
+            <fieldset>
               <legend>Edite seu Perfil</legend>
               <div class="input-wrapper">
                 <label for="img-edit">Imagem do Perfil</label>
@@ -64,8 +64,11 @@
                   <p>O conteúdo dos dois campos de nova senha devem ser iguais</p>
                 </div>
               </div>
-              <button id="save-edit-profile" class="default-btn">Salvar</button>
-              <button id="delete-account" class="danger-btn">Excluir conta</button>
+              <div class="buttons">
+                <button id="save-edit-profile" class="default-btn">Salvar</button>
+                <button id="delete-account" class="danger-btn">Excluir conta</button>
+              </div>
+            </fieldset>
           </form>
     </main>
     <script src="./edit-profile.js" type="module"></script>
