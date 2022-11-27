@@ -17,6 +17,13 @@ class Functions {
     this.emailRegexValidate = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
   }
 
+  resetInputs() {
+    for (let index = 0; index < this.inputs.length; index++) {
+      this.inputs[index].style.border = '1px solid #8D8D99';
+      this.inputs[index].value = '';
+    }
+  }
+
   errorInvalidInput(index) {
     this.inputs[index].style.border = "1px solid #F75A68";
     this.inputErrorMsgs[index].style.display = "block";
@@ -38,7 +45,7 @@ class Functions {
   }
 
   isEmailValidate(index) {
-    if (this.emailRegexValidate.test(inputs[index].value)) {
+    if (this.emailRegexValidate.test(this.inputs[index].value)) {
       this.acceptedInput(index);
       return true;
     } else {
@@ -48,7 +55,7 @@ class Functions {
   }
 
   isPasswordValidate(index) {
-    if (inputs[index].value.length < 6) {
+    if (this.inputs[index].value.length < 6) {
       this.errorInvalidInput(index);
       return false;
     } else {
