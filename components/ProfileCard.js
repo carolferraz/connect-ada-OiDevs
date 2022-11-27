@@ -1,3 +1,9 @@
+import database from '../models/DataBase.class.mjs';
+
+database.initialization();
+
+const currentUserId = `${database.currentUserInSession.id}`;
+const userId = `${database.users.id}`;
 class ProfileCard {
   profile;
 
