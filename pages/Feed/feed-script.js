@@ -16,5 +16,13 @@ header.renderDropDownMenu('../../assets/woman.jpg')
 
 database.initialization();
 
+function renderPostCards(){
+  database.posts.reverse.forEach(post => {
+    // if(post.idAuthor === ){}
+  });
+}
+
 // TESTE DA RENDERIZAÇÃO DE UM POSTCARD
 const post = new PostCard({title: 'Título do Post', content: 'Conteúdo do post'}, 'Natasha');
+const trashButton = document.getElementById('btn-delete-post');
+trashButton.classList.add('hide');
