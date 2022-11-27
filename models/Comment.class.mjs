@@ -12,7 +12,16 @@ class Comment {
     this.#idAuthor = idAuthor;
     this.#idPost = idPost;
     this.#content = content;
-    database.addComment(this);
+    database.addComment(this.commentObject);
+  }
+
+  get commentObject() {
+    return {
+      idComment: this.#idComment,
+      idAuthor: this.#idAuthor,
+      idPost: this.#idPost,
+      content: this.#content
+    };
   }
 
   get idComment() {

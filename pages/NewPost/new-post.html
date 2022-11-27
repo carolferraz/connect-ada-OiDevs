@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Post</title>
+  <link rel="stylesheet" href="../../styles/styles.css">
+  <link
+      rel="shortcut icon"
+      href="../../assets/favicon.svg"
+      type="image/x-icon"
+    />
+</head>
+<body>
+  <main id="new-post">
+      <section class="form-wrapper">
+        <form>
+          <fieldset>
+            <legend>Nova Postagem</legend>
+            <div class="input-wrapper">
+              <label for="post-title">Título</label>
+              <input type="text" id="post-title" class="required">
+              <div class="invalid-msg">
+                <p>Adicione um título</p>
+              </div>
+            </div>
+            <div class="input-wrapper">
+              <label for="post-description">Descrição</label>
+              <textarea id="post-description"class="required" 
+              cols="30" rows="10"></textarea>
+              <div class="invalid-msg">
+                <p>Adicione uma descrição</p>
+              </div>
+            </div>
+            <div class="buttons">
+              <button id="publish" class="default-btn">Publicar</button>
+              <button class="danger-btn" id="cancel">Cancelar</button>
+            </div>
+          </fieldset>
+        </form>
+      </section>
+
+  </main>
+  <script src="./new-post-script.js" type="module"></script>
+</body>
+</html>

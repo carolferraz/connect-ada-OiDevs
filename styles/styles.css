@@ -54,17 +54,24 @@ a:hover {
   color: var(--white);
 }
 
-input {
+input, textarea {
   width: 100%;
   background-color: var(--bg-secondary);
   color: var(--text);
   border: 1px solid var(--text-secondary);
   border-radius: 5px;
+}
+
+textarea {
+  padding: 0.8rem;
+}
+
+input {
   height: 45px;
   padding: 0 0.8rem;
 }
 
-input:focus {
+input:focus, textarea:focus {
   outline: none;
   background-color: var(--bg);
 }
@@ -82,11 +89,88 @@ button:hover {
   filter: brightness(1.1);
 }
 
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.buttons button {
+  width: fit-content;
+}
+
+form fieldset {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-items: center;
+  gap: 1.5rem;
+  border: none;
+}
+
+legend {
+  font-size: 1.6rem;
+  text-align: start;
+  font-weight: 700;
+  margin-bottom: 1.7rem;
+}
+
+.input-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: start;
+}
+
+.form-wrapper {
+  background-color: var(--bg-secondary);
+  display: flex;
+  max-width: 700px;
+  gap: 2rem;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 8px;
+  padding: 3rem;
+  margin: 0 auto;
+}
+
+.default-btn, .danger-btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 30px;
+  gap: 8px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+.default-btn {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.danger-btn {
+  background-color: var(--bg-secondary);
+  color: var(--red-danger);
+  border: 1px solid var(--red-danger);
+}
+
+/* Login e SignUp */
+
 main#index {
-  max-width: 100vw;
+  width: 100%;
+  position: absolute;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
+}
+
+#index .form-wrapper {
+  width: 25rem;
 }
 
 #index section {
@@ -98,53 +182,11 @@ main#index {
   gap: 1rem;
 }
 
-#index fieldset {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-items: center;
-  gap: 2rem;
-  border: none;
-}
-
 #index legend {
-  font-size: 2rem;
   color: var(--white);
   font-weight: 500;
   margin-bottom: 1rem;
-}
-
-#index .input-wrapper {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  text-align: start;
-}
-
-#index .form-wrapper {
-  background-color: var(--bg-secondary);
-  display: flex;
-  gap: 2rem;
-  flex-direction: column;
   text-align: center;
-  width: 25rem;
-  border-radius: 8px;
-  padding: 3rem;
-}
-
-#index .form-wrapper button {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 12px 30px;
-  gap: 8px;
-  cursor: pointer;
-  border-radius: 5px;
-  background-color: var(--primary);
-  color: var(--white);
-  font-weight: 500;
 }
 
 #index section img {
@@ -156,6 +198,8 @@ main#index {
   font-size: 13px;
   display: none;
 }
+
+/* Header */
 
 #header-logo {
   display: flex;
@@ -420,16 +464,6 @@ nav {
 
 /*Ivina*/
 
-.sec-edit-profile {
-  display: flex;
-  flex-direction: column;
-  max-width: 500px;
-  height: 50vw;
-  margin: 0 auto;
-  justify-content: center;
-}
-/*Ivina*/
-
 @keyframes show-slide {
   0% {
     transform: translateY(-100%);
@@ -464,7 +498,6 @@ nav {
 
 @media (max-width: 900px) {
   main,
- 
   nav {
     padding: 2rem 4rem;
   }
@@ -519,6 +552,7 @@ nav {
     padding: 15px 32px 15px 0px;
     align-items: center;
     text-align: center;
+    min-width: 250px;
   }
 
   .profileButton:hover {
@@ -607,6 +641,7 @@ section#follow-container {
 
   .profileCard {
     max-width: 831px;
+    margin: auto;
   }
 }
 
@@ -629,6 +664,7 @@ main#feed {
   border-radius: 8px;
   display: flex;
   flex-direction: column;
+  margin-bottom: 10px;
 }
 
 .post-text {
@@ -640,13 +676,22 @@ main#feed {
   font-size: 14px;
 }
 
-.post-card a {
+.post-card button {
   font-size: 14px;
+  color: var(--text);
   font-weight: 500;
-  /* border: 1px solid #47BAFC; */
+  /* border: 1px solid var(--bg-secondary); */
   border-radius: 8px;
   width: max-content;
   padding: 5px;
+  box-sizing: border-box;
+
+}
+
+button:hover {
+  cursor: pointer;
+  /* border: 1px solid var(--divider);  */
+  /* box-shadow: 0px 0px 10px var(--divider); */
 }
 
 .img-post-card {
@@ -662,11 +707,24 @@ main#feed {
 }
 
 
+.header-post-card {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-card nav {
+  padding: 0px;
+  display: flex;
+  justify-content: space-around;
+}
+
+
+
 .profileCard {
   display: flex;
   background-color: var(--bg-secondary);
   max-width: 831px;
-  margin: 0 auto;
+  min-width: 100px;
   border-radius: 8px;
   padding: 35px 50px;
   justify-content: space-between;
@@ -699,6 +757,8 @@ main#feed {
 .rightText {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 .profileText {
@@ -747,6 +807,7 @@ main#feed {
   font-size: 16px;
   justify-content: space-evenly;
   align-items: center;
+  cursor: pointer;
 }
 
 .buttonIcon {
@@ -765,17 +826,24 @@ main#feed {
 }
 
 /* COMENTÁRIO CARD */
-.all-comments{
+.comment-card {
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-self: center;
   border: 1px solid pink;
 }
 
 .comment-input {
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
+  
+}
+
+.comment-input textarea {
+  border: 1px solid var(--secondary);
 }
 
 .comment-button {
@@ -806,7 +874,7 @@ main#feed {
   font-size: 16px !important;
 }
 
-textarea {
+.write-comment textarea {
   min-width: 100%;
   max-width: 100%;
   border: none;
@@ -856,4 +924,80 @@ textarea {
 
 .reaction {
   margin: 5px 18px 12px;
+}
+
+
+/* New post */
+
+
+
+@keyframes hide-slide {
+  0% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(-200%);
+  }
+}
+
+@keyframes top-down {
+  0% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 900px) {
+  main, nav {
+    padding: 2rem 4rem;
+  }
+
+  main#index .logo {
+    display: none;
+  }
+
+  main#index {
+    display: block;
+  }
+
+  #index section {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  main, nav {
+    padding: 1rem;
+  }
+  #index .form-wrapper {
+    width: 22rem;
+    padding: 2rem;
+  }
+
+  #logo-text {
+    display: none;
+  }
+
+  .menu {
+    gap: 1rem;
+  }
+
+  .menu img {
+    width: 1.6rem;
+  }
+
+  .dropbtn .user-img {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+}
+
+.hide {
+  display: none;
 }
