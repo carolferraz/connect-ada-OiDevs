@@ -7,7 +7,7 @@ const currentImage = `${database.currentUserInSession.image}`;
 
 //renderizando header
 const header = new Header();
-header.addMenuLink('../../assets/home.svg', './feed.html', true);
+header.addMenuLink('../../assets/home.svg', '../Feed/feed.html', true);
 header.addMenuLink('../../assets/search.svg', './explorer.html');
 header.addMenuLink('../../assets/new.svg', './new.html');
 header.addProfileDropdownLink('Ver perfil', './profile.html');

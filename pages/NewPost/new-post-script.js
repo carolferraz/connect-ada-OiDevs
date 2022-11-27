@@ -6,7 +6,7 @@ import Alert from '../../components/Alert.js';
 
 //renderizando header
 const header = new Header();
-header.addMenuLink('../../assets/home.svg', '../Feed/feed.html');
+header.addMenuLink('../../assets/home.svg', '../Feed/feed.html', true);
 header.addMenuLink('../../assets/search.svg', '../Explore/explore.html');
 header.addMenuLink('../../assets/new.svg', './new-post.html', true);
 header.addProfileDropdownLink('Ver perfil', '../Profile/profile.html');
