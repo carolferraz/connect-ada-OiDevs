@@ -4,8 +4,6 @@ import Functions from '../../models/Functions.class.mjs';
 import Post from '../../models/Post.class.mjs';
 import Alert from '../../components/Alert.js';
 
-const currentImg = `${database.currentUserInSession.image}`;
-
 //renderizando header
 const header = new Header();
 header.addMenuLink('../../assets/home.svg', '../Feed/feed.html');
@@ -19,7 +17,7 @@ header.addProfileDropdownLink(
 header.addProfileDropdownLink('Seguindo', '../Following/following.html');
 header.addProfileDropdownLink('Sair', '../../index.html', false, true);
 header.renderMenuLinks();
-header.renderDropDownMenu(currentImg);
+header.renderDropDownMenu('../../assets/woman.jpg');
 // Fim da header
 
 const successPublishedPostAlert = new Alert(
