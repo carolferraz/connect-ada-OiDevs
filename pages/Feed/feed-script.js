@@ -8,7 +8,7 @@ import database from '../../models/DataBase.class.mjs';
 
 database.initialization();
 
-const currentImg = `${database.currentUserInSession.image}`;
+// const currentImg = `${database.currentUserInSession.image}`;
 
 //renderizando header
 const header = new Header();
@@ -16,11 +16,11 @@ header.addMenuLink('../../assets/home.svg', './feed.html', true);
 header.addMenuLink('../../assets/search.svg', './explorer.html');
 header.addMenuLink('../../assets/new.svg', './new.html');
 header.addProfileDropdownLink('Ver perfil', '../Profile/profile.html');
-header.addProfileDropdownLink('Editar Perfil','../EditProfile/edit-profile.html');
+header.addProfileDropdownLink('Editar Perfil', '../EditProfile/edit-profile.html');
 header.addProfileDropdownLink('Seguindo', '../Following/following.html');
 header.addProfileDropdownLink('Sair', '../../index.html', false, true);
 header.renderMenuLinks();
-header.renderDropDownMenu(currentImg);
+// header.renderDropDownMenu(currentImg);
 
 database.initialization();
 
@@ -85,24 +85,48 @@ const post7 = new Post(
   "Esse post também deverá ser excluido quando Junior for excluída"
 );
 
-// database.currentUserInSession = userNatasha;
+const post8 = new Post(
+  userIvina.idUser,
+  "Segundo post de Ivina",
+  "Esse post deverá ser excluido quando Ivina for excluida"
+);
 
-function renderPostCards(){
-  // console.log(database.currentUserInSession);
-  const followList = userIvina.followList;
+function renderPostCards() {
+  const followList = userNatasha.followList;
   console.log(followList);
-  console.log(typeof followList)
-  const authorName = '';
+
   database.posts.reverse().forEach(post => {
-    for(let i = 0; i < followList.length; i++){ 
-      if(post.idAuthor === followList[i]){
-        database.users.forEach(user => {
-          if(user.idUser === post.idAuthor){
-            authorName = user.name;
-      }});
-        new PostCard(post, authorName);
-        const trashButton = document.getElementById('btn-delete-post');
+    for (let i = 0; i < followList.length; i++) {
+
+      if (post.idAuthor === followList[i]) {
+        const author = database.users.find(user => user.idUser === post.idAuthor);
+
+        new PostCard(post, 'Natasha');
+        const trashButton = document.getElementById(`btn-delete-post-${post.idPost}`);
         trashButton.classList.add('hide');
+
+        const btnOpenInputComment = document.getElementById(`btn-create-comment-${post.idPost}`);
+
+        btnOpenInputComment.addEventListener('click', function openInputComment() {
+          const divNewComment = document.getElementById(`new-comment-${post.idPost}`);
+          divNewComment.classList.remove('hide');
+        });
+
+        const btnShowComments = document.getElementById(`btn-show-comments-${post.idPost}`);
+
+        btnShowComments.addEventListener('click', function () {
+          //chamar a função renderizar comentários
+        });
+        
+        // const btnAddComment = document.getElementById(`comment-button-${post.idPost}`);
+
+        // btnAddComment.addEventListener("click", function () {
+        //   let commentMessage = document.getElementById(`comment-text-${post.idPost}`).value;
+        //   const newComment = new Comment(
+        //     database.currentUserInSession.id
+        //     , 12345, commentMessage
+        //   );
+        // });
       }
     }
   });
@@ -110,9 +134,3 @@ function renderPostCards(){
 
 renderPostCards();
 
-// const btnOpenInputComment = document.getElementById('btn-create-comment');
-
-// btnOpenInputComment.addEventListener('click', function openInputComment() {
-//   const divNewComment = document.getElementById('new-comment');
-//   divNewComment.classList.remove('hide');
-// });

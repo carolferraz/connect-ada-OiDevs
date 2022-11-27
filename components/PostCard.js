@@ -5,6 +5,7 @@ class PostCard {
     // this.main.id = 'feed';
     this.divCard = document.createElement('div');
     this.divCard.classList.add("post-card");
+    this.divCard.id = `post-card-${post.idPost}`;
     this.divCard.innerHTML = `
       <div class="header-post-card">
         <div class="post-author-identify">
@@ -14,7 +15,7 @@ class PostCard {
           <p class="user-name">${username}</p>
         </div>
     
-        <button class="" href="" id="btn-delete-post">
+        <button class="" href="" id="btn-delete-post-${post.idPost}">
           <img src="../../assets/trash.svg" alt="">
         </button>
       </div>
@@ -25,13 +26,13 @@ class PostCard {
       </div>
       
       <nav>
-        <button href="" id="btn-show-comments">Comentários</button>
-        <button href="" id="btn-create-comment">Deixe seu comentário</button>
+        <button href="" id="btn-show-comments-${post.idPost}">Comentários</button>
+        <button href="" id="btn-create-comment-${post.idPost}">Deixe seu comentário</button>
       </nav>
 
-      <div id="new-comment" class="comment-input hide">
-        <textarea name="" rows="5" placeholder="Escreva um comentário..."></textarea>
-        <button class="comment-button">Comentar</button>
+      <div id="new-comment-${post.idPost}" class="comment-input hide">
+        <textarea id="comment-text-${post.idPost}" name="" rows="5" placeholder="Escreva um comentário..."></textarea>
+        <button id="comment-button-${post.idPost}">Comentar</button>
       </div>
     `;
     const main = document.getElementById("feed");

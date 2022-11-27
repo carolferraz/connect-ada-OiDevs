@@ -27,13 +27,11 @@ class FollowerCard {
     this.pName = document.createElement("p");
     this.pName.setAttribute("class", "name-profile");
     this.divText.append(this.pName);
-    // document.getElementsByClassName("name-profile")[0].innerText = user.name;
     this.pName.innerText = user.name;
 
     this.pRole = document.createElement("p");
     this.pRole.setAttribute("class", "role-profile");
     this.divText.append(this.pRole);
-    // document.getElementsByClassName("role-profile")[0].innerText = user.role;
     this.pRole.innerText = user.role;
 
     this.divBtn = document.createElement("div");
@@ -42,19 +40,10 @@ class FollowerCard {
     
     this.button = document.createElement("button");
     this.button.setAttribute("class", "follow-btn");
+    this.button.setAttribute("id", `${user.id}`);
     this.divBtn.append(this.button);
     this.button.innerText = "Seguir";
   }
-
-
-//   buttonFollowerActive (){
-//     const followButton = document.querySelector("to-follow-button");
-//     followButton.addEventListener("click", transformFollowButton());
-//  }
-
-//     transformFollowButton (){
-//         document.querySelector("follow-btn").setAttribute("class", "unfollow-btn");
-//     }
 }
 
 export default FollowerCard;
