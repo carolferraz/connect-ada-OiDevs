@@ -6,7 +6,7 @@ database.initialization();
 const currentImage = `${database.currentUserInSession.image}`;
 const currentName = `${database.currentUserInSession.name}`;
 const currentRole = `${database.currentUserInSession.role}`;
-const currentFollowlist = 0;
+const currentFollowlist = `${database.currentUserInSession.followList.length}`;
 
 const profileCard = new ProfileCard();
 

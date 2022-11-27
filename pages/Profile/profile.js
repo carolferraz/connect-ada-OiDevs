@@ -1,4 +1,9 @@
 import Header from '../../components/Header.js';
+import database from '../../models/DataBase.class.mjs';
+
+database.initialization();
+
+const currentImage = `${database.currentUserInSession.image}`;
 
 //renderizando header
 const header = new Header();
@@ -10,7 +15,7 @@ header.addProfileDropdownLink('Editar Perfil', './edit-profile.html');
 header.addProfileDropdownLink('Seguindo', './following.html', true);
 header.addProfileDropdownLink('Sair', './login.html', false, true);
 header.renderMenuLinks();
-header.renderDropDownMenu('../../assets/woman.jpg');
+header.renderDropDownMenu(currentImage);
 
 //funções da página
 const menuDropDown = document.getElementById('dropdown');

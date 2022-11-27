@@ -1,26 +1,26 @@
-import User from "../../models/User.class.mjs";
-import Functions from "../../models/Functions.class.mjs";
-import Alert from "../../components/Alert.js";
-import database from "../../models/DataBase.class.mjs";
-import Header from "../../components/Header.js";
+import User from '../../models/User.class.mjs';
+import Functions from '../../models/Functions.class.mjs';
+import Alert from '../../components/Alert.js';
+import database from '../../models/DataBase.class.mjs';
+import Header from '../../components/Header.js';
 
 //renderizando header
 const header = new Header();
-header.addMenuLink("../../assets/home.svg", "./feed.html", true);
-header.addMenuLink("../../assets/search.svg", "./explorer.html");
-header.addMenuLink("../../assets/new.svg", "./new.html");
-header.addProfileDropdownLink("Ver perfil", "./profile.html");
-header.addProfileDropdownLink("Editar Perfil", "./edit-profile.html");
-header.addProfileDropdownLink("Seguindo", "./following.html");
-header.addProfileDropdownLink("Sair", "./login.html", false, true);
+header.addMenuLink('../../assets/home.svg', './feed.html', true);
+header.addMenuLink('../../assets/search.svg', './explorer.html');
+header.addMenuLink('../../assets/new.svg', './new.html');
+header.addProfileDropdownLink('Ver perfil', './profile.html');
+header.addProfileDropdownLink('Editar Perfil', './edit-profile.html');
+header.addProfileDropdownLink('Seguindo', './following.html');
+header.addProfileDropdownLink('Sair', './login.html', false, true);
 header.renderMenuLinks();
-header.renderDropDownMenu("../../assets/woman.jpg");
+header.renderDropDownMenu(database.currentUserInSession.image);
 
 //funções do Header
-const menuDropDown = document.getElementById("dropdown");
-const dropDownContent = document.getElementById("dropdown-links");
-menuDropDown.addEventListener("click", () => {
-  dropDownContent.classList.toggle("show");
+const menuDropDown = document.getElementById('dropdown');
+const dropDownContent = document.getElementById('dropdown-links');
+menuDropDown.addEventListener('click', () => {
+  dropDownContent.classList.toggle('show');
 });
 
 database.initialization();
@@ -29,53 +29,54 @@ database.initialization();
 // os valores default não estão sumindo quando clico nos inputs. irei modificar depois
 //daqui até o currentemail tem que ficar dentro do evendo do botão de editar perfil
 const currentName = (document.getElementById(
-  "userName-edit"
+  'userName-edit'
 ).value = `${database.currentUserInSession.name}`);
 
 const currentImage = (document.getElementById(
-  "img-edit"
+  'img-edit'
 ).value = `${database.currentUserInSession.image}`);
 
-const currentRole = (document.getElementById("role-edit").value = `${
-  database.currentUserInSession.role || ""
+const currentRole = (document.getElementById('role-edit').value = `${
+  database.currentUserInSession.role || ''
 }`);
 
 const currentEmail = (document.getElementById(
-  "userEmail-edit"
+  'userEmail-edit'
 ).value = `${database.currentUserInSession.email}`);
 
 /*Seleção Ids dos inputs*/
 
-const btnSaveEdit = document.getElementById("save-edit-profile");
+const btnSaveEdit = document.getElementById('save-edit-profile');
 
-const newImg = document.getElementById("img-edit");
+const newImg = document.getElementById('img-edit');
 
-const newName = document.getElementById("userName-edit");
+const newName = document.getElementById('userName-edit');
 
-const newRole = document.getElementById("role-edit");
+const newRole = document.getElementById('role-edit');
 
-const newEmail = document.getElementById("userEmail-edit");
+const newEmail = document.getElementById('userEmail-edit');
 
-const currentPass = document.getElementById("old-password");
+const currentPass = document.getElementById('old-password');
 
-const newPass = document.getElementById("userPassword-edit");
+const newPass = document.getElementById('userPassword-edit');
 
-const confirmNewPass = document.getElementById("userPassword-2-edit");
+const confirmNewPass = document.getElementById('userPassword-2-edit');
 
 /*Eventos em botões*/
 
-btnSaveEdit.addEventListener("click", function (e) {
+btnSaveEdit.addEventListener('click', function (e) {
   e.preventDefault();
   //tenho que chamar aqui dentro a função de validação de dados
   //tenho que chamar aqui dentro a função de empurar o perfil editado para o database
   changeDataCurrentUser(database.currentUserInSession);
+  window.location.href = '../Profile/profile.html';
 });
 
 /*Funções*/
 
 function changeDataCurrentUser(currentUserInSession) {
   const index = database.users.findIndex(
-    (element) => element.id === currentUserInSession.id
+    element => element.id === currentUserInSession.id
   );
 
   //Modificando os dados da instância do currentUserInSession
@@ -94,4 +95,4 @@ function changeDataCurrentUser(currentUserInSession) {
 //instânciando classe functions
 const functions = new Functions();
 //functions.isNameValidate(1);
-newName.addEventListener("input", () => functions.isNameValidate(1));
+newName.addEventListener('input', () => functions.isNameValidate(1));
