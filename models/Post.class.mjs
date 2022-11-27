@@ -12,7 +12,16 @@ class Post {
     this.#idAuthor = idAuthor;
     this.#title = title;
     this.#content = content;
-    database.addPost(this);
+    database.addPost(this.postObject);
+  }
+
+  get postObject() {
+    return {
+      idPost: this.#idPost,
+      idAuthor: this.#idAuthor,
+      title: this.#title,
+      content: this.#content
+    };
   }
 
   get idPost() {

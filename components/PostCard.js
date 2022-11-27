@@ -1,8 +1,8 @@
 
 class PostCard {
   constructor(post, username) {
-    this.main = document.createElement('main');
-    this.main.id = 'feed';
+    // this.main = document.createElement('main');
+    // this.main.id = 'feed';
     this.divCard = document.createElement('div');
     this.divCard.classList.add("post-card");
     this.divCard.innerHTML = `
@@ -25,13 +25,18 @@ class PostCard {
       </div>
       
       <nav>
-        <button href="" id="btn-show-comments" onclick="">Comentários</button>
-        <button href="" id="btn-create-comment" onclick="">Deixe seu comentário</button>
+        <button href="" id="btn-show-comments">Comentários</button>
+        <button href="" id="btn-create-comment">Deixe seu comentário</button>
       </nav>
-    `;
 
-    this.main.append(this.divCard);
-    document.body.append(this.main);
+      <div id="new-comment" class="comment-input hide">
+        <textarea name="" rows="5" placeholder="Escreva um comentário..."></textarea>
+        <button class="comment-button">Comentar</button>
+      </div>
+    `;
+    const main = document.getElementById("feed");
+    main.append(this.divCard);
+    // document.body.append(this.main);
     // this.divHeaderCard = document.createElement('div');
     // this.divIdentify = document.createElement('div');
     // this.figure = document.createElement('figure');
@@ -39,6 +44,8 @@ class PostCard {
     // this.pUsername = document.createElement('p');
     // this.divPostText = document.createElement('div');
   }
+
+  
 }
 
 export default PostCard;
