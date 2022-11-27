@@ -8,7 +8,7 @@ header.addMenuLink('../../assets/new.svg', './new.html');
 header.addProfileDropdownLink('Ver perfil', '../Profile/profile.html');
 header.addProfileDropdownLink('Editar Perfil', './edit-profile.html');
 header.addProfileDropdownLink('Seguindo', '../Following/following.html');
-header.addProfileDropdownLink('Sair', './login.html', false, true);
+header.addProfileDropdownLink('Sair', '../../index.html', false, true);
 header.renderMenuLinks();
 header.renderDropDownMenu('../../assets/woman.jpg');
 
