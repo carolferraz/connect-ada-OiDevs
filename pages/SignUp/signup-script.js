@@ -1,15 +1,15 @@
-import User from "../../models/User.class.mjs";
-import Functions from "../../models/Functions.class.mjs";
-import Alert from "../../components/Alert.js";
-import database from "../../models/DataBase.class.mjs";
+import User from '../../models/User.class.mjs';
+import Functions from '../../models/Functions.class.mjs';
+import Alert from '../../components/Alert.js';
+import database from '../../models/DataBase.class.mjs';
 
-const userName = document.getElementById("userName");
-const userEmail = document.getElementById("userEmail");
-const userPassword = document.getElementById("userPassword");
-const signupBtn = document.getElementById("signup");
+const userName = document.getElementById('userName');
+const userEmail = document.getElementById('userEmail');
+const userPassword = document.getElementById('userPassword');
+const signupBtn = document.getElementById('signup');
 
-const inputs = document.querySelectorAll(".required");
-const inputErrorMsgs = document.querySelectorAll(".invalid-msg");
+const inputs = document.querySelectorAll('.required');
+const inputErrorMsgs = document.querySelectorAll('.invalid-msg');
 
 const emailRegexValidate = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
 
@@ -30,10 +30,14 @@ const emailAlreadyExistsAlert = new Alert(
 database.initialization();
 
 //funções específicas da página
-const functions = new Functions()
+const functions = new Functions();
 
 function checkValidation() {
-  if ((functions.isNameValidate(0) && functions.isEmailValidate(1)) && functions.isPasswordValidate(2)) {
+  if (
+    functions.isNameValidate(0) &&
+    functions.isEmailValidate(1) &&
+    functions.isPasswordValidate(2)
+  ) {
     return true;
   } else {
     return false;
@@ -50,7 +54,6 @@ function emailNotExists(email) {
   return true;
 }
 
-
 function registerUser(e) {
   e.preventDefault();
   if (checkValidation() && emailNotExists(userEmail.value)) {
@@ -58,15 +61,14 @@ function registerUser(e) {
     Functions.setLocalStorage('users', database.users);
     functions.resetInputs();
     successRegisterAlert.showAlert();
-  } 
+  }
 
-  if(!emailNotExists(userEmail.value)) {
+  if (!emailNotExists(userEmail.value)) {
     emailAlreadyExistsAlert.showAlert();
   }
-  
 }
 
-userName.addEventListener("input", () => functions.isNameValidate(0));
-userEmail.addEventListener("input", () => functions.isEmailValidate(1));
-userPassword.addEventListener("input", () => functions.isPasswordValidate(2));
-signupBtn.addEventListener("click", registerUser);
+userName.addEventListener('input', () => functions.isNameValidate(0));
+userEmail.addEventListener('input', () => functions.isEmailValidate(1));
+userPassword.addEventListener('input', () => functions.isPasswordValidate(2));
+signupBtn.addEventListener('click', registerUser);

@@ -1,3 +1,9 @@
+import database from '../models/DataBase.class.mjs';
+
+database.initialization();
+
+const currentUserId = `${database.currentUserInSession.id}`;
+const userId = `${database.users.id}`;
 class ProfileCard {
   profile;
 
@@ -30,7 +36,7 @@ class ProfileCard {
     profileTitle.classList.add('profileTitle');
     const profileProf = document.createElement('span');
     profileProf.classList.add('profileProf');
-    const profileButton = document.createElement('button');
+    const profileButton = document.createElement('a');
     profileButton.classList.add('profileButton');
     const leftText = document.createElement('div');
     leftText.classList.add('leftText');
@@ -41,6 +47,7 @@ class ProfileCard {
 
     console.log(this.profile);
     profilePhotoImg.setAttribute('src', this.profile[0].profileImg);
+    profileButton.setAttribute('href', '../EditProfile/edit-profile.html');
     profileButton.innerHTML =
       '<div class="buttonIcon"></div> Editar seu perfil';
     followers.innerHTML = 'Seguindo';
