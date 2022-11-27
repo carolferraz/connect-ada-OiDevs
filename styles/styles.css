@@ -664,6 +664,7 @@ main#feed {
   border-radius: 8px;
   display: flex;
   flex-direction: column;
+  margin-bottom: 10px;
 }
 
 .post-text {
@@ -675,13 +676,22 @@ main#feed {
   font-size: 14px;
 }
 
-.post-card a {
+.post-card button {
   font-size: 14px;
+  color: var(--text);
   font-weight: 500;
-  /* border: 1px solid #47BAFC; */
+  /* border: 1px solid var(--bg-secondary); */
   border-radius: 8px;
   width: max-content;
   padding: 5px;
+  box-sizing: border-box;
+
+}
+
+button:hover {
+  cursor: pointer;
+  /* border: 1px solid var(--divider);  */
+  /* box-shadow: 0px 0px 10px var(--divider); */
 }
 
 .img-post-card {
@@ -695,6 +705,20 @@ main#feed {
   font-weight: 500;
   font-size: 16px;
 }
+
+
+.header-post-card {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-card nav {
+  padding: 0px;
+  display: flex;
+  justify-content: space-around;
+}
+
+
 
 .profileCard {
   display: flex;
@@ -810,9 +834,15 @@ main#feed {
 }
 
 .comment-input {
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
+  
+}
+
+.comment-input textarea {
+  border: 1px solid var(--secondary);
 }
 
 .comment-button {
@@ -963,4 +993,8 @@ main#feed {
     width: 1.6rem;
     height: 1.6rem;
   }
+}
+
+.hide {
+  display: none;
 }
