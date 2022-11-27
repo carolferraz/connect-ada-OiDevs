@@ -818,7 +818,7 @@ textarea {
   margin: 5px 0px;
 }
 
-.comment-card {
+#comment-card {
   /* border: 1px solid red; */
   display: flex;
   justify-content: space-around;
