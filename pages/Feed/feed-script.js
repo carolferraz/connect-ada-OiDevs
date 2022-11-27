@@ -1,12 +1,10 @@
-import Header from "../../components/Header.js";;
+import Header from "../../components/Header.js";
 import PostCard from "../../components/PostCard.js";
 import Manager from "../../models/Manager.class.mjs";
-import User from "../../models/User.class.mjs";
+import User from '../../models/User.class.mjs';
 import Post from "../../models/Post.class.mjs";
-import Functions from "../../models/Functions.class.mjs";
-import database from "../../models/DataBase.class.mjs";
-import CommentCard from "../../components/CommentCard.js";
-import Comment from "../../models/Comment.class.mjs";
+import Functions from '../../models/Functions.class.mjs';
+import database from '../../models/DataBase.class.mjs';
 
 database.initialization();
 
