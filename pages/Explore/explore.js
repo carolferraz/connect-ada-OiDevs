@@ -3,17 +3,19 @@ import database from '../../models/DataBase.class.mjs';
 import User from '../../models/User.class.mjs';
 import Header from '../../components/Header.js';
 
+const currentImg = `${database.currentUserInSession.image}`;
+
 //renderizando header
 const header = new Header();
 header.addMenuLink('../../assets/home.svg', '../Feed/feed.html', true);
-header.addMenuLink('../../assets/search.svg', './explorer.html', true);
+header.addMenuLink('../../assets/search.svg', '../Explore/explore.html', true);
 header.addMenuLink('../../assets/new.svg', './new.html');
 header.addProfileDropdownLink('Ver perfil', './profile.html');
 header.addProfileDropdownLink('Editar Perfil', './edit-profile.html');
 header.addProfileDropdownLink('Seguindo', './following.html');
 header.addProfileDropdownLink('Sair', './login.html', false, true);
 header.renderMenuLinks();
-header.renderDropDownMenu('../../assets/woman.jpg');
+header.renderDropDownMenu(currentImg);
 // Fim da header
 
 database.initialization();
