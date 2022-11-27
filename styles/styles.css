@@ -518,6 +518,7 @@ nav {
     padding: 15px 32px 15px 0px;
     align-items: center;
     text-align: center;
+    min-width: 250px;
   }
 
   .profileButton:hover {
@@ -606,6 +607,7 @@ section#follow-container {
 
   .profileCard {
     max-width: 831px;
+    margin: auto;
   }
 }
 
@@ -664,7 +666,7 @@ main#feed {
   display: flex;
   background-color: var(--bg-secondary);
   max-width: 831px;
-  margin: 0 auto;
+  min-width: 100px;
   border-radius: 8px;
   padding: 35px 50px;
   justify-content: space-between;
@@ -697,6 +699,8 @@ main#feed {
 .rightText {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 .profileText {
