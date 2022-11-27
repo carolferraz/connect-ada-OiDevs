@@ -70,6 +70,17 @@ btnSaveEdit.addEventListener('click', function (e) {
   window.location.href = '../Profile/profile.html';
 });
 
+//Obs.: O botao salvar dara um erro se for tentando editar um current user que nao existe no array de users
+// este erro é improvavel, mas é um comportamente possivel
+
+btnSaveEdit.addEventListener('click', function (e) {
+  e.preventDefault();
+  //tenho que chamar aqui dentro a função de validação de dados
+  //tenho que chamar aqui dentro a função de empurar o perfil editado para o database
+  changeDataCurrentUser(database.currentUserInSession);
+  window.location.href = '../Profile/profile.html';
+});
+
 /*Funções*/
 
 function changeDataCurrentUser(currentUserInSession) {
