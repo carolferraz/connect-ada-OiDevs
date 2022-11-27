@@ -6,41 +6,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Connect Ada</title>
     <link rel="stylesheet" href="../../styles/styles.css" />
-    <link rel="shortcut icon" href="../../assets/favicon.svg" type="image/x-icon">
+    <link
+      rel="shortcut icon"
+      href="../../assets/favicon.svg"
+      type="image/x-icon"
+    />
   </head>
   <body>
     <main id="index">
       <section class="logo">
-        <img src="../../assets/logo.svg" alt="">
+        <img src="../../assets/logo.svg" alt="" />
         <p>A vida é feita de conexões.</p>
       </section>
       <section>
         <div class="form-wrapper">
-          <form class="needs-validation">
+          <form>
             <fieldset>
               <legend>Crie sua conta</legend>
               <div class="input-wrapper">
                 <label for="userName">Nome</label>
-                <input type="text" id="userName" placeholder="João da Silva" minlength="3" class="required" required>
+                <input
+                  type="text"
+                  id="userName"
+                  placeholder="João da Silva"
+                  minlength="3"
+                  class="required"
+                  required
+                />
                 <div class="invalid-msg">
                   <p>O nome deve ter pelo menos 3 caracteres</p>
                 </div>
               </div>
               <div class="input-wrapper">
                 <label for="userEmail">Email</label>
-                <input type="email" id="userEmail" placeholder="exemplo@exemplo.com.br" class="required" required>
+                <input
+                  type="email"
+                  id="userEmail"
+                  placeholder="exemplo@exemplo.com.br"
+                  class="required"
+                  required
+                />
                 <div class="invalid-msg">
                   <p>Digite um e-mail válido</p>
                 </div>
               </div>
               <div class="input-wrapper">
                 <label for="userPassword">Senha</label>
-                <input type="password" id="userPassword" placeholder="No mínimo 6 caracteres" minlength="6" class="required" required>
+                <input
+                  type="password"
+                  id="userPassword"
+                  placeholder="No mínimo 6 caracteres"
+                  minlength="6"
+                  class="required"
+                  required
+                />
                 <div class="invalid-msg">
                   <p>A senha deve ter pelo menos 6 caracteres</p>
                 </div>
               </div>
-              <button id="signup">Criar conta</button>
+              <button class="default-btn" id="signup">Criar conta</button>
             </fieldset>
           </form>
           <a href="../../index.html">Já tenho uma conta</a>

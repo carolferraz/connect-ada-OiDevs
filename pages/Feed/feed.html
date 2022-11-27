@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,45 +8,90 @@
   <link rel="stylesheet" href="../../styles/styles.css">
   <title>Feed</title>
 </head>
+
 <body>
-  <main id="feed">
+  <main id="feed"></main>
+  <!-- <main id="feed">
 
     <div class="post-card">
-      
-      <div class="post-author-identify">
-        <figure>
-          <img class="img-post-card" src="../../assets/tarso-brant.png" alt="">
-        </figure>
-        <p class="user-name">Tarso Brant</p>
+
+
+      <div class="header-post-card">
+        <div class="post-author-identify">
+          <figure>
+            <img class="img-post-card" src="../../assets/tarso-brant.png" alt="">
+          </figure>
+          <p class="user-name">${username}</p>
+        </div>
+
+        <button class="hide" href="" id="btn-delete-post">
+          <img src="../../assets/trash.svg" alt="">
+        </button>
       </div>
 
       <div class="post-text">
-        <h3 class="post-title">Projeto Novo!</h3>
-        <p class="post-content">Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare.
-  
-          👉 jane.design/doctorcare
-  
-          #novoprojeto #nlw #rocketseat
-        </p>
+        <h3 class="post-title">${post.title}</h3>
+        <p class="post-content">${post.content}</p>
       </div>
-      <a href="">Comentários</a>
-      <a href="">Deixe seu comentário</a>
 
-      <!-- <div class="comment-card">
+      <nav>
+        <button href="" id="btn-show-comments" onclick="">Comentários</button>
+        <button href="" id="btn-create-comment" onclick="openInputComment()">Deixe seu comentário</button>
+      </nav>
+
+
+
+      <div class="comment-input">
+        <textarea name="" rows="5" placeholder="Escreva um comentário..."></textarea>
+        <button class="comment-button">Comentar</button>
+      </div>
+
+
+      <div class="comment-card">
         <figure>
-          <img class="img-post-card" src="../../assets/tarso-brant.png" alt="">
+          <img class="img-post-card" src="../../assets/woman.jpg" alt="">
         </figure>
-        <div class="comment">
-          <p class="user-name">Tarso Brant</p>
-          <p class="comment-content">Muito bom! Parabêns!!!</p>
-          <a href="">
-            <img src="../../assets/trash.svg" alt="">
-          </a>
+        <div>
+          <div class="comment">
+            <div class="comment-info">
+              <p class="user-name">Fulaninha</p>
+              <p class="info-text">Contar o tempo nessa budega</p>
+              <p class="comment-content">Muito bom! Parabénsdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd!!!</p>
+            </div>
+            <div class="btn-delete">
+              <button id="btn-trash">
+                <img src="../../assets/trash.svg"></img>
+              </button>
+            </div>
+          </div>
+          <p class="info-text reaction">Contar curtidas nessa bosta</p>
         </div>
-      </div> -->
-    
+      </div>
+
+      <div class="comment-card">
+        <figure>
+          <img class="img-post-card" src="../../assets/woman.jpg" alt="">
+        </figure>
+        <div>
+          <div class="comment">
+            <div class="comment-info">
+              <p class="user-name">Fulaninha 2</p>
+              <p class="info-text">Contar o tempo nessa budega</p>
+              <p class="comment-content">Muito bom! Parabéns!!!</p>
+            </div>
+            <div class="btn-delete">
+              <button id="btn-trash">
+                <img src="../../assets/trash.svg"></img>
+              </button>
+            </div>
+          </div>
+          <p class="info-text reaction">Contar curtidas nessa bosta</p>
+        </div>
+      </div>
+      </section>
     </div>
-  </main>
-<script src="./feed-script.js" type="module"></script>
+  </main> -->
+  <script src="./feed-script.js" type="module"></script>
 </body>
+
 </html>

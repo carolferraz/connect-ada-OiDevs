@@ -65,7 +65,4 @@ function addFollowUserToFollowList(id) {
   //   };
   // }
 
-
-
-
 renderCards();
