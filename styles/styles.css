@@ -442,6 +442,9 @@ nav {
   font-size: 14px;
 }
 
+.follow-btn:hover {
+  cursor: pointer;
+}
 .unfollow-btn {
   background: var(--bg-secondary);
   border: 1px solid var(--secondary);
@@ -457,7 +460,7 @@ nav {
   font-size: 14px;
 }
 
-.unfollow-button:hover {
+.unfollow-btn:hover {
   cursor: pointer;
   box-shadow: 0 0 4px rgb(75, 186, 252, 0.7);
 }
