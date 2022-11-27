@@ -4,15 +4,14 @@ class CommentCard {
   userName;
   imgUser;
   contentComment;
-  btnDeleteComment;
-  likeOnComments;
+  
+  constructor(userName, imgUser) {
+    this.userName = userName;
+    this.imgUser = imgUser;
 
-  constructor(userName) {
-    this.userName = userName
     this.divOfComments = document.createElement("div");
     this.divOfComments.setAttribute("id", "comment-card");
-  }
-  renderCommentCard() {
+
     this.divOfComments.innerHTML = `
     <figure>
     <img class="img-post-card" src="../../assets/woman.jpg" alt="">
@@ -34,8 +33,10 @@ class CommentCard {
   </div>
 </div>
     `;
-    document.querySelector('post-card').append(this.divOfComments)
+    document.getElementById(`post-card-${post.idPost}`).append(this.divOfComments)
+
   }
+
 
   // createNewComment(idPost) {
   //   let commentMessage = document.getElementById("comment-text").value;
