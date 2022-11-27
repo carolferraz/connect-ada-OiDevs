@@ -86,10 +86,14 @@ class DataBase {
 
   addPost(post) {
     this.#posts.push(post);
+    Functions.setLocalStorage('posts', this.#posts);
   }
+
+
 
   addComment(comment) {
     this.#comments.push(comment);
+    Functions.setLocalStorage('comments', this.#comments);
   }
 
   removeUser(idUser) {

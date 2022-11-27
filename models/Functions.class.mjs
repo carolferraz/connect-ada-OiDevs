@@ -63,6 +63,12 @@ class Functions {
       return true;
     }
   }
+
+  // createNewComment(idPost) {
+  //   let commentMessage = document.getElementById("comment-text").value;
+  //   const newComment = new Comment(database.currentUserInSession.id, 12345);
+  //   database.addComment(commentMessage);
+  // }
 }
 
 export default Functions;

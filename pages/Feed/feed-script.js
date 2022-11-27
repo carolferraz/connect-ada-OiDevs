@@ -85,7 +85,7 @@ const post7 = new Post(
   "Esse post também deverá ser excluido quando Junior for excluída"
 );
 
-// database.currentUserInSession = userNatasha;
+// database.currentUserInSession = userNatasha;;
 
 function renderPostCards(){
   // console.log(database.currentUserInSession);
@@ -109,10 +109,25 @@ function renderPostCards(){
 }
 
 renderPostCards();
+// newCommentCard.renderDataComment();
 
 // const btnOpenInputComment = document.getElementById('btn-create-comment');
-
 // btnOpenInputComment.addEventListener('click', function openInputComment() {
 //   const divNewComment = document.getElementById('new-comment');
 //   divNewComment.classList.remove('hide');
 // });
+
+// function createNewComment(idPost) {
+//     let commentMessage = document.getElementById('comment-text').value;
+//   const newComment = new Comment(database.currentUserInSession.id, 12345)
+//   database.addComment(commentMessage)
+// }
+
+const btnAddComment = document.getElementById("comment-button");
+
+btnAddComment.addEventListener("click", function(){
+  let commentMessage = document.getElementById('comment-text').value;
+  const newComment = new Comment(database.currentUserInSession.id, 12345, commentMessage)
+});
+
+console.log(database.comments);

@@ -1,5 +1,5 @@
 import database from "../models/DataBase.class.mjs";
-
+import Functions from "../../models/Functions.class.mjs";
 class CommentCard {
   userName;
   imgUser;
@@ -12,7 +12,6 @@ class CommentCard {
     this.divOfComments = document.createElement("div");
     this.divOfComments.setAttribute("id", "comment-card");
   }
-
   renderCommentCard() {
     this.divOfComments.innerHTML = `
     <figure>
@@ -38,6 +37,11 @@ class CommentCard {
     document.querySelector('post-card').append(this.divOfComments)
   }
 
+  // createNewComment(idPost) {
+  //   let commentMessage = document.getElementById("comment-text").value;
+  //   const newComment = new Comment(database.currentUserInSession.id, 12345);
+  //   database.addComment(idPost);
+  // }
   //criar método para aprecer o comment-card com inner html
 }
 

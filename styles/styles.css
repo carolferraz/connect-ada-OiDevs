@@ -846,7 +846,7 @@ button:hover {
   border: 1px solid var(--secondary);
 }
 
-.comment-button {
+#comment-button {
   background-color: var(--primary);
   align-self: flex-end;
   margin-top: 10px;

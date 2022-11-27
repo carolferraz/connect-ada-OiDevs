@@ -6,6 +6,8 @@ class Comment {
   #idAuthor;
   #idPost;
   #content;
+  image;
+  name;
 
   constructor(idAuthor, idPost, content) {
     this.#idComment = Functions.createRandomId();

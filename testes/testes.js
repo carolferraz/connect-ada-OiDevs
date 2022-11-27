@@ -184,9 +184,9 @@ console.log(database.posts);
 
 // userNatasha.deleteSelfUser();
 
-console.log(database.users);
-console.log(database.posts);
-console.log(database.comments);
+// console.log(database.users);
+// console.log(database.posts);
+// console.log(database.comments);
 
 // console.log('deletando posts')
 // post1.deletePost();
