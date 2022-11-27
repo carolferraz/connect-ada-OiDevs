@@ -1,28 +1,19 @@
 import ProfileCard from '../../components/ProfileCard.js';
+import database from '../../models/DataBase.class.mjs';
+
+database.initialization();
+
+const currentImage = `${database.currentUserInSession.image}`;
+const currentName = `${database.currentUserInSession.name}`;
+const currentRole = `${database.currentUserInSession.role}`;
+const currentFollowlist = `${database.currentUserInSession.followList.length}`;
 
 const profileCard = new ProfileCard();
+
 profileCard.profileData(
-  '../../assets/profile-photo.png',
-  'Leslie Alexander',
-  'UI Designer',
-  '100'
+  currentImage,
+  currentName,
+  currentRole,
+  currentFollowlist
 );
 profileCard.render();
-
-const profileCard2 = new ProfileCard();
-profileCard2.profileData(
-  '../../assets/tarso-brant.png',
-  'Tarso Brant',
-  'Ator sedutor',
-  '1806'
-);
-profileCard2.render();
-
-const profileCard3 = new ProfileCard();
-profileCard3.profileData(
-  '../../assets/woman.jpg',
-  'Morena Desconhecida',
-  'Modelo de banco de imagens',
-  '2611'
-);
-profileCard3.render();
