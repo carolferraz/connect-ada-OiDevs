@@ -1,4 +1,3 @@
-
 class PostCard {
   constructor(post, username) {
     // this.main = document.createElement('main');
@@ -28,7 +27,6 @@ class PostCard {
         <button href="" id="btn-show-comments">Comentários</button>
         <button href="" id="btn-create-comment">Deixe seu comentário</button>
       </nav>
-
       <div id="new-comment" class="comment-input hide">
         <textarea name="" rows="5" placeholder="Escreva um comentário..."></textarea>
         <button class="comment-button">Comentar</button>
