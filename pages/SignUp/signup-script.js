@@ -14,7 +14,6 @@ const inputErrorMsgs = document.querySelectorAll(".invalid-msg");
 const emailRegexValidate = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
 
 // Alerts
-
 const successRegisterAlert = new Alert(
   'Usuário registrado com sucesso',
   '../../assets/success.svg',
@@ -26,8 +25,6 @@ const emailAlreadyExistsAlert = new Alert(
   '../../assets/warning.svg',
   '#F75A68'
 );
-
-// fim dos alerts
 
 //inicializando database
 database.initialization();
@@ -53,19 +50,13 @@ function emailNotExists(email) {
   return true;
 }
 
-function resetInputs() {
-  for (let index = 0; index < inputs.length; index++) {
-    inputs[index].style.border = '1px solid #8D8D99';
-    inputs[index].value = '';
-  }
-}
 
 function registerUser(e) {
   e.preventDefault();
   if (checkValidation() && emailNotExists(userEmail.value)) {
     new User(userName.value, userPassword.value, userEmail.value);
     Functions.setLocalStorage('users', database.users);
-    resetInputs();
+    functions.resetInputs();
     successRegisterAlert.showAlert();
   } 
 

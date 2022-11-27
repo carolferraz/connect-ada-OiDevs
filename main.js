@@ -10,10 +10,6 @@ const userNotFoundAlert = new Alert(
   "#F75A68"
 );
 
-const alertCloseBtn = document.getElementById("alert-close-btn");
-
-alertCloseBtn.addEventListener("click", () => userNotFoundAlert.hideAlert());
-
 //fim do alert
 
 database.initialization();
