@@ -9,7 +9,7 @@ class Manager extends User {
   removeOtherUser(idUser) {
     database.removeUser(idUser);
   }
-  
+
   removeOtherPost(idPost) {
     database.removePost(idPost);
   }
@@ -18,5 +18,6 @@ class Manager extends User {
     database.removeComment(idComment);
   }
 }
+const maneger1 = new Manager("maneger1", 123456, "maneger1@gmail.com");
 
-export default Manager;
+export default maneger1;

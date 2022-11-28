@@ -14,7 +14,7 @@ header.addMenuLink("../../assets/home.svg", "../Feed/feed.html");
 header.addMenuLink("../../assets/search.svg", "../Explore/explore.html");
 header.addMenuLink("../../assets/new.svg", "../NewPost/new-post.html");
 header.addProfileDropdownLink("Ver perfil", "../Profile/profile.html");
-header.addProfileDropdownLink("Editar Perfil","./edit-profile.html", true);
+header.addProfileDropdownLink("Editar Perfil", "./edit-profile.html", true);
 header.addProfileDropdownLink("Seguindo", "../Following/following.html");
 header.addProfileDropdownLink("Sair", "../../index.html", false, true);
 header.renderMenuLinks();
@@ -54,7 +54,7 @@ const currentPass = document.getElementById("old-password");
 
 const newPass = document.getElementById("userPassword-edit");
 
-const confirmNewPass = document.getElementById("userPassword-2-edit");
+const repeteNewPass = document.getElementById("userPassword-2-edit");
 
 const btnDeleteAccount = document.getElementById("delete-account");
 
@@ -62,8 +62,6 @@ const btnDeleteAccount = document.getElementById("delete-account");
 
 btnSaveEdit.addEventListener("click", function (e) {
   e.preventDefault();
-  //tenho que chamar aqui dentro a função de validação de dados
-  //tenho que chamar aqui dentro a função de empurar o perfil editado para o database
   changeDataCurrentUser(database.currentUserInSession);
   window.location.href = "../Profile/profile.html";
 });
@@ -105,4 +103,8 @@ newImg.addEventListener("input", () => functions.isNameValidate(0));
 newName.addEventListener("input", () => functions.isNameValidate(1));
 newEmail.addEventListener("input", () => functions.isEmailValidate(3));
 currentPass.addEventListener("input", () => functions.isOldPassValidate(4));
+newPass.addEventListener("input", () => functions.isNewPassValidate(5));
+repeteNewPass.addEventListener("input", () =>
+  functions.repeteNewPassValidate(6)
+);
 //newPass.addEventListener("input", () => functions.isNewPassValidate(5));
