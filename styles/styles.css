@@ -407,8 +407,11 @@ nav {
 }
 
 .img-user {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
   border-radius: 8px;
-  border: 2px solid var(--border-line);
+  border: 2px solid var(--primary);
   padding: 2px;
 }
 
@@ -701,6 +704,7 @@ button:hover {
 .img-post-card {
   height: 50px;
   width: 50px;
+  object-fit: cover;
 }
 
 .user-name {
@@ -744,6 +748,7 @@ button:hover {
 
 .profilePhotoImg {
   border-radius: 8px;
+  object-fit: cover;
   width: 128px;
   height: 128px;
 }
@@ -888,11 +893,15 @@ button:hover {
   /* border: 1px solid red; */
   display: flex;
   justify-content: space-around;
+  border: 1px solid rgb(255, 0, 43);
+
 }
 
 .comment-content {
-  width: 600px;
+  /* width: 600px; */
   overflow-wrap: break-word;
+  border: 1px solid aqua;
+
 }
 
 .comment {
@@ -903,7 +912,7 @@ button:hover {
   border-radius: 9px;
   padding: 16px;
   display: flex;
-  /* border: 1px solid aqua; */
+  border: 1px solid aqua;
 }
 
 .info-text {
