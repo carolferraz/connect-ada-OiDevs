@@ -14,18 +14,18 @@ const currentImg = `${database.currentUserInSession.image}`;
 
 //renderizando header
 const header = new Header();
-header.addMenuLink("../../assets/home.svg", "./feed.html", true);
-header.addMenuLink("../../assets/search.svg", "./explorer.html");
-header.addMenuLink("../../assets/new.svg", "./new.html");
-header.addProfileDropdownLink("Ver perfil", "../Profile/profile.html");
+header.addMenuLink('../../assets/home.svg', '../Feed/feed.html', true);
+header.addMenuLink('../../assets/search.svg', '../Explore/explore.html', true);
+header.addMenuLink('../../assets/new.svg', '../NewPost/new-post.html');
+header.addProfileDropdownLink('Ver perfil', '../Profile/profile.html');
 header.addProfileDropdownLink(
-  "Editar Perfil",
-  "../EditProfile/edit-profile.html"
+  'Editar Perfil',
+  '../EditProfile/edit-profile.html'
 );
-header.addProfileDropdownLink("Seguindo", "../Following/following.html");
-header.addProfileDropdownLink("Sair", "../../index.html", false, true);
+header.addProfileDropdownLink('Seguindo', '../Following/following.html');
+header.addProfileDropdownLink('Sair', '../../index.html', false, true);
 header.renderMenuLinks();
-// header.renderDropDownMenu(currentImg);
+header.renderDropDownMenu(currentImg);
 
 const userNatasha = new User("Natasha", 2541, "natasha@natasha.gmail");
 const userJunior = new User("Junior", 2541, "junior@junior.gmail");
@@ -43,54 +43,54 @@ console.log(database.users);
 // console.log('teste de autenticação');
 // database.authenticate('natasha@natasha.gmail', 2541);
 
-console.log("CRIANDO POSTS");
+console.log('CRIANDO POSTS');
 
 const post1 = new Post(
   userNatasha.idUser,
-  "Primeiro post de Natasha",
-  "Esse post deve sumir quando Natasha for excluída"
+  'Primeiro post de Natasha',
+  'Esse post deve sumir quando Natasha for excluída'
 );
 
 const post2 = new Post(
   userNatasha.idUser,
-  "Segundo post de Natasha",
-  "Esse post deve sumir quando Natasha for excluída"
+  'Segundo post de Natasha',
+  'Esse post deve sumir quando Natasha for excluída'
 );
 
 const post3 = new Post(
   userJunior.idUser,
-  "Primeiro post de Junior",
-  "Esse post também deverá ser excluido quando Junior for excluída"
+  'Primeiro post de Junior',
+  'Esse post também deverá ser excluido quando Junior for excluída'
 );
 
 const post4 = new Post(
   userIvina.idUser,
-  "Primeiro post de Ivina",
-  "Esse post deverá ser excluido quando Ivina for excluida"
+  'Primeiro post de Ivina',
+  'Esse post deverá ser excluido quando Ivina for excluida'
 );
 
 const post5 = new Post(
   userNatasha.idUser,
-  "Terceiro post de Natasha",
-  "Esse post também deverá ser excluido quando Natasha for excluída"
+  'Terceiro post de Natasha',
+  'Esse post também deverá ser excluido quando Natasha for excluída'
 );
 
 const post6 = new Post(
   userNatasha.idUser,
-  "Quarto post de Natasha",
-  "Esse post também deverá ser excluido quando Natasha for excluída"
+  'Quarto post de Natasha',
+  'Esse post também deverá ser excluido quando Natasha for excluída'
 );
 
 const post7 = new Post(
   userJunior.idUser,
-  "Segundo post de Junior",
-  "Esse post também deverá ser excluido quando Junior for excluída"
+  'Segundo post de Junior',
+  'Esse post também deverá ser excluido quando Junior for excluída'
 );
 
 const post8 = new Post(
   userIvina.idUser,
-  "Segundo post de Ivina",
-  "Esse post deverá ser excluido quando Ivina for excluida"
+  'Segundo post de Ivina',
+  'Esse post deverá ser excluido quando Ivina for excluida'
 );
 
 console.log(post8.idPost);
@@ -103,7 +103,8 @@ function renderPostCards() {
     for (let i = 0; i < followList.length; i++) {
       if (post.idAuthor === followList[i]) {
         const author = database.users.find(
-          (user) => user.idUser === post.idAuthor
+          (
+          user) => user.idUser === post.idAuthor
         );
 
         new PostCard(post, "Natasha");
@@ -114,27 +115,43 @@ function renderPostCards() {
 
         const btnOpenInputComment = document.getElementById(
           `btn-create-comment-${post.idPost}`
+        
         );
 
         btnOpenInputComment.addEventListener(
           "click",
           function openInputComment() {
             const divNewComment = document.getElementById(
-              `new-comment-${post.idPost}`
-            );
+              
+          `new-comment-${post.idPost}`
+            
+        );
             divNewComment.classList.remove("hide");
           }
         );
 
         const btnShowComments = document.getElementById(
+          
           `btn-show-comments-${post.idPost}`
+        
         );
 
+        btnOpenInputComment.addEventListener(
+          'click',
+          function openInputComment() {
+            const divNewComment = document.getElementById(
+              `new-comment-${post.idPost}`
+            );
+            divNewComment.classList.remove('hide');
+          }
+        );
         btnShowComments.addEventListener("click", function () {
           renderAllCommentsByIdPost(post.idPost);
         });
 
-        const btnAddComment = document.getElementById(`comment-button-${post.idPost}`);
+        const btnAddComment = document.getElementById(
+          `comment-button-${post.idPost}`
+        );
 
         btnAddComment.addEventListener("click", function () {
           const commentMessage = document.getElementById(`comment-text-${post.idPost}`).value;

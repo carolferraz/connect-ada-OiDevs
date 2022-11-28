@@ -35,6 +35,9 @@
               <div class="input-wrapper">
                 <label for="role-edit">Cargo</label>
                 <input type="text" id="role-edit" class="required" minlength="3"> 
+                <div class="invalid-msg">
+                  <p>O nome deve ser maior que 3 caracteres</p>
+                </div>
               </div>
               <div class="input-wrapper">
                 <label for="userEmail-edit">Email</label>
@@ -47,7 +50,7 @@
                 <label for="old-password">Senha Antiga</label>
                 <input type="password" id="old-password" class="required" placeholder="Digite sua senha" minlength="3"> 
                 <div class="invalid-msg">
-                  <p>A senha não confere</p>
+                  <p>Digite corretamente sua senha atual caso queira redefinir senha</p>
                 </div>
               </div>
               <div class="input-wrapper">
@@ -67,7 +70,7 @@
               <div class="buttons">
                 <button id="save-edit-profile" class="default-btn">Salvar</button>
                 <button id="delete-account" class="danger-btn">Excluir conta</button>
-              </div>
+              </div>    
             </fieldset>
           </form>
     </main>

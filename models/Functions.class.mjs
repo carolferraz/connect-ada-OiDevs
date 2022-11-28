@@ -1,3 +1,5 @@
+import database from "./DataBase.class.mjs";
+
 class Functions {
 
     static createRandomId = function () {
@@ -20,8 +22,8 @@ class Functions {
 
   resetInputs() {
     for (let index = 0; index < this.inputs.length; index++) {
-      this.inputs[index].style.border = '1px solid #8D8D99';
-      this.inputs[index].value = '';
+      this.inputs[index].style.border = "1px solid #8D8D99";
+      this.inputs[index].value = "";
     }
   }
 
@@ -42,6 +44,16 @@ class Functions {
     } else {
       this.acceptedInput(index);
       return true;
+    }
+  }
+
+  isOldPassValidate(index) {
+    if (this.inputs[index].value === database.currentUserInSession.password) {
+      this.acceptedInput(index);
+      return true;
+    } else {
+      this.errorInvalidInput(index);
+      return false;
     }
   }
 
