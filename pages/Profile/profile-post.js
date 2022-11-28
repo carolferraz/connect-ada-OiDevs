@@ -22,6 +22,10 @@ function renderPostCards() {
         window.location.href = "./profile.html";
       });
 
+      // const trashCommentButton = document.getElementById(
+      //   `btn-trash-${comments.idPost}`
+      // );
+
       const btnOpenInputComment = document.getElementById(
         `btn-create-comment-${post.idPost}`
       );
