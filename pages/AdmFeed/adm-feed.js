@@ -17,6 +17,12 @@ header.renderDropDownMenu(currentImg);
 
 database.initialization()
 
+const section = document.getElementById('feed')
+
+if(database.posts.length === 0) {
+    section.innerHTML = `<h3>Nenhum post cadastrado</h3`
+}
+
 database.posts.forEach((post) => {
     const author = database.users.find(user => user.id === post.idAuthor);
     console.log(author);

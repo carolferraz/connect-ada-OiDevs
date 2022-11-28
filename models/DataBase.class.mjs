@@ -154,6 +154,7 @@ class DataBase {
       (posts) => posts.idAuthor !== idAuthor
     );
     this.#posts = newListOfPosts;
+    Functions.setLocalStorage("posts", this.#posts);
   }
 
   //remove todos os comentários de um mesmo autor e me retorna o que é diferente do que eu quero excluir
@@ -162,6 +163,7 @@ class DataBase {
       coment => coment.idAuthor !== idAuthor
     );
     this.#comments = newListOfComments;
+    Functions.setLocalStorage("comments", this.#comments);
   }
 
   removeAllCommentsByPost(idPost) {
@@ -169,6 +171,7 @@ class DataBase {
       comment => comment.idPost !== idPost
     );
     this.#comments = newListOfComments;
+    Functions.setLocalStorage("comments", this.#comments);
   }
 }
 

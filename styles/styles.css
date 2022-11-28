@@ -938,7 +938,7 @@ input#is-adm {
   height: 14px;
 }
 
-#adm-feed h1 {
+#adm-feed h1, #adm-explore h1 {
   margin-bottom: 2rem;
 }
 
@@ -948,6 +948,16 @@ input#is-adm {
 
 #adm-feed .post-card{
   margin: 0 auto 2rem;
+}
+
+
+
+#adm-explore .align-follow-btn button {
+  cursor: pointer;
+  color: var(--red-danger);
+  border: 1px solid var(--red-danger);
+  padding: 0.8rem;
+  border-radius: 8px;
 }
 
 @keyframes hide-slide {
