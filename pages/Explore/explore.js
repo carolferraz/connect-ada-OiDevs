@@ -7,7 +7,7 @@ const currentImg = `${database.currentUserInSession.image}`;
 
 //renderizando header
 const header = new Header();
-header.addMenuLink('../../assets/home.svg', '../Feed/feed.html', true);
+header.addMenuLink('../../assets/home.svg', '../Feed/feed.html');
 header.addMenuLink('../../assets/search.svg', '../Explore/explore.html', true);
 header.addMenuLink('../../assets/new.svg', '../NewPost/new-post.html');
 header.addProfileDropdownLink('Ver perfil', '../Profile/profile.html');
@@ -39,6 +39,7 @@ function buttonFollow(id) {
   });
 }
 
+
 const followListOfLoggedUser = database.currentUserInSession.followList;
 
 function addFollowUserToFollowList(id) {
@@ -54,7 +55,9 @@ function addFollowUserToFollowList(id) {
     button.className = 'unfollow-btn';
     button.innerText = 'Deixar de seguir';
   } else {
-    followListOfLoggedUser.pop(idOfUser);
+    const index = followListOfLoggedUser.indexOf(idOfUser);
+      followListOfLoggedUser.splice(index, 1);      
+
     button.className = 'follow-btn';
     button.innerText = 'Seguir';
   }
