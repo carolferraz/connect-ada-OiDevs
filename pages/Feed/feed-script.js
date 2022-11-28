@@ -20,9 +20,7 @@ header.addProfileDropdownLink('Editar Perfil', '../EditProfile/edit-profile.html
 header.addProfileDropdownLink('Seguindo', '../Following/following.html');
 header.addProfileDropdownLink('Sair', '../../index.html', false, true);
 header.renderMenuLinks();
-// header.renderDropDownMenu(currentImg);
-
-database.initialization();
+header.renderDropDownMenu("../../assets/woman.jpg");
 
 const userNatasha = new User("Natasha", 2541, "natasha@natasha.gmail");
 const userJunior = new User("Junior", 2541, "junior@junior.gmail");
@@ -92,16 +90,18 @@ const post8 = new Post(
 );
 
 function renderPostCards() {
-  const followList = userNatasha.followList;
+  // const followList = userIvina.followList;
+  const followList = database.currentUserInSession.followList;
   console.log(followList);
 
   database.posts.reverse().forEach(post => {
     for (let i = 0; i < followList.length; i++) {
 
       if (post.idAuthor === followList[i]) {
-        const author = database.users.find(user => user.idUser === post.idAuthor);
+        const author = database.users.find(user => user.id === post.idAuthor);
+        console.log(author);
 
-        new PostCard(post, 'Natasha');
+        new PostCard(post, author.name);
         const trashButton = document.getElementById(`btn-delete-post-${post.idPost}`);
         trashButton.classList.add('hide');
 
@@ -109,7 +109,7 @@ function renderPostCards() {
 
         btnOpenInputComment.addEventListener('click', function openInputComment() {
           const divNewComment = document.getElementById(`new-comment-${post.idPost}`);
-          divNewComment.classList.remove('hide');
+          divNewComment.classList.toggle('hide');
         });
 
         const btnShowComments = document.getElementById(`btn-show-comments-${post.idPost}`);
