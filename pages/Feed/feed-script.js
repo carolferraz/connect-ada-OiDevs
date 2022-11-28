@@ -1,6 +1,5 @@
 import Header from "../../components/Header.js";
 import PostCard from "../../components/PostCard.js";
-import Manager from "../../models/Manager.class.mjs";
 import Functions from "../../models/Functions.class.mjs";
 import database from "../../models/DataBase.class.mjs";
 import CommentCardView from "../../components/CommentCard.js";
@@ -26,10 +25,7 @@ header.renderMenuLinks();
 header.renderDropDownMenu(currentImg);
 
 function renderPostCards() {
-  // const followList = userIvina.followList;
   const followList = database.currentUserInSession.followList;
-  console.log("FOLLOWLIST");
-  console.log(followList);
 
   database.posts.reverse().forEach((post) => {
     for (let i = 0; i < followList.length; i++) {
