@@ -2,6 +2,8 @@ import FollowerCard from "../../components/FollowerCard.js";
 import database from "../../models/DataBase.class.mjs";
 import Header from "../../components/Header.js";
 
+const currentImg = `${database.currentUserInSession.image}`;
+
 //renderizando header
 const header = new Header();
 header.addMenuLink("../../assets/home.svg", "../Feed/feed.html");
@@ -12,7 +14,7 @@ header.addProfileDropdownLink('Editar Perfil', '../EditProfile/edit-profile.html
 header.addProfileDropdownLink('Seguindo', '../Following/following.html', true);
 header.addProfileDropdownLink("Sair", "./login.html", false, true);
 header.renderMenuLinks();
-header.renderDropDownMenu("../../assets/woman.jpg");
+header.renderDropDownMenu(currentImg);
 // Fim da header
 
 database.initialization();

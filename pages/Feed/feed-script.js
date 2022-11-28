@@ -23,7 +23,7 @@ header.addProfileDropdownLink(
 header.addProfileDropdownLink('Seguindo', '../Following/following.html');
 header.addProfileDropdownLink('Sair', '../../index.html', false, true);
 header.renderMenuLinks();
-header.renderDropDownMenu("../../assets/woman.jpg");
+header.renderDropDownMenu(currentImg);
 
 
 function renderPostCards() {
@@ -38,7 +38,7 @@ function renderPostCards() {
         const author = database.users.find(user => user.id === post.idAuthor);
         console.log(author);
 
-        new PostCard(post, author.name);
+        new PostCard(post, author.name , author.image);
         const trashButton = document.getElementById(`btn-delete-post-${post.idPost}`);
         trashButton.classList.add('hide');
 

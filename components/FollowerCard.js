@@ -17,7 +17,7 @@ class FollowerCard {
 
     this.img = document.createElement("img");
     this.img.setAttribute("class", "img-user");
-    this.img.setAttribute("src", /*user.image*/ "../../assets/profile-pic-davon.svg");
+    this.img.setAttribute("src", user.image);
     this.a.append(this.img);
 
     this.divText = document.createElement("div");
@@ -38,12 +38,37 @@ class FollowerCard {
     this.divBtn.setAttribute("class", "align-follow-btn");
     this.divFollower.append(this.divBtn);
     
-    this.button = document.createElement("button");
-    this.button.setAttribute("class", "follow-btn");
-    this.button.setAttribute("id", `${user.id}`);
-    this.divBtn.append(this.button);
-    this.button.innerText = "Seguir";
+    // this.button = document.createElement("button");
+    // this.button.setAttribute("class", "follow-btn");
+    // this.button.setAttribute("id", `${user.id}`);
+    // this.divBtn.append(this.button);
+    // this.button.innerText = "Seguir";
+    
+    this.createFollowButton(user.id)
+    
   }
+
+  createFollowButton(id) {
+    const hasFollowUser = database.currentUserInSession.followList.find(
+      element => element === id
+    );
+  
+    if (!hasFollowUser) {
+      this.button = document.createElement("button");
+      this.button.setAttribute("class", "follow-btn");
+      this.button.setAttribute("id", `${id}`);
+      this.divBtn.append(this.button);
+      this.button.innerText = "Seguir";
+    } else {
+      this.button = document.createElement("button");
+      this.button.setAttribute("class", 'unfollow-btn');
+      this.button.setAttribute("id", `${id}`);
+      this.divBtn.append(this.button);
+      this.button.innerText = 'Deixar de seguir';
+    }
+
+  }
+
 }
 
 export default FollowerCard;
