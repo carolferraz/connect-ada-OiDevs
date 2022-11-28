@@ -2,8 +2,17 @@ import database from "./DataBase.class.mjs";
 
 class Functions {
   static createRandomId = function () {
-    return Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
+    return `${this.randomLetter()}${this.randomLetter()}${this.randomLetter()}${this.randomNumber()}${this.randomNumber()}${this.randomNumber()}${this.randomLetter()}${this.randomLetter()}${this.randomNumber()}${this.randomNumber()}${this.randomNumber()}${this.randomLetter()}${this.randomNumber()}${this.randomNumber()}${this.randomNumber()}`
+    // return Math.floor(Math.random() * 3000);
   };
+
+  static randomLetter() {
+    return 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'[Math.floor(Math.random()*26)]
+  }
+
+  static randomNumber() {
+    return Math.floor(Math.random() * 10)
+  }
 
   static setLocalStorage(key, value) {
     return localStorage.setItem(key, JSON.stringify(value));
