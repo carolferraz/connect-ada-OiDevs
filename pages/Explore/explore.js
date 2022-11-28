@@ -23,7 +23,7 @@ database.initialization();
 function renderCards() {
   database.users.forEach(user => {
     if (user.id !== database.currentUserInSession.id) {
-      const followerCard = new FollowerCard(user);
+      new FollowerCard(user);
       buttonFollow(user.id);
     }
   });
@@ -35,6 +35,7 @@ function buttonFollow(id) {
     addFollowUserToFollowList(id);
   });
 }
+
 
 const followListOfLoggedUser = database.currentUserInSession.followList;
 
@@ -51,7 +52,9 @@ function addFollowUserToFollowList(id) {
     button.className = 'unfollow-btn';
     button.innerText = 'Deixar de seguir';
   } else {
-    followListOfLoggedUser.pop(idOfUser);
+    const index = followListOfLoggedUser.indexOf(idOfUser);
+      followListOfLoggedUser.splice(index, 1);      
+
     button.className = 'follow-btn';
     button.innerText = 'Seguir';
   }
@@ -60,6 +63,8 @@ function addFollowUserToFollowList(id) {
     ...database.currentUserInSession,
     followList: followListOfLoggedUser,
   };
+  
+  database.users = database.currentUserInSession
 }
 
 // function addFollowUserToFollowList(id) {
