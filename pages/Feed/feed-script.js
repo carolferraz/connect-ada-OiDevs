@@ -37,7 +37,7 @@ function renderPostCards() {
         const author = database.users.find((user) => user.id === post.idAuthor);
         console.log(author);
 
-        new PostCard(post, author.name);
+        new PostCard(post, author.name, author.image);
         const trashButton = document.getElementById(
           `btn-delete-post-${post.idPost}`
         );
