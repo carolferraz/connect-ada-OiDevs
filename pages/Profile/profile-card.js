@@ -1,7 +1,7 @@
-import ProfileCard from '../../components/ProfileCard.js';
-import database from '../../models/DataBase.class.mjs';
+import ProfileCard from "../../components/ProfileCard.js";
+import database from "../../models/DataBase.class.mjs";
 
-database.initialization();
+// database.initialization();
 
 const currentImage = `${database.currentUserInSession.image}`;
 const currentName = `${database.currentUserInSession.name}`;
