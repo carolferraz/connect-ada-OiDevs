@@ -3,15 +3,14 @@ import Functions from "../../models/Functions.class.mjs";
 
 class CommentCardView {
   constructor(comment, userName, userImage) {
-
     this.divOfComment = document.createElement("div");
     this.divOfComment.setAttribute("id", `comment-card-${comment.idComment}`);
+    this.divOfComment.setAttribute("class", `comment-card`);
 
     this.divOfComment.innerHTML = `
     <figure>
     <img class="img-post-card" src="../../assets/woman.jpg" alt="">
   </figure>
-  <div>
     <div class="comment">
       <div class="comment-info">
         <p class="user-name">${userName}</p>
@@ -23,15 +22,13 @@ class CommentCardView {
         </button>
       </div>
     </div>
-    <p class="info-text reaction">Contar curtidas nessa bosta</p>
-  </div>
-</div>
     `;
-    
-    // const allComments = document.getElementById(`all-comments-${comment.idPost}`);
-    document.getElementById(`all-comments-${comment.idPost}`).append(this.divOfComment);
-  }
 
+    // const allComments = document.getElementById(`all-comments-${comment.idPost}`);
+    document
+      .getElementById(`all-comments-${comment.idPost}`)
+      .append(this.divOfComment);
+  }
 }
 
-export default CommentCardView ;
+export default CommentCardView;
