@@ -5,13 +5,13 @@ import Header from "../../components/Header.js";
 
 //renderizando header
 const header = new Header();
-header.addMenuLink("../../assets/home.svg", "./feed.html");
-header.addMenuLink("../../assets/search.svg", "./explorer.html", true);
-header.addMenuLink("../../assets/new.svg", "./new.html");
-header.addProfileDropdownLink("Ver perfil", "./profile.html");
-header.addProfileDropdownLink("Editar Perfil", "./edit-profile.html");
-header.addProfileDropdownLink("Seguindo", "./following.html");
-header.addProfileDropdownLink("Sair", "./login.html", false, true);
+header.addMenuLink("../../assets/home.svg", "../feed.html");
+header.addMenuLink("../../assets/search.svg", "../explorer.html", true);
+header.addMenuLink("../../assets/new.svg", "../new.html");
+header.addProfileDropdownLink("Ver perfil", "../profile.html");
+header.addProfileDropdownLink("Editar Perfil", "../edit-profile.html");
+header.addProfileDropdownLink("Seguindo", "../following.html");
+header.addProfileDropdownLink("Sair", "../login.html", false, true);
 header.renderMenuLinks();
 header.renderDropDownMenu("../../assets/woman.jpg");
 // Fim da header
@@ -51,6 +51,9 @@ function addFollowUserToFollowList(id) {
     button.className = "follow-btn";
     button.innerText = "Seguir";
   }
+
+  database.currentUserInSession = { ...database.currentUserInSession, followList: followListOfLoggedUser }
+
   }
   
   // function addFollowUserToFollowList(id) {
@@ -64,8 +67,5 @@ function addFollowUserToFollowList(id) {
   //     this.innerText = "Deixar de seguir";
   //   };
   // }
-
-
-
 
 renderCards();
