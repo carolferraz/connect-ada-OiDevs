@@ -12,12 +12,12 @@ class DataBase {
     this.#users = [];
     this.#posts = [];
     this.#comments = [];
-    this.#manager = [];
+    this.#manager = {};
   }
 
   initialization() {
     // this.getManager =  Functions.getLocalStorage('manager') === null
-    // ? []
+    // ? {}
     // : Functions.getLocalStorage('manager');
 
     this.getUsers =
@@ -39,16 +39,9 @@ class DataBase {
     Functions.setLocalStorage('posts', this.getPosts);
     Functions.setLocalStorage('comments', this.getComments);
     // Functions.setLocalStorage('manager', this.getManager);
-    Functions.setLocalStorage('manager', {
-      id: 1,
-      email: 'manager@connectada.com',
-      password: '123456'
-    });
 
     // if (this.getManager && this.getManager.length > 0) {
-    //   this.getManager.forEach(manager => {
-    //     this.addManager(manager);
-    //   });
+    //   this.addManager(this.getManager[0])
     // }
 
     if (this.getUsers && this.getUsers.length > 0) {
@@ -82,22 +75,31 @@ class DataBase {
     return this.#comments;
   }
 
+  get manager() {
+    return this.#manager;
+  }
+
+  set manager(newManager) {
+    this.#manager = newManager;
+    Functions.setLocalStorage('manager', this.#manager);
+  }
+
   get currentUserInSession() {
     return Functions.getLocalStorage('currentUserInSession');
   }
 
-    set currentUserInSession(changeDataCurrentUser) {
-      this.#currentUserInSession = changeDataCurrentUser;
-      Functions.setLocalStorage('currentUserInSession', changeDataCurrentUser);
-    }
+  set currentUserInSession(changeDataCurrentUser) {
+    this.#currentUserInSession = changeDataCurrentUser;
+    Functions.setLocalStorage('currentUserInSession', changeDataCurrentUser);
+  }
 
   addUser(user) {
     this.#users.push(user);
   }
 
-  // addManager(manager) {
-  //   this.#manager.push(manager)
-  // }
+  addManager(manager) {
+    Functions.setLocalStorage('manager', manager);
+  }
 
   set users(newDataOfUsers) {
     const index = this.#users.findIndex(

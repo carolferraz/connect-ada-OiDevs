@@ -1,6 +1,7 @@
 import Functions from "./models/Functions.class.mjs";
 import Alert from "./components/Alert.js";
 import database from "./models/DataBase.class.mjs";
+import Manager from "./models/Manager.class.mjs";
 
 //Alert
 
@@ -13,11 +14,16 @@ const userNotFoundAlert = new Alert(
 //fim do alert
 
 database.initialization();
+createAdm()
 
 const loginBtn = document.getElementById("loginBtn");
 const userEmail = document.getElementById("userEmail");
 const userPassword = document.getElementById("userPassword");
 const isAdmInput = document.getElementById('is-adm')
+
+function createAdm() {
+  new Manager('Manager', '123456', 'manager@connectada.com')
+}
 
 function authenticate(email, password) {
   for (let i = 0; i < database.users.length; i++) {
@@ -32,14 +38,9 @@ function authenticate(email, password) {
 }
 
 function authenticateAdm(email, password) {
-  const manager = Functions.getLocalStorage('manager')
-     if (email === manager.email && password === manager.password) {
+     if (email === database.manager[0].email && password === database.manager[0].password) {
       return true;
     }
-    // if (email === database.manager.email && password === database.manager.password) {
-    //   Functions.setLocalStorage('manager', database.manager);
-    //   return true;
-    // }
 }
 
 

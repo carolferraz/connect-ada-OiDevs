@@ -4,16 +4,17 @@ import database from './DataBase.class.mjs';
 class Manager extends User {
   constructor(name, password, email) {
     super(name, password, email);
-    // database.addManager(this.manageObject)
+    database.addManager(this.manageObject)
   }
 
-  // get manageObject() {
-  //   return {
-  //     id: super.idUser,
-  //     password: super.password,
-  //     email: super.email
-  //   };
-  // }
+  get manageObject() {
+    return {
+      id: super.idUser,
+      password: super.password,
+      email: super.email,
+      image: 'https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png'
+    };
+  }
 
   removeOtherUser(idUser) {
     database.removeUser(idUser);
@@ -28,7 +29,7 @@ class Manager extends User {
   }
 }
 
-const manager = new Manager('Manager', 123456, 'manager@connectada.com');
-// console.log(manager)
+// const manager = new Manager('Manager', 123456, 'manager@connectada.com');
+
 
 export default Manager;
