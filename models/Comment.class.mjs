@@ -12,7 +12,7 @@ class Comment {
     this.#idAuthor = idAuthor;
     this.#idPost = idPost;
     this.#content = content;
-    this.#userImg = userImg;
+    // this.#userImg = userImg;
     database.addComment(this.commentObject);
   }
 
@@ -22,7 +22,7 @@ class Comment {
       idAuthor: this.#idAuthor,
       idPost: this.#idPost,
       content: this.#content,
-      userImg: this.#userImg,
+      // userImg: this.#userImg,
     };
   }
 
@@ -42,9 +42,9 @@ class Comment {
     return this.#content;
   }
   
-  get userImg(){
-    return this.#userImg;
-  }
+  // get userImg(){
+  //   return this.#userImg;
+  // }
 
   set content(newContent) {
     this.#content = newContent;

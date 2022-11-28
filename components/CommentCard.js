@@ -5,7 +5,7 @@ class CommentCardView {
   constructor(comment, userName, userImage) {
 
     this.divOfComment = document.createElement("div");
-    this.divOfComment.setAttribute("id", "comment-card");
+    this.divOfComment.setAttribute("id", `comment-card-${comment.idComment}`);
 
     this.divOfComment.innerHTML = `
     <figure>
@@ -18,7 +18,7 @@ class CommentCardView {
         <p class="comment-content">${comment.content}</p>
       </div>
       <div class="btn-delete">
-        <button id="btn-trash">
+        <button id="btn-trash-${comment.idComment}" >
           <img src="../../assets/trash.svg"></img>
         </button>
       </div>
@@ -28,7 +28,8 @@ class CommentCardView {
 </div>
     `;
     
-    document.getElementById(`post-card-${comment.idPost}`).append(this.divOfComment);
+    // const allComments = document.getElementById(`all-comments-${comment.idPost}`);
+    document.getElementById(`all-comments-${comment.idPost}`).append(this.divOfComment);
   }
 
 }
