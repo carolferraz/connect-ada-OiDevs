@@ -115,7 +115,7 @@ function renderAllCommentsByIdPost(idPost) {
       const author = database.users.find(
         (user) => user.id === comment.idAuthor
       );
-      new CommentCardView(comment, author.name);
+      new CommentCardView(comment, author.name, author.image);
       const btnDelComment = document.getElementById(
         `btn-trash-${comment.idComment}`
       );
