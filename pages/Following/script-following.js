@@ -19,10 +19,10 @@ header.renderDropDownMenu(currentImg);
 
 database.initialization();
 
+
 function renderCards() {
-  database.users.forEach((user) => {
-    const followList = database.currentUserInSession.followList;
-    console.log(followList);
+  const followList = database.currentUserInSession.followList;
+  database.users.forEach(user => {
     for (let i = 0; i < followList.length; i++) {
       if (user.id === followList[i]) {
         new FollowerCard(user);
@@ -34,40 +34,39 @@ function renderCards() {
 
 function buttonFollow(id) {
   const followButton = document.getElementById(`${id}`);
-  followButton.addEventListener("click", function () { addFollowUserToFollowList(id) }
-  );
+  followButton.addEventListener('click', function () {
+    addFollowUserToFollowList(id);
+  });
 }
 
 const followListOfLoggedUser = database.currentUserInSession.followList;
-
 
 function addFollowUserToFollowList(id) {
   const idOfUser = id;
   const button = document.getElementById(`${id}`);
 
-  const followUser = followListOfLoggedUser.find(element => element === idOfUser);
+  const followUser = followListOfLoggedUser.find(
+    element => element === idOfUser
+  );
 
   if (!followUser) {
     followListOfLoggedUser.push(idOfUser);
-    button.className = "unfollow-btn";
-    button.innerText = "Deixar de seguir";
+    button.className = 'unfollow-btn';
+    button.innerText = 'Deixar de seguir';
   } else {
-    followListOfLoggedUser.pop(idOfUser);
-    button.className = "follow-btn";
-    button.innerText = "Seguir";
-  }
-}
+    const index = followListOfLoggedUser.indexOf(idOfUser);
+    followListOfLoggedUser.splice(index, 1);
 
-// function addFollowUserToFollowList(id) {
-//   return function clickEventListener(event) {
-//     const idOfUser = id;
-//     followListOfLoggedUser.find(
-//       (idOfUser) => idOfUser === followListOfLoggedUser.id
-//     );
-//     followListOfLoggedUser.push(idOfUser);
-//     this.className = "unfollow-btn";
-//     this.innerText = "Deixar de seguir";
-//   };
-// }
+    button.className = 'follow-btn';
+    button.innerText = 'Seguir';
+  }
+
+  database.currentUserInSession = {
+    ...database.currentUserInSession,
+    followList: followListOfLoggedUser,
+  };
+
+  database.users = database.currentUserInSession;
+}
 
 renderCards();
