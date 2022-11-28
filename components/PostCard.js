@@ -34,6 +34,9 @@ class PostCard {
         <textarea id="comment-text-${post.idPost}" name="" rows="5" placeholder="Escreva um comentário..."></textarea>
         <button id="comment-button-${post.idPost}">Comentar</button>
       </div>
+
+      <div id="all-comments-${post.idPost}" class="hide">
+      </div>
     `;
     const main = document.getElementById("feed");
     main.append(this.divCard);
