@@ -118,10 +118,8 @@ class DataBase {
     const index = this.#comments.findIndex(
       (element) => element.idComment === idComment
     );
-
     this.#comments.splice(index, 1);
-    Functions.setLocalStorage("comments", this.getComments);
-    console.log(this.#comments);
+    Functions.setLocalStorage("comments", this.#comments);
   }
 
   //remove todos os posts de um mesmo autor

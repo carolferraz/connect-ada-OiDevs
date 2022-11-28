@@ -858,12 +858,6 @@ button:hover {
 }
 
 /* COMENTÁRIO CARD */
-.all-comments {
-  display: flex;
-  flex-direction: column;
-  align-self: center;
-  border: 1px solid pink;
-}
 
 .comment-input {
   margin-top: 10px;
@@ -898,7 +892,6 @@ button:hover {
 .comment-head {
   display: flex;
   justify-content: space-between;
-  /* border: 1px solid rgb(210, 22, 144); */
   font-size: 16px !important;
 }
 
@@ -915,27 +908,24 @@ button:hover {
 }
 
 .comment-card {
-  /* border: 1px solid red; */
+  width: auto;
   display: flex;
-  justify-content: space-around;
-  border: 1px solid rgb(255, 0, 43);
+  margin: 10px;
 }
 
-.comment-content {
-  /* width: 600px; */
+/* .comment-content {
+  min-width: 100px;
   overflow-wrap: break-word;
-  border: 1px solid aqua;
-}
+} */
 
 .comment {
-  width: fit-content;
-  /* justify-content: space-between; */
+  width: 100%;
   margin-left: 16px;
   background-color: var(--bg);
   border-radius: 9px;
   padding: 16px;
   display: flex;
-  border: 1px solid aqua;
+  justify-content: space-between;
 }
 
 .info-text {

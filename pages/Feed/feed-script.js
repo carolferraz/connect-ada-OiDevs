@@ -1,6 +1,5 @@
 import Header from "../../components/Header.js";
 import PostCard from "../../components/PostCard.js";
-import Manager from "../../models/Manager.class.mjs";
 import Functions from "../../models/Functions.class.mjs";
 import database from "../../models/DataBase.class.mjs";
 import CommentCardView from "../../components/CommentCard.js";
@@ -26,10 +25,7 @@ header.renderMenuLinks();
 header.renderDropDownMenu(currentImg);
 
 function renderPostCards() {
-  // const followList = userIvina.followList;
   const followList = database.currentUserInSession.followList;
-  console.log("FOLLOWLIST");
-  console.log(followList);
 
   database.posts.reverse().forEach((post) => {
     for (let i = 0; i < followList.length; i++) {
@@ -88,8 +84,25 @@ function renderPostCards() {
             post.idPost,
             commentMessage
           );
-          // renderAllCommentsByIdPost(post.idPost);
+
+          if (
+            document.getElementById(`comment-text-${post.idPost}`).value != ""
+          ) {
+            document.getElementById(`comment-text-${post.idPost}`).value = "";
+          }
+
           Functions.setLocalStorage("comments", database.comments);
+
+          const allComments = document.getElementById(
+            `all-comments-${post.idPost}`
+          );
+          if (allComments.classList.contains("hide")) {
+            allComments.classList.remove("hide");
+            renderAllCommentsByIdPost(post.idPost);
+          } else {
+            allComments.innerText = "";
+            renderAllCommentsByIdPost(post.idPost);
+          }
         });
       }
     }
@@ -102,20 +115,23 @@ function renderAllCommentsByIdPost(idPost) {
       const author = database.users.find(
         (user) => user.id === comment.idAuthor
       );
-      new CommentCardView(comment, author.name, author.image);
-      // Functions.getLocalStorage('comments', database.comments);
+      new CommentCardView(comment, author.name);
       const btnDelComment = document.getElementById(
         `btn-trash-${comment.idComment}`
       );
-      // console.log(comment.idComment)
 
-      // btnDelComment.addEventListener('click', function delCommentByIdComment(idComment) {
-      //   console.log("id comment");
-      //   console.log(comment.idComment)
-      //   // const [commentToDelete] = database.comments.find(comment => comment.idComment === idComment);
-      //   // console.log(commentToDelete);
-      //   database.removeComment(database.comments.idComment)
-      // })
+      btnDelComment.addEventListener(
+        "click",
+        function delCommentByIdComment(event) {
+          const numberId = event.currentTarget.id.split("-")[2];
+          database.removeComment(numberId);
+          const allComments = document.getElementById(
+            `all-comments-${comment.idPost}`
+          );
+          allComments.innerText = "";
+          renderAllCommentsByIdPost(comment.idPost);
+        }
+      );
     }
   });
 }

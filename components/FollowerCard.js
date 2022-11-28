@@ -38,12 +38,7 @@ class FollowerCard {
     this.divBtn.setAttribute("class", "align-follow-btn");
     this.divFollower.append(this.divBtn);
     
-    // this.button = document.createElement("button");
-    // this.button.setAttribute("class", "follow-btn");
-    // this.button.setAttribute("id", `${user.id}`);
-    // this.divBtn.append(this.button);
-    // this.button.innerText = "Seguir";
-    
+
     this.createFollowButton(user.id)
     
   }
