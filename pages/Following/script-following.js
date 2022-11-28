@@ -1,16 +1,15 @@
 import FollowerCard from "../../components/FollowerCard.js";
 import database from "../../models/DataBase.class.mjs";
-import User from "../../models/User.class.mjs";
 import Header from "../../components/Header.js";
 
 //renderizando header
 const header = new Header();
-header.addMenuLink("../../assets/home.svg", "./feed.html");
-header.addMenuLink("../../assets/search.svg", "./explorer.html", true);
-header.addMenuLink("../../assets/new.svg", "./new.html");
-header.addProfileDropdownLink("Ver perfil", "./profile.html");
-header.addProfileDropdownLink("Editar Perfil", "./edit-profile.html");
-header.addProfileDropdownLink("Seguindo", "./following.html");
+header.addMenuLink("../../assets/home.svg", "../Feed/feed.html");
+header.addMenuLink("../../assets/search.svg", "../Explore/explore.html");
+header.addMenuLink('../../assets/new.svg', '../NewPost/new-post.html');
+header.addProfileDropdownLink('Ver perfil', '../Profile/profile.html');
+header.addProfileDropdownLink('Editar Perfil', '../EditProfile/edit-profile.html');
+header.addProfileDropdownLink('Seguindo', '../Following/following.html', true);
 header.addProfileDropdownLink("Sair", "./login.html", false, true);
 header.renderMenuLinks();
 header.renderDropDownMenu("../../assets/woman.jpg");
@@ -21,9 +20,10 @@ database.initialization();
 function renderCards() {
   database.users.forEach((user) => {
     const followList = database.currentUserInSession.followList;
+    console.log(followList);
     for (let i = 0; i < followList.length; i++) {
       if (user.id === followList[i]) {
-        const followerCard = new FollowerCard(user);
+        new FollowerCard(user);
         buttonFollow(user.id);
       }
     }

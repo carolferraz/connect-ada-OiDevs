@@ -5,12 +5,12 @@ import Header from "../../components/Header.js";
 
 //renderizando header
 const header = new Header();
-header.addMenuLink("../../assets/home.svg", "../feed.html");
-header.addMenuLink("../../assets/search.svg", "../explorer.html", true);
-header.addMenuLink("../../assets/new.svg", "../new.html");
-header.addProfileDropdownLink("Ver perfil", "../profile.html");
-header.addProfileDropdownLink("Editar Perfil", "../edit-profile.html");
-header.addProfileDropdownLink("Seguindo", "../following.html");
+header.addMenuLink("../../assets/home.svg", "../Feed/feed.html");
+header.addMenuLink("../../assets/search.svg", "../Explore/explore.html", true);
+header.addMenuLink('../../assets/new.svg', '../NewPost/new-post.html');
+header.addProfileDropdownLink('Ver perfil', '../Profile/profile.html');
+header.addProfileDropdownLink('Editar Perfil', '../EditProfile/edit-profile.html');
+header.addProfileDropdownLink('Seguindo', '../Following/following.html');
 header.addProfileDropdownLink("Sair", "../login.html", false, true);
 header.renderMenuLinks();
 header.renderDropDownMenu("../../assets/woman.jpg");
