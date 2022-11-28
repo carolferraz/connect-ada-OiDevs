@@ -685,6 +685,7 @@ main#feed {
   justify-content: center;
   max-width: 831px;
   margin: 0 auto;
+  margin-bottom: 30px;
 }
 
 .post-text {
