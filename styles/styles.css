@@ -833,7 +833,7 @@ button:hover {
 }
 
 /* COMENTÁRIO CARD */
-.all-comments {
+#all-comments{
   display: flex;
   flex-direction: column;
   align-self: center;
@@ -891,28 +891,28 @@ button:hover {
 
 .comment-card {
   /* border: 1px solid red; */
+  width: auto;
   display: flex;
-  justify-content: space-around;
-  border: 1px solid rgb(255, 0, 43);
+  margin: 10px ;
+  /* justify-content: space-around; */
+  /* border: 1px solid rgb(255, 0, 43); */
 
 }
 
-.comment-content {
-  /* width: 600px; */
+/* .comment-content {
+  min-width: 100px;
   overflow-wrap: break-word;
-  border: 1px solid aqua;
-
-}
+} */
 
 .comment {
-  width: fit-content;
-  /* justify-content: space-between; */
+  width: 100%;
   margin-left: 16px;
   background-color: var(--bg);
   border-radius: 9px;
   padding: 16px;
   display: flex;
-  border: 1px solid aqua;
+  justify-content: space-between;
+  
 }
 
 .info-text {

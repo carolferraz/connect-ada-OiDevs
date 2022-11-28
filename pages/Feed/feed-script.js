@@ -88,9 +88,9 @@ function renderPostCards() {
             post.idPost,
             commentMessage
           );
-          // renderAllCommentsByIdPost(post.idPost);
+        
           Functions.setLocalStorage("comments", database.comments);
-          
+
           const allComments = document.getElementById(`all-comments-${post.idPost}`); 
           if(allComments.classList.contains('hide')){ 
             allComments.classList.remove('hide');
@@ -106,7 +106,7 @@ function renderPostCards() {
 }
 
 function renderAllCommentsByIdPost(idPost) {
-  database.comments.forEach((comment) => {
+  database.comments.reverse().forEach((comment) => {
     if (comment.idPost === idPost) {
       const author = database.users.find(
         (user) => user.id === comment.idAuthor
@@ -134,4 +134,3 @@ function renderAllCommentsByIdPost(idPost) {
 
 renderPostCards();
 
-//passar pro botão do lixo o idComment
