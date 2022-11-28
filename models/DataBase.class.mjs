@@ -1,18 +1,25 @@
 import Functions from './Functions.class.mjs';
+// import Manager from './Manager.class.mjs';
 
 class DataBase {
   #currentUserInSession;
   #users;
   #posts;
   #comments;
+  #manager;
 
   constructor() {
     this.#users = [];
     this.#posts = [];
     this.#comments = [];
+    this.#manager = [];
   }
 
   initialization() {
+    // this.getManager =  Functions.getLocalStorage('manager') === null
+    // ? []
+    // : Functions.getLocalStorage('manager');
+
     this.getUsers =
       Functions.getLocalStorage('users') === null
         ? []
@@ -31,6 +38,18 @@ class DataBase {
     Functions.setLocalStorage('users', this.getUsers);
     Functions.setLocalStorage('posts', this.getPosts);
     Functions.setLocalStorage('comments', this.getComments);
+    // Functions.setLocalStorage('manager', this.getManager);
+    Functions.setLocalStorage('manager', {
+      id: 1,
+      email: 'manager@connectada.com',
+      password: '123456'
+    });
+
+    // if (this.getManager && this.getManager.length > 0) {
+    //   this.getManager.forEach(manager => {
+    //     this.addManager(manager);
+    //   });
+    // }
 
     if (this.getUsers && this.getUsers.length > 0) {
       this.getUsers.forEach(user => {
@@ -75,6 +94,10 @@ class DataBase {
   addUser(user) {
     this.#users.push(user);
   }
+
+  // addManager(manager) {
+  //   this.#manager.push(manager)
+  // }
 
   set users(newDataOfUsers) {
     const index = this.#users.findIndex(
@@ -150,18 +173,6 @@ class DataBase {
       comment => comment.idPost !== idPost
     );
     this.#comments = newListOfComments;
-  }
-  //PRECISAMOS MUDAR ISSO, PQ ESTAMOS CHAMANDO DATABASE.USERS DENTRO DA CLASSE DATABASE
-  authenticate(email, password) {
-    for (let i = 0; i < database.users.length; i++) {
-      if (
-        email === database.users[i].email &&
-        password === database.users[i].password
-      ) {
-        Functions.setLocalStorage('currentUserInSession', database.users[i]);
-        return true;
-      }
-    }
   }
 }
 

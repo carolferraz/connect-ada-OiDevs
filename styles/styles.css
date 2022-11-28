@@ -933,7 +933,21 @@ button:hover {
   margin: 5px 18px 12px;
 }
 
-/* New post */
+/* Adm */
+
+#adm-div {
+  flex-direction: row;
+  align-items: center;
+}
+
+#adm-div label {
+  font-size: 14px;
+}
+
+input#is-adm {
+  width: 14px;
+  height: 14px;
+}
 
 @keyframes hide-slide {
   0% {
