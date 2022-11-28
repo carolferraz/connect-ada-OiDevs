@@ -5,6 +5,8 @@ import User from "../../models/User.class.mjs";
 import Post from "../../models/Post.class.mjs";
 import Functions from "../../models/Functions.class.mjs";
 import database from "../../models/DataBase.class.mjs";
+import CommentCardView from "../../components/CommentCard.js";
+import Comment from "../../models/Comment.class.mjs";
 
 database.initialization();
 
@@ -24,8 +26,6 @@ header.addProfileDropdownLink("Seguindo", "../Following/following.html");
 header.addProfileDropdownLink("Sair", "../../index.html", false, true);
 header.renderMenuLinks();
 header.renderDropDownMenu(currentImg);
-
-database.initialization();
 
 const userNatasha = new User("Natasha", 2541, "natasha@natasha.gmail");
 const userJunior = new User("Junior", 2541, "junior@junior.gmail");
@@ -93,6 +93,8 @@ const post8 = new Post(
   "Esse post deverá ser excluido quando Ivina for excluida"
 );
 
+console.log(post8.idPost);
+
 function renderPostCards() {
   const followList = userNatasha.followList;
   console.log(followList);
@@ -128,22 +130,120 @@ function renderPostCards() {
           `btn-show-comments-${post.idPost}`
         );
 
+        btnOpenInputComment.addEventListener(
+          "click",
+          function openInputComment() {
+            const divNewComment = document.getElementById(
+              `new-comment-${post.idPost}`
+            );
+            divNewComment.classList.remove("hide");
+          }
+        );
         btnShowComments.addEventListener("click", function () {
-          //chamar a função renderizar comentários
+          renderAllCommentsByIdPost(post.idPost);
         });
 
-        // const btnAddComment = document.getElementById(`comment-button-${post.idPost}`);
+        const btnAddComment = document.getElementById(
+          `comment-button-${post.idPost}`
+        );
 
-        // btnAddComment.addEventListener("click", function () {
-        //   let commentMessage = document.getElementById(`comment-text-${post.idPost}`).value;
-        //   const newComment = new Comment(
-        //     database.currentUserInSession.id
-        //     , 12345, commentMessage
-        //   );
-        // });
+        btnAddComment.addEventListener("click", function () {
+          const commentMessage = document.getElementById(
+            `comment-text-${post.idPost}`
+          ).value;
+          const newComment = new Comment(
+            database.currentUserInSession.id,
+            post.idPost,
+            commentMessage
+          );
+          renderAllCommentsByIdPost(post.idPost);
+          Functions.setLocalStorage("comments", database.comments);
+        });
       }
     }
   });
 }
 
 renderPostCards();
+
+// const comment1 = new Comment(
+//   userIvina.idUser,
+//   post8.idPost,
+//   "1 comentario",
+//   "açskdçalçk"
+// );
+// const comment2 = new Comment(
+//   userNatasha.idUser,
+//   post8.idPost,
+//   "2 comentario",
+//   "açskdçalçk"
+// );
+// const comment3 = new Comment(
+//   userJunior.idUser,
+//   post8.idPost,
+//   "3 comentario",
+//   "açskdçalçk"
+// );
+// const comment4 = new Comment(
+//   userIvina.idUser,
+//   post8.idPost,
+//   "4 comentario",
+//   "açskdçalçk"
+// );
+// const comment5 = new Comment(
+//   userIvina.idUser,
+//   post8.idPost,
+//   "5 comentario",
+//   "açskdçalçk"
+// );
+// const comment6 = new Comment(
+//   userIvina.idUser,
+//   post8.idPost,
+//   "6 comentario",
+//   "açskdçalçk"
+// );
+
+// function adicionarLocalStorage(comment) {
+
+//   Functions.setLocalStorage('comments',database.comments);
+// }
+
+// new CommentCardView(comment1, userIvina.name);
+
+function renderAllCommentsByIdPost(idPost) {
+  database.comments.forEach((comment) => {
+    if (comment.idPost === idPost) {
+      const author = database.users.find(
+        (user) => user.id === comment.idAuthor
+      );
+      new CommentCardView(
+        comment,
+        author.name,
+        database.currentUserInSession.image
+      );
+      Functions.setLocalStorage("comments", database.comments);
+    }
+  });
+}
+
+// const author = database.users.find((user) => {
+//   console.log("autor");
+//   console.log(user.id);
+//   console.log(comment5.idAuthor);
+//   console.log(user.id === comment5.idAuthor);
+//   console.log("-------");
+//   return user.idUser === comment5.idAuthor;
+// });
+
+// console.log(database.users);
+// console.log(author);
+// console.log(comment5);
+
+// renderAllCommentsByIdPost(post8.idPost);
+
+// console.log("merda");
+// console.log(database.users);
+// database.removeUser(database.currentUserInSession.id);
+
+// console.log(database.users);
+// console.log('akjslkaj');
