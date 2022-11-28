@@ -15,6 +15,13 @@ function renderPostCards() {
         `btn-delete-post-${post.idPost}`
       );
 
+      trashButton.addEventListener("click", function () {
+        const idpost = `${post.idPost}`;
+        console.log(idpost);
+        database.removePost(idpost);
+        window.location.href = "./profile.html";
+      });
+
       const btnOpenInputComment = document.getElementById(
         `btn-create-comment-${post.idPost}`
       );
