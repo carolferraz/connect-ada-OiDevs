@@ -680,6 +680,8 @@ main#feed {
   flex-direction: column;
   margin-bottom: 40px;
   justify-content: center;
+  max-width: 831px;
+  margin: 0 auto;
 }
 
 .post-text {
@@ -911,14 +913,12 @@ button:hover {
   display: flex;
   justify-content: space-around;
   border: 1px solid rgb(255, 0, 43);
-
 }
 
 .comment-content {
   /* width: 600px; */
   overflow-wrap: break-word;
   border: 1px solid aqua;
-
 }
 
 .comment {
