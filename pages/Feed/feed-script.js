@@ -1,24 +1,31 @@
 import Header from "../../components/Header.js";
 import PostCard from "../../components/PostCard.js";
 import Manager from "../../models/Manager.class.mjs";
-import User from '../../models/User.class.mjs';
+import User from "../../models/User.class.mjs";
 import Post from "../../models/Post.class.mjs";
-import Functions from '../../models/Functions.class.mjs';
-import database from '../../models/DataBase.class.mjs';
+import Functions from "../../models/Functions.class.mjs";
+import database from "../../models/DataBase.class.mjs";
+import CommentCardView from "../../components/CommentCard.js";
+import Comment from "../../models/Comment.class.mjs";
 
-database.initialization();
+// database.initialization();
+
+
 
 // const currentImg = `${database.currentUserInSession.image}`;
 
 //renderizando header
 const header = new Header();
-header.addMenuLink('../../assets/home.svg', './feed.html', true);
-header.addMenuLink('../../assets/search.svg', './explorer.html');
-header.addMenuLink('../../assets/new.svg', './new.html');
-header.addProfileDropdownLink('Ver perfil', '../Profile/profile.html');
-header.addProfileDropdownLink('Editar Perfil', '../EditProfile/edit-profile.html');
-header.addProfileDropdownLink('Seguindo', '../Following/following.html');
-header.addProfileDropdownLink('Sair', '../../index.html', false, true);
+header.addMenuLink("../../assets/home.svg", "./feed.html", true);
+header.addMenuLink("../../assets/search.svg", "./explorer.html");
+header.addMenuLink("../../assets/new.svg", "./new.html");
+header.addProfileDropdownLink("Ver perfil", "../Profile/profile.html");
+header.addProfileDropdownLink(
+  "Editar Perfil",
+  "../EditProfile/edit-profile.html"
+);
+header.addProfileDropdownLink("Seguindo", "../Following/following.html");
+header.addProfileDropdownLink("Sair", "../../index.html", false, true);
 header.renderMenuLinks();
 // header.renderDropDownMenu(currentImg);
 
@@ -33,8 +40,7 @@ userNatasha.addFollow(userJunior.idUser);
 userNatasha.addFollow(userIvina.idUser);
 
 userIvina.addFollow(userNatasha.idUser);
-userIvina.addFollow(userJunior.idUser)
-
+userIvina.addFollow(userJunior.idUser);
 
 console.log(database.users);
 
@@ -91,33 +97,47 @@ const post8 = new Post(
   "Esse post deverá ser excluido quando Ivina for excluida"
 );
 
+console.log(post8.idPost);
+
 function renderPostCards() {
   const followList = userNatasha.followList;
   console.log(followList);
 
-  database.posts.reverse().forEach(post => {
+  database.posts.reverse().forEach((post) => {
     for (let i = 0; i < followList.length; i++) {
-
       if (post.idAuthor === followList[i]) {
-        const author = database.users.find(user => user.idUser === post.idAuthor);
+        const author = database.users.find(
+          (user) => user.idUser === post.idAuthor
+        );
 
-        new PostCard(post, 'Natasha');
-        const trashButton = document.getElementById(`btn-delete-post-${post.idPost}`);
-        trashButton.classList.add('hide');
+        new PostCard(post, "Natasha");
+        const trashButton = document.getElementById(
+          `btn-delete-post-${post.idPost}`
+        );
+        trashButton.classList.add("hide");
 
-        const btnOpenInputComment = document.getElementById(`btn-create-comment-${post.idPost}`);
+        const btnOpenInputComment = document.getElementById(
+          `btn-create-comment-${post.idPost}`
+        );
 
-        btnOpenInputComment.addEventListener('click', function openInputComment() {
-          const divNewComment = document.getElementById(`new-comment-${post.idPost}`);
-          divNewComment.classList.remove('hide');
-        });
+        btnOpenInputComment.addEventListener(
+          "click",
+          function openInputComment() {
+            const divNewComment = document.getElementById(
+              `new-comment-${post.idPost}`
+            );
+            divNewComment.classList.remove("hide");
+          }
+        );
 
-        const btnShowComments = document.getElementById(`btn-show-comments-${post.idPost}`);
+        const btnShowComments = document.getElementById(
+          `btn-show-comments-${post.idPost}`
+        );
 
-        btnShowComments.addEventListener('click', function () {
+        btnShowComments.addEventListener("click", function () {
           //chamar a função renderizar comentários
         });
-        
+
         // const btnAddComment = document.getElementById(`comment-button-${post.idPost}`);
 
         // btnAddComment.addEventListener("click", function () {
@@ -134,3 +154,62 @@ function renderPostCards() {
 
 renderPostCards();
 
+const comment1 = new Comment(
+  userIvina.idUser,
+  post8.idPost,
+  "1 comentario",
+  "açskdçalçk"
+);
+const comment2 = new Comment(
+  userIvina.idUser,
+  post8.idPost,
+  "2 comentario",
+  "açskdçalçk"
+);
+const comment3 = new Comment(
+  userIvina.idUser,
+  post8.idPost,
+  "3 comentario",
+  "açskdçalçk"
+);
+const comment4 = new Comment(
+  userIvina.idUser,
+  post8.idPost,
+  "4 comentario",
+  "açskdçalçk"
+);
+const comment5 = new Comment(
+  userIvina.idUser,
+  post8.idPost,
+  "5 comentario",
+  "açskdçalçk"
+);
+
+// new CommentCardView(comment1, userIvina.name);
+
+// function renderAllCommentsByIdPost(idPost) {
+//   database.comments.forEach((comment) => {
+//     if (comment.idPost === idPost) {
+//   const author = database.users.find(
+//     (user) => user.idUser === comment.idAuthor
+//   );
+//       new CommentCardView(comment, author.name);
+//       console.log("vraus");
+//     }
+//   });
+// }
+
+const author = database.users.find((user) => {
+  console.log("autor");
+  console.log(user.id);
+  console.log(comment5.idAuthor);
+  console.log(user.idUser === comment5.idAuthor);
+  console.log("-------");
+  return user.idUser === comment5.idAuthor;
+});
+
+
+console.log(database.users);
+console.log(author);
+console.log(comment5);
+// renderAllCommentsByIdPost(post8.idPost);

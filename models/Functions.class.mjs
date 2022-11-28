@@ -1,6 +1,7 @@
 class Functions {
-  static createRandomId = function () {
-    return Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
+
+    static createRandomId = function () {
+    return Math.floor(Math.random() * 3000);
   };
 
   static setLocalStorage(key, value) {
