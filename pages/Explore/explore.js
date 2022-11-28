@@ -36,6 +36,7 @@ function buttonFollow(id) {
   });
 }
 
+
 const followListOfLoggedUser = database.currentUserInSession.followList;
 
 function addFollowUserToFollowList(id) {
@@ -51,7 +52,9 @@ function addFollowUserToFollowList(id) {
     button.className = 'unfollow-btn';
     button.innerText = 'Deixar de seguir';
   } else {
-    followListOfLoggedUser.pop(idOfUser);
+    const index = followListOfLoggedUser.indexOf(idOfUser);
+      followListOfLoggedUser.splice(index, 1);      
+
     button.className = 'follow-btn';
     button.innerText = 'Seguir';
   }
