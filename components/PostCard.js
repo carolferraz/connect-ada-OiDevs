@@ -1,6 +1,6 @@
 
 class PostCard {
-  constructor(post, username) {
+  constructor(post, username, userimage) {
     // this.main = document.createElement('main');
     // this.main.id = 'feed';
     this.divCard = document.createElement('div');
@@ -10,7 +10,7 @@ class PostCard {
       <div class="header-post-card">
         <div class="post-author-identify">
           <figure>
-            <img class="img-post-card" src="../../assets/tarso-brant.png" alt="">
+            <img class="img-post-card" src=${userimage} alt="">
           </figure>
           <p class="user-name">${username}</p>
         </div>

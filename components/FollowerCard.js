@@ -17,7 +17,7 @@ class FollowerCard {
 
     this.img = document.createElement("img");
     this.img.setAttribute("class", "img-user");
-    this.img.setAttribute("src", /*user.image*/ "../../assets/profile-pic-davon.svg");
+    this.img.setAttribute("src", user.image);
     this.a.append(this.img);
 
     this.divText = document.createElement("div");
