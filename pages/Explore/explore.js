@@ -60,6 +60,8 @@ function addFollowUserToFollowList(id) {
     ...database.currentUserInSession,
     followList: followListOfLoggedUser,
   };
+  
+  database.users = database.currentUserInSession
 }
 
 // function addFollowUserToFollowList(id) {
