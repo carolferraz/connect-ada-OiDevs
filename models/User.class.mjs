@@ -14,7 +14,8 @@ class User {
   constructor(name, password, email, role = "") {
     this.#idUser = Functions.createRandomId();
     this.#name = name;
-    this.image = "";
+    this.image =
+      "https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png";
     this.#role = role;
     this.#password = password;
     this.#email = email.toLowerCase();
