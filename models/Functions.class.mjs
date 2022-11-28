@@ -56,6 +56,9 @@ class Functions {
   }
 
   isOldPassValidate(index) {
+    const btnSaveEdit = document.getElementById("save-edit-profile");
+    btnSaveEdit.setAttribute("disabled", "");
+    btnSaveEdit.style.backgroundColor = "#323238";
     if (this.inputs[index].value === database.currentUserInSession.password) {
       this.acceptedInput(index);
       return true;
@@ -67,6 +70,8 @@ class Functions {
 
   isNewPassValidate(index) {
     const btnSaveEdit = document.getElementById("save-edit-profile");
+    btnSaveEdit.setAttribute("disabled", "");
+    btnSaveEdit.style.backgroundColor = "#323238";
     if (
       this.inputs[index].value.length > 6 &&
       this.inputs[index].value != this.inputs[index - 1].value &&
@@ -77,16 +82,17 @@ class Functions {
       return true;
     } else {
       this.errorInvalidInput(index);
-      btnSaveEdit.setAttribute("disabled", "");
-      btnSaveEdit.style.backgroundColor = "#323238";
       return false;
     }
   }
 
   repeteNewPassValidate(index) {
+    const btnSaveEdit = document.getElementById("save-edit-profile");
+    btnSaveEdit.setAttribute("disabled", "");
+    btnSaveEdit.style.backgroundColor = "#323238";
     if (
       this.inputs[index].value === this.inputs[index - 1].value &&
-      this.inputs[index - 2].value != ""
+      this.inputs[index - 2].value === database.currentUserInSession.password
     ) {
       this.acceptedInput(index);
       btnSaveEdit.removeAttribute("disabled", "");
