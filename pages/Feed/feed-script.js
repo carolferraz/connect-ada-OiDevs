@@ -92,7 +92,7 @@ function renderPostCards() {
         if (document.getElementById(`comment-text-${post.idPost}`).value != '') {
           document.getElementById(`comment-text-${post.idPost}`).value = '' 
         }
-        
+
           Functions.setLocalStorage("comments", database.comments);
 
           const allComments = document.getElementById(`all-comments-${post.idPost}`); 
@@ -110,7 +110,7 @@ function renderPostCards() {
 }
 
 function renderAllCommentsByIdPost(idPost) {
-  database.comments.reverse().forEach((comment) => {
+  database.comments.forEach((comment) => {
     if (comment.idPost === idPost) {
       const author = database.users.find(
         (user) => user.id === comment.idAuthor
