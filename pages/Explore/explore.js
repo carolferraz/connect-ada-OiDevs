@@ -58,6 +58,11 @@ function addFollowUserToFollowList(id) {
     button.className = 'follow-btn';
     button.innerText = 'Seguir';
   }
+
+  database.currentUserInSession = {
+    ...database.currentUserInSession,
+    followList: followListOfLoggedUser,
+  };
 }
 
 // function addFollowUserToFollowList(id) {
