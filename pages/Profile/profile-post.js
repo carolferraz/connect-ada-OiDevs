@@ -118,3 +118,5 @@ function renderAllCommentsByIdPost(idPost) {
 }
 
 renderPostCards();
+
+/*Oi*/
