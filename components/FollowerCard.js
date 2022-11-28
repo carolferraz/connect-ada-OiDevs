@@ -17,7 +17,7 @@ class FollowerCard {
 
     this.img = document.createElement("img");
     this.img.setAttribute("class", "img-user");
-    this.img.setAttribute("src", user.image);
+    this.img.setAttribute("src", /*user.image*/ "https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png");
     this.a.append(this.img);
 
     this.divText = document.createElement("div");
