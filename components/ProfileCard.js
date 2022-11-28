@@ -1,4 +1,4 @@
-import database from '../models/DataBase.class.mjs';
+import database from "../models/DataBase.class.mjs";
 
 database.initialization();
 
@@ -8,7 +8,7 @@ class ProfileCard {
   profile;
 
   constructor() {
-    this.profileCard = document.createElement('div');
+    this.profileCard = document.createElement("div");
     this.profile = [];
   }
 
@@ -22,35 +22,34 @@ class ProfileCard {
   }
 
   render() {
-    const profileCard = document.createElement('div');
-    profileCard.classList.add('profileCard');
-    const rightText = document.createElement('div');
-    rightText.classList.add('rightText');
-    const profilePhoto = document.createElement('div');
-    profilePhoto.classList.add('profilePhoto');
-    const profilePhotoImg = document.createElement('img');
-    profilePhotoImg.classList.add('profilePhotoImg');
-    const profileText = document.createElement('div');
-    profileText.classList.add('profileText');
-    const profileTitle = document.createElement('span');
-    profileTitle.classList.add('profileTitle');
-    const profileProf = document.createElement('span');
-    profileProf.classList.add('profileProf');
-    const profileButton = document.createElement('a');
-    profileButton.classList.add('profileButton');
-    const leftText = document.createElement('div');
-    leftText.classList.add('leftText');
-    const followers = document.createElement('span');
-    followers.classList.add('followers');
-    const followersNumber = document.createElement('span');
-    followersNumber.classList.add('followersNumber');
+    const profileCard = document.createElement("div");
+    profileCard.classList.add("profileCard");
+    const rightText = document.createElement("div");
+    rightText.classList.add("rightText");
+    const profilePhoto = document.createElement("div");
+    profilePhoto.classList.add("profilePhoto");
+    const profilePhotoImg = document.createElement("img");
+    profilePhotoImg.classList.add("profilePhotoImg");
+    const profileText = document.createElement("div");
+    profileText.classList.add("profileText");
+    const profileTitle = document.createElement("span");
+    profileTitle.classList.add("profileTitle");
+    const profileProf = document.createElement("span");
+    profileProf.classList.add("profileProf");
+    const profileButton = document.createElement("a");
+    profileButton.classList.add("profileButton");
+    const leftText = document.createElement("div");
+    leftText.classList.add("leftText");
+    const followers = document.createElement("span");
+    followers.classList.add("followers");
+    const followersNumber = document.createElement("span");
+    followersNumber.classList.add("followersNumber");
 
-    console.log(this.profile);
-    profilePhotoImg.setAttribute('src', this.profile[0].profileImg);
-    profileButton.setAttribute('href', '../EditProfile/edit-profile.html');
+    profilePhotoImg.setAttribute("src", this.profile[0].profileImg);
+    profileButton.setAttribute("href", "../EditProfile/edit-profile.html");
     profileButton.innerHTML =
       '<div class="buttonIcon"></div> Editar seu perfil';
-    followers.innerHTML = 'Seguindo';
+    followers.innerHTML = "Seguindo";
     profileTitle.innerHTML = this.profile[0].profileName;
     profileProf.innerHTML = this.profile[0].profileProf;
     followersNumber.innerHTML = this.profile[0].profileFollowing;
@@ -62,7 +61,7 @@ class ProfileCard {
     profileCard.append(rightText, leftText);
     this.profileCard.append(profileCard);
 
-    document.querySelector('main').append(this.profileCard);
+    document.querySelector("main").append(this.profileCard);
   }
 }
 

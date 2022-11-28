@@ -84,21 +84,25 @@ function renderPostCards() {
             post.idPost,
             commentMessage
           );
-          
-        if (document.getElementById(`comment-text-${post.idPost}`).value != '') {
-          document.getElementById(`comment-text-${post.idPost}`).value = '' 
-        }
+
+          if (
+            document.getElementById(`comment-text-${post.idPost}`).value != ""
+          ) {
+            document.getElementById(`comment-text-${post.idPost}`).value = "";
+          }
 
           Functions.setLocalStorage("comments", database.comments);
 
-          const allComments = document.getElementById(`all-comments-${post.idPost}`); 
-          if(allComments.classList.contains('hide')){ 
-            allComments.classList.remove('hide');
+          const allComments = document.getElementById(
+            `all-comments-${post.idPost}`
+          );
+          if (allComments.classList.contains("hide")) {
+            allComments.classList.remove("hide");
             renderAllCommentsByIdPost(post.idPost);
           } else {
-            allComments.innerText = '';
+            allComments.innerText = "";
             renderAllCommentsByIdPost(post.idPost);
-          } 
+          }
         });
       }
     }
@@ -111,7 +115,7 @@ function renderAllCommentsByIdPost(idPost) {
       const author = database.users.find(
         (user) => user.id === comment.idAuthor
       );
-      new CommentCardView(comment, author.name);
+      new CommentCardView(comment, author.name, author.image);
       const btnDelComment = document.getElementById(
         `btn-trash-${comment.idComment}`
       );
@@ -133,4 +137,3 @@ function renderAllCommentsByIdPost(idPost) {
 }
 
 renderPostCards();
-

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap");
 
 * {
   margin: 0;
@@ -20,7 +20,7 @@
   --secondary: #47bafc;
   --red-danger: #f75a68;
   --green-success: #00875f;
-  --ff: 'Roboto', sans-serif;
+  --ff: "Roboto", sans-serif;
 }
 
 body {
@@ -30,7 +30,7 @@ body {
   height: 100vh;
   display: grid;
   grid-template-rows: 70px auto;
-  grid-template-areas: 'header' 'content';
+  grid-template-areas: "header" "content";
 }
 
 a,
@@ -231,7 +231,7 @@ main#index {
 }
 
 .menu a::after {
-  content: '';
+  content: "";
   width: 0%;
   height: 1px;
   background-color: var(--white);
@@ -252,7 +252,7 @@ main#index {
 }
 
 a.active-menu::after {
-  content: '';
+  content: "";
   width: 100%;
   height: 1px;
   background-color: var(--white);
@@ -553,7 +553,6 @@ nav {
 
   .profileCard {
     flex-direction: column;
-    width: 90%;
   }
 
   .profileText {
@@ -675,6 +674,20 @@ main#feed {
   margin-bottom: 10px;
 }
 
+.post-card-profile {
+  padding: 30px;
+  width: 100%;
+  background: #202024;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+  justify-content: center;
+  max-width: 831px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
 .post-text {
   margin-bottom: 10px;
   padding-bottom: 10px;
@@ -684,7 +697,8 @@ main#feed {
   font-size: 14px;
 }
 
-.post-card button {
+.post-card button,
+.post-card-profile button {
   font-size: 14px;
   color: var(--text);
   font-weight: 500;
@@ -717,6 +731,12 @@ button:hover {
 .header-post-card {
   display: flex;
   justify-content: space-between;
+}
+
+.header-post-card {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
 }
 
 .post-card nav {
@@ -784,6 +804,11 @@ button:hover {
   color: var(--text-secondary);
 }
 
+.user-prof {
+  line-height: 20px;
+  color: var(--text-secondary);
+}
+
 .leftText {
   display: flex;
   flex-direction: column;
@@ -820,7 +845,7 @@ button:hover {
 .buttonIcon {
   width: 16px;
   height: 16px;
-  background-image: url('../assets/icon-button-profile-card.svg');
+  background-image: url("../assets/icon-button-profile-card.svg");
 }
 
 .profileButton:hover {
@@ -885,7 +910,7 @@ button:hover {
 .comment-card {
   width: auto;
   display: flex;
-  margin: 10px ;
+  margin: 10px;
 }
 
 /* .comment-content {
@@ -901,7 +926,6 @@ button:hover {
   padding: 16px;
   display: flex;
   justify-content: space-between;
-  
 }
 
 .info-text {
