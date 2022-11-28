@@ -88,6 +88,10 @@ function renderPostCards() {
             post.idPost,
             commentMessage
           );
+          
+        if (document.getElementById(`comment-text-${post.idPost}`).value != '') {
+          document.getElementById(`comment-text-${post.idPost}`).value = '' 
+        }
         
           Functions.setLocalStorage("comments", database.comments);
 

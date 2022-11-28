@@ -833,12 +833,6 @@ button:hover {
 }
 
 /* COMENTÁRIO CARD */
-#all-comments{
-  display: flex;
-  flex-direction: column;
-  align-self: center;
-  border: 1px solid pink;
-}
 
 .comment-input {
   margin-top: 10px;
@@ -873,7 +867,6 @@ button:hover {
 .comment-head {
   display: flex;
   justify-content: space-between;
-  /* border: 1px solid rgb(210, 22, 144); */
   font-size: 16px !important;
 }
 
@@ -890,13 +883,9 @@ button:hover {
 }
 
 .comment-card {
-  /* border: 1px solid red; */
   width: auto;
   display: flex;
   margin: 10px ;
-  /* justify-content: space-around; */
-  /* border: 1px solid rgb(255, 0, 43); */
-
 }
 
 /* .comment-content {
