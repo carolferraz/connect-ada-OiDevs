@@ -74,6 +74,7 @@ function renderPostCards() {
             post.idPost, commentMessage);
           // renderAllCommentsByIdPost(post.idPost);
           Functions.setLocalStorage('comments', database.comments);
+
         });
 
       }

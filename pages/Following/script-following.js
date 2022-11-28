@@ -20,41 +20,67 @@ database.initialization();
 function renderCards() {
   database.users.forEach((user) => {
     const followList = database.currentUserInSession.followList;
-    console.log(followList);
+    
     for (let i = 0; i < followList.length; i++) {
-      if (user.id === followList[i]) {
+      if(user.id === followList[i]) {
         new FollowerCard(user);
-        buttonFollow(user.id);
+
+        const followButton = document.getElementById(`${user.id}`);
+        followButton.className = "unfollow-btn";
+        followButton.innerText = "Deixar de seguir";
+        
+        followButton.addEventListener("click", function () {    
+          const followUser = followList.find(follow => follow === user.id);
+          console.log('FOLLOWUSER');
+          console.log(followUser)
+          const index = database.currentUserInSession.followList.findIndex(follow => follow === followUser);
+          console.log(`index`);
+            console.log(index);
+          if (followUser) {
+            database.currentUserInSession.removeFollow(index);
+            database.currentUserInSession.followList.splice(index, 1);
+            console.log(database.currentUserInSession.followList);
+            followButton.className = "follow-btn";
+            followButton.innerText = "Seguir";
+          } else {
+            database.currentUserInSession.followList.push(user.id);
+            followButton.className = "unfollow-btn";
+            followButton.innerText = "Deixar de seguir";
+          }
+        });
       }
     }
   });
 }
 
-function buttonFollow(id) {
-  const followButton = document.getElementById(`${id}`);
-  followButton.addEventListener("click", function () { addFollowUserToFollowList(id) }
-  );
-}
+// function buttonFollow(id) {
+//   const followButton = document.getElementById(`${id}`);
+//   if(followButton.classList.contains('f'))
+//   this.button.className = "unfollow-btn";
+//   this.button.innerText = "Deixar de seguir";
+//   followButton.addEventListener("click", function () { addFollowUserToFollowList(id) }
+//   );
+// }
 
-const followListOfLoggedUser = database.currentUserInSession.followList;
+// const followListOfLoggedUser = database.currentUserInSession.followList;
 
 
-function addFollowUserToFollowList(id) {
-  const idOfUser = id;
-  const button = document.getElementById(`${id}`);
+// function addFollowUserToFollowList(id) {
+//   const idOfUser = id;
+//   const button = document.getElementById(`${id}`);
 
-  const followUser = followListOfLoggedUser.find(element => element === idOfUser);
+//   const followUser = followListOfLoggedUser.find(element => element === idOfUser);
 
-  if (!followUser) {
-    followListOfLoggedUser.push(idOfUser);
-    button.className = "unfollow-btn";
-    button.innerText = "Deixar de seguir";
-  } else {
-    followListOfLoggedUser.pop(idOfUser);
-    button.className = "follow-btn";
-    button.innerText = "Seguir";
-  }
-}
+//   if (!followUser) {
+//     followListOfLoggedUser.push(idOfUser);
+//     button.className = "unfollow-btn";
+//     button.innerText = "Deixar de seguir";
+//   } else {
+//     followListOfLoggedUser.pop(idOfUser);
+//     button.className = "follow-btn";
+//     button.innerText = "Seguir";
+//   }
+// }
 
 // function addFollowUserToFollowList(id) {
 //   return function clickEventListener(event) {
