@@ -67,10 +67,10 @@ class DataBase {
     return Functions.getLocalStorage('currentUserInSession');
   }
 
-  set currentUserInSession(changeDataCurrentUser) {
-    this.#currentUserInSession = changeDataCurrentUser;
-    Functions.setLocalStorage('currentUserInSession', changeDataCurrentUser);
-  }
+    set currentUserInSession(changeDataCurrentUser) {
+      this.#currentUserInSession = changeDataCurrentUser;
+      Functions.setLocalStorage('currentUserInSession', changeDataCurrentUser);
+    }
 
   addUser(user) {
     this.#users.push(user);
@@ -92,35 +92,47 @@ class DataBase {
     this.#comments.push(comment);
   }
 
+  // removeUser(idUser) {
+  //   const index = this.#users.findIndex(element => element.idUser === idUser);
+  //   this.#users.splice(index, 1);
+  //   this.removeAllPostsByAuthor(idUser);
+  //   this.removeAllCommentsByAuthor(idUser);}
+    
   removeUser(idUser) {
-    const index = this.#users.findIndex(element => element.idUser === idUser);
+    const index = this.#users.findIndex((element) =>
+      element.id === idUser);
+    console.log(index);
     this.#users.splice(index, 1);
     this.removeAllPostsByAuthor(idUser);
     this.removeAllCommentsByAuthor(idUser);
+    Functions.setLocalStorage("users", this.#users);
   }
 
   removePost(idPost) {
-    const index = this.#posts.findIndex(element => element.idPost === idPost);
+    const index = this.#posts.findIndex((element) => element.idPost === idPost);
     this.#posts.splice(index, 1);
     this.removeAllCommentsByPost(idPost);
-  }
+  };
 
   removeComment(idComment) {
     const index = this.#comments.findIndex(
-      element => element.idComment === idComment
+      (element) => element.idComment === idComment
     );
+    
     this.#comments.splice(index, 1);
+    Functions.setLocalStorage('comments', this.getComments);
+    console.log(this.#comments);
   }
 
   //remove todos os posts de um mesmo autor
   removeAllPostsByAuthor(idAuthor) {
-    this.#posts.forEach(post => {
+    this.#posts.forEach((post) => {
       if (post.idAuthor === idAuthor) {
         this.removeAllCommentsByPost(post.idPost);
       }
     });
     const newListOfPosts = this.#posts.filter(
-      posts => posts.idAuthor !== idAuthor
+      (posts) => posts.idAuthor !== idAuthor
     );
     this.#posts = newListOfPosts;
   }

@@ -54,7 +54,8 @@ a:hover {
   color: var(--white);
 }
 
-input, textarea {
+input,
+textarea {
   width: 100%;
   background-color: var(--bg-secondary);
   color: var(--text);
@@ -71,7 +72,8 @@ input {
   padding: 0 0.8rem;
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
   outline: none;
   background-color: var(--bg);
 }
@@ -136,7 +138,8 @@ legend {
   margin: 0 auto;
 }
 
-.default-btn, .danger-btn {
+.default-btn,
+.danger-btn {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -546,9 +549,8 @@ nav {
   }
 
   .profileCard {
-    position: relative;
     flex-direction: column;
-    max-height: fit-content;
+    width: 90%;
   }
 
   .profileText {
@@ -688,7 +690,6 @@ main#feed {
   width: max-content;
   padding: 5px;
   box-sizing: border-box;
-
 }
 
 button:hover {
@@ -709,7 +710,6 @@ button:hover {
   font-size: 16px;
 }
 
-
 .header-post-card {
   display: flex;
   justify-content: space-between;
@@ -721,8 +721,6 @@ button:hover {
   justify-content: space-around;
 }
 
-
-
 .profileCard {
   display: flex;
   background-color: var(--bg-secondary);
@@ -731,7 +729,6 @@ button:hover {
   border-radius: 8px;
   padding: 35px 50px;
   justify-content: space-between;
-  flex-wrap: wrap;
   margin-bottom: 30px;
 }
 
@@ -742,6 +739,7 @@ button:hover {
   border: solid 2px var(--secondary);
   transition: 0.2s ease-in-out;
   padding: 12.18px;
+  margin-bottom: 15px;
 }
 
 .profilePhotoImg {
@@ -783,9 +781,10 @@ button:hover {
 
 .leftText {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  padding: 0 20px;
 }
 
 .followersNumber {
@@ -841,7 +840,6 @@ button:hover {
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
-  
 }
 
 .comment-input textarea {
@@ -890,11 +888,15 @@ button:hover {
   /* border: 1px solid red; */
   display: flex;
   justify-content: space-around;
+  border: 1px solid rgb(255, 0, 43);
+
 }
 
 .comment-content {
-  width: 600px;
+  /* width: 600px; */
   overflow-wrap: break-word;
+  border: 1px solid aqua;
+
 }
 
 .comment {
@@ -905,7 +907,7 @@ button:hover {
   border-radius: 9px;
   padding: 16px;
   display: flex;
-  /* border: 1px solid aqua; */
+  border: 1px solid aqua;
 }
 
 .info-text {
@@ -926,10 +928,7 @@ button:hover {
   margin: 5px 18px 12px;
 }
 
-
 /* New post */
-
-
 
 @keyframes hide-slide {
   0% {
@@ -954,7 +953,8 @@ button:hover {
 }
 
 @media (max-width: 900px) {
-  main, nav {
+  main,
+  nav {
     padding: 2rem 4rem;
   }
 
@@ -972,7 +972,8 @@ button:hover {
 }
 
 @media (max-width: 600px) {
-  main, nav {
+  main,
+  nav {
     padding: 1rem;
   }
   #index .form-wrapper {
