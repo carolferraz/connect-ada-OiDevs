@@ -67,6 +67,11 @@ class DataBase {
     return Functions.getLocalStorage("currentUserInSession");
   }
 
+set commentsInLocalStorage(blau) {
+  this.#comments = blau;
+  Functions.setLocalStorage('comments', blau);
+}
+
   set currentUserInSession(changeDataCurrentUser) {
     this.#currentUserInSession = changeDataCurrentUser;
     Functions.setLocalStorage("currentUserInSession", changeDataCurrentUser);
