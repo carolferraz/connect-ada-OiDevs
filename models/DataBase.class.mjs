@@ -34,11 +34,6 @@ class DataBase {
     Functions.setLocalStorage('users', this.getUsers);
     Functions.setLocalStorage('posts', this.getPosts);
     Functions.setLocalStorage('comments', this.getComments);
-    // Functions.setLocalStorage('manager', this.getManager);
-
-    // if (this.getManager && this.getManager.length > 0) {
-    //   this.addManager(this.getManager[0])
-    // }
 
     if (this.getUsers && this.getUsers.length > 0) {
       this.getUsers.forEach(user => {
@@ -112,12 +107,6 @@ class DataBase {
   addComment(comment) {
     this.#comments.push(comment);
   }
-
-  // removeUser(idUser) {
-  //   const index = this.#users.findIndex(element => element.idUser === idUser);
-  //   this.#users.splice(index, 1);
-  //   this.removeAllPostsByAuthor(idUser);
-  //   this.removeAllCommentsByAuthor(idUser);}
     
   removeUser(idUser) {
     const index = this.#users.findIndex((element) =>
