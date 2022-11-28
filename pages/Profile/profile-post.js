@@ -92,4 +92,6 @@ function renderAllCommentsByIdPost(idPost) {
   });
 }
 
+/* Teste */
+
 renderPostCards();
