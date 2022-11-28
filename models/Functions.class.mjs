@@ -61,6 +61,7 @@ class Functions {
     btnSaveEdit.style.backgroundColor = "#323238";
     if (this.inputs[index].value === database.currentUserInSession.password) {
       this.acceptedInput(index);
+      this.inputs[index + 1].removeAttribute("disabled", "");
       return true;
     } else {
       this.errorInvalidInput(index);
@@ -78,7 +79,7 @@ class Functions {
       this.inputs[index - 1].value != ""
     ) {
       this.acceptedInput(index);
-
+      this.inputs[index + 1].removeAttribute("disabled", "");
       return true;
     } else {
       this.errorInvalidInput(index);
