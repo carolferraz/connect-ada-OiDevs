@@ -28,9 +28,5 @@ class Manager extends User {
     database.removeComment(idComment);
   }
 }
-const maneger1 = new Manager("maneger1", 123456, "maneger1@gmail.com");
-
-// const manager = new Manager('Manager', 123456, 'manager@connectada.com');
-
 
 export default Manager;
