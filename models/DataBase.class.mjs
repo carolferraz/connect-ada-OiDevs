@@ -12,13 +12,9 @@ class DataBase {
     this.#users = [];
     this.#posts = [];
     this.#comments = [];
-    this.#manager = {};
   }
 
   initialization() {
-    // this.getManager =  Functions.getLocalStorage('manager') === null
-    // ? {}
-    // : Functions.getLocalStorage('manager');
 
     this.getUsers =
       Functions.getLocalStorage('users') === null
@@ -76,7 +72,7 @@ class DataBase {
   }
 
   get manager() {
-    return this.#manager;
+    return Functions.getLocalStorage('manager')
   }
 
   set manager(newManager) {

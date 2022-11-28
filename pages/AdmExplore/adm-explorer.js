@@ -1,7 +1,7 @@
 import Header from "../../components/Header.js";
 import database from "../../models/DataBase.class.mjs";
 import Functions from "../../models/Functions.class.mjs"
-import PostCard from "../../components/PostCard.js"
+import FollowerCard from "../../components/FollowerCard.js"
 
 console.log(database.manager)
 
@@ -9,17 +9,18 @@ const currentImg = `${database.manager.image}`;
 
 //renderizando header
 const header = new Header();
-header.addMenuLink("../../assets/post.svg", "./adm-feed.html", true);
-header.addMenuLink("../../assets/user.svg", "../AdmExplore/adm-explore.html");
+header.addMenuLink("../../assets/post.svg", "../AdmFeed/adm-feed.html");
+header.addMenuLink("../../assets/user.svg", "./adm-explore.html", true);
 header.addProfileDropdownLink("Sair", "../../index.html", false, true);
 header.renderMenuLinks();
 header.renderDropDownMenu(currentImg);
 
 database.initialization()
 
-database.posts.forEach((post) => {
-    const author = database.users.find(user => user.id === post.idAuthor);
-    console.log(author);
+function renderCards() {
+  database.users.forEach(user => {
+    return new FollowerCard(user);
+  });
+}
 
-    return new PostCard(post, author.name , author.image);
-})
+renderCards()

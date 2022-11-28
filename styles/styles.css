@@ -949,6 +949,18 @@ input#is-adm {
   height: 14px;
 }
 
+#adm-feed h1 {
+  margin-bottom: 2rem;
+}
+
+#adm-feed section {
+  width: 100%;
+}
+
+#adm-feed .post-card{
+  margin: 0 auto 2rem;
+}
+
 @keyframes hide-slide {
   0% {
     transform: translateY(0px);
