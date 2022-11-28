@@ -26,7 +26,7 @@ database.initialization();
 function renderCards() {
   database.users.forEach(user => {
     if (user.id !== database.currentUserInSession.id) {
-      const followerCard = new FollowerCard(user);
+      new FollowerCard(user);
       buttonFollow(user.id);
     }
   });
