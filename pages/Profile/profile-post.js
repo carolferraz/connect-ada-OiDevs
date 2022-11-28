@@ -1,9 +1,11 @@
 import ProfilePost from "../../components/ProfilePost.js";
-// import Manager from "../../models/Manager.class.mjs";
+import Manager from "../../models/Manager.class.mjs";
 import User from "../../models/User.class.mjs";
-// import Post from "../../models/Post.class.mjs";
-// import Functions from "../../models/Functions.class.mjs";
+import Post from "../../models/Post.class.mjs";
+import Functions from "../../models/Functions.class.mjs";
 import database from "../../models/DataBase.class.mjs";
+import Comment from "../../models/Comment.class.mjs";
+import CommentCardView from "../../components/CommentCard.js";
 
 function renderPostCards() {
   database.posts.forEach((post) => {
@@ -27,13 +29,54 @@ function renderPostCards() {
         }
       );
 
+      const btnAddComment = document.getElementById(
+        `comment-button-${post.idPost}`
+      );
+
+      btnAddComment.addEventListener("click", function () {
+        const commentMessage = document.getElementById(
+          `comment-text-${post.idPost}`
+        ).value;
+        console.log(commentMessage);
+        const newComment = new Comment(
+          database.currentUserInSession.id,
+          post.idPost,
+          commentMessage
+        );
+        // renderAllCommentsByIdPost(post.idPost);
+        Functions.setLocalStorage("comments", database.comments);
+      });
+
       const btnShowComments = document.getElementById(
         `btn-show-comments-${post.idPost}`
       );
 
       btnShowComments.addEventListener("click", function () {
-        //chamar a função renderizar comentários
+        const allComments = document.getElementById(
+          `all-comments-${post.idPost}`
+        );
+        if (allComments.classList.contains("hide")) {
+          allComments.classList.remove("hide");
+          renderAllCommentsByIdPost(post.idPost);
+        } else {
+          allComments.classList.add("hide");
+          allComments.innerText = "";
+        }
       });
+    }
+  });
+}
+
+function renderAllCommentsByIdPost(idPost) {
+  database.comments.forEach((comment) => {
+    if (comment.idPost === idPost) {
+      const author = database.users.find(
+        (user) => user.id === comment.idAuthor
+      );
+      new CommentCardView(comment, author.name, author.image);
+      const btnDelComment = document.getElementById(
+        `btn-trash-${comment.idComment}`
+      );
     }
   });
 }

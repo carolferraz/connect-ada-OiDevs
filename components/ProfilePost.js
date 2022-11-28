@@ -34,6 +34,8 @@ class ProfilePost {
         <textarea id="comment-text-${post.idPost}" name="" rows="5" placeholder="Escreva um comentário..."></textarea>
         <button id="comment-button-${post.idPost}">Comentar</button>
       </div>
+
+      <div id="all-comments-${post.idPost}" class="hide">
     `;
     const main = document.querySelector("main");
     main.append(this.divCard);
