@@ -1,9 +1,8 @@
-
 class PostCard {
   constructor(post, username, userimage) {
     // this.main = document.createElement('main');
     // this.main.id = 'feed';
-    this.divCard = document.createElement('div');
+    this.divCard = document.createElement("div");
     this.divCard.classList.add("post-card");
     this.divCard.id = `post-card-${post.idPost}`;
     this.divCard.innerHTML = `
@@ -48,8 +47,6 @@ class PostCard {
     // this.pUsername = document.createElement('p');
     // this.divPostText = document.createElement('div');
   }
-
-  
 }
 
 export default PostCard;

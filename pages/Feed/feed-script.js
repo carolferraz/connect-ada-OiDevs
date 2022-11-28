@@ -23,7 +23,7 @@ header.addProfileDropdownLink(
 header.addProfileDropdownLink("Seguindo", "../Following/following.html");
 header.addProfileDropdownLink("Sair", "../../index.html", false, true);
 header.renderMenuLinks();
-header.renderDropDownMenu("../../assets/woman.jpg");
+header.renderDropDownMenu(currentImg);
 
 function renderPostCards() {
   // const followList = userIvina.followList;
@@ -102,7 +102,7 @@ function renderAllCommentsByIdPost(idPost) {
       const author = database.users.find(
         (user) => user.id === comment.idAuthor
       );
-      new CommentCardView(comment, author.name);
+      new CommentCardView(comment, author.name, author.image);
       // Functions.getLocalStorage('comments', database.comments);
       const btnDelComment = document.getElementById(
         `btn-trash-${comment.idComment}`
