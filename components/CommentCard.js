@@ -23,7 +23,6 @@ class CommentCardView {
         </button>
       </div>
     </div>
-    <p class="info-text reaction">Contar curtidas nessa bosta</p>
   </div>
 </div>
     `;

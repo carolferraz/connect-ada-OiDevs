@@ -90,6 +90,15 @@ function renderPostCards() {
           );
           // renderAllCommentsByIdPost(post.idPost);
           Functions.setLocalStorage("comments", database.comments);
+          
+          const allComments = document.getElementById(`all-comments-${post.idPost}`); 
+          if(allComments.classList.contains('hide')){ 
+            allComments.classList.remove('hide');
+            renderAllCommentsByIdPost(post.idPost);
+          } else {
+            allComments.innerText = '';
+            renderAllCommentsByIdPost(post.idPost);
+          } 
         });
       }
     }
@@ -106,12 +115,17 @@ function renderAllCommentsByIdPost(idPost) {
       const btnDelComment = document.getElementById(
         `btn-trash-${comment.idComment}`
       );
-      
+
       btnDelComment.addEventListener(
         "click",
         function delCommentByIdComment(event) {
-          const numberId = Number(event.currentTarget.id.split("-")[2]);
+          const numberId = event.currentTarget.id.split("-")[2];
           database.removeComment(numberId);
+          const allComments = document.getElementById(
+            `all-comments-${comment.idPost}`
+          );
+          allComments.innerText = "";
+          renderAllCommentsByIdPost(comment.idPost);
         }
       );
     }
