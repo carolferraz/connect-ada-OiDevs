@@ -67,6 +67,11 @@ class DataBase {
     return Functions.getLocalStorage('currentUserInSession');
   }
 
+set commentsInLocalStorage(blau) {
+  this.#comments = blau;
+  Functions.setLocalStorage('comments', blau);
+}
+
   set currentUserInSession(changeDataCurrentUser) {
     this.#currentUserInSession = changeDataCurrentUser;
     Functions.setLocalStorage('currentUserInSession', changeDataCurrentUser);
@@ -90,11 +95,12 @@ class DataBase {
 
   addComment(comment) {
     this.#comments.push(comment);
-    Functions.setLocalStorage('comments',this.#comments);
   }
 
   removeUser(idUser) {
+    console.log(idUser);
     const index = this.#users.findIndex(element => element.idUser === idUser);
+    console.log(index);
     this.#users.splice(index, 1);
     this.removeAllPostsByAuthor(idUser);
     this.removeAllCommentsByAuthor(idUser);

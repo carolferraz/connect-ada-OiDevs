@@ -6,9 +6,8 @@ class Comment {
   #idAuthor;
   #idPost;
   #content;
-  #userImg;
 
-  constructor(idAuthor, idPost, content, userImg) {
+  constructor(idAuthor, idPost, content) {
     this.#idComment = Functions.createRandomId();
     this.#idAuthor = idAuthor;
     this.#idPost = idPost;

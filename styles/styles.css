@@ -890,11 +890,15 @@ button:hover {
   /* border: 1px solid red; */
   display: flex;
   justify-content: space-around;
+  border: 1px solid rgb(255, 0, 43);
+
 }
 
 .comment-content {
-  width: 600px;
+  /* width: 600px; */
   overflow-wrap: break-word;
+  border: 1px solid aqua;
+
 }
 
 .comment {
@@ -905,7 +909,7 @@ button:hover {
   border-radius: 9px;
   padding: 16px;
   display: flex;
-  /* border: 1px solid aqua; */
+  border: 1px solid aqua;
 }
 
 .info-text {
