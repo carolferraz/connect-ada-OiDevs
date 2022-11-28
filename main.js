@@ -1,6 +1,9 @@
 import Functions from "./models/Functions.class.mjs";
 import Alert from "./components/Alert.js";
 import database from "./models/DataBase.class.mjs";
+import maneger1 from "./models/Manager.class.mjs";
+
+console.log(maneger1);
 
 //Alert
 
