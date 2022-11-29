@@ -1,4 +1,4 @@
-import FollowerCard from '../../components/FollowerCard.js';
+import UserCard from '../../components/UserCard.js';
 import database from '../../models/DataBase.class.mjs';
 import User from '../../models/User.class.mjs';
 import Header from '../../components/Header.js';
@@ -23,7 +23,7 @@ database.initialization();
 function renderCards() {
   database.users.forEach(user => {
     if (user.id !== database.currentUserInSession.id) {
-      new FollowerCard(user);
+      new UserCard(user);
       buttonFollow(user.id);
     }
   });

@@ -387,7 +387,7 @@ nav {
 
 /* Explore page */
 
-.follower {
+.user {
   width: auto;
   border-radius: 8px;
   border: 1px solid var(--border-line);
@@ -398,7 +398,7 @@ nav {
   margin-top: 23px;
 }
 
-.profile-follower {
+.profile-user {
   display: flex;
   align-content: center;
   padding: 10px;
@@ -940,6 +940,11 @@ button:hover {
 
 #btn-trash {
   cursor: pointer;
+}
+
+
+#btn-trash-none {
+  display: none;
 }
 
 .reaction {
