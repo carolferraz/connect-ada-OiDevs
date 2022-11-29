@@ -1,6 +1,5 @@
 import Functions from "./Functions.class.mjs";
 import database from "./DataBase.class.mjs";
-import Post from "./Post.class.mjs";
 
 class User {
   #idUser;

@@ -946,7 +946,43 @@ button:hover {
   margin: 5px 18px 12px;
 }
 
-/* New post */
+/* Adm */
+
+#adm-div {
+  flex-direction: row;
+  align-items: center;
+}
+
+#adm-div label {
+  font-size: 14px;
+}
+
+input#is-adm {
+  width: 14px;
+  height: 14px;
+}
+
+#adm-feed h1, #adm-explore h1 {
+  margin-bottom: 2rem;
+}
+
+#adm-feed section {
+  width: 100%;
+}
+
+#adm-feed .post-card{
+  margin: 0 auto 2rem;
+}
+
+
+
+#adm-explore .align-follow-btn button {
+  cursor: pointer;
+  color: var(--red-danger);
+  border: 1px solid var(--red-danger);
+  padding: 0.8rem;
+  border-radius: 8px;
+}
 
 @keyframes hide-slide {
   0% {

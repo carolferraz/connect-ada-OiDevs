@@ -5,6 +5,7 @@ class DataBase {
   #users;
   #posts;
   #comments;
+  #manager;
 
   constructor() {
     this.#users = [];
@@ -13,6 +14,7 @@ class DataBase {
   }
 
   initialization() {
+
     this.getUsers =
       Functions.getLocalStorage("users") === null
         ? []
@@ -63,6 +65,15 @@ class DataBase {
     return this.#comments;
   }
 
+  get manager() {
+    return Functions.getLocalStorage('manager')
+  }
+
+  set manager(newManager) {
+    this.#manager = newManager;
+    Functions.setLocalStorage('manager', this.#manager);
+  }
+
   get currentUserInSession() {
     return Functions.getLocalStorage("currentUserInSession");
   }
@@ -74,6 +85,10 @@ class DataBase {
 
   addUser(user) {
     this.#users.push(user);
+  }
+
+  addManager(manager) {
+    Functions.setLocalStorage('manager', manager);
   }
 
   set users(newDataOfUsers) {
@@ -91,13 +106,7 @@ class DataBase {
   addComment(comment) {
     this.#comments.push(comment);
   }
-
-  // removeUser(idUser) {
-  //   const index = this.#users.findIndex(element => element.idUser === idUser);
-  //   this.#users.splice(index, 1);
-  //   this.removeAllPostsByAuthor(idUser);
-  //   this.removeAllCommentsByAuthor(idUser);}
-
+    
   removeUser(idUser) {
     const index = this.#users.findIndex((element) => element.id === idUser);
     console.log(index);
@@ -133,6 +142,7 @@ class DataBase {
       (posts) => posts.idAuthor !== idAuthor
     );
     this.#posts = newListOfPosts;
+    Functions.setLocalStorage("posts", this.#posts);
   }
 
   //remove todos os comentários de um mesmo autor e me retorna o que é diferente do que eu quero excluir
@@ -141,6 +151,7 @@ class DataBase {
       (coment) => coment.idAuthor !== idAuthor
     );
     this.#comments = newListOfComments;
+    Functions.setLocalStorage("comments", this.#comments);
   }
 
   removeAllCommentsByPost(idPost) {
@@ -148,18 +159,7 @@ class DataBase {
       (comment) => comment.idPost !== idPost
     );
     this.#comments = newListOfComments;
-  }
-  //PRECISAMOS MUDAR ISSO, PQ ESTAMOS CHAMANDO DATABASE.USERS DENTRO DA CLASSE DATABASE
-  authenticate(email, password) {
-    for (let i = 0; i < database.users.length; i++) {
-      if (
-        email === database.users[i].email &&
-        password === database.users[i].password
-      ) {
-        Functions.setLocalStorage("currentUserInSession", database.users[i]);
-        return true;
-      }
-    }
+    Functions.setLocalStorage("comments", this.#comments);
   }
 }
 
