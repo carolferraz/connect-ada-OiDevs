@@ -66,12 +66,11 @@ btnSaveEdit.addEventListener("click", function (e) {
   window.location.href = "../Profile/profile.html";
 });
 
-btnDeleteAccount.addEventListener("click", function () {
+btnDeleteAccount.addEventListener("click", function (e) {
+  e.preventDefault();
   database.removeUser(database.currentUserInSession.id);
-  console.log(database.users);
   database.currentUserInSession = "";
-  console.log(database.currentUserInSession);
-  window.location.href = "../../index.html";
+  console.log((window.location.href = "../SignUp/signup.html"));
 });
 
 /*Funções*/
