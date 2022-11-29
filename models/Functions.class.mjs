@@ -119,7 +119,7 @@ class Functions {
   }
 
   isPasswordValidate(index) {
-    if (this.inputs[index].value.length <= 6) {
+    if (this.inputs[index].value.length < 6) {
       this.errorInvalidInput(index);
       return false;
     } else {
