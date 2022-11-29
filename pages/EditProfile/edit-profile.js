@@ -70,7 +70,7 @@ btnDeleteAccount.addEventListener("click", function (e) {
   e.preventDefault();
   database.removeUser(database.currentUserInSession.id);
   database.currentUserInSession = "";
-  console.log((window.location.href = "../SignUp/signup.html"));
+  window.location.href = "../SignUp/signup.html";
 });
 
 /*Funções*/
