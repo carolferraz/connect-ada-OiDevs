@@ -1,7 +1,7 @@
 import Header from "../../components/Header.js";
 import database from "../../models/DataBase.class.mjs";
 import Functions from "../../models/Functions.class.mjs";
-import FollowerCard from "../../components/FollowerCard.js";
+import UserCard from "../../components/UserCard.js";
 import Manager from "../../models/Manager.class.mjs";
 
 const currentImg = `${database.manager.image}`;
@@ -18,7 +18,7 @@ database.initialization();
 
 function renderCards() {
   database.users.forEach((user) => {
-    return new FollowerCard(user);
+    return new UserCard(user);
   });
 }
 

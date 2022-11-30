@@ -1,18 +1,18 @@
 import User from "../models/User.class.mjs";
 import database from "../models/DataBase.class.mjs";
 
-class FollowerCard {
+class UserCard {
   constructor(user) {
     this.section = document.createElement("section");
     document.querySelector("main").append(this.section);
 
-    this.divFollower = document.createElement("div");
-    this.divFollower.setAttribute("class", "follower");
-    this.section.append(this.divFollower);
+    this.divUser = document.createElement("div");
+    this.divUser.setAttribute("class", "user");
+    this.section.append(this.divUser);
 
     this.a = document.createElement("a");
-    this.a.setAttribute("class", "profile-follower");
-    this.divFollower.append(this.a);
+    this.a.setAttribute("class", "profile-user");
+    this.divUser.append(this.a);
 
     this.img = document.createElement("img");
     this.img.setAttribute("class", "img-user");
@@ -38,7 +38,7 @@ class FollowerCard {
 
     this.divBtn = document.createElement("div");
     this.divBtn.setAttribute("class", "align-follow-btn");
-    this.divFollower.append(this.divBtn);
+    this.divUser.append(this.divBtn);
 
     this.createFollowButton(user.id);
   }
@@ -64,4 +64,4 @@ class FollowerCard {
   }
 }
 
-export default FollowerCard;
+export default UserCard;

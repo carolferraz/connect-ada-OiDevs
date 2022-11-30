@@ -9,7 +9,7 @@ class PostCard {
       <div class="header-post-card">
         <div class="post-author-identify">
           <figure>
-            <img class="img-post-card" src=${userimage} alt="">
+            <img class="img-post-card" src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png" alt="">
           </figure>
           <p class="user-name">${username}</p>
         </div>

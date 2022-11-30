@@ -116,22 +116,25 @@ function renderAllCommentsByIdPost(idPost) {
         (user) => user.id === comment.idAuthor
       );
       new CommentCardView(comment, author.name, author.image);
-      const btnDelComment = document.getElementById(
-        `btn-trash-${comment.idComment}`
-      );
 
-      btnDelComment.addEventListener(
-        "click",
-        function delCommentByIdComment(event) {
-          const numberId = event.currentTarget.id.split("-")[2];
-          database.removeComment(numberId);
-          const allComments = document.getElementById(
-            `all-comments-${comment.idPost}`
-          );
-          allComments.innerText = "";
-          renderAllCommentsByIdPost(comment.idPost);
-        }
-      );
+      if (document.getElementById(`btn-trash-${comment.idComment}`)) {
+        const btnDelComment = document.getElementById(
+          `btn-trash-${comment.idComment}`
+        );
+
+        btnDelComment.addEventListener(
+          "click",
+          function delCommentByIdComment(event) {
+            const numberId = event.currentTarget.id.split("-")[2];
+            database.removeComment(numberId);
+            const allComments = document.getElementById(
+              `all-comments-${comment.idPost}`
+            );
+            allComments.innerText = "";
+            renderAllCommentsByIdPost(comment.idPost);
+          }
+        );
+      }
     }
   });
 }

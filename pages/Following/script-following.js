@@ -1,4 +1,4 @@
-import FollowerCard from "../../components/FollowerCard.js";
+import UserCard from "../../components/UserCard.js";
 import database from "../../models/DataBase.class.mjs";
 import Header from "../../components/Header.js";
 
@@ -25,7 +25,7 @@ function renderCards() {
   database.users.forEach(user => {
     for (let i = 0; i < followList.length; i++) {
       if (user.id === followList[i]) {
-        new FollowerCard(user);
+        new UserCard(user);
         buttonFollow(user.id);
       }
     }
