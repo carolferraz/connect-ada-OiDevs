@@ -2,7 +2,6 @@ import User from "../models/User.class.mjs";
 import database from "../models/DataBase.class.mjs";
 
 class FollowerCard {
-
   constructor(user) {
     this.section = document.createElement("section");
     document.querySelector("main").append(this.section);
@@ -17,7 +16,10 @@ class FollowerCard {
 
     this.img = document.createElement("img");
     this.img.setAttribute("class", "img-user");
-    this.img.setAttribute("src", /*user.image*/ "https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png");
+    this.img.setAttribute(
+      "src",
+      /*user.image*/ "https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png"
+    );
     this.a.append(this.img);
 
     this.divText = document.createElement("div");
@@ -37,33 +39,29 @@ class FollowerCard {
     this.divBtn = document.createElement("div");
     this.divBtn.setAttribute("class", "align-follow-btn");
     this.divFollower.append(this.divBtn);
-    
-    // this.createFollowButton(user.id)
-    
+
+    this.createFollowButton(user.id);
   }
 
   createFollowButton(id) {
     const hasFollowUser = database.currentUserInSession.followList.find(
-      element => element === id
+      (element) => element === id
     );
-  
+
     if (!hasFollowUser) {
       this.button = document.createElement("button");
       this.button.setAttribute("class", "follow-btn");
       this.button.setAttribute("id", `${id}`);
       this.divBtn.append(this.button);
       this.button.innerText = "Seguir";
-    }
-    else {
+    } else {
       this.button = document.createElement("button");
-      this.button.setAttribute("class", 'unfollow-btn');
+      this.button.setAttribute("class", "unfollow-btn");
       this.button.setAttribute("id", `${id}`);
       this.divBtn.append(this.button);
-      this.button.innerText = 'Deixar de seguir';
+      this.button.innerText = "Deixar de seguir";
     }
-
   }
-
 }
 
 export default FollowerCard;
