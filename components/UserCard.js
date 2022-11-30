@@ -43,10 +43,15 @@ class UserCard {
     this.createFollowButton(user.id);
   }
 
-  createFollowButton(id) {
-    const hasFollowUser = database.currentUserInSession.followList.find(
+  findIndexUser(id) {
+    const index = database.currentUserInSession.followList.find(
       (element) => element === id
     );
+    return index;
+  }
+
+  createFollowButton(id) {
+    const hasFollowUser = this.findIndexUser(id);
 
     if (!hasFollowUser) {
       this.button = document.createElement("button");
