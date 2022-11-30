@@ -24,7 +24,6 @@ const followingDiv = document.getElementById('following');
 
 database.initialization();
 initialMsg();
-console.log(database.currentUserInSession.followList);
 
 function initialMsg() {
   if (database.currentUserInSession.followList.length === 0) {

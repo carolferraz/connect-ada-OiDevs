@@ -38,6 +38,7 @@ class PostCard {
       </div>
     `;
     const main = document.getElementById("feed");
+    main.innerHTML = ''
     main.append(this.divCard);
     // document.body.append(this.main);
     // this.divHeaderCard = document.createElement('div');

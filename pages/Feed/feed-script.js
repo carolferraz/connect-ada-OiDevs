@@ -23,24 +23,6 @@ header.renderMenuLinks();
 header.renderDropDownMenu(currentImg);
 
 database.initialization();
-initialMsg();
-
-function usersHavePost(userId) {
-  for (const post of database.posts) {
-    if (post.idAuthor === userId) {
-      return true;
-    }
-  }
-}
-
-function initialMsg() {
-  if (!usersHavePost()) {
-    const feedDiv = document.createElement('div');
-    feedDiv.style.marginTop = '15px';
-    feedDiv.innerHTML = `<h3>As pubicaçõs de seus amigos aparecerão aqui</h3`;
-    document.querySelector('main').append(feedDiv);
-  }
-}
 
 function renderPostCards() {
   const followList = database.currentUserInSession.followList;
@@ -49,7 +31,7 @@ function renderPostCards() {
     for (let i = 0; i < followList.length; i++) {
       if (post.idAuthor === followList[i]) {
         const author = database.users.find(user => user.id === post.idAuthor);
-        console.log(author);
+        // console.log(author);
 
         new PostCard(post, author.name, author.image);
         const trashButton = document.getElementById(
@@ -73,7 +55,7 @@ function renderPostCards() {
 
         const btnShowComments = document.getElementById(
           `btn-show-comments-${post.idPost}`
-        );
+        )
 
         btnShowComments.addEventListener('click', function () {
           const allComments = document.getElementById(
@@ -96,7 +78,7 @@ function renderPostCards() {
           const commentMessage = document.getElementById(
             `comment-text-${post.idPost}`
           ).value;
-          console.log(commentMessage);
+          // console.log(commentMessage);
           const newComment = new Comment(
             database.currentUserInSession.id,
             post.idPost,

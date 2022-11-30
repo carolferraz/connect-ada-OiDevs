@@ -76,6 +76,10 @@ input {
   padding: 0 0.8rem;
 }
 
+.initial-msg {
+  margin-top: 15px;
+}
+
 input:focus,
 textarea:focus {
   outline: none;
@@ -747,13 +751,16 @@ button:hover {
 .header-post-card {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
 }
 
 .post-card nav {
   padding: 0px;
   display: flex;
   justify-content: space-around;
+}
+
+.post-content, .comment-content {
+  margin-top: 10px;
 }
 
 .profileCard {
