@@ -88,7 +88,7 @@ class DataBase {
   }
 
   addManager(manager) {
-    Functions.setLocalStorage('manager', manager);
+    Functions.getLocalStorage('manager') === null ? Functions.setLocalStorage('manager', manager) : Functions.getLocalStorage('manager');
   }
 
   set users(newDataOfUsers) {
