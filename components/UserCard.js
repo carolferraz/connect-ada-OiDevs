@@ -16,10 +16,7 @@ class UserCard {
 
     this.img = document.createElement("img");
     this.img.setAttribute("class", "img-user");
-    this.img.setAttribute(
-      "src",
-      /*user.image*/ "https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png"
-    );
+    this.img.setAttribute("src", /*user.image*/ `${user.image}`);
     this.a.append(this.img);
 
     this.divText = document.createElement("div");
@@ -43,15 +40,10 @@ class UserCard {
     this.createFollowButton(user.id);
   }
 
-  findIndexUser(id) {
-    const index = database.currentUserInSession.followList.find(
+  createFollowButton(id) {
+    const hasFollowUser = database.currentUserInSession.followList.find(
       (element) => element === id
     );
-    return index;
-  }
-
-  createFollowButton(id) {
-    const hasFollowUser = this.findIndexUser(id);
 
     if (!hasFollowUser) {
       this.button = document.createElement("button");
