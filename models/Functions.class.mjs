@@ -60,8 +60,10 @@ class Functions {
     btnSaveEdit.setAttribute("disabled", "");
     btnSaveEdit.style.backgroundColor = "#323238";
     if (this.inputs[index].value === database.currentUserInSession.password) {
+      console.log(index + 1);
       this.acceptedInput(index);
       this.inputs[index + 1].removeAttribute("disabled", "");
+      this.inputs[index + 1].classList.remove("disable");
       return true;
     } else {
       this.errorInvalidInput(index);
@@ -80,6 +82,7 @@ class Functions {
     ) {
       this.acceptedInput(index);
       this.inputs[index + 1].removeAttribute("disabled", "");
+      this.inputs[index + 1].classList.remove("disable");
       return true;
     } else {
       this.errorInvalidInput(index);

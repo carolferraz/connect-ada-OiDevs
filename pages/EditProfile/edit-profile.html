@@ -45,26 +45,27 @@
                 <div class="invalid-msg">
                   <p>Digite um e-mail válido</p>
                 </div>
-              </div>
+              </div>              
               <div class="input-wrapper">
-                <label for="old-password">Senha Antiga</label>
+                <span class="span-edit-profile">* Em caso de redefinição de senha, valide sua senha atual</span>
+                <label for="old-password">Senha</label>
                 <input type="password" id="old-password" class="required" placeholder="Digite sua senha" minlength="3"> 
                 <div class="invalid-msg">
-                  <p>Digite corretamente sua senha atual caso queira redefinir senha</p>
+                  <p>Digite corretamente sua senha atual</p>
                 </div>
               </div>
               <div class="input-wrapper">
                 <label for="userPassword-edit">Nova Senha</label>
-                <input type="password" id="userPassword-edit" disabled placeholder="Nova senha (min 6 caracteres)" minlength="6" class="required" required>
+                <input type="password" id="userPassword-edit" disabled placeholder="Nova senha (min 6 caracteres)" minlength="6" class="required disable" required>
                 <div class="invalid-msg">
-                  <p>Nova senha deve ter pelo menos 6 caracteres e ser diferente da antiga. O campo de senha antiga deve ser preenchido para redefinir senha</p>
+                  <p>Nova senha deve ter pelo menos 6 caracteres e ser diferente da antiga.</p>
                 </div>
               </div>
               <div class="input-wrapper">
                 <label for="userPassword-2-edit">Confirmar nova Senha</label>
-                <input type="password" id="userPassword-2-edit" disabled placeholder="Confirme a nova senha" minlength="6" class="required" required>
+                <input type="password" id="userPassword-2-edit" disabled placeholder="Confirme a nova senha" minlength="6" class="required disable" required>
                 <div class="invalid-msg">
-                  <p>O conteúdo dos dois campos de nova senha devem ser iguais. O campo de senha antiga deve ser preenchido para redefinir senha</p>
+                  <p>O conteúdo dos dois campos de nova senha devem ser iguais. </p>
                 </div>
               </div>
               <div class="buttons">

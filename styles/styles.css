@@ -471,7 +471,14 @@ nav {
   box-shadow: 0 0 4px rgb(75, 186, 252, 0.7);
 }
 
-/*Ivina*/
+.span-edit-profile {
+  padding: 10px 10px;
+  color: var(--red-danger);
+}
+
+.disable {
+  background-color: #45444465;
+}
 
 @keyframes show-slide {
   0% {
