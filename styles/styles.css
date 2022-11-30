@@ -23,6 +23,10 @@
   --ff: "Roboto", sans-serif;
 }
 
+h3 {
+  font-weight: 500;
+}
+
 body {
   background-color: var(--bg);
   color: var(--text);
@@ -70,6 +74,10 @@ textarea {
 input {
   height: 45px;
   padding: 0 0.8rem;
+}
+
+.initial-msg {
+  margin-top: 15px;
 }
 
 input:focus,
@@ -743,13 +751,16 @@ button:hover {
 .header-post-card {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
 }
 
 .post-card nav {
   padding: 0px;
   display: flex;
   justify-content: space-around;
+}
+
+.post-content, .comment-content {
+  margin-top: 10px;
 }
 
 .profileCard {
@@ -987,8 +998,7 @@ input#is-adm {
 }
 
 
-
-#adm-explore .align-follow-btn button {
+.delete-user {
   cursor: pointer;
   color: var(--red-danger);
   border: 1px solid var(--red-danger);

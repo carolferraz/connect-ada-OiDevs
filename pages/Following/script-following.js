@@ -1,24 +1,38 @@
-import UserCard from "../../components/UserCard.js";
-import database from "../../models/DataBase.class.mjs";
-import Header from "../../components/Header.js";
+import UserCard from '../../components/UserCard.js';
+import database from '../../models/DataBase.class.mjs';
+import Header from '../../components/Header.js';
 
 const currentImg = `${database.currentUserInSession.image}`;
 
 //renderizando header
 const header = new Header();
-header.addMenuLink("../../assets/home.svg", "../Feed/feed.html");
-header.addMenuLink("../../assets/search.svg", "../Explore/explore.html");
+header.addMenuLink('../../assets/home.svg', '../Feed/feed.html');
+header.addMenuLink('../../assets/search.svg', '../Explore/explore.html');
 header.addMenuLink('../../assets/new.svg', '../NewPost/new-post.html');
 header.addProfileDropdownLink('Ver perfil', '../Profile/profile.html');
-header.addProfileDropdownLink('Editar Perfil', '../EditProfile/edit-profile.html');
+header.addProfileDropdownLink(
+  'Editar Perfil',
+  '../EditProfile/edit-profile.html'
+);
 header.addProfileDropdownLink('Seguindo', '../Following/following.html', true);
-header.addProfileDropdownLink("Sair", "./login.html", false, true);
+header.addProfileDropdownLink('Sair', './login.html', false, true);
 header.renderMenuLinks();
 header.renderDropDownMenu(currentImg);
 // Fim da header
 
-database.initialization();
+const followingDiv = document.getElementById('following');
 
+database.initialization();
+initialMsg();
+
+function initialMsg() {
+  if (database.currentUserInSession.followList.length === 0) {
+    const followingDiv = document.createElement('div');
+    followingDiv.style.marginTop = '15px';
+    followingDiv.innerHTML = `<h3>Você não segue ninguém ainda</h3`;
+    document.querySelector('main').append(followingDiv);
+  }
+}
 
 function renderCards() {
   const followList = database.currentUserInSession.followList;
@@ -57,13 +71,14 @@ function addFollowUserToFollowList(id) {
     const index = followListOfLoggedUser.indexOf(idOfUser);
     followListOfLoggedUser.splice(index, 1);
 
-    button.className = 'follow-btn';
-    button.innerText = 'Seguir';
+    // button.className = 'follow-btn';
+    // button.innerText = 'Seguir';
+    window.location.reload();
   }
 
   database.currentUserInSession = {
     ...database.currentUserInSession,
-    followList: followListOfLoggedUser,
+    followList: followListOfLoggedUser
   };
 
   database.users = database.currentUserInSession;

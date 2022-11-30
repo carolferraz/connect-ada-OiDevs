@@ -22,6 +22,10 @@ class Functions {
     return JSON.parse(localStorage.getItem(key));
   }
 
+  static logOff() {
+    this.setLocalStorage('currentUserInSession', {})
+  }
+
   constructor() {
     this.inputs = document.querySelectorAll(".required");
     this.inputErrorMsgs = document.querySelectorAll(".invalid-msg");

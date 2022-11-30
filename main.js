@@ -44,6 +44,7 @@ function authenticateUser() {
 
 function authenticateAdm(email, password) {
      if (email === database.manager.email && password === database.manager.password) {
+      Functions.setLocalStorage('currentUserInSession', database.manager)
       window.location.href = "./pages/AdmFeed/adm-feed.html"
     } else {
       userNotFoundAlert.showAlert();

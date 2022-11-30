@@ -1,4 +1,5 @@
 import database from "../models/DataBase.class.mjs";
+import Functions from "../models/Functions.class.mjs";
 
 class Header {
   links;
@@ -31,8 +32,8 @@ class Header {
     this.links.push({ icon, href, isActive });
   }
 
-  addProfileDropdownLink(linkName, href, isActive = false, isDanger = false) {
-    this.dropdownLinks.push({ linkName, href, isActive, isDanger });
+  addProfileDropdownLink(linkName, href, isActive = false, logOff = false) {
+    this.dropdownLinks.push({ linkName, href, isActive, logOff });
   }
 
   renderMenuLinks() {
@@ -85,8 +86,11 @@ class Header {
       if (link.isActive) {
         a.classList.add("active-menu");
       }
-      if (link.isDanger) {
+      if (link.logOff) {
         a.classList.add("danger");
+        a.addEventListener('click', () => {
+          Functions.logOff()
+        })
       }
     });
 
