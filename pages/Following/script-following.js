@@ -17,7 +17,20 @@ header.renderMenuLinks();
 header.renderDropDownMenu(currentImg);
 // Fim da header
 
+const followingDiv = document.getElementById('following')
+
 database.initialization();
+initialMsg()
+console.log(database.currentUserInSession.followList)
+
+function initialMsg() {
+  if(database.currentUserInSession.followList.length === 0) {
+    const followingDiv = document.createElement('div')
+    followingDiv.style.marginTop = '15px'
+    followingDiv.innerHTML = `<h3>Você não segue ninguém ainda</h3`
+    document.querySelector('main').append(followingDiv)
+  }
+}
 
 
 function renderCards() {

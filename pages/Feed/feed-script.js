@@ -1,55 +1,73 @@
-import Header from "../../components/Header.js";
-import PostCard from "../../components/PostCard.js";
-import Functions from "../../models/Functions.class.mjs";
-import database from "../../models/DataBase.class.mjs";
-import CommentCardView from "../../components/CommentCard.js";
-import Comment from "../../models/Comment.class.mjs";
-
-database.initialization();
+import Header from '../../components/Header.js';
+import PostCard from '../../components/PostCard.js';
+import Functions from '../../models/Functions.class.mjs';
+import database from '../../models/DataBase.class.mjs';
+import CommentCardView from '../../components/CommentCard.js';
+import Comment from '../../models/Comment.class.mjs';
 
 const currentImg = `${database.currentUserInSession.image}`;
 
 //renderizando header
 const header = new Header();
-header.addMenuLink("../../assets/home.svg", "./feed.html", true);
-header.addMenuLink("../../assets/search.svg", "../Explore/explore.html");
-header.addMenuLink("../../assets/new.svg", "../NewPost/new-post.html");
-header.addProfileDropdownLink("Ver perfil", "../Profile/profile.html");
+header.addMenuLink('../../assets/home.svg', './feed.html', true);
+header.addMenuLink('../../assets/search.svg', '../Explore/explore.html');
+header.addMenuLink('../../assets/new.svg', '../NewPost/new-post.html');
+header.addProfileDropdownLink('Ver perfil', '../Profile/profile.html');
 header.addProfileDropdownLink(
-  "Editar Perfil",
-  "../EditProfile/edit-profile.html"
+  'Editar Perfil',
+  '../EditProfile/edit-profile.html'
 );
-header.addProfileDropdownLink("Seguindo", "../Following/following.html");
-header.addProfileDropdownLink("Sair", "../../index.html", false, true);
+header.addProfileDropdownLink('Seguindo', '../Following/following.html');
+header.addProfileDropdownLink('Sair', '../../index.html', false, true);
 header.renderMenuLinks();
 header.renderDropDownMenu(currentImg);
+
+database.initialization();
+initialMsg();
+
+function usersHavePost(userId) {
+  for (const post of database.posts) {
+    if (post.idAuthor === userId) {
+      return true;
+    }
+  }
+}
+
+function initialMsg() {
+  if (!usersHavePost()) {
+    const feedDiv = document.createElement('div');
+    feedDiv.style.marginTop = '15px';
+    feedDiv.innerHTML = `<h3>As pubicaçõs de seus amigos aparecerão aqui</h3`;
+    document.querySelector('main').append(feedDiv);
+  }
+}
 
 function renderPostCards() {
   const followList = database.currentUserInSession.followList;
 
-  database.posts.reverse().forEach((post) => {
+  database.posts.reverse().forEach(post => {
     for (let i = 0; i < followList.length; i++) {
       if (post.idAuthor === followList[i]) {
-        const author = database.users.find((user) => user.id === post.idAuthor);
+        const author = database.users.find(user => user.id === post.idAuthor);
         console.log(author);
 
         new PostCard(post, author.name, author.image);
         const trashButton = document.getElementById(
           `btn-delete-post-${post.idPost}`
         );
-        trashButton.classList.add("hide");
+        trashButton.classList.add('hide');
 
         const btnOpenInputComment = document.getElementById(
           `btn-create-comment-${post.idPost}`
         );
 
         btnOpenInputComment.addEventListener(
-          "click",
+          'click',
           function openInputComment() {
             const divNewComment = document.getElementById(
               `new-comment-${post.idPost}`
             );
-            divNewComment.classList.toggle("hide");
+            divNewComment.classList.toggle('hide');
           }
         );
 
@@ -57,16 +75,16 @@ function renderPostCards() {
           `btn-show-comments-${post.idPost}`
         );
 
-        btnShowComments.addEventListener("click", function () {
+        btnShowComments.addEventListener('click', function () {
           const allComments = document.getElementById(
             `all-comments-${post.idPost}`
           );
-          if (allComments.classList.contains("hide")) {
-            allComments.classList.remove("hide");
+          if (allComments.classList.contains('hide')) {
+            allComments.classList.remove('hide');
             renderAllCommentsByIdPost(post.idPost);
           } else {
-            allComments.classList.add("hide");
-            allComments.innerText = "";
+            allComments.classList.add('hide');
+            allComments.innerText = '';
           }
         });
 
@@ -74,7 +92,7 @@ function renderPostCards() {
           `comment-button-${post.idPost}`
         );
 
-        btnAddComment.addEventListener("click", function () {
+        btnAddComment.addEventListener('click', function () {
           const commentMessage = document.getElementById(
             `comment-text-${post.idPost}`
           ).value;
@@ -86,21 +104,21 @@ function renderPostCards() {
           );
 
           if (
-            document.getElementById(`comment-text-${post.idPost}`).value != ""
+            document.getElementById(`comment-text-${post.idPost}`).value != ''
           ) {
-            document.getElementById(`comment-text-${post.idPost}`).value = "";
+            document.getElementById(`comment-text-${post.idPost}`).value = '';
           }
 
-          Functions.setLocalStorage("comments", database.comments);
+          Functions.setLocalStorage('comments', database.comments);
 
           const allComments = document.getElementById(
             `all-comments-${post.idPost}`
           );
-          if (allComments.classList.contains("hide")) {
-            allComments.classList.remove("hide");
+          if (allComments.classList.contains('hide')) {
+            allComments.classList.remove('hide');
             renderAllCommentsByIdPost(post.idPost);
           } else {
-            allComments.innerText = "";
+            allComments.innerText = '';
             renderAllCommentsByIdPost(post.idPost);
           }
         });
@@ -110,11 +128,9 @@ function renderPostCards() {
 }
 
 function renderAllCommentsByIdPost(idPost) {
-  database.comments.forEach((comment) => {
+  database.comments.forEach(comment => {
     if (comment.idPost === idPost) {
-      const author = database.users.find(
-        (user) => user.id === comment.idAuthor
-      );
+      const author = database.users.find(user => user.id === comment.idAuthor);
       new CommentCardView(comment, author.name, author.image);
 
       if (document.getElementById(`btn-trash-${comment.idComment}`)) {
@@ -123,14 +139,14 @@ function renderAllCommentsByIdPost(idPost) {
         );
 
         btnDelComment.addEventListener(
-          "click",
+          'click',
           function delCommentByIdComment(event) {
-            const numberId = event.currentTarget.id.split("-")[2];
+            const numberId = event.currentTarget.id.split('-')[2];
             database.removeComment(numberId);
             const allComments = document.getElementById(
               `all-comments-${comment.idPost}`
             );
-            allComments.innerText = "";
+            allComments.innerText = '';
             renderAllCommentsByIdPost(comment.idPost);
           }
         );

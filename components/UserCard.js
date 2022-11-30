@@ -41,22 +41,32 @@ class UserCard {
   }
 
   createFollowButton(id) {
-    const hasFollowUser = database.currentUserInSession.followList.find(
-      (element) => element === id
-    );
+    if(database.currentUserInSession.followList) {
+      const hasFollowUser = database.currentUserInSession.followList.find(
+        (element) => element === id
+      );
 
-    if (!hasFollowUser) {
+      if (!hasFollowUser) {
+        this.button = document.createElement("button");
+        this.button.setAttribute("class", "follow-btn");
+        this.button.setAttribute("id", `${id}`);
+        this.divBtn.append(this.button);
+        this.button.innerText = "Seguir";
+      } else {
+        this.button = document.createElement("button");
+        this.button.setAttribute("class", "unfollow-btn");
+        this.button.setAttribute("id", `${id}`);
+        this.divBtn.append(this.button);
+        this.button.innerText = "Deixar de seguir";
+      }
+    }
+
+    if(!database.currentUserInSession.followList) {
       this.button = document.createElement("button");
-      this.button.setAttribute("class", "follow-btn");
+      this.button.setAttribute("class", "delete-user");
       this.button.setAttribute("id", `${id}`);
       this.divBtn.append(this.button);
-      this.button.innerText = "Seguir";
-    } else {
-      this.button = document.createElement("button");
-      this.button.setAttribute("class", "unfollow-btn");
-      this.button.setAttribute("id", `${id}`);
-      this.divBtn.append(this.button);
-      this.button.innerText = "Deixar de seguir";
+      this.button.innerText = "Apagar Usuário";
     }
   }
 }

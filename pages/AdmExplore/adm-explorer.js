@@ -23,7 +23,7 @@ function renderCards() {
 }
 
 renderCards();
-const deleteUser = document.querySelectorAll(".align-follow-btn");
+const deleteUser = document.querySelectorAll(".delete-user");
 console.log(deleteUser);
 
 const section = document.getElementById("explore");
@@ -33,7 +33,6 @@ if (database.users.length === 0) {
 }
 
 deleteUser.forEach((button) => {
-  button.innerHTML = `<button>Apagar Usuário</button>`;
   button.addEventListener("click", () => {
     // database.removeUser(button.id)
     console.log(button.id);
