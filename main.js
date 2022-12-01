@@ -68,6 +68,5 @@ function startSession(e) {
 }
 
 loginBtn.addEventListener("click", startSession);
-console.log(database.users);
-console.log(database.manager);
+
 export default loginBtn;
