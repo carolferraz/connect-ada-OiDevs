@@ -29,7 +29,8 @@ function userExists(email, password) {
   for (let i = 0; i < database.users.length; i++) {
     if (
       email === database.users[i].email &&
-      password === database.users[i].password
+      password === database.users[i].password &&
+      email !== database.manager.email
     ) {
       Functions.setLocalStorage("currentUserInSession", database.users[i]);
       return true;
