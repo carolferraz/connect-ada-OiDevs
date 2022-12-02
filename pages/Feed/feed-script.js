@@ -7,6 +7,7 @@ import Comment from '../../models/Comment.class.mjs';
 
 const currentImg = `${database.currentUserInSession.image}`;
 
+
 //renderizando header
 const header = new Header();
 header.addMenuLink('../../assets/home.svg', './feed.html', true);
@@ -98,10 +99,10 @@ function renderPostCards() {
           );
           if (allComments.classList.contains('hide')) {
             allComments.classList.remove('hide');
-            renderAllCommentsByIdPost(post.idPost);
+            Functions.renderAllCommentsByIdPost(post.idPost);
           } else {
             allComments.innerText = '';
-            renderAllCommentsByIdPost(post.idPost);
+            Functions.renderAllCommentsByIdPost(post.idPost);
           }
         });
       }
@@ -124,6 +125,7 @@ function renderAllCommentsByIdPost(idPost) {
           'click',
           function delCommentByIdComment(event) {
             const numberId = event.currentTarget.id.split('-')[2];
+            console.log(numberId);
             database.removeComment(numberId);
             const allComments = document.getElementById(
               `all-comments-${comment.idPost}`
@@ -137,4 +139,7 @@ function renderAllCommentsByIdPost(idPost) {
   });
 }
 
+
+
 renderPostCards();
+
