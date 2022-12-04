@@ -93,7 +93,8 @@ function renderPostCards() {
           );
           if (allComments.classList.contains('hide')) {
             allComments.classList.remove('hide');
-            Functions.renderAllCommentsByIdPost(post.idPost);
+            // Functions.renderAllCommentsByIdPost(post.idPost);
+            renderAllCommentsByIdPost(post.idPost)
           } else {
             allComments.classList.add('hide');
             allComments.innerText = '';
@@ -128,15 +129,50 @@ function renderPostCards() {
           );
           if (allComments.classList.contains('hide')) {
             allComments.classList.remove('hide');
-            Functions.renderAllCommentsByIdPost(post.idPost);
+            // Functions.renderAllCommentsByIdPost(post.idPost);
+            renderAllCommentsByIdPost(post.idPost);
           } else {
             allComments.innerText = '';
-            Functions.renderAllCommentsByIdPost(post.idPost);
+            // Functions.renderAllCommentsByIdPost(post.idPost);
+            renderAllCommentsByIdPost(post.idPost);
           }
         });
       }
     }
   });
 };
+
+
+function renderAllCommentsByIdPost(idPost) {
+  database.comments.forEach((comment) => {
+    if (comment.idPost === idPost) {
+      const author = database.users.find(
+        (user) => user.id === comment.idAuthor
+      );
+      new CommentCardView(comment, author.name, author.image);
+
+      const btnDelComment = document.getElementById(
+        `btn-trash-${comment.idComment}`
+      );
+
+      // if (comment.idAuthor !== database.currentUserInSession.id) {
+      //   btnDelComment.classList.add("hide");
+      // }
+      btnDelComment.addEventListener(
+        "click",
+        function delCommentByIdComment(event) {
+          const numberId = event.currentTarget.id.split("-")[2];
+          console.log(numberId);
+          database.removeComment(numberId);
+          const allComments = document.getElementById(
+            `all-comments-${comment.idPost}`
+          );
+          allComments.innerText = "";
+          renderAllCommentsByIdPost(comment.idPost);
+        }
+      );
+    }
+  });
+}
 
 renderPostCards();
