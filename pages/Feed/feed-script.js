@@ -37,7 +37,10 @@ function renderPostCards() {
         const trashButton = document.getElementById(
           `btn-delete-post-${post.idPost}`
         );
-        trashButton.classList.add("hide");
+
+        if (database.currentUserInSession.id !== database.manager.id) {
+          trashButton.classList.add("hide");          
+        }
 
         const btnOpenInputComment = document.getElementById(
           `btn-create-comment-${post.idPost}`
@@ -123,8 +126,11 @@ function renderAllCommentsByIdPost(idPost) {
         `btn-trash-${comment.idComment}`
       );
 
-      if (comment.idAuthor !== database.currentUserInSession.id) {
-        btnDelComment.classList.add("hide");
+      // if (comment.idAuthor !== database.currentUserInSession.id) {
+      //   btnDelComment.classList.add("hide");
+      // }
+      if (comment.idAuthor === database.currentUserInSession.id || database.manager.id === database.currentUserInSession.id) {
+        btnDelComment.removeAttribute("hidden");
       }
       btnDelComment.addEventListener(
         "click",

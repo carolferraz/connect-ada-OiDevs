@@ -67,7 +67,10 @@ function renderPostCards() {
         const trashButton = document.getElementById(
           `btn-delete-post-${post.idPost}`
         );
-        // trashButton.classList.add('hide');
+       
+        // if (database.currentUserInSession.id !== database.manager.id) {
+        //   trashButton.classList.add("hide");          
+        // }
 
         const btnOpenInputComment = document.getElementById(
           `btn-create-comment-${post.idPost}`
@@ -79,7 +82,10 @@ function renderPostCards() {
             const divNewComment = document.getElementById(
               `new-comment-${post.idPost}`
             );
-            // divNewComment.classList.toggle('hide');
+            if (database.currentUserInSession.id !== database.manager.id) {
+              divNewComment.classList.toggle('hide');
+              
+            }
           }
         );
 
@@ -155,9 +161,14 @@ function renderAllCommentsByIdPost(idPost) {
         `btn-trash-${comment.idComment}`
       );
 
-      // if (comment.idAuthor !== database.currentUserInSession.id) {
+      // if (comment.idAuthor !== database.currentUserInSession.id ) {
       //   btnDelComment.classList.add("hide");
       // }
+
+      if (comment.idAuthor === database.currentUserInSession.id || database.manager.id === database.currentUserInSession.id) {
+        btnDelComment.removeAttribute("hidden");
+      }
+
       btnDelComment.addEventListener(
         "click",
         function delCommentByIdComment(event) {

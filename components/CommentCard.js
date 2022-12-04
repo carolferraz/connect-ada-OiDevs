@@ -17,7 +17,7 @@ class CommentCardView {
         <p class="comment-content">${comment.content}</p>
       </div>
       <div class="btn-delete">
-        <button id="btn-trash-${comment.idComment}" >
+        <button id="btn-trash-${comment.idComment}" hidden>
           <img src="../../assets/trash.svg"></img>
         </button>
       </div>

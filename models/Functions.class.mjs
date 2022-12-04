@@ -1,5 +1,4 @@
 import database from "./DataBase.class.mjs";
-// import CommentCardView from "../components/CommentCard.js";
 
 class Functions {
   static createRandomId = function () {
@@ -131,36 +130,6 @@ class Functions {
       return true;
     }
   }
-
-  // static renderAllCommentsByIdPost(idPost) {
-  //   database.comments.forEach(comment => {
-  //     if (comment.idPost === idPost) {
-  //       const author = database.users.find(user => user.id === comment.idAuthor);
-  //       new CommentCardView(comment, author.name, author.image);
-  
-  //       if (document.getElementById(`btn-trash-${comment.idComment}`)) {
-  //         const btnDelComment = document.getElementById(
-  //           `btn-trash-${comment.idComment}`
-  //         );
-  
-  //         btnDelComment.addEventListener(
-  //           'click',
-  //           function delCommentByIdComment(event) {
-  //             const numberId = event.currentTarget.id.split('-')[2];
-  //             console.log(numberId);
-  //             database.removeComment(numberId);
-  //             const allComments = document.getElementById(
-  //               `all-comments-${comment.idPost}`
-  //             );
-  //             allComments.innerText = '';
-  //             renderAllCommentsByIdPost(comment.idPost);
-  //           }
-  //         );
-  //       }
-  //     }
-  //   });
-  // }
-
 }
 
 export default Functions;
