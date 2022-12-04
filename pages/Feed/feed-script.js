@@ -125,10 +125,6 @@ function renderAllCommentsByIdPost(idPost) {
       const btnDelComment = document.getElementById(
         `btn-trash-${comment.idComment}`
       );
-
-      // if (comment.idAuthor !== database.currentUserInSession.id) {
-      //   btnDelComment.classList.add("hide");
-      // }
       if (comment.idAuthor === database.currentUserInSession.id || database.manager.id === database.currentUserInSession.id) {
         btnDelComment.removeAttribute("hidden");
       }
@@ -145,26 +141,6 @@ function renderAllCommentsByIdPost(idPost) {
           renderAllCommentsByIdPost(comment.idPost);
         }
       );
-
-      // if (document.getElementById(`btn-trash-${comment.idComment}`)) {
-      //   const btnDelComment = document.getElementById(
-      //     `btn-trash-${comment.idComment}`
-      //   );
-
-      //   btnDelComment.addEventListener(
-      //     'click',
-      //     function delCommentByIdComment(event) {
-      //       const numberId = event.currentTarget.id.split('-')[2];
-      //       console.log(numberId);
-      //       database.removeComment(numberId);
-      //       const allComments = document.getElementById(
-      //         `all-comments-${comment.idPost}`
-      //       );
-      //       allComments.innerText = '';
-      //       renderAllCommentsByIdPost(comment.idPost);
-      //     }
-      //   );
-      // }
     }
   });
 }
