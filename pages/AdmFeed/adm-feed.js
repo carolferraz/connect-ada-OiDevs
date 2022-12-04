@@ -4,7 +4,7 @@ import Functions from '../../models/Functions.class.mjs';
 import PostCard from '../../components/PostCard.js';
 import CommentCardView from '../../components/CommentCard.js';
 
-console.log(database.manager);
+// console.log(database.manager);
 
 const currentImg = `${database.manager.image}`;
 
@@ -31,14 +31,20 @@ function renderPostCards() {
     for (let i = 0; i < allUsers.length; i++) {
       if (post.idAuthor === allUsers[i].id) {
         const author = database.users.find(user => user.id === post.idAuthor);
-        console.log(author);
+        // console.log(author);
 
         new PostCard(post, author.name, author.image);
         const trashButton = document.getElementById(
           `btn-delete-post-${post.idPost}`
         );
-       
-      
+
+        trashButton.addEventListener("click", function () {
+          const idpost = `${post.idPost}`;
+          console.log(idpost);
+          database.removePost(idpost);
+          window.location.href = "./adm-feed.html";
+        });
+
         const btnOpenInputComment = document.getElementById(
           `btn-create-comment-${post.idPost}`
         );
@@ -136,7 +142,7 @@ function renderAllCommentsByIdPost(idPost) {
         "click",
         function delCommentByIdComment(event) {
           const numberId = event.currentTarget.id.split("-")[2];
-          console.log(numberId);
+          // console.log(numberId);
           database.removeComment(numberId);
           const allComments = document.getElementById(
             `all-comments-${comment.idPost}`

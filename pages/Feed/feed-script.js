@@ -87,7 +87,6 @@ function renderPostCards() {
           const commentMessage = document.getElementById(
             `comment-text-${post.idPost}`
           ).value;
-          // console.log(commentMessage);
           const newComment = new Comment(
             database.currentUserInSession.id,
             post.idPost,
@@ -107,11 +106,10 @@ function renderPostCards() {
           );
           if (allComments.classList.contains("hide")) {
             allComments.classList.remove("hide");
-            // Functions.renderAllCommentsByIdPost(post.idPost);
             renderAllCommentsByIdPost(post.idPost);
           } else {
             allComments.innerText = "";
-            // Functions.renderAllCommentsByIdPost(post.idPost);
+
             renderAllCommentsByIdPost(post.idPost);
           }
         });
@@ -141,7 +139,6 @@ function renderAllCommentsByIdPost(idPost) {
         "click",
         function delCommentByIdComment(event) {
           const numberId = event.currentTarget.id.split("-")[2];
-          console.log(numberId);
           database.removeComment(numberId);
           const allComments = document.getElementById(
             `all-comments-${comment.idPost}`
