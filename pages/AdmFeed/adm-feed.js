@@ -24,36 +24,6 @@ if (database.posts.length === 0) {
   section.innerHTML = `<h3>Nenhum post cadastrado</h3`;
 }
 
-// database.posts.forEach(post => {
-//   const author = database.users.find(user => user.id === post.idAuthor);
-
-//   return new PostCard(post, author.name, author.image);
-// });
-
-
-// database.comments.forEach(comment => {
-//   const author = database.users.find(user => user.id === comment.idAuthor);
-// // console.log(author);
-//   console.log(new CommentCardView(comment, author.name, author.image)); 
-// })
-
-// const btnShowComments = document.getElementById(
-//   `btn-show-comments-${post.idPost}`
-// )
-
-// btnShowComments.addEventListener('click', function () {
-//   const allComments = document.getElementById(
-//     `all-comments-${post.idPost}`
-//   );
-//   if (allComments.classList.contains('hide')) {
-//     allComments.classList.remove('hide');
-//     renderAllCommentsByIdPost(post.idPost);
-//   } else {
-//     allComments.classList.add('hide');
-//     allComments.innerText = '';
-//   }
-// });
-
 function renderPostCards() {
   const allUsers = database.users;
 
@@ -68,10 +38,7 @@ function renderPostCards() {
           `btn-delete-post-${post.idPost}`
         );
        
-        // if (database.currentUserInSession.id !== database.manager.id) {
-        //   trashButton.classList.add("hide");          
-        // }
-
+      
         const btnOpenInputComment = document.getElementById(
           `btn-create-comment-${post.idPost}`
         );
@@ -99,7 +66,6 @@ function renderPostCards() {
           );
           if (allComments.classList.contains('hide')) {
             allComments.classList.remove('hide');
-            // Functions.renderAllCommentsByIdPost(post.idPost);
             renderAllCommentsByIdPost(post.idPost)
           } else {
             allComments.classList.add('hide');
@@ -115,7 +81,6 @@ function renderPostCards() {
           const commentMessage = document.getElementById(
             `comment-text-${post.idPost}`
           ).value;
-          // console.log(commentMessage);
           const newComment = new Comment(
             database.currentUserInSession.id,
             post.idPost,
@@ -135,11 +100,9 @@ function renderPostCards() {
           );
           if (allComments.classList.contains('hide')) {
             allComments.classList.remove('hide');
-            // Functions.renderAllCommentsByIdPost(post.idPost);
             renderAllCommentsByIdPost(post.idPost);
           } else {
             allComments.innerText = '';
-            // Functions.renderAllCommentsByIdPost(post.idPost);
             renderAllCommentsByIdPost(post.idPost);
           }
         });
