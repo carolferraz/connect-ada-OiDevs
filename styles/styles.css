@@ -31,7 +31,7 @@ body {
   background-color: var(--bg);
   color: var(--text);
   font-family: var(--ff);
-  height: 100vh;
+  /* height: 100vh; */
   display: grid;
   grid-template-rows: 70px auto;
   grid-template-areas: "header" "content";
@@ -930,11 +930,6 @@ button:hover {
   display: flex;
   margin: 10px;
 }
-
-/* .comment-content {
-  min-width: 100px;
-  overflow-wrap: break-word;
-} */
 
 .comment {
   width: 100%;
