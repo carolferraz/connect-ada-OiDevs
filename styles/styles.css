@@ -173,6 +173,10 @@ legend {
   font-weight: 500;
 }
 
+.danger-btn-modal {
+  width: 50%;
+}
+
 .default-btn {
   background-color: var(--primary);
   color: var(--white);
@@ -521,13 +525,24 @@ nav {
   display: none;
 }
 
+.img-danger {
+  padding-bottom: 2px;
+  width: 20%;
+}
+
+.div-btn-danger {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 .modal {
   position: absolute;
   top: 100%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: var(--bg-secondary);
-  padding: 6rem;
+  padding: 2rem;
   border-radius: 5px;
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
   z-index: 10;
