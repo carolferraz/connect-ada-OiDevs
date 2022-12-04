@@ -97,14 +97,18 @@ function renderAllCommentsByIdPost(idPost) {
         (user) => user.id === comment.idAuthor
       );
       new CommentCardView(comment, author.name, author.image);
+
       const btnDelComment = document.getElementById(
         `btn-trash-${comment.idComment}`
       );
+
+      btnDelComment.removeAttribute("hidden");
 
       btnDelComment.addEventListener(
         "click",
         function delCommentByIdComment(event) {
           const numberId = event.currentTarget.id.split("-")[2];
+          console.log(numberId);
           database.removeComment(numberId);
           const allComments = document.getElementById(
             `all-comments-${comment.idPost}`
@@ -116,7 +120,6 @@ function renderAllCommentsByIdPost(idPost) {
     }
   });
 }
-
 renderPostCards();
 
 /*Oi*/
