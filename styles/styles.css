@@ -97,16 +97,16 @@ main {
 }
 
 main::-webkit-scrollbar {
-  width: 10px;               /* width of the entire scrollbar */
+  width: 10px; /* width of the entire scrollbar */
 }
 
 main::-webkit-scrollbar-track {
-  background: var(--bg-secondary);        /* color of the tracking area */
+  background: var(--bg-secondary); /* color of the tracking area */
 }
 
 main::-webkit-scrollbar-thumb {
-  background-color: var(--primary);    /* color of the scroll thumb */
-  border-radius: 20px;       /* roundness of the scroll thumb */
+  background-color: var(--primary); /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
 }
 
 button:hover {
@@ -171,6 +171,10 @@ legend {
   cursor: pointer;
   border-radius: 5px;
   font-weight: 500;
+}
+
+.danger-btn-modal {
+  width: 50%;
 }
 
 .default-btn {
@@ -498,8 +502,61 @@ nav {
   color: var(--red-danger);
 }
 
+.msg-alert-delete-account {
+  margin-bottom: 10px;
+}
+
 .disable {
   background-color: #45444465;
+}
+
+.close-modal {
+  position: absolute;
+  top: 1.2rem;
+  right: 2rem;
+  font-size: 3rem;
+  color: var(--text);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.img-danger {
+  padding-bottom: 2px;
+  width: 20%;
+}
+
+.div-btn-danger {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.modal {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--bg-secondary);
+  padding: 2rem;
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 150vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 5;
 }
 
 @keyframes show-slide {
@@ -706,7 +763,8 @@ button:hover {
   justify-content: space-around;
 }
 
-.post-content, .comment-content {
+.post-content,
+.comment-content {
   margin-top: 10px;
 }
 
@@ -902,7 +960,6 @@ button:hover {
   cursor: pointer;
 }
 
-
 #btn-trash-none {
   display: none;
 }
@@ -927,7 +984,8 @@ input#is-adm {
   height: 14px;
 }
 
-#adm-feed h1, #adm-explore h1 {
+#adm-feed h1,
+#adm-explore h1 {
   margin-bottom: 2rem;
 }
 
@@ -935,10 +993,9 @@ input#is-adm {
   width: 100%;
 }
 
-#adm-feed .post-card{
+#adm-feed .post-card {
   margin: 0 auto 2rem;
 }
-
 
 .delete-user {
   cursor: pointer;

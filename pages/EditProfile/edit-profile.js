@@ -38,7 +38,7 @@ const currentEmail = (document.getElementById(
   "userEmail-edit"
 ).value = `${database.currentUserInSession.email}`);
 
-/*Seleção Ids dos inputs*/
+/*Seleção Ids dos inputs e buttons*/
 
 const btnSaveEdit = document.getElementById("save-edit-profile");
 
@@ -58,6 +58,14 @@ const repeteNewPass = document.getElementById("userPassword-2-edit");
 
 const btnDeleteAccount = document.getElementById("delete-account");
 
+const divModal = document.querySelector(".modal");
+
+const btnCloseModal = document.querySelector(".close-modal");
+
+const divOverlay = document.querySelector(".overlay");
+
+const btnDeleteYourAccount = document.getElementById("delete-your-account");
+
 /*Eventos em botões*/
 
 btnSaveEdit.addEventListener("click", function (e) {
@@ -67,6 +75,19 @@ btnSaveEdit.addEventListener("click", function (e) {
 });
 
 btnDeleteAccount.addEventListener("click", function (e) {
+  e.preventDefault();
+  divModal.classList.remove("hidden");
+  divOverlay.classList.remove("hidden");
+});
+
+btnCloseModal.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  divModal.classList.add("hidden");
+  divOverlay.classList.add("hidden");
+});
+
+btnDeleteYourAccount.addEventListener("click", function (e) {
   e.preventDefault();
   database.removeUser(database.currentUserInSession.id);
   database.currentUserInSession = "";
