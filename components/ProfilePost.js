@@ -1,17 +1,18 @@
-class PostCard {
-  constructor(post, username, userimage) {
-    // this.main = document.createElement('main');
-    // this.main.id = 'feed';
+import database from "../models/DataBase.class.mjs";
+
+class ProfilePost {
+  constructor(post, username) {
     this.divCard = document.createElement("div");
-    this.divCard.classList.add("post-card");
+    this.divCard.classList.add("post-card-profile");
     this.divCard.id = `post-card-${post.idPost}`;
     this.divCard.innerHTML = `
       <div class="header-post-card">
         <div class="post-author-identify">
           <figure>
-            <img class="img-post-card" src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png" alt="">
+            <img class="img-post-card" src="${database.currentUserInSession.image}">
           </figure>
-          <p class="user-name">${username}</p>
+          <div><p class="user-name">${username}</p>
+          <p class="user-prof">${database.currentUserInSession.role}</p></div>
         </div>
     
         <button class="" href="" id="btn-delete-post-${post.idPost}">
@@ -35,19 +36,10 @@ class PostCard {
       </div>
 
       <div id="all-comments-${post.idPost}" class="hide">
-      </div>
     `;
-    const main = document.getElementById("feed");
-    // main.innerHTML = ''
+    const main = document.querySelector("main");
     main.append(this.divCard);
-    // document.body.append(this.main);
-    // this.divHeaderCard = document.createElement('div');
-    // this.divIdentify = document.createElement('div');
-    // this.figure = document.createElement('figure');
-    // this.img = document.createElement('img');
-    // this.pUsername = document.createElement('p');
-    // this.divPostText = document.createElement('div');
   }
 }
 
-export default PostCard;
+export default ProfilePost;

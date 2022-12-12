@@ -14,7 +14,7 @@ header.addMenuLink("../../assets/home.svg", "../Feed/feed.html");
 header.addMenuLink("../../assets/search.svg", "../Explore/explore.html");
 header.addMenuLink("../../assets/new.svg", "../NewPost/new-post.html");
 header.addProfileDropdownLink("Ver perfil", "../Profile/profile.html");
-header.addProfileDropdownLink("Editar Perfil","./edit-profile.html", true);
+header.addProfileDropdownLink("Editar Perfil", "./edit-profile.html", true);
 header.addProfileDropdownLink("Seguindo", "../Following/following.html");
 header.addProfileDropdownLink("Sair", "../../index.html", false, true);
 header.renderMenuLinks();
@@ -38,7 +38,7 @@ const currentEmail = (document.getElementById(
   "userEmail-edit"
 ).value = `${database.currentUserInSession.email}`);
 
-/*Seleção Ids dos inputs*/
+/*Seleção Ids dos inputs e buttons*/
 
 const btnSaveEdit = document.getElementById("save-edit-profile");
 
@@ -54,26 +54,44 @@ const currentPass = document.getElementById("old-password");
 
 const newPass = document.getElementById("userPassword-edit");
 
-const confirmNewPass = document.getElementById("userPassword-2-edit");
+const repeteNewPass = document.getElementById("userPassword-2-edit");
 
 const btnDeleteAccount = document.getElementById("delete-account");
+
+const divModal = document.querySelector(".modal");
+
+const btnCloseModal = document.querySelector(".close-modal");
+
+const divOverlay = document.querySelector(".overlay");
+
+const btnDeleteYourAccount = document.getElementById("delete-your-account");
 
 /*Eventos em botões*/
 
 btnSaveEdit.addEventListener("click", function (e) {
   e.preventDefault();
-  //tenho que chamar aqui dentro a função de validação de dados
-  //tenho que chamar aqui dentro a função de empurar o perfil editado para o database
   changeDataCurrentUser(database.currentUserInSession);
   window.location.href = "../Profile/profile.html";
 });
 
-btnDeleteAccount.addEventListener("click", function () {
+btnDeleteAccount.addEventListener("click", function (e) {
+  e.preventDefault();
+  divModal.classList.remove("hidden");
+  divOverlay.classList.remove("hidden");
+});
+
+btnCloseModal.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  divModal.classList.add("hidden");
+  divOverlay.classList.add("hidden");
+});
+
+btnDeleteYourAccount.addEventListener("click", function (e) {
+  e.preventDefault();
   database.removeUser(database.currentUserInSession.id);
-  console.log(database.users);
   database.currentUserInSession = "";
-  console.log(database.currentUserInSession);
-  window.location.href = "../../index.html";
+  window.location.href = "../SignUp/signup.html";
 });
 
 /*Funções*/
@@ -105,4 +123,8 @@ newImg.addEventListener("input", () => functions.isNameValidate(0));
 newName.addEventListener("input", () => functions.isNameValidate(1));
 newEmail.addEventListener("input", () => functions.isEmailValidate(3));
 currentPass.addEventListener("input", () => functions.isOldPassValidate(4));
+newPass.addEventListener("input", () => functions.isNewPassValidate(5));
+repeteNewPass.addEventListener("input", () =>
+  functions.repeteNewPassValidate(6)
+);
 //newPass.addEventListener("input", () => functions.isNewPassValidate(5));

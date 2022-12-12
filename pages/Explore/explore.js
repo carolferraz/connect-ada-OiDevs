@@ -1,4 +1,4 @@
-import FollowerCard from '../../components/FollowerCard.js';
+import UserCard from '../../components/UserCard.js';
 import database from '../../models/DataBase.class.mjs';
 import User from '../../models/User.class.mjs';
 import Header from '../../components/Header.js';
@@ -13,7 +13,7 @@ header.addMenuLink('../../assets/new.svg', '../NewPost/new-post.html');
 header.addProfileDropdownLink('Ver perfil', '../Profile/profile.html');
 header.addProfileDropdownLink('Editar Perfil', '../EditProfile/edit-profile.html');
 header.addProfileDropdownLink('Seguindo', '../Following/following.html');
-header.addProfileDropdownLink("Sair", "../login.html", false, true);
+header.addProfileDropdownLink("Sair", "../../index.html", false, true);
 header.renderMenuLinks();
 header.renderDropDownMenu(currentImg);
 // Fim da header
@@ -23,7 +23,7 @@ database.initialization();
 function renderCards() {
   database.users.forEach(user => {
     if (user.id !== database.currentUserInSession.id) {
-      const followerCard = new FollowerCard(user);
+      new UserCard(user);
       buttonFollow(user.id);
     }
   });
@@ -35,6 +35,7 @@ function buttonFollow(id) {
     addFollowUserToFollowList(id);
   });
 }
+
 
 const followListOfLoggedUser = database.currentUserInSession.followList;
 
@@ -51,7 +52,9 @@ function addFollowUserToFollowList(id) {
     button.className = 'unfollow-btn';
     button.innerText = 'Deixar de seguir';
   } else {
-    followListOfLoggedUser.pop(idOfUser);
+    const index = followListOfLoggedUser.indexOf(idOfUser);
+      followListOfLoggedUser.splice(index, 1);      
+
     button.className = 'follow-btn';
     button.innerText = 'Seguir';
   }
